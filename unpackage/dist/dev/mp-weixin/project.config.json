@@ -4,12 +4,15 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false
+    "urlCheck": false,
+    "minified": true,
+    "postcss": true,
+    "es6": true
   },
   "compileType": "miniprogram",
   "libVersion": "",
-  "appid": "touristappid",
-  "projectname": "yiya-yiya_straight",
+  "appid": "wxa46bc73b729a102d",
+  "projectname": "yiya-straight",
   "condition": {
     "search": {
       "current": -1,
@@ -24,15 +27,8 @@
       "list": []
     },
     "miniprogram": {
-      "current": 0,
-      "list": [
-        {
-          "id": 0,
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": ""
-        }
-      ]
+      "current": -1,
+      "list": []
     }
   }
 }

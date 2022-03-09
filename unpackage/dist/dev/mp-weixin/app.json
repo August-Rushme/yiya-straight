@@ -1,13 +1,50 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/cart/cart",
+    "pages/class/class",
+    "pages/my/my"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarTitleText": "益牙直通",
+    "navigationBarBackgroundColor": "#1d4a9c",
+    "backgroundColor": "#fff"
   },
-  "usingComponents": {}
+  "tabBar": {
+    "color": "#B5B5B5",
+    "selectedColor": "#FD6801",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/index.png",
+        "selectedIconPath": "static/tabbar/indexSelected.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "项目·诊所",
+        "iconPath": "static/tabbar/cart.png",
+        "selectedIconPath": "static/tabbar/cartSelected.png"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "text": "挂号",
+        "iconPath": "static/tabbar/class.png",
+        "selectedIconPath": "static/tabbar/classSelected.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "static/tabbar/my.png",
+        "selectedIconPath": "static/tabbar/mySelected.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "divider": "/components/common/divider"
+  }
 }
