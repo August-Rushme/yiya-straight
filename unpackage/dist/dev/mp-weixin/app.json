@@ -48,6 +48,5 @@
   },
   "usingComponents": {
     "divider": "/components/common/divider"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }
