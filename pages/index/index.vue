@@ -1,7 +1,7 @@
 <template>
   <view class="box-sizing-b w-full">
     <!-- 顶部搜索 -->
-    <index-header :search-tip="searchTip"></index-header>
+    <index-header :search-tip="searchTip" :search-auto="searchAuto" @search="search"></index-header>
     <!-- 轮播图 -->
     <swiper-image :swiperData="swiperData"></swiper-image>
     <divider />
@@ -12,18 +12,13 @@
     <!-- 基础卡片 -->
     <card>
       <block slot="title">每日精选</block>
-      <view class="content">
+      <view class="content" v-for="(item, index) in shopData" :key="index">
         <view class="goodsInfo d-flex flex-row m-2 a-center">
-          <u--image
-            :showLoading="true"
-            src="https://s1.ax1x.com/2022/03/09/bWK0l8.png"
-            width="80px"
-            height="80px"
-          ></u--image>
+          <u--image :showLoading="true" :src="item.src" width="80px" height="80px"></u--image>
           <view class="infoText flex-column mx-2">
-            <text class="font-weight font-md">德韩口腔(德胜路abc区3栋10楼)</text>
+            <text class="font-weight font-md">{{ item.address }}</text>
             <u-rate count="5" v-model="value"></u-rate>
-            <text>abc路|齿科</text>
+            <text>{{ item.desc }}</text>
             <view class="flex-row j-center a-center "></view>
             <text style="border: #F0AD4E solid 1px; color: #E45656;" class="px-1">国家认证</text>
             <text style="border: #F0AD4E solid 1px; color: #E45656;" class="mx-1 px-1">顶级医师</text>
@@ -50,6 +45,8 @@ export default {
   },
   data() {
     return {
+      // 头部参数
+      searchAuto: !0,
       searchTip: '请输入搜索关键字',
       swiperData: [
         { img: 'https://s1.ax1x.com/2022/03/09/bWKB6S.png' },
@@ -74,11 +71,36 @@ export default {
           text: '牙齿治疗'
         }
       ],
+      shopData: [
+        {
+          src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
+          address: '德韩口腔(德胜路abc区3栋10楼)',
+          desc: 'abc路|齿科',
+          label: ['']
+        },
+        {
+          src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
+          address: '德韩口腔(德胜路abc区3栋10楼)',
+          desc: 'abc路|齿科',
+          label: ['']
+        },
+        {
+          src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
+          address: '德韩口腔(德胜路abc区3栋10楼)',
+          desc: 'abc路|齿科',
+          label: ['']
+        }
+      ],
       value: 4
     };
   },
   onLoad() {},
-  methods: {}
+  methods: {
+    // 搜索回调函数
+    search() {
+      console.log('home search');
+    }
+  }
 };
 </script>
 

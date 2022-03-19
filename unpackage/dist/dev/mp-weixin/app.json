@@ -2,8 +2,10 @@
   "pages": [
     "pages/index/index",
     "pages/cart/cart",
-    "pages/class/class",
-    "pages/my/my"
+    "pages/register/register",
+    "pages/my/my",
+    "pages/login/login",
+    "pages/search/search"
   ],
   "subPackages": [],
   "window": {
@@ -31,7 +33,7 @@
         "selectedIconPath": "static/tabbar/cartSelected.png"
       },
       {
-        "pagePath": "pages/class/class",
+        "pagePath": "pages/register/register",
         "text": "挂号",
         "iconPath": "static/tabbar/class.png",
         "selectedIconPath": "static/tabbar/classSelected.png"
@@ -46,5 +48,6 @@
   },
   "usingComponents": {
     "divider": "/components/common/divider"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

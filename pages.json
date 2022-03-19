@@ -47,7 +47,7 @@
     	}
     },
     {
-    	"path": "pages/class/class",
+    	"path": "pages/register/register",
     	"style": {
     		"navigationBarTitleText": "益牙直通"
     	}
@@ -58,7 +58,22 @@
     		"navigationBarTitleText": "益牙直通"
     	}
     }
-	],
+	    ,{
+            "path" : "pages/login/login",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        },
+        {
+        	"path": "pages/search/search",
+        	"style": {
+        		"navigationBarTitleText": "搜索"
+        	}
+        }
+    ],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "益牙直通",
@@ -84,7 +99,7 @@
             	"selectedIconPath":"static/tabbar/cartSelected.png"
             },
             	{
-            				"pagePath":"pages/class/class",
+            				"pagePath":"pages/register/register",
             				"text":"挂号",
             				"iconPath":"static/tabbar/class.png",
             				"selectedIconPath":"static/tabbar/classSelected.png"

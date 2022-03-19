@@ -35,7 +35,16 @@
     },
     methods:{
       search() {
-      	console.log('点击了搜索')
+      	this.$emit('search', {
+      		type: 'search'
+      	});
+  
+      	if (this.searchAuto) {
+      		// 跳转搜索页
+      		uni.navigateTo({
+      			url: '/pages/search/search'
+      		})
+      	}
       }
     }
   }
