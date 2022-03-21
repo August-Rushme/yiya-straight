@@ -1,22 +1,23 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/cart/cart",
+    "pages/project/project",
     "pages/register/register",
     "pages/my/my",
     "pages/login/login",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/test/test"
   ],
   "subPackages": [],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "益牙直通",
-    "navigationBarBackgroundColor": "#1d4a9c",
+    "navigationBarTitleText": "神州牙都会",
+    "navigationBarBackgroundColor": "#20b2aa",
     "backgroundColor": "#fff"
   },
   "tabBar": {
     "color": "#B5B5B5",
-    "selectedColor": "#FD6801",
+    "selectedColor": "#20b2aa",
     "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "list": [
@@ -27,8 +28,8 @@
         "selectedIconPath": "static/tabbar/indexSelected.png"
       },
       {
-        "pagePath": "pages/cart/cart",
-        "text": "项目·诊所",
+        "pagePath": "pages/project/project",
+        "text": "在线问诊",
         "iconPath": "static/tabbar/cart.png",
         "selectedIconPath": "static/tabbar/cartSelected.png"
       },
@@ -40,7 +41,7 @@
       },
       {
         "pagePath": "pages/my/my",
-        "text": "我的",
+        "text": "个人中心",
         "iconPath": "static/tabbar/my.png",
         "selectedIconPath": "static/tabbar/mySelected.png"
       }

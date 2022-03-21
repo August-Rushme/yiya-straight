@@ -23,6 +23,9 @@ export default {
   methods: {
     event(item) {
       console.log('点击了nav');
+      uni.navigateTo({
+        url:'../../pages/test/test'
+      })
     }
   }
 };

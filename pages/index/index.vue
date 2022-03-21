@@ -12,12 +12,12 @@
     <!-- 基础卡片 -->
     <card>
       <block slot="title">每日精选</block>
-      <view class="content" v-for="(item, index) in shopData" :key="index">
+      <view class="content" v-for="(item, index) in shopData" :key="index" @click="goDatail">
         <view class="goodsInfo d-flex flex-row m-2 a-center">
           <u--image :showLoading="true" :src="item.src" width="80px" height="80px"></u--image>
           <view class="infoText flex-column mx-2">
             <text class="font-weight font-md">{{ item.address }}</text>
-            <u-rate count="5" v-model="value"></u-rate>
+            <u-rate count="5" v-model="value" :disabled="true" allowHalf="true"></u-rate>
             <text>{{ item.desc }}</text>
             <view class="flex-row j-center a-center "></view>
             <text style="border: #F0AD4E solid 1px; color: #E45656;" class="px-1">国家认证</text>
@@ -74,14 +74,14 @@ export default {
       shopData: [
         {
           src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-          address: '德韩口腔(德胜路abc区3栋10楼)',
-          desc: 'abc路|齿科',
+          address: '国贸口腔(国贸路def区4栋11楼)',
+          desc: '国贸路|齿科',
           label: ['']
         },
         {
           src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-          address: '德韩口腔(德胜路abc区3栋10楼)',
-          desc: 'abc路|齿科',
+          address: '国兴口腔(国兴路xyz区5栋12楼)',
+          desc: '国兴路|齿科',
           label: ['']
         },
         {
@@ -91,7 +91,7 @@ export default {
           label: ['']
         }
       ],
-      value: 4
+      value: 4.6
     };
   },
   onLoad() {},
@@ -99,6 +99,11 @@ export default {
     // 搜索回调函数
     search() {
       console.log('home search');
+    },
+    goDatail(){
+      uni.navigateTo({
+        url:'/pages/test/test'
+      })
     }
   }
 };

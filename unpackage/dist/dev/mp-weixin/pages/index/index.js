@@ -94,10 +94,10 @@ var components
 try {
   components = {
     "u-Image": function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--image/u--image.vue */ 183))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--image/u--image.vue */ 189))
     },
     uRate: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-rate/u-rate */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-rate/u-rate")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-rate/u-rate.vue */ 189))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-rate/u-rate */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-rate/u-rate")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-rate/u-rate.vue */ 195))
     }
   }
 } catch (e) {
@@ -154,7 +154,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var swiperImage = function swiperImage() {__webpack_require__.e(/*! require.ensure | components/index/swiper-image */ "components/index/swiper-image").then((function () {return resolve(__webpack_require__(/*! @/components/index/swiper-image.vue */ 197));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var indexNav = function indexNav() {__webpack_require__.e(/*! require.ensure | components/index/indx-nav */ "components/index/indx-nav").then((function () {return resolve(__webpack_require__(/*! @/components/index/indx-nav.vue */ 202));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var indexHeader = function indexHeader() {__webpack_require__.e(/*! require.ensure | components/index/index-header */ "components/index/index-header").then((function () {return resolve(__webpack_require__(/*! @/components/index/index-header.vue */ 207));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var card = function card() {__webpack_require__.e(/*! require.ensure | components/common/card */ "components/common/card").then((function () {return resolve(__webpack_require__(/*! @/components/common/card.vue */ 214));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var swiperImage = function swiperImage() {__webpack_require__.e(/*! require.ensure | components/index/swiper-image */ "components/index/swiper-image").then((function () {return resolve(__webpack_require__(/*! @/components/index/swiper-image.vue */ 203));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var indexNav = function indexNav() {__webpack_require__.e(/*! require.ensure | components/index/indx-nav */ "components/index/indx-nav").then((function () {return resolve(__webpack_require__(/*! @/components/index/indx-nav.vue */ 208));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var indexHeader = function indexHeader() {__webpack_require__.e(/*! require.ensure | components/index/index-header */ "components/index/index-header").then((function () {return resolve(__webpack_require__(/*! @/components/index/index-header.vue */ 213));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var card = function card() {__webpack_require__.e(/*! require.ensure | components/common/card */ "components/common/card").then((function () {return resolve(__webpack_require__(/*! @/components/common/card.vue */ 220));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -230,14 +230,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
       shopData: [
       {
         src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-        address: '德韩口腔(德胜路abc区3栋10楼)',
-        desc: 'abc路|齿科',
+        address: '国贸口腔(国贸路def区4栋11楼)',
+        desc: '国贸路|齿科',
         label: [''] },
 
       {
         src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-        address: '德韩口腔(德胜路abc区3栋10楼)',
-        desc: 'abc路|齿科',
+        address: '国兴口腔(国兴路xyz区5栋12楼)',
+        desc: '国兴路|齿科',
         label: [''] },
 
       {
@@ -247,7 +247,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
         label: [''] }],
 
 
-      value: 4 };
+      value: 4.6 };
 
   },
   onLoad: function onLoad() {},
@@ -255,7 +255,13 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     // 搜索回调函数
     search: function search() {
       console.log('home search');
+    },
+    goDatail: function goDatail() {
+      uni.navigateTo({
+        url: '/pages/test/test' });
+
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ })
 

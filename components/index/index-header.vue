@@ -1,13 +1,13 @@
 <template>
   <view>
-  	<view class="use-header dflex padding-lr  bg-main" :class="fixed ? 'fixed' : ''" style="background-color: #1d4a9c;">
+  	<view class="use-header dflex padding-lr  bg-main" :class="fixed ? 'fixed' : ''" style="background-color: #fff;">
   		<!-- 头部组件 -->
   		<view class="use-search dflex-b border-radius-lg padding-lr w-full" @click="search">
   			<text>{{ searchTip }}</text>
   			<view class="iconfont icon-sousuo"></view>
   		</view>
   	</view>
-  	
+
   	<!-- 头部组件占位符 -->
   	<view v-if="fixed && placeholder" class="use-header-placeholder"></view>
   </view>

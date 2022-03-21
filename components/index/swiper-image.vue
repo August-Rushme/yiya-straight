@@ -26,6 +26,9 @@ export default {
   methods: {
     topage(item) {
       console.log('点击了轮播图');
+      uni.navigateTo({
+        url:'../../pages/test/test'
+      })
     }
   }
 };

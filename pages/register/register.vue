@@ -1,6 +1,7 @@
 <template>
   <view class="register">
-    <u-button type="primary" @tap="register">挂号</u-button>
+   <view class="backg"></view>
+    <button @tap="register" class="registerBtn">点击挂号</button>
     <u-popup :show="show" mode="bottom" @close="close" @open="open" round="10">
       <view>
         <view class="u-popup-slot">
@@ -59,7 +60,7 @@
             </view>
             <view class="mx-2">
               <u-form-item label="症状描述:" prop="userInfo.desc" labelWidth="70" borderBottom>
-                <u--textarea placeholder="请输入症状描述" v-model="model1.desc" count></u--textarea>
+                <u--textarea placeholder="请输入症状描述" v-model="model1.userInfo.desc" count></u--textarea>
               </u-form-item>
             </view>
             <view class="mx-2 mt-3"><u-button type="primary" text="提交" @click="submit"></u-button></view>
@@ -173,13 +174,17 @@ export default {
       console.log('open');
     },
     close() {
+       // 清空表单
+      this.reset()
       this.show = false;
+     
+      
       console.log('close');
     },
     // 选择性别
     sexSelect(e) {
       this.model1.userInfo.sex = e.name;
-      this.$refs.form1.validateField('userInfo.sex');
+      this.$refs.userInfoRef.validateField('userInfo.sex');
     },
     // 确认预约时间
     appointmentConfirm(e) {
@@ -195,10 +200,14 @@ export default {
       // 如果有错误，会在catch中返回报错信息数组，校验通过则在then中返回true
       this.$refs.userInfoRef
         .validate()
-        .then(res => {
+        .then(async res => {
+          console.log(this.model1.userInfo);
           uni.$u.toast('预约成功');
+          this.show = false;
+        this.reset()
         })
         .catch(errors => {
+          console.log(this.model1.userInfo);
           uni.$u.toast('请完成预约信息填写');
         });
     },
@@ -212,12 +221,16 @@ export default {
         'userInfo.project',
         'userInfo.desc'
       ];
+
       this.$refs.userInfoRef.resetFields();
+      console.log(this.$refs.userInfoRef);
       this.$refs.userInfoRef.clearValidate();
-      setTimeout(() => {
-        this.$refs.userInfoRef.clearValidate(validateList);
-        // 或者使用 this.$refs.form1.clearValidate()
-      }, 10);
+      this.model1.userInfo.appointment = '';
+      this.model1.userInfo.desc = '';
+      this.model1.userInfo.name = '';
+      this.model1.userInfo.phone = '';
+      this.model1.userInfo.project = '';
+      this.model1.userInfo.sex = '';
     },
     hideKeyboard() {
       uni.hideKeyboard();
@@ -233,5 +246,22 @@ export default {
 }
 .m {
   padding: 20upx;
+}
+.register {
+  height: 100%;
+  background-image:url('https://s1.ax1x.com/2022/03/19/qVPznI.png');
+  background-size:100% 100%;
+}
+.registerBtn {
+  position: absolute;
+  top: 300upx;
+  left: 140upx;
+  width: 500upx;
+  height: 100upx;
+  border-radius: 50upx;
+  text-align: center;
+  line-height: 100upx;
+  background-color: #20b2aa;
+  
 }
 </style>

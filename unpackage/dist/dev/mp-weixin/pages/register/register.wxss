@@ -339,4 +339,20 @@ to { opacity: 0;
 .m.data-v-891c2434 {
   padding: 20rpx;
 }
+.register.data-v-891c2434 {
+  height: 100%;
+  background-image: url("https://s1.ax1x.com/2022/03/19/qVPznI.png");
+  background-size: 100% 100%;
+}
+.registerBtn.data-v-891c2434 {
+  position: absolute;
+  top: 300rpx;
+  left: 140rpx;
+  width: 500rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  text-align: center;
+  line-height: 100rpx;
+  background-color: #20b2aa;
+}
 
