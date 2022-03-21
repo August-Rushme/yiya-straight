@@ -1,16 +1,6 @@
 <template>
 	<view class="wrapper">
-		<!-- 个人资料 -->
-		<!-- <view class="profile">
-      <view class="meta"> -->
-		<!-- <image class="avatar" src="http://static.botue.com/ugo/uploads/monkey.png"></image> -->
-		<!-- <open-data class="avatar" type="userAvatarUrl"></open-data> -->
-		<!-- <text class="nickname">孙悟空</text> -->
-		<!-- <open-data class="nickname" type="userNickName"></open-data> -->
-		<!-- </view> -->
-		<!-- </view> -->
 
-		<!-- 个人资料 -->
 		<view>
 			<view class="top">
 				<view class="center">
@@ -110,7 +100,7 @@
 	.top {
 		width: 100%;
 		height: 130px;
-		background: #23EBB9;
+		background: #5555ff;
 		padding-top: 15px;
 		position: relative;
 	}
