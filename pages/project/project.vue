@@ -18,7 +18,6 @@
 			
 		</view>
 		<view>
-			
 			<u--input
 				placeholder="请描述您的问题或症状(5-100字)"
 			    border="surround"
@@ -38,22 +37,16 @@
 </template>
 
 <script>
-	import card from '@/components/common/card.vue';
 	export default {
 		components:{
-			card
 		},
 			data() {
 				return {
-			
 					value: '',
-					text1: 'uView UI众多组件覆盖开发过程的各个需求，组件功能丰富，多端兼容。让您快速集成，开箱即用'
 				}
 			},
 			methods:{
-				 onReady(){
-					    this.$refs.uNotify.primary('Primary主题')
-					}
+
 			}
 		}
 </script>
