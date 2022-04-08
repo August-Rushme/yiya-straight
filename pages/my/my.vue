@@ -1,56 +1,105 @@
 <template>
 	<view class="wrapper">
+
+		<view>
 			<view class="top">
 				<view class="center">
-					<view class="center_top">
-						<view class="center_img" >
+					<view class="center_top" @click="login">
+						<view class="center_img" @tap="gotoFeeds('/pages/my/set/set')">
 							<!-- 这里可以放自己的静态头像 -->
 							<!-- #ifndef MP-WEIXIN -->
 							<image :src="image"></image>
 							<!-- #endif -->
-              
 							<open-data type="userAvatarUrl" class="user_head"></open-data>
 						</view>
-						<view class="center_info">
+						<view class="center_info" @tap="gotoFeeds('/pages/my/set/set')">
 							<view class="center_name">
 								<!-- 这里可以放自己的名称图片 -->
 								<!-- #ifndef MP-WEIXIN -->
-								
+								<view>{{userInfo.name}}</view>
 								<!-- #endif -->
 								<open-data class="nickname" type="userNickName"></open-data>
 							</view>
-						
+							<view class="center_vip">
+								<image class="rank_icon" src="@/static/icon/vip.png" />
+								<view class="vip_text">
+									<text>普通会员</text>
+								</view>
+							</view>
 						</view>
-
+						<view style="margin-left: 140rpx;margin-top: 15rpx;"  @tap="gotoFeeds('/pages/my/set/set')">
+							<image style="width: 30px;height: 30px;" src="@/static/icon/setting.png"></image>
+						</view>
 					</view>
 				</view>
-			
+				<image src='@/static/icon/waterflow.gif' mode='scaleToFill' class='gif-wave'></image>
+			</view>
 		</view>
+
 
 		<!-- 统计 -->
 		<view class="count">
-			<view class="cell"> <text style="color: #AAAAAA;">我的病历</text> </view>
-			<view class="cell"> <text style="color: #AAAAAA;">我的CT</text> </view>
+			<!-- <view class="cell" @click="goto"> <text style="color: #AAAAAA;">我的病历</text> </view> -->
+			<view class="cell">
+				<navigator url="/pages/medical/medical">我的病历</navigator>
+			</view>
+			<view class="cell">
+				<navigator url="/pages/record/record">我的CT</navigator>
+			</view>
+			
+			<!-- <view class="cell"> <text style="color: #AAAAAA;">我的CT</text> </view> -->
 			<view class="cell"> <text style="color: #AAAAAA;">意见反馈</text> </view>
 			<view class="cell"> <text style="color: #AAAAAA;">关于我们</text> </view>
 		</view>
-    
+		
+		
 	</view>
 </template>
 
 <script>
-
-
+	// 引入vuex
+	import {
+		mapState
+	} from 'vuex';
+	
 	export default {
 		data() {
 			return {
-			
+				image:'',
 			}
 		},
-
-	
-	
+		// 得到属性userInfo
+		computed: {
+			...mapState(['userInfo'])
+		},
+		created(){
+			this.selectImageUrl()
+		},
 		methods: {
+      login(){
+        uni.navigateTo({
+          url: '../login/login'
+        });
+      },
+			async selectImageUrl(){
+				let res = await this.$u.api.selectImageUrl({
+					params: {
+						user: this.userInfo.name
+					}
+				})
+				this.image = res.data.data
+				console.log("this.image ",this.image )
+			},
+			gotoFeeds(url) {
+				// 可以跳多级目录
+				uni.navigateTo({
+					url
+				})
+				//跳转同级路由目录
+				// uni.switchTab({
+				// 	url
+				// })
+			}
 		}
 	};
 </script>

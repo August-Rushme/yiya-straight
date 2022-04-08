@@ -1,6 +1,6 @@
 <template>
   <view class="register">
-   <view class="backg"></view>
+    <view class="backg"></view>
     <button @tap="register" class="registerBtn">点击挂号</button>
     <u-popup :show="show" mode="bottom" @close="close" @open="open" round="10">
       <view>
@@ -54,8 +54,21 @@
               </u-form-item>
             </view>
             <view class="mx-2">
-              <u-form-item label="预约项目:" prop="userInfo.project" labelWidth="80" borderBottom>
-                <u--input v-model="model1.userInfo.project" placeholder="请输入预约项目" border="none"></u--input>
+              <u-form-item
+                label="预约项目:"
+                prop="userInfo.project"
+                labelWidth="80"
+                borderBottom
+                @click="showProject = true"
+              >
+                <u--input
+                  v-model="model1.userInfo.project"
+                  disabled
+                  disabledColor="#ffffff"
+                  placeholder="请选择预约项目"
+                  border="none"
+                ></u--input>
+                <u-icon slot="right" name="arrow-right"></u-icon>
               </u-form-item>
             </view>
             <view class="mx-2">
@@ -68,15 +81,22 @@
           </u--form>
           <u-action-sheet
             :show="showSex"
-            :actions="actions"
+            :actions="sexActions"
             title="请选择性别"
             @close="showSex = false"
             @select="sexSelect"
           ></u-action-sheet>
+          <u-action-sheet
+            :show="showProject"
+            :actions="projectActions"
+            title="请选择预约项目"
+            @close="showProject = false"
+            @select="projectSelect"
+          ></u-action-sheet>
           <u-datetime-picker
             :show="showCalendar"
             :value="appointment"
-            mode="date"
+            mode="datetime"
             closeOnClickOverlay
             @confirm="appointmentConfirm"
             @cancel="appointmentClose"
@@ -95,6 +115,7 @@ export default {
       isLogin: false,
       show: false,
       showSex: false,
+      showProject: false,
       showCalendar: false,
       appointment: Number(new Date()),
       model1: {
@@ -107,13 +128,20 @@ export default {
           desc: ''
         }
       },
-      actions: [
+      sexActions: [
         {
           name: '男'
         },
         {
           name: '女'
         }
+      ],
+      projectActions: [
+        { name: '种植牙' },
+        { name: '烤瓷牙' },
+        { name: '龋齿' },
+        { name: '牙齿美白' },
+        { name: '牙齿矫正' }
       ],
       rules: {
         'userInfo.name': {
@@ -159,26 +187,17 @@ export default {
   methods: {
     // 预约
     register() {
-      this.isLogin = uni.getStorageSync('isLogin');
-      console.log(this.isLogin);
-      if (this.isLogin) {
-        this.show = true;
-        return;
-      }
-      uni.navigateTo({
-        url: '../login/login'
-      });
+      this.show = true;
     },
     // 处理底部弹出层
     open() {
       console.log('open');
     },
     close() {
-       // 清空表单
-      this.reset()
+      // 清空表单
+      this.reset();
       this.show = false;
-     
-      
+
       console.log('close');
     },
     // 选择性别
@@ -186,10 +205,14 @@ export default {
       this.model1.userInfo.sex = e.name;
       this.$refs.userInfoRef.validateField('userInfo.sex');
     },
+    projectSelect(e) {
+      this.model1.userInfo.project = e.name;
+      this.$refs.userInfoRef.validateField('userInfo.project');
+    },
     // 确认预约时间
     appointmentConfirm(e) {
       this.showCalendar = false;
-      this.model1.userInfo.appointment = uni.$u.timeFormat(e.value, 'yyyy-mm-dd');
+      this.model1.userInfo.appointment = uni.$u.timeFormat(e.value, 'yyyy-mm-dd hh:MM');
     },
     // 处理关闭
     appointmentClose() {
@@ -204,7 +227,7 @@ export default {
           console.log(this.model1.userInfo);
           uni.$u.toast('预约成功');
           this.show = false;
-        this.reset()
+          this.reset();
         })
         .catch(errors => {
           console.log(this.model1.userInfo);
@@ -249,8 +272,8 @@ export default {
 }
 .register {
   height: 100%;
-  background-image:url('https://s1.ax1x.com/2022/03/19/qVPznI.png');
-  background-size:100% 100%;
+
+  background-size: 100% 100%;
 }
 .registerBtn {
   position: absolute;
@@ -262,6 +285,5 @@ export default {
   text-align: center;
   line-height: 100upx;
   background-color: #20b2aa;
-  
 }
 </style>

@@ -2,7 +2,8 @@
   "easycom": {
     "^u-(.*)": "@/uni_modules/uview-ui/components/u-$1/u-$1.vue"
   },
-  "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+  "pages": [
+    //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
     {
       "path": "pages/index/index",
       "style": {
@@ -42,8 +43,8 @@
     {
       "path": "pages/project/project",
       "style": {
-        "navigationBarTitleText": "项目·诊所"
-     	}
+        "navigationBarTitleText": "极速问诊"
+      }
     },
     {
       "path": "pages/register/register",
@@ -56,30 +57,40 @@
       "style": {
         "navigationBarTitleText": "个人中心"
       }
-    }, {
-      "path": "pages/login/login",
+    },
+    {
+     "path": "pages/test/test"
+    },
+    {
+      "path": "components/login/login",
+      "style": {
+        "navigationBarTitleText": "",
+        "enablePullDownRefresh": false
+      }
+    },
+    {
+      "path": "pages/medical/medical"
+    },
+
+    {
+      "path": "pages/record/record"
+    },
+    {
+      "path": "components/search/search",
+      "style": {
+        "navigationBarTitleText": "搜索"
+      }
+    },
+
+    {
+      "path": "components/page-detail/src/page-detail",
       "style": {
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
 
-    },
-    {
-      "path": "pages/search/search",
-      "style": {
-        "navigationBarTitleText": "搜索"
-      }
     }
-      ,{
-            "path" : "pages/test/test",
-            "style" :                                                                                    
-            {
-                "navigationBarTitleText": "",
-                "enablePullDownRefresh": false
-            }
-            
-        }
-    ],
+  ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "神州牙都会",
@@ -94,30 +105,28 @@
     "list": [{
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "static/tabbar/index.png",
-        "selectedIconPath": "static/tabbar/indexSelected.png"
+        "iconPath": "static/tabbar/index.jpg",
+        "selectedIconPath": "static/tabbar/indexSelected.jpg"
       },
       {
         "pagePath": "pages/project/project",
-        "text": "在线问诊",
-        "iconPath": "static/tabbar/cart.png",
-        "selectedIconPath": "static/tabbar/cartSelected.png"
+        "text": "极速问诊",
+        "iconPath": "static/tabbar/msg.jpg",
+        "selectedIconPath": "static/tabbar/msgSelected.jpg"
       },
       {
         "pagePath": "pages/register/register",
         "text": "挂号",
-        "iconPath": "static/tabbar/class.png",
-        "selectedIconPath": "static/tabbar/classSelected.png"
+        "iconPath": "static/tabbar/register.jpg",
+        "selectedIconPath": "static/tabbar/registerSelected.jpg"
       },
 
       {
         "pagePath": "pages/my/my",
         "text": "个人中心",
-        "iconPath": "static/tabbar/my.png",
-        "selectedIconPath": "static/tabbar/mySelected.png"
+        "iconPath": "static/tabbar/my.jpg",
+        "selectedIconPath": "static/tabbar/mySelected.jpg"
       }
-     
     ]
   }
-
 }

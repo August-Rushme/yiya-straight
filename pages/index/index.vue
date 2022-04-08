@@ -17,7 +17,7 @@
           <u--image :showLoading="true" :src="item.src" width="80px" height="80px"></u--image>
           <view class="infoText flex-column mx-2">
             <text class="font-weight font-md">{{ item.address }}</text>
-            <u-rate count="5" v-model="value" :disabled="true" allowHalf="true"></u-rate>
+            <u-rate count="5" v-model="value" readonly allowHalf="true"></u-rate>
             <text>{{ item.desc }}</text>
             <view class="flex-row j-center a-center "></view>
             <text style="border: #F0AD4E solid 1px; color: #E45656;" class="px-1">国家认证</text>
@@ -98,12 +98,16 @@ export default {
   methods: {
     // 搜索回调函数
     search() {
+      uni.navigateTo({
+        url: '../../components/search/search'
+      });
       console.log('home search');
     },
-    goDatail(){
+    goDatail() {
+      console.log(1111);
       uni.navigateTo({
-        url:'/pages/test/test'
-      })
+        url: '../../components/page-detail/src/page-detail'
+      });
     }
   }
 };

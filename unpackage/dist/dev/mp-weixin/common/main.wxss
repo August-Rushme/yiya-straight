@@ -5577,7 +5577,7 @@ image{  width: 100%;
 	display: none;
 }
 /* 主色调 */
-/* 主背景颜色（橙色）*/
+/* 主背景颜色）*/
 .main-bg-color{ background-color: #1d4a9c;
 }
 /* 主点击背景颜色（淡橙色）*/

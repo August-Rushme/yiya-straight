@@ -4,9 +4,12 @@
     "pages/project/project",
     "pages/register/register",
     "pages/my/my",
-    "pages/login/login",
-    "pages/search/search",
-    "pages/test/test"
+    "pages/test/test",
+    "components/login/login",
+    "pages/medical/medical",
+    "pages/record/record",
+    "components/search/search",
+    "components/page-detail/src/page-detail"
   ],
   "subPackages": [],
   "window": {
@@ -24,30 +27,31 @@
       {
         "pagePath": "pages/index/index",
         "text": "首页",
-        "iconPath": "static/tabbar/index.png",
-        "selectedIconPath": "static/tabbar/indexSelected.png"
+        "iconPath": "static/tabbar/index.jpg",
+        "selectedIconPath": "static/tabbar/indexSelected.jpg"
       },
       {
         "pagePath": "pages/project/project",
-        "text": "在线问诊",
-        "iconPath": "static/tabbar/cart.png",
-        "selectedIconPath": "static/tabbar/cartSelected.png"
+        "text": "极速问诊",
+        "iconPath": "static/tabbar/msg.jpg",
+        "selectedIconPath": "static/tabbar/msgSelected.jpg"
       },
       {
         "pagePath": "pages/register/register",
         "text": "挂号",
-        "iconPath": "static/tabbar/class.png",
-        "selectedIconPath": "static/tabbar/classSelected.png"
+        "iconPath": "static/tabbar/register.jpg",
+        "selectedIconPath": "static/tabbar/registerSelected.jpg"
       },
       {
         "pagePath": "pages/my/my",
         "text": "个人中心",
-        "iconPath": "static/tabbar/my.png",
-        "selectedIconPath": "static/tabbar/mySelected.png"
+        "iconPath": "static/tabbar/my.jpg",
+        "selectedIconPath": "static/tabbar/mySelected.jpg"
       }
     ]
   },
   "usingComponents": {
     "divider": "/components/common/divider"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
