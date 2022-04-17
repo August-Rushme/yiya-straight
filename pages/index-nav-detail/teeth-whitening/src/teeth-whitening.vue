@@ -23,7 +23,10 @@
 			<view class="mb-2" v-for="(item, index) in shopData" :key="index">
 				<uni-card :isFull="true"  padding="0px">
 					<view class="d-flex flex-row m-2 a-center"  >
-					  <u--image :showLoading="true" :src="item.src" width="84px" height="84px"></u--image>
+						<view style="margin-left: -20upx;">
+							<u--image :showLoading="true" :src="item.src" width="84px" height="84px"></u--image>
+						</view>
+					  
 					  <view class="infoText flex-column ml-2">
 					    <text class="font-weight font-md"  >{{ item.address }}</text>
 					    <u-rate count="5" v-model="value" readonly allowHalf="true"></u-rate>
@@ -41,7 +44,8 @@
 			<view class="mb-2" v-for="(item, index) in doctorInfo" :key="index"> 
 			<uni-card :isFull="true"  padding="0px"  >
 				<view class="d-flex flex-row m-2 a-center"  >
-				 <u-avatar :src="item.avatar" size="60"></u-avatar>
+					<view style="margin-left: -20upx;">	 <u-avatar :src="item.avatar" size="60"></u-avatar></view>
+			
 				 <view class="doctorDesc font-md ml-2">
 					 <text>
 						 <text class="font-weight font-lg text-dark pr-1">{{item.name}}</text>

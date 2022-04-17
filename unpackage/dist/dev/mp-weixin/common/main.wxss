@@ -5588,6 +5588,8 @@ image{  width: 100%;
 /* 主边框颜色 */
 .main-border-color{ border-color: #F1F1F1;
 }
+/* 价格颜色 */
+.main-price-color{color: #FD6801;}
 .input-border-color{
 	border-color: #1d4a9c;
 }
@@ -6253,6 +6255,6 @@ page{
 }
 /* 每个页面的公共css */
 /* 自定义图标库 */
-/* 刚刚样式库 */
+/* 公共样式库 */
 /* 基础样式 */
 

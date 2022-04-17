@@ -21,7 +21,8 @@ image{  width: 100%;  }
 .main-text-color{color: #1d4a9c;}
 /* 主边框颜色 */
 .main-border-color{ border-color: #F1F1F1; }
-
+/* 价格颜色 */
+.main-price-color{color: #FD6801;}
 .input-border-color{
 	border-color: #1d4a9c;
 }

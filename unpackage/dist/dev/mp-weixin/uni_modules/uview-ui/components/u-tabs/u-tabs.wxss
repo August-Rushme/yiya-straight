@@ -379,7 +379,7 @@ view.data-v-48634e29, scroll-view.data-v-48634e29, swiper-item.data-v-48634e29 {
 }
 .u-tabs__wrapper__nav__line.data-v-48634e29 {
   height: 3px;
-  background-color: #3c9cff;
+  background: #3c9cff;
   width: 30px;
   position: absolute;
   bottom: 2px;

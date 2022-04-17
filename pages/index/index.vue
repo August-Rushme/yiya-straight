@@ -106,7 +106,7 @@ export default {
     goDatail() {
       console.log(1111);
       uni.navigateTo({
-        url: '../../components/page-detail/src/page-detail'
+        url: '../page-detail/page-detail'
       });
     }
   }

@@ -10,7 +10,8 @@
     "pages/record/record",
     "pages/index-nav-detail/teeth-whitening/src/teeth-whitening",
     "components/search/search",
-    "components/page-detail/src/page-detail"
+    "pages/page-detail/page-detail",
+    "pages/detail-comment/detail-comment"
   ],
   "subPackages": [],
   "window": {
@@ -53,5 +54,6 @@
   },
   "usingComponents": {
     "divider": "/components/common/divider"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
