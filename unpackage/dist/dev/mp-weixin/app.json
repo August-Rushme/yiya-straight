@@ -9,7 +9,8 @@
     "pages/medical/medical",
     "pages/record/record",
     "components/search/search",
-    "components/page-detail/src/page-detail"
+    "pages/page-detail/page-detail",
+    "pages/detail-comment/detail-comment"
   ],
   "subPackages": [],
   "window": {
@@ -52,6 +53,5 @@
   },
   "usingComponents": {
     "divider": "/components/common/divider"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }

@@ -78,7 +78,7 @@
 		methods: {
       login(){
         uni.navigateTo({
-          url: '../login/login'
+          url: '../../components/login/login'
         });
       },
 			async selectImageUrl(){

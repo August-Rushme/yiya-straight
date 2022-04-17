@@ -210,7 +210,7 @@ var _vuex = __webpack_require__(/*! vuex */ 162);function _interopRequireDefault
   methods: {
     login: function login() {
       uni.navigateTo({
-        url: '../login/login' });
+        url: '../../components/login/login' });
 
     },
     selectImageUrl: function selectImageUrl() {var _this = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:_context.next = 2;return (

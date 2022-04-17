@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "登陆",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "uni-status-bar": "/components/uni-ui/uni-status-bar/uni-status-bar"

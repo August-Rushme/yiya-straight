@@ -20,7 +20,7 @@ export default {
 @import url('/common/animate.css');
 /* 自定义图标库 */
 @import url('/common/icon.css');
-/* 刚刚样式库 */
+/* 公共样式库 */
 @import url('/common/common.css');
 /* 基础样式 */
 @import url('/common/zcm-main.css');

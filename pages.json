@@ -7,37 +7,7 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "神州牙都会",
-        "app-plus": {
-          "scrollIndicator": "none",
-          "titleNView": {
-            "searchInput": {
-              "align": "left",
-              "backgroundColor": "#F7F7F7",
-              "borderRadius": "4px",
-              "disabled": true,
-              "placeholder": "请输入搜索内容",
-              "placeholderColor": "#CCCCCC"
-            },
-            "buttons": [{
-                "color": "#989898",
-                "colorPressed": "#FD6801",
-                "float": "left",
-                "fontSize": "22px",
-                "fontSrc": "/static/font/iconfont.ttf",
-                "text": "\ue67a"
-              },
-              {
-                "color": "#989898",
-                "colorPressed": "#FD6801",
-                "float": "right",
-                "fontSize": "22px",
-                "fontSrc": "/static/font/iconfont.ttf",
-                "text": "\ue661"
-              }
-            ]
-          }
-        }
+        "navigationBarTitleText": "神州牙都会"
       }
     },
     {
@@ -64,7 +34,7 @@
     {
       "path": "components/login/login",
       "style": {
-        "navigationBarTitleText": "",
+        "navigationBarTitleText": "登陆",
         "enablePullDownRefresh": false
       }
     },
@@ -83,14 +53,23 @@
     },
 
     {
-      "path": "components/page-detail/src/page-detail",
+      "path": "pages/page-detail/page-detail",
       "style": {
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
 
     }
-  ],
+        ,{
+            "path" : "pages/detail-comment/detail-comment",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
   "globalStyle": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "神州牙都会",
