@@ -54,6 +54,10 @@ export default {
         showMore: {
             type: Boolean,
             default: uni.$u.props.album.showMore
-        }
+        },
+		radius: {
+			type: String,
+			default: '0rpx'
+		}
     }
 }

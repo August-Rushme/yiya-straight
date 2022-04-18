@@ -21,7 +21,7 @@
 			<!-- 具体商品信息 -->
 		<template v-if="tabIndex === 0">
 			<view class="mb-2" v-for="(item, index) in shopData" :key="index">
-				<uni-card :isFull="true"  padding="0px">
+				<uni-card :isFull="true"  padding="0px" @click="goGoodsDeatail">
 					<view class="d-flex flex-row m-2 a-center"  >
 						<view style="margin-left: -20upx;">
 							<u--image :showLoading="true" :src="item.src" width="84px" height="84px"></u--image>
@@ -39,7 +39,7 @@
 				</uni-card>
 			</view>
 		</template>
-		<!-- 医生信息 -->
+		<!-- 医生信息 -->  
 		<template v-else-if="tabIndex === 1">
 			<view class="mb-2" v-for="(item, index) in doctorInfo" :key="index"> 
 			<uni-card :isFull="true"  padding="0px"  >
@@ -213,6 +213,11 @@ import swiperImage from '@/components/index/swiper-image.vue';
 	  changeTab(item) {
 		  this.tabIndex = item.index
 	  },
+	  goGoodsDeatail(){
+		  uni.navigateTo({
+		  	url: '/pages/goods-detail/goods-detail'
+		  })
+	  }
     }
   }
 </script>

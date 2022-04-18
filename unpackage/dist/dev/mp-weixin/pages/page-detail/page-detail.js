@@ -96,10 +96,10 @@ var components
 try {
   components = {
     "u-Image": function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--image/u--image.vue */ 233))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u--image/u--image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u--image/u--image")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u--image/u--image.vue */ 247))
     },
     uRate: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-rate/u-rate */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-rate/u-rate")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-rate/u-rate.vue */ 239))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-rate/u-rate */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-rate/u-rate")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-rate/u-rate.vue */ 253))
     }
   }
 } catch (e) {
@@ -245,7 +245,7 @@ var _card = _interopRequireDefault(__webpack_require__(/*! @/components/common/c
 //
 //
 //
-var swiperImage = function swiperImage() {__webpack_require__.e(/*! require.ensure | components/index/swiper-image */ "components/index/swiper-image").then((function () {return resolve(__webpack_require__(/*! @/components/index/swiper-image.vue */ 247));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var scrollComments = function scrollComments() {__webpack_require__.e(/*! require.ensure | components/page-detail/scroll-comments */ "components/page-detail/scroll-comments").then((function () {return resolve(__webpack_require__(/*! @/components/page-detail/scroll-comments.vue */ 427));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var physicianTeam = function physicianTeam() {__webpack_require__.e(/*! require.ensure | components/page-detail/physician-team */ "components/page-detail/physician-team").then((function () {return resolve(__webpack_require__(/*! @/components/page-detail/physician-team.vue */ 432));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var product = function product() {__webpack_require__.e(/*! require.ensure | components/page-detail/product */ "components/page-detail/product").then((function () {return resolve(__webpack_require__(/*! @/components/page-detail/product.vue */ 439));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { swiperImage: swiperImage, scrollComments: scrollComments, physicianTeam: physicianTeam, product: product }, data: function data() {return { value: 4.6, swiperData: [{ img: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png' }], tabBars: [{ name: '全部' }, { name: '洗牙' }, { name: '美白' }, { name: '补牙' }, { name: '拔牙' }, { name: '儿童齿科' }, { name: '检查' }, { name: '矫正' }], storeData: [
+var swiperImage = function swiperImage() {__webpack_require__.e(/*! require.ensure | components/index/swiper-image */ "components/index/swiper-image").then((function () {return resolve(__webpack_require__(/*! @/components/index/swiper-image.vue */ 261));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var scrollComments = function scrollComments() {__webpack_require__.e(/*! require.ensure | components/page-detail/scroll-comments */ "components/page-detail/scroll-comments").then((function () {return resolve(__webpack_require__(/*! @/components/page-detail/scroll-comments.vue */ 441));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var physicianTeam = function physicianTeam() {__webpack_require__.e(/*! require.ensure | components/page-detail/physician-team */ "components/page-detail/physician-team").then((function () {return resolve(__webpack_require__(/*! @/components/page-detail/physician-team.vue */ 446));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var product = function product() {__webpack_require__.e(/*! require.ensure | components/page-detail/product */ "components/page-detail/product").then((function () {return resolve(__webpack_require__(/*! @/components/page-detail/product.vue */ 453));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { swiperImage: swiperImage, scrollComments: scrollComments, physicianTeam: physicianTeam, product: product }, data: function data() {return { value: 4.6, swiperData: [{ img: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png' }], tabBars: [{ name: '全部' }, { name: '洗牙' }, { name: '美白' }, { name: '补牙' }, { name: '拔牙' }, { name: '儿童齿科' }, { name: '检查' }, { name: '矫正' }], storeData: [
       {
         src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
         address: '国贸口腔(国贸路def区4栋11楼)',
@@ -571,7 +571,7 @@ var components
 try {
   components = {
     uImage: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-image/u-image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-image/u-image")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-image/u-image.vue */ 444))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-image/u-image */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-image/u-image")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-image/u-image.vue */ 458))
     }
   }
 } catch (e) {
