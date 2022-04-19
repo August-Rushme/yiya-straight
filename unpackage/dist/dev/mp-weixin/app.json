@@ -8,9 +8,12 @@
     "components/login/login",
     "pages/medical/medical",
     "pages/record/record",
+    "pages/index-nav-detail/teeth-whitening/src/teeth-whitening",
     "components/search/search",
     "pages/page-detail/page-detail",
-    "pages/detail-comment/detail-comment"
+    "pages/detail-comment/detail-comment",
+    "pages/goods-detail/goods-detail",
+    "pages/register-account/register-account"
   ],
   "subPackages": [],
   "window": {
@@ -53,5 +56,6 @@
   },
   "usingComponents": {
     "divider": "/components/common/divider"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -33,15 +33,26 @@
       <view
         class="py-2 w-100 d-flex a-center j-center main-bg-color text-white rounded font-md mb-4"
         hover-class="main-bg-hover-color"
-        open-type="getUserInfo"
         @click="submit"
       >
         登录
       </view>
-      <label class="checkbox d-flex a-center" @click="check = !check">
-        <checkbox :checked="check" />
-        <text class="text-light-muted font">已阅读并同意XXXXX协议</text>
-      </label>
+      <view class="d-flex j-sb">
+        <label class="checkbox d-flex a-center" @click="check = !check">
+          <checkbox :checked="check" />
+          <text class="text-light-muted font">已阅读并同意XXXXX协议</text>
+        </label>
+        <view class="text-light-muted">
+          没有账号?
+          <text style="color: #2b59c1" @click="goToRegester">立即注册</text>
+        </view>
+      </view>
+      <view class="d-flex j-center mt-3">
+        <view class="d-flex a-center" @click="loginByWx">
+          <u-icon name="weixin-fill" color="#2ddc72" size="28"></u-icon>
+          微信登录
+        </view>
+      </view>
     </view>
   </view>
 </template>
@@ -75,12 +86,6 @@ export default {
       focusClass: {
         username: false,
         password: false
-      },
-      registerForm: {
-        code: '',
-        nickName: '',
-        photo: '',
-        username: 'august'
       }
     };
   },
@@ -106,29 +111,6 @@ export default {
     // 提交表单
     submit() {
       let _this = this;
-
-      uni.login({
-        provider: 'weixin',
-        success(resp) {
-          _this.registerForm.code = resp.code;
-          uni.getUserInfo({
-            provider: 'weixin',
-            success(resp) {
-              _this.registerForm.photo = resp.userInfo.avatarUrl;
-            }
-          });
-        }
-      });
-      uni.getUserProfile({
-        desc: '12345',
-        async success(resp) {
-          console.log(resp.userInfo);
-          _this.registerForm.nickName = resp.userInfo.nickName;
-          const res = await _this.$http.post('/user/register', _this.registerForm);
-          console.log(res);
-        }
-      });
-
       if (!this.check) {
         return uni.showToast({
           title: '请先同意XXXXX协议',
@@ -139,18 +121,25 @@ export default {
       if (!this.validate('username')) return;
       // 验证密码
       if (!this.validate('password')) return;
-
-      uni.setStorageSync('isLogin', 'true');
-      // this.goBack()
+      this.goBack();
+    },
+    //wx登录
+    loginByWx() {
+      uni.getUserProfile({
+        desc: '用户登录',
+        success: res => {
+          console.log(res);
+        }
+      });
+    },
+    //注册
+    goToRegester() {
+      uni.navigateTo({
+        url: '/pages/register-account/register-account'
+      });
     },
     forget() {
       console.log(123);
-    },
-    focus(key) {
-      this.focusClass[key] = true;
-    },
-    blur(key) {
-      this.focusClass[key] = false;
     }
   }
 };

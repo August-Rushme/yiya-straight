@@ -91,6 +91,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uIcon: function() {
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-icon/u-icon */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-icon/u-icon")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-icon/u-icon.vue */ 382))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -133,7 +156,18 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var uniStatusBar = function uniStatusBar() {__webpack_require__.e(/*! require.ensure | components/uni-ui/uni-status-bar/uni-status-bar */ "components/uni-ui/uni-status-bar/uni-status-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-ui/uni-status-bar/uni-status-bar.vue */ 384));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniStatusBar = function uniStatusBar() {__webpack_require__.e(/*! require.ensure | components/uni-ui/uni-status-bar/uni-status-bar */ "components/uni-ui/uni-status-bar/uni-status-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-ui/uni-status-bar/uni-status-bar.vue */ 408));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -209,13 +243,7 @@ __webpack_require__.r(__webpack_exports__);
 
       focusClass: {
         username: false,
-        password: false },
-
-      registerForm: {
-        code: '',
-        nickName: '',
-        photo: '',
-        username: 'august' } };
+        password: false } };
 
 
   },
@@ -241,29 +269,6 @@ __webpack_require__.r(__webpack_exports__);
     // 提交表单
     submit: function submit() {
       var _this = this;
-
-      uni.login({
-        provider: 'weixin',
-        success: function success(resp) {
-          _this.registerForm.code = resp.code;
-          uni.getUserInfo({
-            provider: 'weixin',
-            success: function success(resp) {
-              _this.registerForm.photo = resp.userInfo.avatarUrl;
-            } });
-
-        } });
-
-      uni.getUserProfile({
-        desc: '12345',
-        success: function success(resp) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
-                    console.log(resp.userInfo);
-                    _this.registerForm.nickName = resp.userInfo.nickName;_context.next = 4;return (
-                      _this.$http.post('/user/register', _this.registerForm));case 4:res = _context.sent;
-                    console.log(res);case 6:case "end":return _context.stop();}}}, _callee);}))();
-        } });
-
-
       if (!this.check) {
         return uni.showToast({
           title: '请先同意XXXXX协议',
@@ -274,18 +279,25 @@ __webpack_require__.r(__webpack_exports__);
       if (!this.validate('username')) return;
       // 验证密码
       if (!this.validate('password')) return;
+      this.goBack();
+    },
+    //wx登录
+    loginByWx: function loginByWx() {
+      uni.getUserProfile({
+        desc: '用户登录',
+        success: function success(res) {
+          console.log(res);
+        } });
 
-      uni.setStorageSync('isLogin', 'true');
-      // this.goBack()
+    },
+    //注册
+    goToRegester: function goToRegester() {
+      uni.navigateTo({
+        url: '/pages/register-account/register-account' });
+
     },
     forget: function forget() {
       console.log(123);
-    },
-    focus: function focus(key) {
-      this.focusClass[key] = true;
-    },
-    blur: function blur(key) {
-      this.focusClass[key] = false;
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
