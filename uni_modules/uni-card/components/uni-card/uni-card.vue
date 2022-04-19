@@ -248,12 +248,12 @@
 		margin: 0;
 		border-left-width: 0;
 		border-left-width: 0;
-		border-radius: 0;
+		border-radius: 5px;
 	}
 
 	/* #ifndef APP-NVUE */
 	.uni-card--full:after {
-		border-radius: 0;
+		border-radius: 5px;
 	}
 
 	/* #endif */

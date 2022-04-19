@@ -8,7 +8,7 @@
     </view>
     <!-- body -->
     <view>
-      <image v-if="bodyCover" :src="bodyCover" mode="widthFix" lazy-load="true"></image>
+      <u-image v-if="bodyCover" :src="bodyCover" mode="widthFix" lazy-load="true"></u-image>
       <slot></slot>
     </view>
   </view>

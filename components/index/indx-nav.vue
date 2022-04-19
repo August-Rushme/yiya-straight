@@ -22,9 +22,9 @@ export default {
   },
   methods: {
     event(item) {
-      console.log('点击了nav');
+      console.log(item);
       uni.navigateTo({
-        url:'../../pages/test/test'
+        url:'../../pages/index-nav-detail/teeth-whitening/src/teeth-whitening'
       })
     }
   }

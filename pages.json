@@ -7,37 +7,7 @@
     {
       "path": "pages/index/index",
       "style": {
-        "navigationBarTitleText": "神州牙都会",
-        "app-plus": {
-          "scrollIndicator": "none",
-          "titleNView": {
-            "searchInput": {
-              "align": "left",
-              "backgroundColor": "#F7F7F7",
-              "borderRadius": "4px",
-              "disabled": true,
-              "placeholder": "请输入搜索内容",
-              "placeholderColor": "#CCCCCC"
-            },
-            "buttons": [{
-                "color": "#989898",
-                "colorPressed": "#FD6801",
-                "float": "left",
-                "fontSize": "22px",
-                "fontSrc": "/static/font/iconfont.ttf",
-                "text": "\ue67a"
-              },
-              {
-                "color": "#989898",
-                "colorPressed": "#FD6801",
-                "float": "right",
-                "fontSize": "22px",
-                "fontSrc": "/static/font/iconfont.ttf",
-                "text": "\ue661"
-              }
-            ]
-          }
-        }
+        "navigationBarTitleText": "神州牙都会"
       }
     },
     {
@@ -64,7 +34,7 @@
     {
       "path": "components/login/login",
       "style": {
-        "navigationBarTitleText": "",
+        "navigationBarTitleText": "登陆",
         "enablePullDownRefresh": false
       }
     },
@@ -75,6 +45,12 @@
     {
       "path": "pages/record/record"
     },
+	{
+		"path": "pages/index-nav-detail/teeth-whitening/src/teeth-whitening",
+	"style": {
+	  "navigationBarTitleText": "美白牙齿"
+	}
+	},
     {
       "path": "components/search/search",
       "style": {
@@ -83,18 +59,45 @@
     },
 
     {
-      "path": "components/page-detail/src/page-detail",
+      "path": "pages/page-detail/page-detail",
       "style": {
         "navigationBarTitleText": "",
         "enablePullDownRefresh": false
       }
 
     }
-  ],
+        ,{
+            "path" : "pages/detail-comment/detail-comment",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/goods-detail/goods-detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/register-account/register-account",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
   "globalStyle": {
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "神州牙都会",
-    "navigationBarBackgroundColor": "#20b2aa",
+    "navigationBarBackgroundColor": "#5c4afe",
     "backgroundColor": "#fff"
   },
   "tabBar": {
@@ -128,5 +131,15 @@
         "selectedIconPath": "static/tabbar/mySelected.jpg"
       }
     ]
-  }
+  },
+	"condition" : { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [
+			{
+				"name": "", //模式名称
+				"path": "", //启动页面，必选
+				"query": "" //启动参数，在页面的onLoad函数里面得到
+			}
+		]
+	}
 }

@@ -1,56 +1,61 @@
 {
-  "pages": [
-    "pages/index/index",
-    "pages/project/project",
-    "pages/register/register",
-    "pages/my/my",
-    "pages/test/test",
-    "components/login/login",
-    "pages/medical/medical",
-    "pages/record/record",
-    "components/search/search",
-    "components/page-detail/src/page-detail"
-  ],
-  "subPackages": [],
-  "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "神州牙都会",
-    "navigationBarBackgroundColor": "#20b2aa",
-    "backgroundColor": "#fff"
-  },
-  "tabBar": {
-    "color": "#B5B5B5",
-    "selectedColor": "#20b2aa",
-    "borderStyle": "black",
-    "backgroundColor": "#ffffff",
-    "list": [
-      {
-        "pagePath": "pages/index/index",
-        "text": "首页",
-        "iconPath": "static/tabbar/index.jpg",
-        "selectedIconPath": "static/tabbar/indexSelected.jpg"
-      },
-      {
-        "pagePath": "pages/project/project",
-        "text": "极速问诊",
-        "iconPath": "static/tabbar/msg.jpg",
-        "selectedIconPath": "static/tabbar/msgSelected.jpg"
-      },
-      {
-        "pagePath": "pages/register/register",
-        "text": "挂号",
-        "iconPath": "static/tabbar/register.jpg",
-        "selectedIconPath": "static/tabbar/registerSelected.jpg"
-      },
-      {
-        "pagePath": "pages/my/my",
-        "text": "个人中心",
-        "iconPath": "static/tabbar/my.jpg",
-        "selectedIconPath": "static/tabbar/mySelected.jpg"
-      }
-    ]
-  },
-  "usingComponents": {
-    "divider": "/components/common/divider"
-  }
+    "pages": [
+        "pages/index/index",
+        "pages/project/project",
+        "pages/register/register",
+        "pages/my/my",
+        "pages/test/test",
+        "components/login/login",
+        "pages/medical/medical",
+        "pages/record/record",
+        "pages/index-nav-detail/teeth-whitening/src/teeth-whitening",
+        "components/search/search",
+        "pages/page-detail/page-detail",
+        "pages/detail-comment/detail-comment",
+        "pages/goods-detail/goods-detail",
+        "pages/register-account/register-account"
+    ],
+    "subPackages": [],
+    "window": {
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "神州牙都会",
+        "navigationBarBackgroundColor": "#5c4afe",
+        "backgroundColor": "#fff"
+    },
+    "tabBar": {
+        "color": "#B5B5B5",
+        "selectedColor": "#20b2aa",
+        "borderStyle": "black",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "static/tabbar/index.jpg",
+                "selectedIconPath": "static/tabbar/indexSelected.jpg"
+            },
+            {
+                "pagePath": "pages/project/project",
+                "text": "极速问诊",
+                "iconPath": "static/tabbar/msg.jpg",
+                "selectedIconPath": "static/tabbar/msgSelected.jpg"
+            },
+            {
+                "pagePath": "pages/register/register",
+                "text": "挂号",
+                "iconPath": "static/tabbar/register.jpg",
+                "selectedIconPath": "static/tabbar/registerSelected.jpg"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "个人中心",
+                "iconPath": "static/tabbar/my.jpg",
+                "selectedIconPath": "static/tabbar/mySelected.jpg"
+            }
+        ]
+    },
+    "usingComponents": {
+        "divider": "/components/common/divider"
+    },
+    "sitemapLocation": "sitemap.json"
 }

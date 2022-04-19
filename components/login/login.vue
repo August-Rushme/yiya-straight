@@ -23,10 +23,19 @@
  		<view class="py-2 w-100 d-flex a-center j-center main-bg-color text-white rounded font-md mb-4" hover-class="main-bg-hover-color" @click="submit">
  			登录
  		</view>
+		<view class="d-flex j-sb">
  		<label class="checkbox d-flex a-center" @click="check = !check">
  			<checkbox :checked="check"/>
  			<text class="text-light-muted font">已阅读并同意XXXXX协议</text>
  		</label>
+		<view class="text-light-muted">
+			没有账号?
+		<text style="color: #2b59c1" @click="goToRegester">立即注册</text>
+		</view>
+		</view>
+		 <view class="d-flex j-center mt-3">
+			 <view class="d-flex a-center" @click="loginByWx"><u-icon name="weixin-fill" color="#2ddc72" size="28"></u-icon>微信登录</view>
+		 </view>
  	</view>
  	
  </view>
@@ -99,6 +108,21 @@ export default {
          uni.setStorageSync('isLogin', 'true');
           this.goBack()
       },
+	  //wx登录
+	  loginByWx(){
+		  uni.getUserProfile({
+		  	desc: '用户登录',
+			success: (res) => {
+				console.log(res);
+			}
+		  })
+	  },
+	  //注册
+	  goToRegester() {
+		  uni.navigateTo({
+		  	url: '/pages/register-account/register-account'
+		  })
+	  },
       forget(){
        console.log(123)
       },
