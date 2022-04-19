@@ -95,9 +95,9 @@
         }
     ],
   "globalStyle": {
-    "navigationBarTextStyle": "black",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": "神州牙都会",
-    "navigationBarBackgroundColor": "#20b2aa",
+    "navigationBarBackgroundColor": "#5c4afe",
     "backgroundColor": "#fff"
   },
   "tabBar": {

@@ -213,15 +213,17 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 //
 //
 //
+//
+//
 var _default =
 {
   data: function data() {
     return {
       bannerSrc: [{
-        src1: 'https://cdn.uviewui.com/uview/album/1.jpg' }],
+        src1: 'http://t13.baidu.com/it/u=1041300143,4247585941&fm=224&app=112&f=JPEG?w=500&h=500&s=81515E94564262E988C424C10300B0BA' }],
 
       goodsInfo: {
-        imgSrc: 'https://cdn.uviewui.com/uview/album/1.jpg',
+        imgSrc: 'https://img0.baidu.com/it/u=3586693767,1216901105&fm=253&fmt=auto&app=138&f=JPEG?w=440&h=300',
         name: '海南市牙口腔门诊部',
         startsValue: 4.6,
         commentValue: 348,

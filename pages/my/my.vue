@@ -1,381 +1,154 @@
 <template>
-	<view class="wrapper">
-
-		<view>
-			<view class="top">
-				<view class="center">
-					<view class="center_top" @click="login">
-						<view class="center_img" @tap="gotoFeeds('/pages/my/set/set')">
-							<!-- 这里可以放自己的静态头像 -->
-							<!-- #ifndef MP-WEIXIN -->
-							<image :src="image"></image>
-							<!-- #endif -->
-							<open-data type="userAvatarUrl" class="user_head"></open-data>
-						</view>
-						<view class="center_info" @tap="gotoFeeds('/pages/my/set/set')">
-							<view class="center_name">
-								<!-- 这里可以放自己的名称图片 -->
-								<!-- #ifndef MP-WEIXIN -->
-								<view>{{userInfo.name}}</view>
-								<!-- #endif -->
-								<open-data class="nickname" type="userNickName"></open-data>
-							</view>
-							<view class="center_vip">
-								<image class="rank_icon" src="@/static/icon/vip.png" />
-								<view class="vip_text">
-									<text>普通会员</text>
-								</view>
-							</view>
-						</view>
-						<view style="margin-left: 140rpx;margin-top: 15rpx;"  @tap="gotoFeeds('/pages/my/set/set')">
-							<image style="width: 30px;height: 30px;" src="@/static/icon/setting.png"></image>
-						</view>
-					</view>
-				</view>
-				<image src='@/static/icon/waterflow.gif' mode='scaleToFill' class='gif-wave'></image>
+<view class="my">
+		<!-- 顶部登录 -->
+<view class="top-background  d-flex j-center">
+	<view class="my-card d-flex j-sb a-center px-4">
+		<view class="userInfo d-flex">
+			<u-avatar :src="src" size="50"></u-avatar>
+			<view class="username ml-1 pt-1">
+			 <text class="line-h0 font-md font-weight">默认昵称</text>
+			 <view class="" @tap="gotoLogin">
+			  设置个人信息>	
+			 </view>
 			</view>
 		</view>
-
-
-		<!-- 统计 -->
-		<view class="count">
-			<!-- <view class="cell" @click="goto"> <text style="color: #AAAAAA;">我的病历</text> </view> -->
-			<view class="cell">
-				<navigator url="/pages/medical/medical">我的病历</navigator>
-			</view>
-			<view class="cell">
-				<navigator url="/pages/record/record">我的CT</navigator>
-			</view>
-			
-			<!-- <view class="cell"> <text style="color: #AAAAAA;">我的CT</text> </view> -->
-			<view class="cell"> <text style="color: #AAAAAA;">意见反馈</text> </view>
-			<view class="cell"> <text style="color: #AAAAAA;">关于我们</text> </view>
+		<view class="toLogin" @tap="gotoLogin">
+			去登录
 		</view>
-		
-		
 	</view>
+</view>
+<!-- 分割线 -->
+<view class="divider">
+</view>
+<!-- nav导航 -->
+	<view class="nav row a-center py-1">
+		<view class="navItem span-5">
+			<image src="../../static/images/bingli.png" style="height: 60rpx;width: 60rpx;" mode=""></image>
+			我的病例
+		</view>
+		<view class="navItem span-5">
+			<image src="../../static/images/ct.png" style="height: 60rpx;width: 60rpx;" mode=""></image>
+			我的CT
+		</view>
+		<view class="navItem span-5">
+			<image src="../../static/images/fankui.png" style="height: 60rpx;width: 60rpx;" mode=""></image>
+			意见反馈
+		</view>
+		<view class="navItem span-5">
+			<image src="../../static/images/aboutus.png" style="height: 60rpx;width: 60rpx;" mode=""></image>
+			关于我们
+		</view>
+	</view>
+<divider></divider>
+
+<!-- 其他导航 -->
+<view class="other-nav">
+	<block v-for="item in otherNav" :key="item.name">
+	<view  class="navItem d-flex j-sb a-center border-bottom  py-2 px-3">
+	 <view class="itemname d-flex">
+	 	<image src="../../static/images/order.png" mode="" style="width: 48rpx;height: 48rpx;"></image>
+	    <text class="ml-2">{{item.name}}</text>
+	 </view>
+	 <view class="arrow font-md">
+	 	 >
+	 </view>
+	</view>
+	</block>
+</view>
+</view>
 </template>
 
 <script>
-	// 引入vuex
-	import {
-		mapState
-	} from 'vuex';
 	
 	export default {
 		data() {
 			return {
-				image:'',
+              userInfo: {
+				  src: '',
+				  name: ''
+			  },
+			  otherNav: [
+				  {
+					  name: '全部订单',
+					  src: '',
+					  pageName: ''
+				  }, 
+				  {
+					  name: '我的优惠卷',
+					  src: '',
+					  pageName: ''
+				  }, 
+				  {
+					  name: '我的消息',
+					  src: '',
+					  pageName: ''
+				  }, 
+				  {
+					  name: '设置个人信息',
+					  src: '',
+					  pageName: ''
+				  }, 
+				  {
+					  name: '联系客服',
+					  src: '',
+					  pageName: ''
+				  }, 
+				  {
+					  name: '切换账号',
+					  src: '',
+					  pageName: ''
+				  }
+			 ]
 			}
-		},
-		// 得到属性userInfo
-		computed: {
-			...mapState(['userInfo'])
-		},
-		created(){
-			this.selectImageUrl()
 		},
 		methods: {
-      login(){
-        uni.navigateTo({
-          url: '../../components/login/login'
-        });
-      },
-			async selectImageUrl(){
-				let res = await this.$u.api.selectImageUrl({
-					params: {
-						user: this.userInfo.name
-					}
-				})
-				this.image = res.data.data
-				console.log("this.image ",this.image )
-			},
-			gotoFeeds(url) {
-				// 可以跳多级目录
+			gotoLogin() {
 				uni.navigateTo({
-					url
+					url: '/components/login/login'
 				})
-				//跳转同级路由目录
-				// uni.switchTab({
-				// 	url
-				// })
 			}
-		}
-	};
+         },
+		 }
 </script>
 
 <style scoped lang="scss">
-	Page {
-		font-size: 14px;
-	}
-
-	.top {
-		width: 100%;
-		height: 130px;
-		background: #5555ff;
-		padding-top: 15px;
-		position: relative;
-	}
-
-	.center {
-		width: 95%;
-		height: 100px;
-		background: white;
+.my{
+margin: 0;
+.top-background {
+	width: 750rpx;
+	height: 150rpx;
+	background: linear-gradient(to bottom,#5c4afe 30%,#2495ff);
+}
+.my-card {
+	position: absolute;
+	width: 700rpx;
+	height: 150rpx;
+	margin-top: 75rpx;
+	background: #FFFFFF;
+	border-radius: 15rpx;
+}
+.divider {
+	width: 750upx;
+	height: 100rpx;
+	background-color: #F5F5F5;
+}
+.toLogin {
+	width: 200rpx;
+	height: 60rpx;
+	border-radius: 30rpx;
+	line-height: 60rpx;
+	text-align: center;
+	color: white;
+	background: linear-gradient(to right,#f8c897,#b07942);
+}
+.nav {
+	.navItem {
 		display: flex;
 		flex-direction: column;
-		margin: 0 auto;
-		border-radius: 5px;
-	}
-
-	.center_top {
-		display: flex;
-		flex-direction: row;
-		width: 80%;
-		height: 80px;
-		margin: 0 auto;
-		margin-top: 20rpx;
-		border-bottom: 1px solid #EEEEEE;
-	}
-
-	.center_img {
-		width: 66px;
-		height: 66px;
-		border-radius: 50%;
-		overflow: hidden;
-	}
-
-	.center_img image {
-		width: 100%;
-		height: 100%;
-		border-radius: 50%;
-	}
-
-	.center_img .user_head {
-		width: 100%;
-		height: 100%;
-	}
-
-	.center_info {
-		display: flex;
-		flex-direction: column;
-		margin-top: 20rpx;
-		margin-left: 30px;
-	}
-
-	.center_name {
-		font-size: 20px;
-	}
-
-	.center_phone {
-		color: #BEBEBE;
-	}
-
-	// .center_down {
-	// 	display: flex;
-	// 	flex-direction: row;
-	// 	width: 80%;
-	// 	height: 35px;
-	// 	margin: 0 auto;
-	// 	margin-top: 20rpx;
-	// }
-
-	.center_rank {
-		width: 50%;
-		height: 35px;
-		display: flex;
-		flex-direction: row;
-	}
-
-	.rank_text {
-		height: 35px;
-		line-height: 35px;
-		margin-left: 10rpx;
-		color: #AAAAAA;
-	}
-
-	.center_vip image {
-		width: 25px;
-		height: 25px;
-		margin-top: 15rpx;
-	}
-
-	.vip_icon {
-		width: 25px;
-		height: 25px;
-		margin-top: -10rpx;
-	}
-
-	.vip_text {
-		margin-top: -55rpx;
-		margin-left: 50rpx;
-		color: #AAAAAA;
-	}
-
-	.center_rank image {
-		width: 35px;
-		height: 35px;
-	}
-
-	.center_score {
-		width: 50%;
-		height: 35px;
-		display: flex;
-		flex-direction: row;
-	}
-
-	.center_score image {
-		width: 35px;
-		height: 35px;
-	}
-
-	.gif-wave {
-		position: absolute;
-		width: 100%;
-		bottom: 0;
-		left: 0;
-		z-index: 99;
-		mix-blend-mode: screen;
-		height: 100rpx;
-	}
-
-	.wrapper {
-		position: absolute;
-		top: 0;
-		bottom: 0;
-
-		width: 100%;
-		background-color: #F4F4F4;
-	}
-
-	.profile {
-		height: 375rpx;
-		background-color: #ea4451;
-		display: flex;
-		justify-content: center;
 		align-items: center;
-
-		.meta {
-			.avatar {
-				display: block;
-				width: 140rpx;
-				height: 140rpx;
-				border-radius: 50%;
-				border: 2rpx solid #fff;
-				overflow: hidden;
-			}
-
-			.nickname {
-				display: block;
-				text-align: center;
-				margin-top: 20rpx;
-				font-size: 30rpx;
-				color: #fff;
-			}
-		}
+		justify-content: center;
 	}
-
-	.count {
-		display: flex;
-		margin: 0 20rpx;
-		height: 120rpx;
-		text-align: center;
-		border-radius: 4rpx;
-		background-color: #fff;
-
-		position: relative;
-		top: 10rpx;
-
-		.cell {
-			margin-top: 10rpx;
-			flex: 1;
-			padding-top: 20rpx;
-			font-size: 27rpx;
-			color: #333;
-		}
-
-		text {
-			display: block;
-			font-size: 24rpx;
-		}
-	}
-
-	.orders {
-		margin: 20rpx 20rpx 0 20rpx;
-		padding: 40rpx 0;
-		background-color: #fff;
-		border-radius: 4rpx;
-
-		.title {
-			padding-left: 20rpx;
-			font-size: 30rpx;
-			color: #333;
-			padding-bottom: 20rpx;
-			border-bottom: 1rpx solid #eee;
-			margin-top: -30rpx;
-		}
-
-		.sorts {
-			padding-top: 30rpx;
-			text-align: center;
-			display: flex;
-		}
-
-		[class*="icon-"] {
-			flex: 1;
-			font-size: 24rpx;
-
-			&::before {
-				display: block;
-				font-size: 48rpx;
-				margin-bottom: 8rpx;
-				color: #ea4451;
-			}
-		}
-	}
-
-	.address {
-		line-height: 1;
-		background-color: #fff;
-		font-size: 30rpx;
-		padding: 25rpx 0 25rpx 20rpx;
-		margin: 10rpx 20rpx;
-		color: #333;
-		border-radius: 4rpx;
-	}
-
-	.extra {
-		margin: 0 20rpx;
-		background-color: #fff;
-		border-radius: 4rpx;
-
-		.item {
-			line-height: 1;
-			padding: 25rpx 0 25rpx 20rpx;
-			border-bottom: 1rpx solid #eee;
-			font-size: 30rpx;
-			color: #333;
-		}
-
-		button {
-			text-align: left;
-			background-color: #fff;
-
-			&::after {
-				border: none;
-				border-radius: 0;
-			}
-		}
-	}
-
-	.icon-arrow {
-		position: relative;
-
-		&::before {
-			position: absolute;
-			top: 50%;
-			right: 20rpx;
-			transform: translateY(-50%);
-		}
-	}
+}
+}
 </style>
 
