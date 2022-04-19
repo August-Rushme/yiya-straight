@@ -947,7 +947,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -7647,7 +7647,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -7668,14 +7668,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -7761,7 +7761,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -17889,9 +17889,291 @@ platform = 'mp';var _default =
 platform;exports.default = _default;
 
 /***/ }),
-/* 136 */,
-/* 137 */,
-/* 138 */,
+/* 136 */
+/*!*********************************************************************!*\
+  !*** C:/Users/XZY/Desktop/yiya-straight/service/request/message.js ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 34));var _config = __webpack_require__(/*! ./config.js */ 137);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+
+
+var message = {
+  toast: function toast(title) {var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'text';
+    if (title.length > 15) {
+      console.error('toast长度超过15个字符,当前长度为' + title.length);
+      return;
+    }
+    var icon = 'none';
+    if (type) {
+      switch (type) {
+        case 'text':
+          icon = 'none';
+          break;
+        case 'suc':
+          icon = 'success';
+          break;
+        case 'err':
+          icon = 'error';
+          break;}
+
+    }
+    uni.showToast({
+      title: title,
+      icon: icon });
+
+  },
+  confirm: function confirm(title, confirmColor) {
+    return new Promise(function (res, rej) {
+      uni.showModal({
+        title: title,
+        cancelColor: '#b6b6b6',
+        confirmColor: confirmColor || _config.config.modalColor,
+        success: function success(result) {
+          if (result.cancel) {
+            rej(result);
+          } else if (result.confirm) {
+            res(result);
+          }
+        } });
+
+
+    });
+  },
+  message: function message(content, confrimText) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:return _context.abrupt("return",
+              new Promise(function (res) {
+                uni.showModal({
+                  title: '提示',
+                  content: content,
+                  showCancel: false,
+                  confirmColor: _config.config.modalColor,
+                  success: function success(result) {
+                    res(result);
+                  } });
+
+              }));case 1:case "end":return _context.stop();}}}, _callee);}))();
+  } };var _default =
+
+message;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 137 */
+/*!********************************************************************!*\
+  !*** C:/Users/XZY/Desktop/yiya-straight/service/request/config.js ***!
+  \********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.config = void 0; //congif.js
+var config = {
+  baseUrl: 'http://127.0.0.1:8081', //请求的基本路径
+  modalColor: '#5271FF' //弹窗颜色 
+};exports.config = config;
+
+/***/ }),
+/* 138 */
+/*!*******************************************************************!*\
+  !*** C:/Users/XZY/Desktop/yiya-straight/service/request/index.js ***!
+  \*******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 34));
+var _config = __webpack_require__(/*! ./config.js */ 137);
+
+
+var _message = _interopRequireDefault(__webpack_require__(/*! ./message.js */ 136));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+
+var http = {
+  post: function post(path, params) {var contentType = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'json';var otherUrl = arguments.length > 3 ? arguments[3] : undefined;
+    return new Promise(function (resolve, reject) {
+      var url = (otherUrl || _config.config.baseUrl) + path;
+      if (!checkUrl(url)) {
+        rej('请求失败');
+      }
+      uni.request({
+        method: 'POST',
+        url: url,
+        header: {
+          "Content-Type": contentType === 'json' ? "application/json" : "application/x-www-form-urlencoded",
+          token: uni.getStorageSync("token") },
+
+        data: params,
+        success: function success(res) {
+          if (res.statusCode == 200 && res.data.code == 200) {
+            var data = res.data;
+            if (data.hasOwnProperty("token")) {
+              var token = data.token;
+              // console.log(token)
+              uni.setStorageSync("token", token);
+            }
+            console.log('request:POST请求' + _config.config.baseUrl + path + ' 成功', res.data);
+          }
+
+          resolve(res.data);
+        },
+        fail: function fail(err) {
+          _message.default.toast('请求失败', 'err');
+          console.error('request:请求' + _config.config.baseUrl + path + ' 失败', err);
+          reject('请求失败');
+        } });
+
+    });
+  },
+  put: function put(path, params) {var contentType = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'json';var otherUrl = arguments.length > 3 ? arguments[3] : undefined;
+    return new Promise(function (resolve, reject) {
+      var url = (otherUrl || _config.config.baseUrl) + path;
+      if (!checkUrl(url)) {
+        rej('请求失败');
+      }
+      uni.request({
+        method: 'PUT',
+        url: url,
+        header: {
+          "Content-Type": contentType === 'json' ? "application/json" : "application/x-www-form-urlencoded",
+          token: uni.getStorageSync("token") },
+
+        data: params,
+        success: function success(res) {
+          if (res.statusCode == 200 && res.data.code == 200) {
+            var data = res.data;
+            if (data.hasOwnProperty("token")) {
+              var token = data.token;
+              // console.log(token)
+              uni.setStorageSync("token", token);
+            }
+            console.log('request:PUT请求' + _config.config.baseUrl + path + ' 成功', res.data);
+          }
+          resolve(res.data);
+        },
+        fail: function fail(err) {
+          _message.default.toast('请求失败', 'err');
+          console.error('request:PUT请求' + _config.config.baseUrl + path + ' 失败', err);
+          reject('请求失败');
+        } });
+
+    });
+  },
+
+  get: function get(path, params, otherUrl) {
+    return new Promise(function (resolve, reject) {
+      var url = (otherUrl || _config.config.baseUrl) + path;
+      if (!checkUrl(url)) {
+        return;
+      }
+      uni.request({
+        url: url,
+        data: params,
+        header: {
+          token: uni.getStorageSync("token") },
+
+        success: function success(res) {
+          if (res.statusCode == 200 && res.data.code == 200) {
+            var data = res.data;
+            if (data.hasOwnProperty("token")) {
+              var token = data.token;
+              // console.log(token)
+              uni.setStorageSync("token", token);
+            }
+            fun(res);
+            console.log('request:GET请求' + _config.config.baseUrl + path + ' 成功', res.data);
+          }
+          resolve(res.data);
+        },
+        fail: function fail(err) {
+          _message.default.toast('请求失败', 'err');
+          console.error('request:GET请求' + _config.config.baseUrl + path + ' 失败', err);
+          reject(err);
+        } });
+
+
+    });
+
+  },
+  delete: function _delete(path, params, otherUrl) {
+    return new Promise(function (resolve, reject) {
+      var url = (otherUrl || _config.config.baseUrl) + path;
+      if (!checkUrl(url)) {
+        return;
+      }
+      uni.request({
+        url: url,
+        data: params,
+        method: "DELETE",
+        header: {
+          token: uni.getStorageSync("token") },
+
+        success: function success(res) {
+          if (res.statusCode == 200 && res.data.code == 200) {
+            var data = res.data;
+            if (data.hasOwnProperty("token")) {
+              var token = data.token;
+              // console.log(token)
+              uni.setStorageSync("token", token);
+            }
+
+            console.log('request:DELETE请求' + _config.config.baseUrl + path + ' 成功', res.data);
+          }
+          resolve(res.data);
+        },
+        fail: function fail(err) {
+          _message.default.toast('请求失败', 'err');
+          console.error('request:DELETE请求' + _config.config.baseUrl + path + ' 失败', err);
+          reject(err);
+        } });
+
+
+    });
+
+  },
+
+  upload: function upload(path, fileArray, otherUrl) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var url, arr, i, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:if (!(
+
+              typeof fileArray !== 'object')) {_context.next = 3;break;}
+              console.error('request:参数错误,请传入文件数组');return _context.abrupt("return");case 3:
+
+
+              url = (otherUrl || _config.config.baseUrl) + path;if (
+              checkUrl(url)) {_context.next = 6;break;}return _context.abrupt("return");case 6:
+
+
+              arr = [];_context.t0 = _regenerator.default.keys(
+              fileArray);case 8:if ((_context.t1 = _context.t0()).done) {_context.next = 20;break;}i = _context.t1.value;_context.next = 12;return (
+                uni.uploadFile({
+                  url: otherUrl || _config.config.baseUrl + path,
+                  filePath: fileArray[i],
+                  name: 'file' }));case 12:res = _context.sent;
+
+              console.log(res);if (!
+              res[0]) {_context.next = 17;break;}
+              console.error('request:上传失败', res[0]);return _context.abrupt("return");case 17:
+
+
+              arr.push(JSON.parse(res[1].data).data);_context.next = 8;break;case 20:return _context.abrupt("return",
+
+              arr);case 21:case "end":return _context.stop();}}}, _callee);}))();
+  } };
+
+
+
+function checkUrl(url) {
+  var urlReg = /^((ht|f)tps?):\/\/[\w\-]+(\.[\w\-]+)+([\w\-.,@?^=%&:\/~+#]*[\w\-@?^=%&\/~+#])?$/;
+  if (!urlReg.test(url)) {
+    console.error('request:请求路径错误' + url);
+    return false;
+  }
+  return true;
+}var _default =
+http;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
 /* 139 */,
 /* 140 */,
 /* 141 */,
@@ -18006,7 +18288,10 @@ platform;exports.default = _default;
 /* 250 */,
 /* 251 */,
 /* 252 */,
-/* 253 */
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */
 /*!*******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-image/props.js ***!
   \*******************************************************************************************/
@@ -18098,12 +18383,12 @@ platform;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 254 */,
-/* 255 */,
-/* 256 */,
 /* 257 */,
 /* 258 */,
-/* 259 */
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */
 /*!******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-rate/props.js ***!
   \******************************************************************************************/
@@ -18180,9 +18465,6 @@ platform;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 260 */,
-/* 261 */,
-/* 262 */,
 /* 263 */,
 /* 264 */,
 /* 265 */,
@@ -18204,7 +18486,10 @@ platform;exports.default = _default;
 /* 281 */,
 /* 282 */,
 /* 283 */,
-/* 284 */
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */
 /*!************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-subsection/props.js ***!
   \************************************************************************************************/
@@ -18261,14 +18546,14 @@ platform;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 285 */,
-/* 286 */,
-/* 287 */,
 /* 288 */,
 /* 289 */,
 /* 290 */,
 /* 291 */,
-/* 292 */
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */
 /*!*****************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-row/props.js ***!
   \*****************************************************************************************/
@@ -18295,14 +18580,14 @@ platform;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 293 */,
-/* 294 */,
-/* 295 */,
 /* 296 */,
 /* 297 */,
 /* 298 */,
 /* 299 */,
-/* 300 */
+/* 300 */,
+/* 301 */,
+/* 302 */,
+/* 303 */
 /*!*****************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-col/props.js ***!
   \*****************************************************************************************/
@@ -18339,14 +18624,14 @@ platform;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 301 */,
-/* 302 */,
-/* 303 */,
 /* 304 */,
 /* 305 */,
 /* 306 */,
 /* 307 */,
-/* 308 */
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */
 /*!********************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-avatar/props.js ***!
   \********************************************************************************************/
@@ -18432,14 +18717,14 @@ platform;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 309 */,
-/* 310 */,
-/* 311 */,
 /* 312 */,
 /* 313 */,
 /* 314 */,
 /* 315 */,
-/* 316 */
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */
 /*!*********************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-divider/props.js ***!
   \*********************************************************************************************/
@@ -18491,14 +18776,14 @@ platform;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 317 */,
-/* 318 */,
-/* 319 */,
 /* 320 */,
 /* 321 */,
 /* 322 */,
 /* 323 */,
-/* 324 */
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */
 /*!*******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-input/props.js ***!
   \*******************************************************************************************/
@@ -18688,14 +18973,14 @@ platform;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 325 */,
-/* 326 */,
-/* 327 */,
 /* 328 */,
 /* 329 */,
 /* 330 */,
 /* 331 */,
-/* 332 */
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */
 /*!************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/mixin/button.js ***!
   \************************************************************************************/
@@ -18716,7 +19001,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     openType: String } };exports.default = _default;
 
 /***/ }),
-/* 333 */
+/* 336 */
 /*!**************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/mixin/openType.js ***!
   \**************************************************************************************/
@@ -18749,7 +19034,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     } } };exports.default = _default;
 
 /***/ }),
-/* 334 */
+/* 337 */
 /*!********************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-button/props.js ***!
   \********************************************************************************************/
@@ -18918,14 +19203,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 335 */,
-/* 336 */,
-/* 337 */,
 /* 338 */,
 /* 339 */,
 /* 340 */,
 /* 341 */,
-/* 342 */
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */
 /*!******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-form/props.js ***!
   \******************************************************************************************/
@@ -18978,7 +19263,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 343 */
+/* 346 */
 /*!********************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/util/async-validator.js ***!
   \********************************************************************************************/
@@ -19008,7 +19293,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 var formatRegExp = /%[sdj%]/g;
 var warning = function warning() {}; // don't print warning message when in production env or node runtime
 
-if (typeof process !== 'undefined' && Object({"NODE_ENV":"development","VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}) && "development" !== 'production' && typeof window !==
+if (typeof process !== 'undefined' && Object({"VUE_APP_NAME":"yiya-straight","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}) && "development" !== 'production' && typeof window !==
 'undefined' && typeof document !== 'undefined') {
   warning = function warning(type, errors) {
     if (typeof console !== 'undefined' && console.warn) {
@@ -20330,10 +20615,10 @@ Schema.messages = messages;var _default =
 Schema;
 // # sourceMappingURL=index.js.map
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 344)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 347)))
 
 /***/ }),
-/* 344 */
+/* 347 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -20364,7 +20649,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 345);
+        if (!path) path = __webpack_require__(/*! path */ 348);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -20377,7 +20662,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 345 */
+/* 348 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -20687,15 +20972,15 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 344)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 347)))
 
 /***/ }),
-/* 346 */,
-/* 347 */,
-/* 348 */,
 /* 349 */,
 /* 350 */,
-/* 351 */
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */
 /*!***********************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-form-item/props.js ***!
   \***********************************************************************************************/
@@ -20746,14 +21031,14 @@ var substr = 'ab'.substr(-1) === 'b'
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 352 */,
-/* 353 */,
-/* 354 */,
 /* 355 */,
 /* 356 */,
 /* 357 */,
 /* 358 */,
-/* 359 */
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */
 /*!**********************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-textarea/props.js ***!
   \**********************************************************************************************/
@@ -20875,12 +21160,12 @@ var substr = 'ab'.substr(-1) === 'b'
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 360 */,
-/* 361 */,
-/* 362 */,
 /* 363 */,
 /* 364 */,
-/* 365 */
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */
 /*!*******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-popup/props.js ***!
   \*******************************************************************************************/
@@ -20967,9 +21252,6 @@ var substr = 'ab'.substr(-1) === 'b'
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 366 */,
-/* 367 */,
-/* 368 */,
 /* 369 */,
 /* 370 */,
 /* 371 */,
@@ -20984,7 +21266,10 @@ var substr = 'ab'.substr(-1) === 'b'
 /* 380 */,
 /* 381 */,
 /* 382 */,
-/* 383 */
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */
 /*!******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-icon/icons.js ***!
   \******************************************************************************************/
@@ -21207,7 +21492,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   'uicon-en': "\uE692" };exports.default = _default;
 
 /***/ }),
-/* 384 */
+/* 387 */
 /*!******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-icon/props.js ***!
   \******************************************************************************************/
@@ -21304,14 +21589,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 385 */,
-/* 386 */,
-/* 387 */,
 /* 388 */,
 /* 389 */,
 /* 390 */,
 /* 391 */,
-/* 392 */
+/* 392 */,
+/* 393 */,
+/* 394 */,
+/* 395 */
 /*!**************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-action-sheet/props.js ***!
   \**************************************************************************************************/
@@ -21373,14 +21658,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 393 */,
-/* 394 */,
-/* 395 */,
 /* 396 */,
 /* 397 */,
 /* 398 */,
 /* 399 */,
-/* 400 */
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */
 /*!*****************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-datetime-picker/props.js ***!
   \*****************************************************************************************************/
@@ -21504,7 +21789,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 401 */
+/* 404 */
 /*!**********************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/util/dayjs.js ***!
   \**********************************************************************************/
@@ -21820,9 +22105,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 });
 
 /***/ }),
-/* 402 */,
-/* 403 */,
-/* 404 */,
 /* 405 */,
 /* 406 */,
 /* 407 */,
@@ -21834,7 +22116,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 413 */,
 /* 414 */,
 /* 415 */,
-/* 416 */
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */
 /*!************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-cell-group/props.js ***!
   \************************************************************************************************/
@@ -21856,14 +22141,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 417 */,
-/* 418 */,
-/* 419 */,
 /* 420 */,
 /* 421 */,
 /* 422 */,
 /* 423 */,
-/* 424 */
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */
 /*!******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-cell/props.js ***!
   \******************************************************************************************/
@@ -21981,14 +22266,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 425 */,
-/* 426 */,
-/* 427 */,
 /* 428 */,
 /* 429 */,
 /* 430 */,
 /* 431 */,
-/* 432 */
+/* 432 */,
+/* 433 */,
+/* 434 */,
+/* 435 */
 /*!********************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-search/props.js ***!
   \********************************************************************************************/
@@ -22114,9 +22399,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 433 */,
-/* 434 */,
-/* 435 */,
 /* 436 */,
 /* 437 */,
 /* 438 */,
@@ -22152,7 +22434,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 468 */,
 /* 469 */,
 /* 470 */,
-/* 471 */
+/* 471 */,
+/* 472 */,
+/* 473 */,
+/* 474 */
 /*!*******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-album/props.js ***!
   \*******************************************************************************************/
@@ -22223,14 +22508,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 472 */,
-/* 473 */,
-/* 474 */,
 /* 475 */,
 /* 476 */,
 /* 477 */,
 /* 478 */,
-/* 479 */
+/* 479 */,
+/* 480 */,
+/* 481 */,
+/* 482 */
 /*!******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-text/props.js ***!
   \******************************************************************************************/
@@ -22348,12 +22633,12 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 480 */,
-/* 481 */,
-/* 482 */,
 /* 483 */,
 /* 484 */,
-/* 485 */
+/* 485 */,
+/* 486 */,
+/* 487 */,
+/* 488 */
 /*!******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-line/props.js ***!
   \******************************************************************************************/
@@ -22394,14 +22679,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 486 */,
-/* 487 */,
-/* 488 */,
 /* 489 */,
 /* 490 */,
 /* 491 */,
 /* 492 */,
-/* 493 */
+/* 493 */,
+/* 494 */,
+/* 495 */,
+/* 496 */
 /*!**************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-loading-icon/props.js ***!
   \**************************************************************************************************/
@@ -22468,9 +22753,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 494 */,
-/* 495 */,
-/* 496 */,
 /* 497 */,
 /* 498 */,
 /* 499 */,
@@ -22482,7 +22764,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 505 */,
 /* 506 */,
 /* 507 */,
-/* 508 */
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */
 /*!*********************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-overlay/props.js ***!
   \*********************************************************************************************/
@@ -22514,14 +22799,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 509 */,
-/* 510 */,
-/* 511 */,
 /* 512 */,
 /* 513 */,
 /* 514 */,
 /* 515 */,
-/* 516 */
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */
 /*!************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-transition/props.js ***!
   \************************************************************************************************/
@@ -22553,7 +22838,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 517 */
+/* 520 */
 /*!*****************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-transition/transition.js ***!
   \*****************************************************************************************************/
@@ -22564,7 +22849,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 34));
 
 
-var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 518));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
+var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 521));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
 var nextTick = function nextTick() {return new Promise(function (resolve) {return setTimeout(resolve, 1000 / 50);});}; // nvue动画模块实现细节抽离在外部文件
 
 // 定义类名，通过给元素动态切换类名，赋予元素一定的css动画样式
@@ -22718,7 +23003,7 @@ var getClassNames = function getClassNames(name) {return {
     } } };exports.default = _default;
 
 /***/ }),
-/* 518 */
+/* 521 */
 /*!*******************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
   \*******************************************************************************************************/
@@ -22794,14 +23079,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     'leave-to': { opacity: 0, transform: 'scale(0.95)' } } };exports.default = _default;
 
 /***/ }),
-/* 519 */,
-/* 520 */,
-/* 521 */,
 /* 522 */,
 /* 523 */,
 /* 524 */,
 /* 525 */,
-/* 526 */
+/* 526 */,
+/* 527 */,
+/* 528 */,
+/* 529 */
 /*!************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-status-bar/props.js ***!
   \************************************************************************************************/
@@ -22817,14 +23102,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 527 */,
-/* 528 */,
-/* 529 */,
 /* 530 */,
 /* 531 */,
 /* 532 */,
 /* 533 */,
-/* 534 */
+/* 534 */,
+/* 535 */,
+/* 536 */,
+/* 537 */
 /*!*************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-safe-bottom/props.js ***!
   \*************************************************************************************************/
@@ -22836,14 +23121,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   props: {} };exports.default = _default;
 
 /***/ }),
-/* 535 */,
-/* 536 */,
-/* 537 */,
 /* 538 */,
 /* 539 */,
 /* 540 */,
 /* 541 */,
-/* 542 */
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */
 /*!*****************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-gap/props.js ***!
   \*****************************************************************************************/
@@ -22875,14 +23160,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 543 */,
-/* 544 */,
-/* 545 */,
 /* 546 */,
 /* 547 */,
 /* 548 */,
 /* 549 */,
-/* 550 */
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */
 /*!********************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-picker/props.js ***!
   \********************************************************************************************/
@@ -22974,14 +23259,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 551 */,
-/* 552 */,
-/* 553 */,
 /* 554 */,
 /* 555 */,
 /* 556 */,
 /* 557 */,
-/* 558 */
+/* 558 */,
+/* 559 */,
+/* 560 */,
+/* 561 */
 /*!*************************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-scroll-list/props.js ***!
   \*************************************************************************************************/
@@ -23023,16 +23308,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 559 */,
-/* 560 */,
-/* 561 */,
 /* 562 */,
 /* 563 */,
 /* 564 */,
 /* 565 */,
 /* 566 */,
 /* 567 */,
-/* 568 */
+/* 568 */,
+/* 569 */,
+/* 570 */,
+/* 571 */
 /*!******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-tabs/props.js ***!
   \******************************************************************************************/
@@ -23104,9 +23389,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 569 */,
-/* 570 */,
-/* 571 */,
 /* 572 */,
 /* 573 */,
 /* 574 */,
@@ -23116,7 +23398,10 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 578 */,
 /* 579 */,
 /* 580 */,
-/* 581 */
+/* 581 */,
+/* 582 */,
+/* 583 */,
+/* 584 */
 /*!******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-text/value.js ***!
   \******************************************************************************************/
@@ -23210,14 +23495,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 582 */,
-/* 583 */,
-/* 584 */,
 /* 585 */,
 /* 586 */,
 /* 587 */,
 /* 588 */,
-/* 589 */
+/* 589 */,
+/* 590 */,
+/* 591 */,
+/* 592 */
 /*!*********************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-toolbar/props.js ***!
   \*********************************************************************************************/
@@ -23259,14 +23544,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 590 */,
-/* 591 */,
-/* 592 */,
 /* 593 */,
 /* 594 */,
 /* 595 */,
 /* 596 */,
-/* 597 */
+/* 597 */,
+/* 598 */,
+/* 599 */,
+/* 600 */
 /*!*******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-badge/props.js ***!
   \*******************************************************************************************/
@@ -23346,14 +23631,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 598 */,
-/* 599 */,
-/* 600 */,
 /* 601 */,
 /* 602 */,
 /* 603 */,
 /* 604 */,
-/* 605 */
+/* 605 */,
+/* 606 */,
+/* 607 */,
+/* 608 */
 /*!******************************************************************************************!*\
   !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-link/props.js ***!
   \******************************************************************************************/

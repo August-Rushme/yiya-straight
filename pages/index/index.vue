@@ -24,6 +24,7 @@
             <text style="border: #F0AD4E solid 1px; color: #E45656;" class="mx-1 px-1">顶级医师</text>
           </view>
         </view>
+        <divider></divider>
       </view>
     </card>
 
