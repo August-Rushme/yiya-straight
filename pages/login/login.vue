@@ -21,7 +21,7 @@
       />
 
       <input
-        type="text"
+        type="password"
         class="border-bottom mb-4  px-0"
         placeholder="请输入密码"
         v-model="password"
@@ -59,6 +59,7 @@
 
 <script>
 import uniStatusBar from '@/components/uni-ui/uni-status-bar/uni-status-bar.vue';
+import {mapActions} from 'vuex'
 export default {
   components: {
     uniStatusBar
@@ -90,6 +91,7 @@ export default {
     };
   },
   methods: {
+	...mapActions(['loginByAccountAction']),
     goBack() {
       uni.navigateBack({
         delta: 1
@@ -109,7 +111,7 @@ export default {
       return check;
     },
     // 提交表单
-    submit() {
+    async submit() {
       let _this = this;
       if (!this.check) {
         return uni.showToast({
@@ -121,14 +123,24 @@ export default {
       if (!this.validate('username')) return;
       // 验证密码
       if (!this.validate('password')) return;
+      
+	  this.loginByAccountAction({username: _this.username,password: _this.password});
       this.goBack();
     },
     //wx登录
     loginByWx() {
+      let _this = this;
       uni.getUserProfile({
         desc: '用户登录',
         success: res => {
-          console.log(res);
+          uni.login({
+            provider: 'weixin',
+            async success(res) {
+              console.log(res);
+              const resp = await _this.$http.post('/user/loginByWx', { code: res.code });
+              console.log(resp);
+            }
+          });
         }
       });
     },

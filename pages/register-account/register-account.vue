@@ -116,14 +116,16 @@ export default {
                     async success(resp) {
                       _this.userInfo.photo = userRes[1].userInfo.avatarUrl;
                       _this.userInfo.nickName = userRes[1].userInfo.nickName;
-                      console.log(_this.userInfo);
                       const res = await _this.$http.post('/user/register', _this.userInfo);
-                      if (res.data.code == 200) {
+                      if (res?.data?.code == 200) {
                         uni.navigateBack({
                           delta: 1
                         });
                         uni.$u.toast('注册成功');
                       }
+					  else {
+						  uni.$u.toast('一个用户只能注册一个账号');
+					  }
                     }
                   });
                 }

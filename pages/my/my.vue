@@ -4,17 +4,19 @@
 <view class="top-background  d-flex j-center">
 	<view class="my-card d-flex j-sb a-center px-4">
 		<view class="userInfo d-flex">
-			<u-avatar :src="src" size="50"></u-avatar>
+			<u-avatar :src="avatar" size="50"></u-avatar>
 			<view class="username ml-1 pt-1">
-			 <text class="line-h0 font-md font-weight">默认昵称</text>
-			 <view class="" @tap="gotoLogin">
+			 <text class="line-h0 font-md font-weight">{{username}}</text>
+			 <view class="" @tap="goSetInfo">
 			  设置个人信息>	
 			 </view>
 			</view>
 		</view>
-		<view class="toLogin" @tap="gotoLogin">
+		<template v-if="!token">
+		<view class="toLogin" @tap="gotoLogin" >
 			去登录
 		</view>
+		</template>
 	</view>
 </view>
 <!-- 分割线 -->
@@ -59,14 +61,10 @@
 </template>
 
 <script>
-	
+	import { mapState,mapActions } from 'vuex'
 	export default {
 		data() {
 			return {
-              userInfo: {
-				  src: '',
-				  name: ''
-			  },
 			  otherNav: [
 				  {
 					  name: '全部订单',
@@ -101,11 +99,30 @@
 			 ]
 			}
 		},
+		computed: {
+			...mapState(['username','avatar','token'])
+		},
+		onShow(){
+          this.localLoginAction()
+		},
 		methods: {
+			...mapActions(['localLoginAction']),
 			gotoLogin() {
 				uni.navigateTo({
 					url: '/pages/login/login'
 				})
+			},
+			goSetInfo() {
+				if(this.token){
+					uni.navigateTo({
+						url: '/pages/setInfo/setInfo'
+					})
+				}
+				else{
+					uni.navigateTo({
+						url: '/pages/login/login'
+					})
+				}
 			},
 			goToDedical() {
 				uni.navigateTo({
@@ -129,11 +146,17 @@
 			},
 			//底部导航跳转
 			goToPage(pageName){
-				const pagePath = '/pages/'+ pageName + '/' + pageName;
-				console.log(pagePath)
-				uni.navigateTo({
-					url: pagePath
-				})
+				if(this.token){
+					const pagePath = '/pages/'+ pageName + '/' + pageName;
+					uni.navigateTo({
+						url: pagePath
+					})
+				}
+				else{
+					uni.navigateTo({
+						url: '/pages/login/login'
+					})
+				}
 			}
          },
 		 }

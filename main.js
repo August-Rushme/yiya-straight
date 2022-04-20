@@ -12,6 +12,8 @@ import divider from "@/components/common/divider.vue"
 import message from './service/request/message.js'
 import http from './service/request/index.js'
 
+//导入store
+import store from '@/store/index.js'
 Vue.prototype.$message = message
 Vue.prototype.$http = http
 
@@ -19,7 +21,8 @@ Vue.use(uView)
 Vue.component('divider', divider)
 App.mpType = 'app'
 const app = new Vue({
-  ...App
+  ...App,
+  store
 })
 
 app.$mount()
