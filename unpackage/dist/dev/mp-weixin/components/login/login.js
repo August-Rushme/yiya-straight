@@ -156,7 +156,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var uniStatusBar = function uniStatusBar() {__webpack_require__.e(/*! require.ensure | components/uni-ui/uni-status-bar/uni-status-bar */ "components/uni-ui/uni-status-bar/uni-status-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-ui/uni-status-bar/uni-status-bar.vue */ 407));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}var uniStatusBar = function uniStatusBar() {__webpack_require__.e(/*! require.ensure | components/uni-ui/uni-status-bar/uni-status-bar */ "components/uni-ui/uni-status-bar/uni-status-bar").then((function () {return resolve(__webpack_require__(/*! @/components/uni-ui/uni-status-bar/uni-status-bar.vue */ 407));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -267,26 +267,44 @@ __webpack_require__.r(__webpack_exports__);
       return check;
     },
     // 提交表单
-    submit: function submit() {
-      var _this = this;
-      if (!this.check) {
-        return uni.showToast({
-          title: '请先同意XXXXX协议',
-          icon: 'none' });
+    submit: function submit() {var _this3 = this;return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var _this, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:
+                _this = _this3;if (
+                _this3.check) {_context.next = 3;break;}return _context.abrupt("return",
+                uni.showToast({
+                  title: '请先同意XXXXX协议',
+                  icon: 'none' }));case 3:if (
 
-      }
-      // 验证用户名
-      if (!this.validate('username')) return;
-      // 验证密码
-      if (!this.validate('password')) return;
-      this.goBack();
+
+
+                _this3.validate('username')) {_context.next = 5;break;}return _context.abrupt("return");case 5:if (
+
+                _this3.validate('password')) {_context.next = 7;break;}return _context.abrupt("return");case 7:_context.next = 9;return (
+
+                  _this.$http.post('/user/loginByAccount', {
+                    userName: _this.username,
+                    password: _this.password }));case 9:res = _context.sent;if (!(
+
+                !res.code == 200)) {_context.next = 12;break;}return _context.abrupt("return",
+                _this.$message.message("账号或者密码错误"));case 12:
+
+                _this.$message.message("登录成功");
+                console.log(res);
+                _this3.goBack();case 15:case "end":return _context.stop();}}}, _callee);}))();
     },
     //wx登录
     loginByWx: function loginByWx() {
+      var _this = this;
       uni.getUserProfile({
         desc: '用户登录',
         success: function success(res) {
-          console.log(res);
+          uni.login({
+            provider: 'weixin',
+            success: function success(res) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee2() {var resp;return _regenerator.default.wrap(function _callee2$(_context2) {while (1) {switch (_context2.prev = _context2.next) {case 0:
+                        console.log(res);_context2.next = 3;return (
+                          _this.$http.post('/user/loginByWx', { code: res.code }));case 3:resp = _context2.sent;
+                        console.log(resp);case 5:case "end":return _context2.stop();}}}, _callee2);}))();
+            } });
+
         } });
 
     },
