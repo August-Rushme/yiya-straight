@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uAvatar: function() {
-      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 306))
+      return Promise.all(/*! import() | uni_modules/uview-ui/components/u-avatar/u-avatar */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uview-ui/components/u-avatar/u-avatar")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uview-ui/components/u-avatar/u-avatar.vue */ 348))
     }
   }
 } catch (e) {
@@ -225,33 +225,33 @@ var _default =
       otherNav: [
       {
         name: '全部订单',
-        src: '',
-        pageName: '' },
+        src: '/static/images/order.png',
+        pageName: 'order' },
 
       {
         name: '我的优惠卷',
-        src: '',
-        pageName: '' },
+        src: '/static/images/coupon.png',
+        pageName: 'coupon' },
 
       {
         name: '我的消息',
-        src: '',
-        pageName: '' },
+        src: '/static/images/message.png',
+        pageName: 'message' },
 
       {
         name: '设置个人信息',
-        src: '',
-        pageName: '' },
+        src: '/static/images/setInfo.png',
+        pageName: 'setInfo' },
 
       {
         name: '联系客服',
-        src: '',
-        pageName: '' },
+        src: '/static/images/server.png',
+        pageName: 'server' },
 
       {
         name: '切换账号',
-        src: '',
-        pageName: '' }] };
+        src: '/static/images/switchAccount.png',
+        pageName: 'login' }] };
 
 
 
@@ -259,7 +259,35 @@ var _default =
   methods: {
     gotoLogin: function gotoLogin() {
       uni.navigateTo({
-        url: '/components/login/login' });
+        url: '/pages/login/login' });
+
+    },
+    goToDedical: function goToDedical() {
+      uni.navigateTo({
+        url: '/pages/medical/medical' });
+
+    },
+    goToRecord: function goToRecord() {
+      uni.navigateTo({
+        url: '/pages/record/record' });
+
+    },
+    goToAppointment: function goToAppointment() {
+      uni.navigateTo({
+        url: '/pages/appointment/appointment' });
+
+    },
+    goToAboutUs: function goToAboutUs() {
+      uni.navigateTo({
+        url: '/pages/aboutUs/aboutUs' });
+
+    },
+    //底部导航跳转
+    goToPage: function goToPage(pageName) {
+      var pagePath = '/pages/' + pageName + '/' + pageName;
+      console.log(pagePath);
+      uni.navigateTo({
+        url: pagePath });
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))

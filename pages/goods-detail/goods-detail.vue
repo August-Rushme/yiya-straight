@@ -47,12 +47,23 @@
 		</view>
 		<!-- 分割线 -->
 		<divider></divider>
-	
+	<!-- 产品 -->
+	<product :tabBars="tabBars" :goodsData="goodsData"></product>
+	<divider></divider>
+	<!-- 医师团队 -->
+	<physicianTeam :physicianList="list"></physicianTeam>
+	<divider></divider>
 	</view>
 </template>
 
 <script>
+	import physicianTeam from '@/components/page-detail/physician-team.vue';
+	import product from '@/components/page-detail/product.vue';
 	export default {
+		components: {
+		  physicianTeam,
+		  product
+		},
 		data() {
 			return {
 				               bannerSrc: [{
@@ -80,7 +91,223 @@
 								contactInfo: {
 									address: '阳光大道77号xx商业城2楼6号铺',
 									addressDetail: '位于xx商业城内'
-								}
+								},
+								tabBars: [
+								  {
+								    name: '全部'
+								  },
+								  {
+								    name: '洗牙'
+								  },
+								  {
+								    name: '美白'
+								  },
+								  {
+								    name: '补牙'
+								  },
+								  {
+								    name: '拔牙'
+								  },
+								  {
+								    name: '儿童齿科'
+								  },
+								  {
+								    name: '检查'
+								  },
+								  {
+								    name: '矫正'
+								  }
+								],
+								goodsData: [
+								  {
+								    name: '全部',
+								    list: [
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      },
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      },
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      },
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      }
+								    ]
+								  },
+								  {
+								    name: '洗牙',
+								    list: [
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      }
+								    ]
+								  },
+								  {
+								    name: '美白',
+								    list: [
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      },
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      }
+								    ]
+								  },
+								  {
+								    name: '补牙',
+								    list: [
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      }
+								    ]
+								  },
+								  {
+								    name: '拔牙',
+								    list: [
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      }
+								    ]
+								  },
+								  {
+								    name: '儿童齿科',
+								    list: [
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      }
+								    ]
+								  },
+								  {
+								    name: '检查',
+								    list: [
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      },
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      }
+								    ]
+								  },
+								  {
+								    name: '矫正',
+								    list: [
+								      {
+								        src:
+								          'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
+								        title: '牙齿美白套餐，单人超声波洗牙套餐',
+								        price: '79',
+								        oprice: '188',
+								        label: ['限工作日 | 成人']
+								      }
+								    ]
+								  }
+								],
+								list: [
+								  {
+								    name: 'xxx',
+								    position: '副主任医师',
+								    workTime: '从业27年',
+								    thumb: 'https://preview.qiantucdn.com/ing/17/34/89/06A58PICjaRETFUvfENGa_PIC2018.jpg!qt324_nowater_jpg'
+								  },
+								  {
+								    name: 'xxx',
+								    position: '副主任医师',
+								    workTime: '从业27年',
+								    thumb: 'https://preview.qiantucdn.com/ing/17/34/89/06A58PICjaRETFUvfENGa_PIC2018.jpg!qt324_nowater_jpg'
+								  },
+								  {
+								    name: 'xxx',
+								    position: '副主任医师',
+								    workTime: '从业27年',
+								    thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
+								  },
+								  {
+								    name: 'xxx',
+								    position: '副主任医师',
+								    workTime: '从业27年',
+								    thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
+								  },
+								  {
+								    name: 'xxx',
+								    position: '副主任医师',
+								    workTime: '从业27年',
+								    thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
+								  },
+								  {
+								    name: 'xxx',
+								    position: '副主任医师',
+								    workTime: '从业27年',
+								    thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
+								  },
+								  {
+								    name: 'xxx',
+								    position: '副主任医师',
+								    workTime: '从业27年',
+								    thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
+								  }
+								],
 			}
 		},
 		methods: {

@@ -5,7 +5,6 @@
         "pages/register/register",
         "pages/my/my",
         "pages/test/test",
-        "components/login/login",
         "pages/medical/medical",
         "pages/record/record",
         "pages/index-nav-detail/teeth-whitening/src/teeth-whitening",
@@ -13,7 +12,15 @@
         "pages/page-detail/page-detail",
         "pages/detail-comment/detail-comment",
         "pages/goods-detail/goods-detail",
-        "pages/register-account/register-account"
+        "pages/register-account/register-account",
+        "pages/order/order",
+        "pages/coupon/coupon",
+        "pages/message/message",
+        "pages/setInfo/setInfo",
+        "pages/server/server",
+        "pages/login/login",
+        "pages/appointment/appointment",
+        "pages/aboutUs/aboutUs"
     ],
     "subPackages": [],
     "window": {

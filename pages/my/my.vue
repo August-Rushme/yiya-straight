@@ -22,19 +22,19 @@
 </view>
 <!-- nav导航 -->
 	<view class="nav row a-center py-1">
-		<view class="navItem span-5">
+		<view class="navItem span-5" @tap="goToDedical">
 			<image src="../../static/images/bingli.png" style="height: 60rpx;width: 60rpx;" mode=""></image>
 			我的病例
 		</view>
-		<view class="navItem span-5">
+		<view class="navItem span-5" @tap="goToRecord">
 			<image src="../../static/images/ct.png" style="height: 60rpx;width: 60rpx;" mode=""></image>
 			我的CT
 		</view>
-		<view class="navItem span-5">
+		<view class="navItem span-5" @tap="goToAppointment">
 			<image src="../../static/images/fankui.png" style="height: 60rpx;width: 60rpx;" mode=""></image>
-			意见反馈
+			我的预约
 		</view>
-		<view class="navItem span-5">
+		<view class="navItem span-5" @tap="goToAboutUs">
 			<image src="../../static/images/aboutus.png" style="height: 60rpx;width: 60rpx;" mode=""></image>
 			关于我们
 		</view>
@@ -44,9 +44,9 @@
 <!-- 其他导航 -->
 <view class="other-nav">
 	<block v-for="item in otherNav" :key="item.name">
-	<view  class="navItem d-flex j-sb a-center border-bottom  py-2 px-3">
+	<view  class="navItem d-flex j-sb a-center border-bottom  py-2 px-3" @tap="goToPage(item.pageName)">
 	 <view class="itemname d-flex">
-	 	<image src="../../static/images/order.png" mode="" style="width: 48rpx;height: 48rpx;"></image>
+	 	<image :src="item.src" mode="" style="width: 48rpx;height: 48rpx;"></image>
 	    <text class="ml-2">{{item.name}}</text>
 	 </view>
 	 <view class="arrow font-md">
@@ -70,33 +70,33 @@
 			  otherNav: [
 				  {
 					  name: '全部订单',
-					  src: '',
-					  pageName: ''
+					  src: '/static/images/order.png',
+					  pageName: 'order'
 				  }, 
 				  {
 					  name: '我的优惠卷',
-					  src: '',
-					  pageName: ''
+					  src: '/static/images/coupon.png',
+					  pageName: 'coupon'
 				  }, 
 				  {
 					  name: '我的消息',
-					  src: '',
-					  pageName: ''
+					  src: '/static/images/message.png',
+					  pageName: 'message'
 				  }, 
 				  {
 					  name: '设置个人信息',
-					  src: '',
-					  pageName: ''
+					  src: '/static/images/setInfo.png',
+					  pageName: 'setInfo'
 				  }, 
 				  {
 					  name: '联系客服',
-					  src: '',
-					  pageName: ''
+					  src: '/static/images/server.png',
+					  pageName: 'server'
 				  }, 
 				  {
 					  name: '切换账号',
-					  src: '',
-					  pageName: ''
+					  src: '/static/images/switchAccount.png',
+					  pageName: 'login'
 				  }
 			 ]
 			}
@@ -104,7 +104,35 @@
 		methods: {
 			gotoLogin() {
 				uni.navigateTo({
-					url: '/components/login/login'
+					url: '/pages/login/login'
+				})
+			},
+			goToDedical() {
+				uni.navigateTo({
+					url: '/pages/medical/medical'
+				})
+			},
+			goToRecord() {
+				uni.navigateTo({
+					url: '/pages/record/record'
+				})
+			},
+			goToAppointment() {
+				uni.navigateTo({
+					url: '/pages/appointment/appointment'
+				})
+			},
+			goToAboutUs() {
+				uni.navigateTo({
+					url: '/pages/aboutUs/aboutUs'
+				})
+			},
+			//底部导航跳转
+			goToPage(pageName){
+				const pagePath = '/pages/'+ pageName + '/' + pageName;
+				console.log(pagePath)
+				uni.navigateTo({
+					url: pagePath
 				})
 			}
          },
