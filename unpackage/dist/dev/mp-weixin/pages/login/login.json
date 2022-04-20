@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "登陆",
+  "navigationBarTitleText": "登录",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "u-icon": "/uni_modules/uview-ui/components/u-icon/u-icon",

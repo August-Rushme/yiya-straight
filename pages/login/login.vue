@@ -59,6 +59,7 @@
 
 <script>
 import uniStatusBar from '@/components/uni-ui/uni-status-bar/uni-status-bar.vue';
+import {mapActions} from 'vuex'
 export default {
   components: {
     uniStatusBar
@@ -90,6 +91,7 @@ export default {
     };
   },
   methods: {
+	...mapActions(['loginByAccountAction']),
     goBack() {
       uni.navigateBack({
         delta: 1
@@ -122,15 +124,7 @@ export default {
       // 验证密码
       if (!this.validate('password')) return;
       
-      const res = await _this.$http.post('/user/loginByAccount', {
-        userName: _this.username,
-        password: _this.password
-      });
-      if(!res.code==200){
-       return _this.$message.message("账号或者密码错误")
-      }
-      _this.$message.message("登录成功")
-      console.log(res)
+	  this.loginByAccountAction({username: _this.username,password: _this.password});
       this.goBack();
     },
     //wx登录

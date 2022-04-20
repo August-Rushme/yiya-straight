@@ -8636,7 +8636,7 @@ function resolveLocaleChain(locale) {
 /***/ }),
 /* 5 */
 /*!*****************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/pages.json ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/pages.json ***!
   \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
@@ -8779,7 +8779,7 @@ function normalizeComponent (
 /***/ }),
 /* 12 */
 /*!************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/index.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/index.js ***!
   \************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -8868,7 +8868,7 @@ var install = function install(Vue) {
 /***/ }),
 /* 13 */
 /*!***********************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/mixin/mixin.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/mixin/mixin.js ***!
   \***********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9037,7 +9037,7 @@ var install = function install(Vue) {
 /***/ }),
 /* 14 */
 /*!*************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/mixin/mpMixin.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/mixin/mpMixin.js ***!
   \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9052,7 +9052,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 15 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/index.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/index.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9065,7 +9065,7 @@ _Request.default;exports.default = _default;
 /***/ }),
 /* 16 */
 /*!*************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/Request.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/Request.js ***!
   \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9273,7 +9273,7 @@ Request = /*#__PURE__*/function () {
 /***/ }),
 /* 17 */
 /*!*********************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/dispatchRequest.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/dispatchRequest.js ***!
   \*********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9286,7 +9286,7 @@ function _default(config) {return (0, _index.default)(config);};exports.default 
 /***/ }),
 /* 18 */
 /*!***************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/adapters/index.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/adapters/index.js ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9394,7 +9394,7 @@ function _default(config) {return new Promise(function (resolve, reject) {
 /***/ }),
 /* 19 */
 /*!*****************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/helpers/buildURL.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/helpers/buildURL.js ***!
   \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9473,7 +9473,7 @@ function buildURL(url, params) {
 /***/ }),
 /* 20 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/utils.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/utils.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9614,7 +9614,7 @@ function isUndefined(val) {
 /***/ }),
 /* 21 */
 /*!*******************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/buildFullPath.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/buildFullPath.js ***!
   \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9644,7 +9644,7 @@ function buildFullPath(baseURL, requestedURL) {
 /***/ }),
 /* 22 */
 /*!**********************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/helpers/isAbsoluteURL.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/helpers/isAbsoluteURL.js ***!
   \**********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9668,7 +9668,7 @@ function isAbsoluteURL(url) {
 /***/ }),
 /* 23 */
 /*!********************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/helpers/combineURLs.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/helpers/combineURLs.js ***!
   \********************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9692,7 +9692,7 @@ function combineURLs(baseURL, relativeURL) {
 /***/ }),
 /* 24 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/settle.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/settle.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9718,7 +9718,7 @@ function settle(resolve, reject, response) {var
 /***/ }),
 /* 25 */
 /*!************************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/InterceptorManager.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/InterceptorManager.js ***!
   \************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9778,7 +9778,7 @@ InterceptorManager;exports.default = _default;
 /***/ }),
 /* 26 */
 /*!*****************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/mergeConfig.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/mergeConfig.js ***!
   \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9891,7 +9891,7 @@ function _default(globalsConfig) {var config2 = arguments.length > 1 && argument
 /***/ }),
 /* 27 */
 /*!**************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/defaults.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/core/defaults.js ***!
   \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -9929,7 +9929,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 28 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/luch-request/utils/clone.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/luch-request/utils/clone.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -10199,7 +10199,7 @@ var clone = function () {
 }();var _default =
 
 clone;exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/buffer/index.js */ 29).Buffer))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../../HBuilderX/plugins/uniapp-cli/node_modules/buffer/index.js */ 29).Buffer))
 
 /***/ }),
 /* 29 */
@@ -12277,16 +12277,16 @@ module.exports = Array.isArray || function (arr) {
 /***/ }),
 /* 33 */
 /*!**********************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/util/route.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/util/route.js ***!
   \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 34));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;} /**
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * 并且带有路由拦截功能
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */var
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  * 路由跳转方法，该方法相对于直接使用uni.xxx的好处是使用更加简单快捷
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  * 并且带有路由拦截功能
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  */var
 
 Router = /*#__PURE__*/function () {
   function Router() {_classCallCheck(this, Router);
@@ -13200,7 +13200,7 @@ if (hadRuntime) {
 /***/ }),
 /* 37 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/function/colorGradient.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/function/colorGradient.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -13343,7 +13343,7 @@ function colorToRgba(color, alpha) {
 /***/ }),
 /* 38 */
 /*!*************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/function/test.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/function/test.js ***!
   \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -13640,7 +13640,7 @@ function regExp(o) {
 /***/ }),
 /* 39 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/function/debounce.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/function/debounce.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -13679,7 +13679,7 @@ debounce;exports.default = _default;
 /***/ }),
 /* 40 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/function/throttle.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/function/throttle.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -13719,7 +13719,7 @@ throttle;exports.default = _default;
 /***/ }),
 /* 41 */
 /*!**************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/function/index.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/function/index.js ***!
   \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -14434,7 +14434,7 @@ function setConfig(_ref3)
 /***/ }),
 /* 42 */
 /*!**************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/function/digit.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/function/digit.js ***!
   \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -14609,7 +14609,7 @@ function enableBoundaryChecking() {var flag = arguments.length > 0 && arguments[
 /***/ }),
 /* 43 */
 /*!*************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/config.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/config.js ***!
   \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -14652,7 +14652,7 @@ if (true) {
 /***/ }),
 /* 44 */
 /*!************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props.js ***!
   \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -14851,7 +14851,7 @@ _upload.default);exports.default = _default;
 /***/ }),
 /* 45 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/actionSheet.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/actionSheet.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -14884,7 +14884,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 46 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/album.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/album.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -14917,7 +14917,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 47 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/alert.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/alert.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -14947,7 +14947,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 48 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/avatar.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/avatar.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -14983,7 +14983,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 49 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/avatarGroup.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/avatarGroup.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15014,7 +15014,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 50 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/backtop.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/backtop.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15048,7 +15048,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 51 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/badge.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/badge.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15083,7 +15083,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 52 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/button.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/button.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15133,7 +15133,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 53 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/calendar.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/calendar.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15183,7 +15183,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 54 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/carKeyboard.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/carKeyboard.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15206,7 +15206,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 55 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/cell.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/cell.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15249,7 +15249,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 56 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/cellGroup.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/cellGroup.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15274,7 +15274,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 57 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/checkbox.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/checkbox.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15309,7 +15309,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 58 */
 /*!**************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/checkboxGroup.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/checkboxGroup.js ***!
   \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15346,7 +15346,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 59 */
 /*!***************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/circleProgress.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/circleProgress.js ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15369,7 +15369,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 60 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/code.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/code.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15398,7 +15398,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 61 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/codeInput.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/codeInput.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15434,7 +15434,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 62 */
 /*!****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/col.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/col.js ***!
   \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15461,7 +15461,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 63 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/collapse.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/collapse.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15486,7 +15486,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 64 */
 /*!*************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/collapseItem.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/collapseItem.js ***!
   \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15519,7 +15519,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 65 */
 /*!*************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/columnNotice.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/columnNotice.js ***!
   \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15551,7 +15551,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 66 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/countDown.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/countDown.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15577,7 +15577,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 67 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/countTo.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/countTo.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15610,7 +15610,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 68 */
 /*!***************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/datetimePicker.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/datetimePicker.js ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15654,7 +15654,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 69 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/divider.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/divider.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15684,7 +15684,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 70 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/empty.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/empty.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15717,7 +15717,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 71 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/form.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/form.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15747,7 +15747,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 72 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/formItem.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/formItem.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15777,7 +15777,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 73 */
 /*!****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/gap.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/gap.js ***!
   \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15804,7 +15804,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 74 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/grid.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/grid.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15829,7 +15829,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 75 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/gridItem.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/gridItem.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15853,7 +15853,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 76 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/icon.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/icon.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15897,7 +15897,7 @@ var _config = _interopRequireDefault(__webpack_require__(/*! ../config */ 43));f
 /***/ }),
 /* 77 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/image.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/image.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15935,7 +15935,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 78 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/indexAnchor.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/indexAnchor.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15962,7 +15962,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 79 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/indexList.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/indexList.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -15989,7 +15989,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 80 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/input.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/input.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16045,7 +16045,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 81 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/keyboard.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/keyboard.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16083,7 +16083,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 82 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/line.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/line.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16111,7 +16111,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 83 */
 /*!*************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/lineProgress.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/lineProgress.js ***!
   \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16138,7 +16138,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 84 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/link.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/link.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16172,7 +16172,7 @@ var _config = _interopRequireDefault(__webpack_require__(/*! ../config */ 43));f
 /***/ }),
 /* 85 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/list.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/list.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16208,7 +16208,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 86 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/listItem.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/listItem.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16231,7 +16231,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 87 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/loadingIcon.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/loadingIcon.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16269,7 +16269,7 @@ var _config = _interopRequireDefault(__webpack_require__(/*! ../config */ 43));f
 /***/ }),
 /* 88 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/loadingPage.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/loadingPage.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16299,7 +16299,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 89 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/loadmore.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/loadmore.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16336,7 +16336,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 90 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/modal.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/modal.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16374,7 +16374,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 91 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/navbar.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/navbar.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16413,7 +16413,7 @@ var _color = _interopRequireDefault(__webpack_require__(/*! ../color */ 92));fun
 /***/ }),
 /* 92 */
 /*!************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/color.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/color.js ***!
   \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16440,7 +16440,7 @@ color;exports.default = _default;
 /***/ }),
 /* 93 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/noNetwork.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/noNetwork.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16465,7 +16465,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 94 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/noticeBar.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/noticeBar.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16500,7 +16500,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 95 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/notify.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/notify.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16530,7 +16530,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 96 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/numberBox.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/numberBox.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16573,7 +16573,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 97 */
 /*!***************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/numberKeyboard.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/numberKeyboard.js ***!
   \***************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16598,7 +16598,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 98 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/overlay.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/overlay.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16624,7 +16624,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 99 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/parse.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/parse.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16654,7 +16654,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 100 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/picker.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/picker.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16692,7 +16692,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 101 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/popup.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/popup.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16729,7 +16729,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 102 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/radio.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/radio.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16764,7 +16764,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 103 */
 /*!***********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/radioGroup.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/radioGroup.js ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16802,7 +16802,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 104 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/rate.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/rate.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16836,7 +16836,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 105 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/readMore.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/readMore.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16866,7 +16866,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 106 */
 /*!****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/row.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/row.js ***!
   \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16891,7 +16891,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 107 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/rowNotice.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/rowNotice.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16920,7 +16920,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 108 */
 /*!***********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/scrollList.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/scrollList.js ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16948,7 +16948,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 109 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/search.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/search.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -16993,7 +16993,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 110 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/section.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/section.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17025,7 +17025,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 111 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/skeleton.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/skeleton.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17058,7 +17058,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 112 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/slider.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/slider.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17091,7 +17091,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 113 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/statusBar.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/statusBar.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17114,7 +17114,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 114 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/steps.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/steps.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17143,7 +17143,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 115 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/stepsItem.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/stepsItem.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17169,7 +17169,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 116 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/sticky.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/sticky.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17197,7 +17197,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 117 */
 /*!***********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/subsection.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/subsection.js ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17228,7 +17228,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 118 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/swipeAction.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/swipeAction.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17251,7 +17251,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 119 */
 /*!****************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/swipeActionItem.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/swipeActionItem.js ***!
   \****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17280,7 +17280,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 120 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/swiper.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/swiper.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17326,7 +17326,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 121 */
 /*!*****************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/swipterIndicator.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/swipterIndicator.js ***!
   \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17353,7 +17353,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 122 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/switch.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/switch.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17385,7 +17385,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 123 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/tabbar.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/tabbar.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17415,7 +17415,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 124 */
 /*!***********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/tabbarItem.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/tabbarItem.js ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17443,7 +17443,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 125 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/tabs.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/tabs.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17483,7 +17483,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 126 */
 /*!****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/tag.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/tag.js ***!
   \****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17520,7 +17520,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 127 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/text.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/text.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17565,7 +17565,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 128 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/textarea.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/textarea.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17609,7 +17609,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 129 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/toast.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/toast.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17646,7 +17646,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 130 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/toolbar.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/toolbar.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17674,7 +17674,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 131 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/tooltip.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/tooltip.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17707,7 +17707,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 132 */
 /*!***********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/transition.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/transition.js ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17733,7 +17733,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 133 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/props/upload.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/props/upload.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17777,7 +17777,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 134 */
 /*!*************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/config/zIndex.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/config/zIndex.js ***!
   \*************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17806,7 +17806,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 /* 135 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/function/platform.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/function/platform.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17891,7 +17891,7 @@ platform;exports.default = _default;
 /***/ }),
 /* 136 */
 /*!*********************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/service/request/message.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/service/request/message.js ***!
   \*********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17963,7 +17963,7 @@ message;exports.default = _default;
 /***/ }),
 /* 137 */
 /*!********************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/service/request/config.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/service/request/config.js ***!
   \********************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -17978,7 +17978,7 @@ var config = {
 /***/ }),
 /* 138 */
 /*!*******************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/service/request/index.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/service/request/index.js ***!
   \*******************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18174,8 +18174,1325 @@ http;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 139 */,
-/* 140 */,
+/* 139 */
+/*!*********************************************************!*\
+  !*** C:/Users/XZY/Desktop/yiya-straight/store/index.js ***!
+  \*********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 34));var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
+var _vuex = _interopRequireDefault(__webpack_require__(/*! vuex */ 140));
+var _index = _interopRequireDefault(__webpack_require__(/*! ../service/request/index.js */ 138));
+var _message = _interopRequireDefault(__webpack_require__(/*! ../service/request/message.js */ 136));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};}
+_vue.default.use(_vuex.default);
+var store = new _vuex.default.Store({
+  state: {
+    username: '默认昵称',
+    avatar: '',
+    token: '' },
+
+  mutations: {
+    changeUsername: function changeUsername(state, payload) {
+      state.username = payload;
+      uni.setStorageSync('username', payload);
+    },
+    changeAvatar: function changeAvatar(state, payload) {
+      state.avatar = payload;
+      uni.setStorageSync('avatar', payload);
+    },
+    changeToken: function changeToken(state, payload) {
+      state.token = payload;
+      uni.setStorageSync('token', payload);
+    } },
+
+  actions: {
+    loginByAccountAction: function loginByAccountAction(_ref, payload) {return _asyncToGenerator( /*#__PURE__*/_regenerator.default.mark(function _callee() {var commit, state, res;return _regenerator.default.wrap(function _callee$(_context) {while (1) {switch (_context.prev = _context.next) {case 0:commit = _ref.commit, state = _ref.state;_context.next = 3;return (
+                  _index.default.post('/user/loginByAccount', {
+                    userName: payload.username,
+                    password: payload.password }));case 3:res = _context.sent;if (!(
+
+                res === '用户名不存在')) {_context.next = 8;break;}return _context.abrupt("return",
+                _message.default.message("账号或者密码错误"));case 8:
+
+                commit('changeUsername', res.user.nickname);
+                commit('changeAvatar', res.user.photo);
+                commit('changeToken', res.token);
+                _message.default.message("登录成功");case 12:case "end":return _context.stop();}}}, _callee);}))();
+
+
+
+    },
+    localLoginAction: function localLoginAction(_ref2) {var commit = _ref2.commit;
+      if (uni.getStorageSync('token')) {
+        commit('changeUsername', uni.getStorageSync('username'));
+        commit('changeAvatar', uni.getStorageSync('avatar'));
+        commit('changeToken', uni.getStorageSync('token'));
+      }
+    } } });var _default =
+
+
+store;exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+/* 140 */
+/*!**************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vuex3/dist/vuex.common.js ***!
+  \**************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(global) {/*!
+ * vuex v3.6.2
+ * (c) 2021 Evan You
+ * @license MIT
+ */
+
+
+function applyMixin (Vue) {
+  var version = Number(Vue.version.split('.')[0]);
+
+  if (version >= 2) {
+    Vue.mixin({ beforeCreate: vuexInit });
+  } else {
+    // override init and inject vuex init procedure
+    // for 1.x backwards compatibility.
+    var _init = Vue.prototype._init;
+    Vue.prototype._init = function (options) {
+      if ( options === void 0 ) options = {};
+
+      options.init = options.init
+        ? [vuexInit].concat(options.init)
+        : vuexInit;
+      _init.call(this, options);
+    };
+  }
+
+  /**
+   * Vuex init hook, injected into each instances init hooks list.
+   */
+
+  function vuexInit () {
+    var options = this.$options;
+    // store injection
+    if (options.store) {
+      this.$store = typeof options.store === 'function'
+        ? options.store()
+        : options.store;
+    } else if (options.parent && options.parent.$store) {
+      this.$store = options.parent.$store;
+    }
+  }
+}
+
+var target = typeof window !== 'undefined'
+  ? window
+  : typeof global !== 'undefined'
+    ? global
+    : {};
+var devtoolHook = target.__VUE_DEVTOOLS_GLOBAL_HOOK__;
+
+function devtoolPlugin (store) {
+  if (!devtoolHook) { return }
+
+  store._devtoolHook = devtoolHook;
+
+  devtoolHook.emit('vuex:init', store);
+
+  devtoolHook.on('vuex:travel-to-state', function (targetState) {
+    store.replaceState(targetState);
+  });
+
+  store.subscribe(function (mutation, state) {
+    devtoolHook.emit('vuex:mutation', mutation, state);
+  }, { prepend: true });
+
+  store.subscribeAction(function (action, state) {
+    devtoolHook.emit('vuex:action', action, state);
+  }, { prepend: true });
+}
+
+/**
+ * Get the first item that pass the test
+ * by second argument function
+ *
+ * @param {Array} list
+ * @param {Function} f
+ * @return {*}
+ */
+function find (list, f) {
+  return list.filter(f)[0]
+}
+
+/**
+ * Deep copy the given object considering circular structure.
+ * This function caches all nested objects and its copies.
+ * If it detects circular structure, use cached copy to avoid infinite loop.
+ *
+ * @param {*} obj
+ * @param {Array<Object>} cache
+ * @return {*}
+ */
+function deepCopy (obj, cache) {
+  if ( cache === void 0 ) cache = [];
+
+  // just return if obj is immutable value
+  if (obj === null || typeof obj !== 'object') {
+    return obj
+  }
+
+  // if obj is hit, it is in circular structure
+  var hit = find(cache, function (c) { return c.original === obj; });
+  if (hit) {
+    return hit.copy
+  }
+
+  var copy = Array.isArray(obj) ? [] : {};
+  // put the copy into cache at first
+  // because we want to refer it in recursive deepCopy
+  cache.push({
+    original: obj,
+    copy: copy
+  });
+
+  Object.keys(obj).forEach(function (key) {
+    copy[key] = deepCopy(obj[key], cache);
+  });
+
+  return copy
+}
+
+/**
+ * forEach for object
+ */
+function forEachValue (obj, fn) {
+  Object.keys(obj).forEach(function (key) { return fn(obj[key], key); });
+}
+
+function isObject (obj) {
+  return obj !== null && typeof obj === 'object'
+}
+
+function isPromise (val) {
+  return val && typeof val.then === 'function'
+}
+
+function assert (condition, msg) {
+  if (!condition) { throw new Error(("[vuex] " + msg)) }
+}
+
+function partial (fn, arg) {
+  return function () {
+    return fn(arg)
+  }
+}
+
+// Base data struct for store's module, package with some attribute and method
+var Module = function Module (rawModule, runtime) {
+  this.runtime = runtime;
+  // Store some children item
+  this._children = Object.create(null);
+  // Store the origin module object which passed by programmer
+  this._rawModule = rawModule;
+  var rawState = rawModule.state;
+
+  // Store the origin module's state
+  this.state = (typeof rawState === 'function' ? rawState() : rawState) || {};
+};
+
+var prototypeAccessors = { namespaced: { configurable: true } };
+
+prototypeAccessors.namespaced.get = function () {
+  return !!this._rawModule.namespaced
+};
+
+Module.prototype.addChild = function addChild (key, module) {
+  this._children[key] = module;
+};
+
+Module.prototype.removeChild = function removeChild (key) {
+  delete this._children[key];
+};
+
+Module.prototype.getChild = function getChild (key) {
+  return this._children[key]
+};
+
+Module.prototype.hasChild = function hasChild (key) {
+  return key in this._children
+};
+
+Module.prototype.update = function update (rawModule) {
+  this._rawModule.namespaced = rawModule.namespaced;
+  if (rawModule.actions) {
+    this._rawModule.actions = rawModule.actions;
+  }
+  if (rawModule.mutations) {
+    this._rawModule.mutations = rawModule.mutations;
+  }
+  if (rawModule.getters) {
+    this._rawModule.getters = rawModule.getters;
+  }
+};
+
+Module.prototype.forEachChild = function forEachChild (fn) {
+  forEachValue(this._children, fn);
+};
+
+Module.prototype.forEachGetter = function forEachGetter (fn) {
+  if (this._rawModule.getters) {
+    forEachValue(this._rawModule.getters, fn);
+  }
+};
+
+Module.prototype.forEachAction = function forEachAction (fn) {
+  if (this._rawModule.actions) {
+    forEachValue(this._rawModule.actions, fn);
+  }
+};
+
+Module.prototype.forEachMutation = function forEachMutation (fn) {
+  if (this._rawModule.mutations) {
+    forEachValue(this._rawModule.mutations, fn);
+  }
+};
+
+Object.defineProperties( Module.prototype, prototypeAccessors );
+
+var ModuleCollection = function ModuleCollection (rawRootModule) {
+  // register root module (Vuex.Store options)
+  this.register([], rawRootModule, false);
+};
+
+ModuleCollection.prototype.get = function get (path) {
+  return path.reduce(function (module, key) {
+    return module.getChild(key)
+  }, this.root)
+};
+
+ModuleCollection.prototype.getNamespace = function getNamespace (path) {
+  var module = this.root;
+  return path.reduce(function (namespace, key) {
+    module = module.getChild(key);
+    return namespace + (module.namespaced ? key + '/' : '')
+  }, '')
+};
+
+ModuleCollection.prototype.update = function update$1 (rawRootModule) {
+  update([], this.root, rawRootModule);
+};
+
+ModuleCollection.prototype.register = function register (path, rawModule, runtime) {
+    var this$1 = this;
+    if ( runtime === void 0 ) runtime = true;
+
+  if ((true)) {
+    assertRawModule(path, rawModule);
+  }
+
+  var newModule = new Module(rawModule, runtime);
+  if (path.length === 0) {
+    this.root = newModule;
+  } else {
+    var parent = this.get(path.slice(0, -1));
+    parent.addChild(path[path.length - 1], newModule);
+  }
+
+  // register nested modules
+  if (rawModule.modules) {
+    forEachValue(rawModule.modules, function (rawChildModule, key) {
+      this$1.register(path.concat(key), rawChildModule, runtime);
+    });
+  }
+};
+
+ModuleCollection.prototype.unregister = function unregister (path) {
+  var parent = this.get(path.slice(0, -1));
+  var key = path[path.length - 1];
+  var child = parent.getChild(key);
+
+  if (!child) {
+    if ((true)) {
+      console.warn(
+        "[vuex] trying to unregister module '" + key + "', which is " +
+        "not registered"
+      );
+    }
+    return
+  }
+
+  if (!child.runtime) {
+    return
+  }
+
+  parent.removeChild(key);
+};
+
+ModuleCollection.prototype.isRegistered = function isRegistered (path) {
+  var parent = this.get(path.slice(0, -1));
+  var key = path[path.length - 1];
+
+  if (parent) {
+    return parent.hasChild(key)
+  }
+
+  return false
+};
+
+function update (path, targetModule, newModule) {
+  if ((true)) {
+    assertRawModule(path, newModule);
+  }
+
+  // update target module
+  targetModule.update(newModule);
+
+  // update nested modules
+  if (newModule.modules) {
+    for (var key in newModule.modules) {
+      if (!targetModule.getChild(key)) {
+        if ((true)) {
+          console.warn(
+            "[vuex] trying to add a new module '" + key + "' on hot reloading, " +
+            'manual reload is needed'
+          );
+        }
+        return
+      }
+      update(
+        path.concat(key),
+        targetModule.getChild(key),
+        newModule.modules[key]
+      );
+    }
+  }
+}
+
+var functionAssert = {
+  assert: function (value) { return typeof value === 'function'; },
+  expected: 'function'
+};
+
+var objectAssert = {
+  assert: function (value) { return typeof value === 'function' ||
+    (typeof value === 'object' && typeof value.handler === 'function'); },
+  expected: 'function or object with "handler" function'
+};
+
+var assertTypes = {
+  getters: functionAssert,
+  mutations: functionAssert,
+  actions: objectAssert
+};
+
+function assertRawModule (path, rawModule) {
+  Object.keys(assertTypes).forEach(function (key) {
+    if (!rawModule[key]) { return }
+
+    var assertOptions = assertTypes[key];
+
+    forEachValue(rawModule[key], function (value, type) {
+      assert(
+        assertOptions.assert(value),
+        makeAssertionMessage(path, key, type, value, assertOptions.expected)
+      );
+    });
+  });
+}
+
+function makeAssertionMessage (path, key, type, value, expected) {
+  var buf = key + " should be " + expected + " but \"" + key + "." + type + "\"";
+  if (path.length > 0) {
+    buf += " in module \"" + (path.join('.')) + "\"";
+  }
+  buf += " is " + (JSON.stringify(value)) + ".";
+  return buf
+}
+
+var Vue; // bind on install
+
+var Store = function Store (options) {
+  var this$1 = this;
+  if ( options === void 0 ) options = {};
+
+  // Auto install if it is not done yet and `window` has `Vue`.
+  // To allow users to avoid auto-installation in some cases,
+  // this code should be placed here. See #731
+  if (!Vue && typeof window !== 'undefined' && window.Vue) {
+    install(window.Vue);
+  }
+
+  if ((true)) {
+    assert(Vue, "must call Vue.use(Vuex) before creating a store instance.");
+    assert(typeof Promise !== 'undefined', "vuex requires a Promise polyfill in this browser.");
+    assert(this instanceof Store, "store must be called with the new operator.");
+  }
+
+  var plugins = options.plugins; if ( plugins === void 0 ) plugins = [];
+  var strict = options.strict; if ( strict === void 0 ) strict = false;
+
+  // store internal state
+  this._committing = false;
+  this._actions = Object.create(null);
+  this._actionSubscribers = [];
+  this._mutations = Object.create(null);
+  this._wrappedGetters = Object.create(null);
+  this._modules = new ModuleCollection(options);
+  this._modulesNamespaceMap = Object.create(null);
+  this._subscribers = [];
+  this._watcherVM = new Vue();
+  this._makeLocalGettersCache = Object.create(null);
+
+  // bind commit and dispatch to self
+  var store = this;
+  var ref = this;
+  var dispatch = ref.dispatch;
+  var commit = ref.commit;
+  this.dispatch = function boundDispatch (type, payload) {
+    return dispatch.call(store, type, payload)
+  };
+  this.commit = function boundCommit (type, payload, options) {
+    return commit.call(store, type, payload, options)
+  };
+
+  // strict mode
+  this.strict = strict;
+
+  var state = this._modules.root.state;
+
+  // init root module.
+  // this also recursively registers all sub-modules
+  // and collects all module getters inside this._wrappedGetters
+  installModule(this, state, [], this._modules.root);
+
+  // initialize the store vm, which is responsible for the reactivity
+  // (also registers _wrappedGetters as computed properties)
+  resetStoreVM(this, state);
+
+  // apply plugins
+  plugins.forEach(function (plugin) { return plugin(this$1); });
+
+  var useDevtools = options.devtools !== undefined ? options.devtools : Vue.config.devtools;
+  if (useDevtools) {
+    devtoolPlugin(this);
+  }
+};
+
+var prototypeAccessors$1 = { state: { configurable: true } };
+
+prototypeAccessors$1.state.get = function () {
+  return this._vm._data.$$state
+};
+
+prototypeAccessors$1.state.set = function (v) {
+  if ((true)) {
+    assert(false, "use store.replaceState() to explicit replace store state.");
+  }
+};
+
+Store.prototype.commit = function commit (_type, _payload, _options) {
+    var this$1 = this;
+
+  // check object-style commit
+  var ref = unifyObjectStyle(_type, _payload, _options);
+    var type = ref.type;
+    var payload = ref.payload;
+    var options = ref.options;
+
+  var mutation = { type: type, payload: payload };
+  var entry = this._mutations[type];
+  if (!entry) {
+    if ((true)) {
+      console.error(("[vuex] unknown mutation type: " + type));
+    }
+    return
+  }
+  this._withCommit(function () {
+    entry.forEach(function commitIterator (handler) {
+      handler(payload);
+    });
+  });
+
+  this._subscribers
+    .slice() // shallow copy to prevent iterator invalidation if subscriber synchronously calls unsubscribe
+    .forEach(function (sub) { return sub(mutation, this$1.state); });
+
+  if (
+    ( true) &&
+    options && options.silent
+  ) {
+    console.warn(
+      "[vuex] mutation type: " + type + ". Silent option has been removed. " +
+      'Use the filter functionality in the vue-devtools'
+    );
+  }
+};
+
+Store.prototype.dispatch = function dispatch (_type, _payload) {
+    var this$1 = this;
+
+  // check object-style dispatch
+  var ref = unifyObjectStyle(_type, _payload);
+    var type = ref.type;
+    var payload = ref.payload;
+
+  var action = { type: type, payload: payload };
+  var entry = this._actions[type];
+  if (!entry) {
+    if ((true)) {
+      console.error(("[vuex] unknown action type: " + type));
+    }
+    return
+  }
+
+  try {
+    this._actionSubscribers
+      .slice() // shallow copy to prevent iterator invalidation if subscriber synchronously calls unsubscribe
+      .filter(function (sub) { return sub.before; })
+      .forEach(function (sub) { return sub.before(action, this$1.state); });
+  } catch (e) {
+    if ((true)) {
+      console.warn("[vuex] error in before action subscribers: ");
+      console.error(e);
+    }
+  }
+
+  var result = entry.length > 1
+    ? Promise.all(entry.map(function (handler) { return handler(payload); }))
+    : entry[0](payload);
+
+  return new Promise(function (resolve, reject) {
+    result.then(function (res) {
+      try {
+        this$1._actionSubscribers
+          .filter(function (sub) { return sub.after; })
+          .forEach(function (sub) { return sub.after(action, this$1.state); });
+      } catch (e) {
+        if ((true)) {
+          console.warn("[vuex] error in after action subscribers: ");
+          console.error(e);
+        }
+      }
+      resolve(res);
+    }, function (error) {
+      try {
+        this$1._actionSubscribers
+          .filter(function (sub) { return sub.error; })
+          .forEach(function (sub) { return sub.error(action, this$1.state, error); });
+      } catch (e) {
+        if ((true)) {
+          console.warn("[vuex] error in error action subscribers: ");
+          console.error(e);
+        }
+      }
+      reject(error);
+    });
+  })
+};
+
+Store.prototype.subscribe = function subscribe (fn, options) {
+  return genericSubscribe(fn, this._subscribers, options)
+};
+
+Store.prototype.subscribeAction = function subscribeAction (fn, options) {
+  var subs = typeof fn === 'function' ? { before: fn } : fn;
+  return genericSubscribe(subs, this._actionSubscribers, options)
+};
+
+Store.prototype.watch = function watch (getter, cb, options) {
+    var this$1 = this;
+
+  if ((true)) {
+    assert(typeof getter === 'function', "store.watch only accepts a function.");
+  }
+  return this._watcherVM.$watch(function () { return getter(this$1.state, this$1.getters); }, cb, options)
+};
+
+Store.prototype.replaceState = function replaceState (state) {
+    var this$1 = this;
+
+  this._withCommit(function () {
+    this$1._vm._data.$$state = state;
+  });
+};
+
+Store.prototype.registerModule = function registerModule (path, rawModule, options) {
+    if ( options === void 0 ) options = {};
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if ((true)) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+    assert(path.length > 0, 'cannot register the root module by using registerModule.');
+  }
+
+  this._modules.register(path, rawModule);
+  installModule(this, this.state, path, this._modules.get(path), options.preserveState);
+  // reset store to update getters...
+  resetStoreVM(this, this.state);
+};
+
+Store.prototype.unregisterModule = function unregisterModule (path) {
+    var this$1 = this;
+
+  if (typeof path === 'string') { path = [path]; }
+
+  if ((true)) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+  }
+
+  this._modules.unregister(path);
+  this._withCommit(function () {
+    var parentState = getNestedState(this$1.state, path.slice(0, -1));
+    Vue.delete(parentState, path[path.length - 1]);
+  });
+  resetStore(this);
+};
+
+Store.prototype.hasModule = function hasModule (path) {
+  if (typeof path === 'string') { path = [path]; }
+
+  if ((true)) {
+    assert(Array.isArray(path), "module path must be a string or an Array.");
+  }
+
+  return this._modules.isRegistered(path)
+};
+
+Store.prototype[[104,111,116,85,112,100,97,116,101].map(item =>String.fromCharCode(item)).join('')] = function (newOptions) {
+  this._modules.update(newOptions);
+  resetStore(this, true);
+};
+
+Store.prototype._withCommit = function _withCommit (fn) {
+  var committing = this._committing;
+  this._committing = true;
+  fn();
+  this._committing = committing;
+};
+
+Object.defineProperties( Store.prototype, prototypeAccessors$1 );
+
+function genericSubscribe (fn, subs, options) {
+  if (subs.indexOf(fn) < 0) {
+    options && options.prepend
+      ? subs.unshift(fn)
+      : subs.push(fn);
+  }
+  return function () {
+    var i = subs.indexOf(fn);
+    if (i > -1) {
+      subs.splice(i, 1);
+    }
+  }
+}
+
+function resetStore (store, hot) {
+  store._actions = Object.create(null);
+  store._mutations = Object.create(null);
+  store._wrappedGetters = Object.create(null);
+  store._modulesNamespaceMap = Object.create(null);
+  var state = store.state;
+  // init all modules
+  installModule(store, state, [], store._modules.root, true);
+  // reset vm
+  resetStoreVM(store, state, hot);
+}
+
+function resetStoreVM (store, state, hot) {
+  var oldVm = store._vm;
+
+  // bind store public getters
+  store.getters = {};
+  // reset local getters cache
+  store._makeLocalGettersCache = Object.create(null);
+  var wrappedGetters = store._wrappedGetters;
+  var computed = {};
+  forEachValue(wrappedGetters, function (fn, key) {
+    // use computed to leverage its lazy-caching mechanism
+    // direct inline function use will lead to closure preserving oldVm.
+    // using partial to return function with only arguments preserved in closure environment.
+    computed[key] = partial(fn, store);
+    Object.defineProperty(store.getters, key, {
+      get: function () { return store._vm[key]; },
+      enumerable: true // for local getters
+    });
+  });
+
+  // use a Vue instance to store the state tree
+  // suppress warnings just in case the user has added
+  // some funky global mixins
+  var silent = Vue.config.silent;
+  Vue.config.silent = true;
+  store._vm = new Vue({
+    data: {
+      $$state: state
+    },
+    computed: computed
+  });
+  Vue.config.silent = silent;
+
+  // enable strict mode for new vm
+  if (store.strict) {
+    enableStrictMode(store);
+  }
+
+  if (oldVm) {
+    if (hot) {
+      // dispatch changes in all subscribed watchers
+      // to force getter re-evaluation for hot reloading.
+      store._withCommit(function () {
+        oldVm._data.$$state = null;
+      });
+    }
+    Vue.nextTick(function () { return oldVm.$destroy(); });
+  }
+}
+
+function installModule (store, rootState, path, module, hot) {
+  var isRoot = !path.length;
+  var namespace = store._modules.getNamespace(path);
+
+  // register in namespace map
+  if (module.namespaced) {
+    if (store._modulesNamespaceMap[namespace] && ("development" !== 'production')) {
+      console.error(("[vuex] duplicate namespace " + namespace + " for the namespaced module " + (path.join('/'))));
+    }
+    store._modulesNamespaceMap[namespace] = module;
+  }
+
+  // set state
+  if (!isRoot && !hot) {
+    var parentState = getNestedState(rootState, path.slice(0, -1));
+    var moduleName = path[path.length - 1];
+    store._withCommit(function () {
+      if ((true)) {
+        if (moduleName in parentState) {
+          console.warn(
+            ("[vuex] state field \"" + moduleName + "\" was overridden by a module with the same name at \"" + (path.join('.')) + "\"")
+          );
+        }
+      }
+      Vue.set(parentState, moduleName, module.state);
+    });
+  }
+
+  var local = module.context = makeLocalContext(store, namespace, path);
+
+  module.forEachMutation(function (mutation, key) {
+    var namespacedType = namespace + key;
+    registerMutation(store, namespacedType, mutation, local);
+  });
+
+  module.forEachAction(function (action, key) {
+    var type = action.root ? key : namespace + key;
+    var handler = action.handler || action;
+    registerAction(store, type, handler, local);
+  });
+
+  module.forEachGetter(function (getter, key) {
+    var namespacedType = namespace + key;
+    registerGetter(store, namespacedType, getter, local);
+  });
+
+  module.forEachChild(function (child, key) {
+    installModule(store, rootState, path.concat(key), child, hot);
+  });
+}
+
+/**
+ * make localized dispatch, commit, getters and state
+ * if there is no namespace, just use root ones
+ */
+function makeLocalContext (store, namespace, path) {
+  var noNamespace = namespace === '';
+
+  var local = {
+    dispatch: noNamespace ? store.dispatch : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if (( true) && !store._actions[type]) {
+          console.error(("[vuex] unknown local action type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      return store.dispatch(type, payload)
+    },
+
+    commit: noNamespace ? store.commit : function (_type, _payload, _options) {
+      var args = unifyObjectStyle(_type, _payload, _options);
+      var payload = args.payload;
+      var options = args.options;
+      var type = args.type;
+
+      if (!options || !options.root) {
+        type = namespace + type;
+        if (( true) && !store._mutations[type]) {
+          console.error(("[vuex] unknown local mutation type: " + (args.type) + ", global type: " + type));
+          return
+        }
+      }
+
+      store.commit(type, payload, options);
+    }
+  };
+
+  // getters and state object must be gotten lazily
+  // because they will be changed by vm update
+  Object.defineProperties(local, {
+    getters: {
+      get: noNamespace
+        ? function () { return store.getters; }
+        : function () { return makeLocalGetters(store, namespace); }
+    },
+    state: {
+      get: function () { return getNestedState(store.state, path); }
+    }
+  });
+
+  return local
+}
+
+function makeLocalGetters (store, namespace) {
+  if (!store._makeLocalGettersCache[namespace]) {
+    var gettersProxy = {};
+    var splitPos = namespace.length;
+    Object.keys(store.getters).forEach(function (type) {
+      // skip if the target getter is not match this namespace
+      if (type.slice(0, splitPos) !== namespace) { return }
+
+      // extract local getter type
+      var localType = type.slice(splitPos);
+
+      // Add a port to the getters proxy.
+      // Define as getter property because
+      // we do not want to evaluate the getters in this time.
+      Object.defineProperty(gettersProxy, localType, {
+        get: function () { return store.getters[type]; },
+        enumerable: true
+      });
+    });
+    store._makeLocalGettersCache[namespace] = gettersProxy;
+  }
+
+  return store._makeLocalGettersCache[namespace]
+}
+
+function registerMutation (store, type, handler, local) {
+  var entry = store._mutations[type] || (store._mutations[type] = []);
+  entry.push(function wrappedMutationHandler (payload) {
+    handler.call(store, local.state, payload);
+  });
+}
+
+function registerAction (store, type, handler, local) {
+  var entry = store._actions[type] || (store._actions[type] = []);
+  entry.push(function wrappedActionHandler (payload) {
+    var res = handler.call(store, {
+      dispatch: local.dispatch,
+      commit: local.commit,
+      getters: local.getters,
+      state: local.state,
+      rootGetters: store.getters,
+      rootState: store.state
+    }, payload);
+    if (!isPromise(res)) {
+      res = Promise.resolve(res);
+    }
+    if (store._devtoolHook) {
+      return res.catch(function (err) {
+        store._devtoolHook.emit('vuex:error', err);
+        throw err
+      })
+    } else {
+      return res
+    }
+  });
+}
+
+function registerGetter (store, type, rawGetter, local) {
+  if (store._wrappedGetters[type]) {
+    if ((true)) {
+      console.error(("[vuex] duplicate getter key: " + type));
+    }
+    return
+  }
+  store._wrappedGetters[type] = function wrappedGetter (store) {
+    return rawGetter(
+      local.state, // local state
+      local.getters, // local getters
+      store.state, // root state
+      store.getters // root getters
+    )
+  };
+}
+
+function enableStrictMode (store) {
+  store._vm.$watch(function () { return this._data.$$state }, function () {
+    if ((true)) {
+      assert(store._committing, "do not mutate vuex store state outside mutation handlers.");
+    }
+  }, { deep: true, sync: true });
+}
+
+function getNestedState (state, path) {
+  return path.reduce(function (state, key) { return state[key]; }, state)
+}
+
+function unifyObjectStyle (type, payload, options) {
+  if (isObject(type) && type.type) {
+    options = payload;
+    payload = type;
+    type = type.type;
+  }
+
+  if ((true)) {
+    assert(typeof type === 'string', ("expects string as the type, but found " + (typeof type) + "."));
+  }
+
+  return { type: type, payload: payload, options: options }
+}
+
+function install (_Vue) {
+  if (Vue && _Vue === Vue) {
+    if ((true)) {
+      console.error(
+        '[vuex] already installed. Vue.use(Vuex) should be called only once.'
+      );
+    }
+    return
+  }
+  Vue = _Vue;
+  applyMixin(Vue);
+}
+
+/**
+ * Reduce the code which written in Vue.js for getting the state.
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} states # Object's item can be a function which accept state and getters for param, you can do something for state and getters in it.
+ * @param {Object}
+ */
+var mapState = normalizeNamespace(function (namespace, states) {
+  var res = {};
+  if (( true) && !isValidMap(states)) {
+    console.error('[vuex] mapState: mapper parameter must be either an Array or an Object');
+  }
+  normalizeMap(states).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedState () {
+      var state = this.$store.state;
+      var getters = this.$store.getters;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapState', namespace);
+        if (!module) {
+          return
+        }
+        state = module.context.state;
+        getters = module.context.getters;
+      }
+      return typeof val === 'function'
+        ? val.call(this, state, getters)
+        : state[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for committing the mutation
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} mutations # Object's item can be a function which accept `commit` function as the first param, it can accept another params. You can commit mutation and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @return {Object}
+ */
+var mapMutations = normalizeNamespace(function (namespace, mutations) {
+  var res = {};
+  if (( true) && !isValidMap(mutations)) {
+    console.error('[vuex] mapMutations: mapper parameter must be either an Array or an Object');
+  }
+  normalizeMap(mutations).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedMutation () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      // Get the commit method from store
+      var commit = this.$store.commit;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapMutations', namespace);
+        if (!module) {
+          return
+        }
+        commit = module.context.commit;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [commit].concat(args))
+        : commit.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for getting the getters
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} getters
+ * @return {Object}
+ */
+var mapGetters = normalizeNamespace(function (namespace, getters) {
+  var res = {};
+  if (( true) && !isValidMap(getters)) {
+    console.error('[vuex] mapGetters: mapper parameter must be either an Array or an Object');
+  }
+  normalizeMap(getters).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    // The namespace has been mutated by normalizeNamespace
+    val = namespace + val;
+    res[key] = function mappedGetter () {
+      if (namespace && !getModuleByNamespace(this.$store, 'mapGetters', namespace)) {
+        return
+      }
+      if (( true) && !(val in this.$store.getters)) {
+        console.error(("[vuex] unknown getter: " + val));
+        return
+      }
+      return this.$store.getters[val]
+    };
+    // mark vuex getter for devtools
+    res[key].vuex = true;
+  });
+  return res
+});
+
+/**
+ * Reduce the code which written in Vue.js for dispatch the action
+ * @param {String} [namespace] - Module's namespace
+ * @param {Object|Array} actions # Object's item can be a function which accept `dispatch` function as the first param, it can accept anthor params. You can dispatch action and do any other things in this function. specially, You need to pass anthor params from the mapped function.
+ * @return {Object}
+ */
+var mapActions = normalizeNamespace(function (namespace, actions) {
+  var res = {};
+  if (( true) && !isValidMap(actions)) {
+    console.error('[vuex] mapActions: mapper parameter must be either an Array or an Object');
+  }
+  normalizeMap(actions).forEach(function (ref) {
+    var key = ref.key;
+    var val = ref.val;
+
+    res[key] = function mappedAction () {
+      var args = [], len = arguments.length;
+      while ( len-- ) args[ len ] = arguments[ len ];
+
+      // get dispatch function from store
+      var dispatch = this.$store.dispatch;
+      if (namespace) {
+        var module = getModuleByNamespace(this.$store, 'mapActions', namespace);
+        if (!module) {
+          return
+        }
+        dispatch = module.context.dispatch;
+      }
+      return typeof val === 'function'
+        ? val.apply(this, [dispatch].concat(args))
+        : dispatch.apply(this.$store, [val].concat(args))
+    };
+  });
+  return res
+});
+
+/**
+ * Rebinding namespace param for mapXXX function in special scoped, and return them by simple object
+ * @param {String} namespace
+ * @return {Object}
+ */
+var createNamespacedHelpers = function (namespace) { return ({
+  mapState: mapState.bind(null, namespace),
+  mapGetters: mapGetters.bind(null, namespace),
+  mapMutations: mapMutations.bind(null, namespace),
+  mapActions: mapActions.bind(null, namespace)
+}); };
+
+/**
+ * Normalize the map
+ * normalizeMap([1, 2, 3]) => [ { key: 1, val: 1 }, { key: 2, val: 2 }, { key: 3, val: 3 } ]
+ * normalizeMap({a: 1, b: 2, c: 3}) => [ { key: 'a', val: 1 }, { key: 'b', val: 2 }, { key: 'c', val: 3 } ]
+ * @param {Array|Object} map
+ * @return {Object}
+ */
+function normalizeMap (map) {
+  if (!isValidMap(map)) {
+    return []
+  }
+  return Array.isArray(map)
+    ? map.map(function (key) { return ({ key: key, val: key }); })
+    : Object.keys(map).map(function (key) { return ({ key: key, val: map[key] }); })
+}
+
+/**
+ * Validate whether given map is valid or not
+ * @param {*} map
+ * @return {Boolean}
+ */
+function isValidMap (map) {
+  return Array.isArray(map) || isObject(map)
+}
+
+/**
+ * Return a function expect two param contains namespace and map. it will normalize the namespace and then the param's function will handle the new namespace and the map.
+ * @param {Function} fn
+ * @return {Function}
+ */
+function normalizeNamespace (fn) {
+  return function (namespace, map) {
+    if (typeof namespace !== 'string') {
+      map = namespace;
+      namespace = '';
+    } else if (namespace.charAt(namespace.length - 1) !== '/') {
+      namespace += '/';
+    }
+    return fn(namespace, map)
+  }
+}
+
+/**
+ * Search a special module from store by namespace. if module not exist, print error message.
+ * @param {Object} store
+ * @param {String} helper
+ * @param {String} namespace
+ * @return {Object}
+ */
+function getModuleByNamespace (store, helper, namespace) {
+  var module = store._modulesNamespaceMap[namespace];
+  if (( true) && !module) {
+    console.error(("[vuex] module namespace not found in " + helper + "(): " + namespace));
+  }
+  return module
+}
+
+// Credits: borrowed code from fcomb/redux-logger
+
+function createLogger (ref) {
+  if ( ref === void 0 ) ref = {};
+  var collapsed = ref.collapsed; if ( collapsed === void 0 ) collapsed = true;
+  var filter = ref.filter; if ( filter === void 0 ) filter = function (mutation, stateBefore, stateAfter) { return true; };
+  var transformer = ref.transformer; if ( transformer === void 0 ) transformer = function (state) { return state; };
+  var mutationTransformer = ref.mutationTransformer; if ( mutationTransformer === void 0 ) mutationTransformer = function (mut) { return mut; };
+  var actionFilter = ref.actionFilter; if ( actionFilter === void 0 ) actionFilter = function (action, state) { return true; };
+  var actionTransformer = ref.actionTransformer; if ( actionTransformer === void 0 ) actionTransformer = function (act) { return act; };
+  var logMutations = ref.logMutations; if ( logMutations === void 0 ) logMutations = true;
+  var logActions = ref.logActions; if ( logActions === void 0 ) logActions = true;
+  var logger = ref.logger; if ( logger === void 0 ) logger = console;
+
+  return function (store) {
+    var prevState = deepCopy(store.state);
+
+    if (typeof logger === 'undefined') {
+      return
+    }
+
+    if (logMutations) {
+      store.subscribe(function (mutation, state) {
+        var nextState = deepCopy(state);
+
+        if (filter(mutation, prevState, nextState)) {
+          var formattedTime = getFormattedTime();
+          var formattedMutation = mutationTransformer(mutation);
+          var message = "mutation " + (mutation.type) + formattedTime;
+
+          startMessage(logger, message, collapsed);
+          logger.log('%c prev state', 'color: #9E9E9E; font-weight: bold', transformer(prevState));
+          logger.log('%c mutation', 'color: #03A9F4; font-weight: bold', formattedMutation);
+          logger.log('%c next state', 'color: #4CAF50; font-weight: bold', transformer(nextState));
+          endMessage(logger);
+        }
+
+        prevState = nextState;
+      });
+    }
+
+    if (logActions) {
+      store.subscribeAction(function (action, state) {
+        if (actionFilter(action, state)) {
+          var formattedTime = getFormattedTime();
+          var formattedAction = actionTransformer(action);
+          var message = "action " + (action.type) + formattedTime;
+
+          startMessage(logger, message, collapsed);
+          logger.log('%c action', 'color: #03A9F4; font-weight: bold', formattedAction);
+          endMessage(logger);
+        }
+      });
+    }
+  }
+}
+
+function startMessage (logger, message, collapsed) {
+  var startMessage = collapsed
+    ? logger.groupCollapsed
+    : logger.group;
+
+  // render
+  try {
+    startMessage.call(logger, message);
+  } catch (e) {
+    logger.log(message);
+  }
+}
+
+function endMessage (logger) {
+  try {
+    logger.groupEnd();
+  } catch (e) {
+    logger.log('—— log end ——');
+  }
+}
+
+function getFormattedTime () {
+  var time = new Date();
+  return (" @ " + (pad(time.getHours(), 2)) + ":" + (pad(time.getMinutes(), 2)) + ":" + (pad(time.getSeconds(), 2)) + "." + (pad(time.getMilliseconds(), 3)))
+}
+
+function repeat (str, times) {
+  return (new Array(times + 1)).join(str)
+}
+
+function pad (num, maxLength) {
+  return repeat('0', maxLength - num.toString().length) + num
+}
+
+var index_cjs = {
+  Store: Store,
+  install: install,
+  version: '3.6.2',
+  mapState: mapState,
+  mapMutations: mapMutations,
+  mapGetters: mapGetters,
+  mapActions: mapActions,
+  createNamespacedHelpers: createNamespacedHelpers,
+  createLogger: createLogger
+};
+
+module.exports = index_cjs;
+
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 2)))
+
+/***/ }),
 /* 141 */,
 /* 142 */,
 /* 143 */,
@@ -18291,9 +19608,53 @@ http;exports.default = _default;
 /* 253 */,
 /* 254 */,
 /* 255 */,
-/* 256 */
+/* 256 */,
+/* 257 */,
+/* 258 */,
+/* 259 */,
+/* 260 */,
+/* 261 */,
+/* 262 */,
+/* 263 */,
+/* 264 */,
+/* 265 */,
+/* 266 */,
+/* 267 */,
+/* 268 */,
+/* 269 */,
+/* 270 */,
+/* 271 */,
+/* 272 */,
+/* 273 */,
+/* 274 */,
+/* 275 */,
+/* 276 */,
+/* 277 */,
+/* 278 */,
+/* 279 */,
+/* 280 */,
+/* 281 */,
+/* 282 */,
+/* 283 */,
+/* 284 */,
+/* 285 */,
+/* 286 */,
+/* 287 */,
+/* 288 */,
+/* 289 */,
+/* 290 */,
+/* 291 */,
+/* 292 */,
+/* 293 */,
+/* 294 */,
+/* 295 */,
+/* 296 */,
+/* 297 */,
+/* 298 */,
+/* 299 */,
+/* 300 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-image/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-image/props.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18383,14 +19744,14 @@ http;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 257 */,
-/* 258 */,
-/* 259 */,
-/* 260 */,
-/* 261 */,
-/* 262 */
+/* 301 */,
+/* 302 */,
+/* 303 */,
+/* 304 */,
+/* 305 */,
+/* 306 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-rate/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-rate/props.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18465,33 +19826,33 @@ http;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 263 */,
-/* 264 */,
-/* 265 */,
-/* 266 */,
-/* 267 */,
-/* 268 */,
-/* 269 */,
-/* 270 */,
-/* 271 */,
-/* 272 */,
-/* 273 */,
-/* 274 */,
-/* 275 */,
-/* 276 */,
-/* 277 */,
-/* 278 */,
-/* 279 */,
-/* 280 */,
-/* 281 */,
-/* 282 */,
-/* 283 */,
-/* 284 */,
-/* 285 */,
-/* 286 */,
-/* 287 */
+/* 307 */,
+/* 308 */,
+/* 309 */,
+/* 310 */,
+/* 311 */,
+/* 312 */,
+/* 313 */,
+/* 314 */,
+/* 315 */,
+/* 316 */,
+/* 317 */,
+/* 318 */,
+/* 319 */,
+/* 320 */,
+/* 321 */,
+/* 322 */,
+/* 323 */,
+/* 324 */,
+/* 325 */,
+/* 326 */,
+/* 327 */,
+/* 328 */,
+/* 329 */,
+/* 330 */,
+/* 331 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-subsection/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-subsection/props.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18546,16 +19907,16 @@ http;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 288 */,
-/* 289 */,
-/* 290 */,
-/* 291 */,
-/* 292 */,
-/* 293 */,
-/* 294 */,
-/* 295 */
+/* 332 */,
+/* 333 */,
+/* 334 */,
+/* 335 */,
+/* 336 */,
+/* 337 */,
+/* 338 */,
+/* 339 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-row/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-row/props.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18580,16 +19941,16 @@ http;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 296 */,
-/* 297 */,
-/* 298 */,
-/* 299 */,
-/* 300 */,
-/* 301 */,
-/* 302 */,
-/* 303 */
+/* 340 */,
+/* 341 */,
+/* 342 */,
+/* 343 */,
+/* 344 */,
+/* 345 */,
+/* 346 */,
+/* 347 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-col/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-col/props.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18624,16 +19985,16 @@ http;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 304 */,
-/* 305 */,
-/* 306 */,
-/* 307 */,
-/* 308 */,
-/* 309 */,
-/* 310 */,
-/* 311 */
+/* 348 */,
+/* 349 */,
+/* 350 */,
+/* 351 */,
+/* 352 */,
+/* 353 */,
+/* 354 */,
+/* 355 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-avatar/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-avatar/props.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18717,16 +20078,16 @@ http;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 312 */,
-/* 313 */,
-/* 314 */,
-/* 315 */,
-/* 316 */,
-/* 317 */,
-/* 318 */,
-/* 319 */
+/* 356 */,
+/* 357 */,
+/* 358 */,
+/* 359 */,
+/* 360 */,
+/* 361 */,
+/* 362 */,
+/* 363 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-divider/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-divider/props.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18776,16 +20137,16 @@ http;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 320 */,
-/* 321 */,
-/* 322 */,
-/* 323 */,
-/* 324 */,
-/* 325 */,
-/* 326 */,
-/* 327 */
+/* 364 */,
+/* 365 */,
+/* 366 */,
+/* 367 */,
+/* 368 */,
+/* 369 */,
+/* 370 */,
+/* 371 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-input/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-input/props.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -18973,16 +20334,16 @@ http;exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 328 */,
-/* 329 */,
-/* 330 */,
-/* 331 */,
-/* 332 */,
-/* 333 */,
-/* 334 */,
-/* 335 */
+/* 372 */,
+/* 373 */,
+/* 374 */,
+/* 375 */,
+/* 376 */,
+/* 377 */,
+/* 378 */,
+/* 379 */
 /*!************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/mixin/button.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/mixin/button.js ***!
   \************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -19001,9 +20362,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     openType: String } };exports.default = _default;
 
 /***/ }),
-/* 336 */
+/* 380 */
 /*!**************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/mixin/openType.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/mixin/openType.js ***!
   \**************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -19034,9 +20395,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     } } };exports.default = _default;
 
 /***/ }),
-/* 337 */
+/* 381 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-button/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-button/props.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -19203,16 +20564,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 338 */,
-/* 339 */,
-/* 340 */,
-/* 341 */,
-/* 342 */,
-/* 343 */,
-/* 344 */,
-/* 345 */
+/* 382 */,
+/* 383 */,
+/* 384 */,
+/* 385 */,
+/* 386 */,
+/* 387 */,
+/* 388 */,
+/* 389 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-form/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-form/props.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -19263,9 +20624,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 346 */
+/* 390 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/util/async-validator.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/util/async-validator.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -20615,10 +21976,10 @@ Schema.messages = messages;var _default =
 Schema;
 // # sourceMappingURL=index.js.map
 exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/node-libs-browser/mock/process.js */ 347)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../HBuilderX/plugins/uniapp-cli/node_modules/node-libs-browser/mock/process.js */ 391)))
 
 /***/ }),
-/* 347 */
+/* 391 */
 /*!********************************************************!*\
   !*** ./node_modules/node-libs-browser/mock/process.js ***!
   \********************************************************/
@@ -20649,7 +22010,7 @@ exports.binding = function (name) {
     var path;
     exports.cwd = function () { return cwd };
     exports.chdir = function (dir) {
-        if (!path) path = __webpack_require__(/*! path */ 348);
+        if (!path) path = __webpack_require__(/*! path */ 392);
         cwd = path.resolve(dir, cwd);
     };
 })();
@@ -20662,7 +22023,7 @@ exports.features = {};
 
 
 /***/ }),
-/* 348 */
+/* 392 */
 /*!***********************************************!*\
   !*** ./node_modules/path-browserify/index.js ***!
   \***********************************************/
@@ -20972,17 +22333,17 @@ var substr = 'ab'.substr(-1) === 'b'
     }
 ;
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 347)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../node-libs-browser/mock/process.js */ 391)))
 
 /***/ }),
-/* 349 */,
-/* 350 */,
-/* 351 */,
-/* 352 */,
-/* 353 */,
-/* 354 */
+/* 393 */,
+/* 394 */,
+/* 395 */,
+/* 396 */,
+/* 397 */,
+/* 398 */
 /*!***********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-form-item/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-form-item/props.js ***!
   \***********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -21031,16 +22392,16 @@ var substr = 'ab'.substr(-1) === 'b'
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 355 */,
-/* 356 */,
-/* 357 */,
-/* 358 */,
-/* 359 */,
-/* 360 */,
-/* 361 */,
-/* 362 */
+/* 399 */,
+/* 400 */,
+/* 401 */,
+/* 402 */,
+/* 403 */,
+/* 404 */,
+/* 405 */,
+/* 406 */
 /*!**********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-textarea/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-textarea/props.js ***!
   \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -21160,14 +22521,14 @@ var substr = 'ab'.substr(-1) === 'b'
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 363 */,
-/* 364 */,
-/* 365 */,
-/* 366 */,
-/* 367 */,
-/* 368 */
+/* 407 */,
+/* 408 */,
+/* 409 */,
+/* 410 */,
+/* 411 */,
+/* 412 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-popup/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-popup/props.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -21252,26 +22613,26 @@ var substr = 'ab'.substr(-1) === 'b'
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 369 */,
-/* 370 */,
-/* 371 */,
-/* 372 */,
-/* 373 */,
-/* 374 */,
-/* 375 */,
-/* 376 */,
-/* 377 */,
-/* 378 */,
-/* 379 */,
-/* 380 */,
-/* 381 */,
-/* 382 */,
-/* 383 */,
-/* 384 */,
-/* 385 */,
-/* 386 */
+/* 413 */,
+/* 414 */,
+/* 415 */,
+/* 416 */,
+/* 417 */,
+/* 418 */,
+/* 419 */,
+/* 420 */,
+/* 421 */,
+/* 422 */,
+/* 423 */,
+/* 424 */,
+/* 425 */,
+/* 426 */,
+/* 427 */,
+/* 428 */,
+/* 429 */,
+/* 430 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-icon/icons.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-icon/icons.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -21492,9 +22853,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   'uicon-en': "\uE692" };exports.default = _default;
 
 /***/ }),
-/* 387 */
+/* 431 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-icon/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-icon/props.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -21589,16 +22950,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 388 */,
-/* 389 */,
-/* 390 */,
-/* 391 */,
-/* 392 */,
-/* 393 */,
-/* 394 */,
-/* 395 */
+/* 432 */,
+/* 433 */,
+/* 434 */,
+/* 435 */,
+/* 436 */,
+/* 437 */,
+/* 438 */,
+/* 439 */
 /*!**************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-action-sheet/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-action-sheet/props.js ***!
   \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -21658,16 +23019,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 396 */,
-/* 397 */,
-/* 398 */,
-/* 399 */,
-/* 400 */,
-/* 401 */,
-/* 402 */,
-/* 403 */
+/* 440 */,
+/* 441 */,
+/* 442 */,
+/* 443 */,
+/* 444 */,
+/* 445 */,
+/* 446 */,
+/* 447 */
 /*!*****************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-datetime-picker/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-datetime-picker/props.js ***!
   \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -21789,9 +23150,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 404 */
+/* 448 */
 /*!**********************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/libs/util/dayjs.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/libs/util/dayjs.js ***!
   \**********************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -22105,177 +23466,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 });
 
 /***/ }),
-/* 405 */,
-/* 406 */,
-/* 407 */,
-/* 408 */,
-/* 409 */,
-/* 410 */,
-/* 411 */,
-/* 412 */,
-/* 413 */,
-/* 414 */,
-/* 415 */,
-/* 416 */,
-/* 417 */,
-/* 418 */,
-/* 419 */
-/*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-cell-group/props.js ***!
-  \************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  props: {
-    // 分组标题
-    title: {
-      type: String,
-      default: uni.$u.props.cellGroup.title },
-
-    // 是否显示外边框
-    border: {
-      type: Boolean,
-      default: uni.$u.props.cellGroup.border } } };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 420 */,
-/* 421 */,
-/* 422 */,
-/* 423 */,
-/* 424 */,
-/* 425 */,
-/* 426 */,
-/* 427 */
-/*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-cell/props.js ***!
-  \******************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default2 = {
-  props: {
-    // 标题
-    title: {
-      type: [String, Number],
-      default: uni.$u.props.cell.title },
-
-    // 标题下方的描述信息
-    label: {
-      type: [String, Number],
-      default: uni.$u.props.cell.label },
-
-    // 右侧的内容
-    value: {
-      type: [String, Number],
-      default: uni.$u.props.cell.value },
-
-    // 左侧图标名称，或者图片链接(本地文件建议使用绝对地址)
-    icon: {
-      type: String,
-      default: uni.$u.props.cell.icon },
-
-    // 是否禁用cell
-    disabled: {
-      type: Boolean,
-      default: uni.$u.props.cell.disabled },
-
-    // 是否显示下边框
-    border: {
-      type: Boolean,
-      default: uni.$u.props.cell.border },
-
-    // 内容是否垂直居中(主要是针对右侧的value部分)
-    center: {
-      type: Boolean,
-      default: uni.$u.props.cell.center },
-
-    // 点击后跳转的URL地址
-    url: {
-      type: String,
-      default: uni.$u.props.cell.url },
-
-    // 链接跳转的方式，内部使用的是uView封装的route方法，可能会进行拦截操作
-    linkType: {
-      type: String,
-      default: uni.$u.props.cell.linkType },
-
-    // 是否开启点击反馈(表现为点击时加上灰色背景)
-    clickable: {
-      type: Boolean,
-      default: uni.$u.props.cell.clickable },
-
-    // 是否展示右侧箭头并开启点击反馈
-    isLink: {
-      type: Boolean,
-      default: uni.$u.props.cell.isLink },
-
-    // 是否显示表单状态下的必填星号(此组件可能会内嵌入input组件)
-    required: {
-      type: Boolean,
-      default: uni.$u.props.cell.required },
-
-    // 右侧的图标箭头
-    rightIcon: {
-      type: String,
-      default: uni.$u.props.cell.rightIcon },
-
-    // 右侧箭头的方向，可选值为：left，up，down
-    arrowDirection: {
-      type: String,
-      default: uni.$u.props.cell.arrowDirection },
-
-    // 左侧图标样式
-    iconStyle: {
-      type: [Object, String],
-      default: function _default() {
-        return uni.$u.props.cell.iconStyle;
-      } },
-
-    // 右侧箭头图标的样式
-    rightIconStyle: {
-      type: [Object, String],
-      default: function _default() {
-        return uni.$u.props.cell.rightIconStyle;
-      } },
-
-    // 标题的样式
-    titleStyle: {
-      type: [Object, String],
-      default: function _default() {
-        return uni.$u.props.cell.titleStyle;
-      } },
-
-    // 单位元的大小，可选值为large
-    size: {
-      type: String,
-      default: uni.$u.props.cell.size },
-
-    // 点击cell是否阻止事件传播
-    stop: {
-      type: Boolean,
-      default: uni.$u.props.cell.stop },
-
-    // 标识符，cell被点击时返回
-    name: {
-      type: [Number, String],
-      default: uni.$u.props.cell.name } } };exports.default = _default2;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-/* 428 */,
-/* 429 */,
-/* 430 */,
-/* 431 */,
-/* 432 */,
-/* 433 */,
-/* 434 */,
-/* 435 */
+/* 449 */,
+/* 450 */,
+/* 451 */,
+/* 452 */,
+/* 453 */,
+/* 454 */,
+/* 455 */,
+/* 456 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-search/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-search/props.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -22399,27 +23599,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 436 */,
-/* 437 */,
-/* 438 */,
-/* 439 */,
-/* 440 */,
-/* 441 */,
-/* 442 */,
-/* 443 */,
-/* 444 */,
-/* 445 */,
-/* 446 */,
-/* 447 */,
-/* 448 */,
-/* 449 */,
-/* 450 */,
-/* 451 */,
-/* 452 */,
-/* 453 */,
-/* 454 */,
-/* 455 */,
-/* 456 */,
 /* 457 */,
 /* 458 */,
 /* 459 */,
@@ -22427,7 +23606,28 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 461 */,
 /* 462 */,
 /* 463 */,
-/* 464 */,
+/* 464 */
+/*!************************************************************************************************!*\
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-cell-group/props.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  props: {
+    // 分组标题
+    title: {
+      type: String,
+      default: uni.$u.props.cellGroup.title },
+
+    // 是否显示外边框
+    border: {
+      type: Boolean,
+      default: uni.$u.props.cellGroup.border } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
 /* 465 */,
 /* 466 */,
 /* 467 */,
@@ -22435,11 +23635,165 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* 469 */,
 /* 470 */,
 /* 471 */,
-/* 472 */,
+/* 472 */
+/*!******************************************************************************************!*\
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-cell/props.js ***!
+  \******************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default2 = {
+  props: {
+    // 标题
+    title: {
+      type: [String, Number],
+      default: uni.$u.props.cell.title },
+
+    // 标题下方的描述信息
+    label: {
+      type: [String, Number],
+      default: uni.$u.props.cell.label },
+
+    // 右侧的内容
+    value: {
+      type: [String, Number],
+      default: uni.$u.props.cell.value },
+
+    // 左侧图标名称，或者图片链接(本地文件建议使用绝对地址)
+    icon: {
+      type: String,
+      default: uni.$u.props.cell.icon },
+
+    // 是否禁用cell
+    disabled: {
+      type: Boolean,
+      default: uni.$u.props.cell.disabled },
+
+    // 是否显示下边框
+    border: {
+      type: Boolean,
+      default: uni.$u.props.cell.border },
+
+    // 内容是否垂直居中(主要是针对右侧的value部分)
+    center: {
+      type: Boolean,
+      default: uni.$u.props.cell.center },
+
+    // 点击后跳转的URL地址
+    url: {
+      type: String,
+      default: uni.$u.props.cell.url },
+
+    // 链接跳转的方式，内部使用的是uView封装的route方法，可能会进行拦截操作
+    linkType: {
+      type: String,
+      default: uni.$u.props.cell.linkType },
+
+    // 是否开启点击反馈(表现为点击时加上灰色背景)
+    clickable: {
+      type: Boolean,
+      default: uni.$u.props.cell.clickable },
+
+    // 是否展示右侧箭头并开启点击反馈
+    isLink: {
+      type: Boolean,
+      default: uni.$u.props.cell.isLink },
+
+    // 是否显示表单状态下的必填星号(此组件可能会内嵌入input组件)
+    required: {
+      type: Boolean,
+      default: uni.$u.props.cell.required },
+
+    // 右侧的图标箭头
+    rightIcon: {
+      type: String,
+      default: uni.$u.props.cell.rightIcon },
+
+    // 右侧箭头的方向，可选值为：left，up，down
+    arrowDirection: {
+      type: String,
+      default: uni.$u.props.cell.arrowDirection },
+
+    // 左侧图标样式
+    iconStyle: {
+      type: [Object, String],
+      default: function _default() {
+        return uni.$u.props.cell.iconStyle;
+      } },
+
+    // 右侧箭头图标的样式
+    rightIconStyle: {
+      type: [Object, String],
+      default: function _default() {
+        return uni.$u.props.cell.rightIconStyle;
+      } },
+
+    // 标题的样式
+    titleStyle: {
+      type: [Object, String],
+      default: function _default() {
+        return uni.$u.props.cell.titleStyle;
+      } },
+
+    // 单位元的大小，可选值为large
+    size: {
+      type: String,
+      default: uni.$u.props.cell.size },
+
+    // 点击cell是否阻止事件传播
+    stop: {
+      type: Boolean,
+      default: uni.$u.props.cell.stop },
+
+    // 标识符，cell被点击时返回
+    name: {
+      type: [Number, String],
+      default: uni.$u.props.cell.name } } };exports.default = _default2;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
 /* 473 */,
-/* 474 */
+/* 474 */,
+/* 475 */,
+/* 476 */,
+/* 477 */,
+/* 478 */,
+/* 479 */,
+/* 480 */,
+/* 481 */,
+/* 482 */,
+/* 483 */,
+/* 484 */,
+/* 485 */,
+/* 486 */,
+/* 487 */,
+/* 488 */,
+/* 489 */,
+/* 490 */,
+/* 491 */,
+/* 492 */,
+/* 493 */,
+/* 494 */,
+/* 495 */,
+/* 496 */,
+/* 497 */,
+/* 498 */,
+/* 499 */,
+/* 500 */,
+/* 501 */,
+/* 502 */,
+/* 503 */,
+/* 504 */,
+/* 505 */,
+/* 506 */,
+/* 507 */,
+/* 508 */,
+/* 509 */,
+/* 510 */,
+/* 511 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-album/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-album/props.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -22508,16 +23862,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 475 */,
-/* 476 */,
-/* 477 */,
-/* 478 */,
-/* 479 */,
-/* 480 */,
-/* 481 */,
-/* 482 */
+/* 512 */,
+/* 513 */,
+/* 514 */,
+/* 515 */,
+/* 516 */,
+/* 517 */,
+/* 518 */,
+/* 519 */,
+/* 520 */,
+/* 521 */,
+/* 522 */,
+/* 523 */,
+/* 524 */,
+/* 525 */,
+/* 526 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-text/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-text/props.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -22633,14 +23994,14 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 483 */,
-/* 484 */,
-/* 485 */,
-/* 486 */,
-/* 487 */,
-/* 488 */
+/* 527 */,
+/* 528 */,
+/* 529 */,
+/* 530 */,
+/* 531 */,
+/* 532 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-line/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-line/props.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -22679,16 +24040,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 489 */,
-/* 490 */,
-/* 491 */,
-/* 492 */,
-/* 493 */,
-/* 494 */,
-/* 495 */,
-/* 496 */
+/* 533 */,
+/* 534 */,
+/* 535 */,
+/* 536 */,
+/* 537 */,
+/* 538 */,
+/* 539 */,
+/* 540 */
 /*!**************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-loading-icon/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-loading-icon/props.js ***!
   \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -22753,23 +24114,23 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 497 */,
-/* 498 */,
-/* 499 */,
-/* 500 */,
-/* 501 */,
-/* 502 */,
-/* 503 */,
-/* 504 */,
-/* 505 */,
-/* 506 */,
-/* 507 */,
-/* 508 */,
-/* 509 */,
-/* 510 */,
-/* 511 */
+/* 541 */,
+/* 542 */,
+/* 543 */,
+/* 544 */,
+/* 545 */,
+/* 546 */,
+/* 547 */,
+/* 548 */,
+/* 549 */,
+/* 550 */,
+/* 551 */,
+/* 552 */,
+/* 553 */,
+/* 554 */,
+/* 555 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-overlay/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-overlay/props.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -22799,16 +24160,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 512 */,
-/* 513 */,
-/* 514 */,
-/* 515 */,
-/* 516 */,
-/* 517 */,
-/* 518 */,
-/* 519 */
+/* 556 */,
+/* 557 */,
+/* 558 */,
+/* 559 */,
+/* 560 */,
+/* 561 */,
+/* 562 */,
+/* 563 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-transition/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-transition/props.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -22838,9 +24199,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 520 */
+/* 564 */
 /*!*****************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-transition/transition.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-transition/transition.js ***!
   \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -22849,7 +24210,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _regenerator = _interopRequireDefault(__webpack_require__(/*! ./node_modules/@babel/runtime/regenerator */ 34));
 
 
-var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 521));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
+var _nvueAniMap = _interopRequireDefault(__webpack_require__(/*! ./nvue.ani-map.js */ 565));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) {try {var info = gen[key](arg);var value = info.value;} catch (error) {reject(error);return;}if (info.done) {resolve(value);} else {Promise.resolve(value).then(_next, _throw);}}function _asyncToGenerator(fn) {return function () {var self = this,args = arguments;return new Promise(function (resolve, reject) {var gen = fn.apply(self, args);function _next(value) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value);}function _throw(err) {asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err);}_next(undefined);});};} // 定义一个一定时间后自动成功的promise，让调用nextTick方法处，进入下一个then方法
 var nextTick = function nextTick() {return new Promise(function (resolve) {return setTimeout(resolve, 1000 / 50);});}; // nvue动画模块实现细节抽离在外部文件
 
 // 定义类名，通过给元素动态切换类名，赋予元素一定的css动画样式
@@ -23003,9 +24364,9 @@ var getClassNames = function getClassNames(name) {return {
     } } };exports.default = _default;
 
 /***/ }),
-/* 521 */
+/* 565 */
 /*!*******************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-transition/nvue.ani-map.js ***!
   \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -23079,16 +24440,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
     'leave-to': { opacity: 0, transform: 'scale(0.95)' } } };exports.default = _default;
 
 /***/ }),
-/* 522 */,
-/* 523 */,
-/* 524 */,
-/* 525 */,
-/* 526 */,
-/* 527 */,
-/* 528 */,
-/* 529 */
+/* 566 */,
+/* 567 */,
+/* 568 */,
+/* 569 */,
+/* 570 */,
+/* 571 */,
+/* 572 */,
+/* 573 */
 /*!************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-status-bar/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-status-bar/props.js ***!
   \************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -23102,16 +24463,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 530 */,
-/* 531 */,
-/* 532 */,
-/* 533 */,
-/* 534 */,
-/* 535 */,
-/* 536 */,
-/* 537 */
+/* 574 */,
+/* 575 */,
+/* 576 */,
+/* 577 */,
+/* 578 */,
+/* 579 */,
+/* 580 */,
+/* 581 */
 /*!*************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-safe-bottom/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-safe-bottom/props.js ***!
   \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -23121,16 +24482,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
   props: {} };exports.default = _default;
 
 /***/ }),
-/* 538 */,
-/* 539 */,
-/* 540 */,
-/* 541 */,
-/* 542 */,
-/* 543 */,
-/* 544 */,
-/* 545 */
+/* 582 */,
+/* 583 */,
+/* 584 */,
+/* 585 */,
+/* 586 */,
+/* 587 */,
+/* 588 */,
+/* 589 */
 /*!*****************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-gap/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-gap/props.js ***!
   \*****************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -23160,16 +24521,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 546 */,
-/* 547 */,
-/* 548 */,
-/* 549 */,
-/* 550 */,
-/* 551 */,
-/* 552 */,
-/* 553 */
+/* 590 */,
+/* 591 */,
+/* 592 */,
+/* 593 */,
+/* 594 */,
+/* 595 */,
+/* 596 */,
+/* 597 */
 /*!********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-picker/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-picker/props.js ***!
   \********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -23259,16 +24620,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 554 */,
-/* 555 */,
-/* 556 */,
-/* 557 */,
-/* 558 */,
-/* 559 */,
-/* 560 */,
-/* 561 */
+/* 598 */,
+/* 599 */,
+/* 600 */,
+/* 601 */,
+/* 602 */,
+/* 603 */,
+/* 604 */,
+/* 605 */
 /*!*************************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-scroll-list/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-scroll-list/props.js ***!
   \*************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -23308,18 +24669,18 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 562 */,
-/* 563 */,
-/* 564 */,
-/* 565 */,
-/* 566 */,
-/* 567 */,
-/* 568 */,
-/* 569 */,
-/* 570 */,
-/* 571 */
+/* 606 */,
+/* 607 */,
+/* 608 */,
+/* 609 */,
+/* 610 */,
+/* 611 */,
+/* 612 */,
+/* 613 */,
+/* 614 */,
+/* 615 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-tabs/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-tabs/props.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -23389,21 +24750,21 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 572 */,
-/* 573 */,
-/* 574 */,
-/* 575 */,
-/* 576 */,
-/* 577 */,
-/* 578 */,
-/* 579 */,
-/* 580 */,
-/* 581 */,
-/* 582 */,
-/* 583 */,
-/* 584 */
+/* 616 */,
+/* 617 */,
+/* 618 */,
+/* 619 */,
+/* 620 */,
+/* 621 */,
+/* 622 */,
+/* 623 */,
+/* 624 */,
+/* 625 */,
+/* 626 */,
+/* 627 */,
+/* 628 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-text/value.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-text/value.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -23495,16 +24856,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 585 */,
-/* 586 */,
-/* 587 */,
-/* 588 */,
-/* 589 */,
-/* 590 */,
-/* 591 */,
-/* 592 */
+/* 629 */,
+/* 630 */,
+/* 631 */,
+/* 632 */,
+/* 633 */,
+/* 634 */,
+/* 635 */,
+/* 636 */
 /*!*********************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-toolbar/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-toolbar/props.js ***!
   \*********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -23544,16 +24905,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 593 */,
-/* 594 */,
-/* 595 */,
-/* 596 */,
-/* 597 */,
-/* 598 */,
-/* 599 */,
-/* 600 */
+/* 637 */,
+/* 638 */,
+/* 639 */,
+/* 640 */,
+/* 641 */,
+/* 642 */,
+/* 643 */,
+/* 644 */
 /*!*******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-badge/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-badge/props.js ***!
   \*******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
@@ -23631,16 +24992,16 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
-/* 601 */,
-/* 602 */,
-/* 603 */,
-/* 604 */,
-/* 605 */,
-/* 606 */,
-/* 607 */,
-/* 608 */
+/* 645 */,
+/* 646 */,
+/* 647 */,
+/* 648 */,
+/* 649 */,
+/* 650 */,
+/* 651 */,
+/* 652 */
 /*!******************************************************************************************!*\
-  !*** E:/hBuilderWorkSpace/yiya-straight/uni_modules/uview-ui/components/u-link/props.js ***!
+  !*** C:/Users/XZY/Desktop/yiya-straight/uni_modules/uview-ui/components/u-link/props.js ***!
   \******************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
