@@ -1,8 +1,7 @@
 {
   "navigationBarTitleText": "神州牙都会",
   "usingComponents": {
-    "u--image": "/uni_modules/uview-ui/components/u--image/u--image",
-    "u-rate": "/uni_modules/uview-ui/components/u-rate/u-rate",
+    "goods-list": "/components/goods-list/goods-list",
     "swiper-image": "/components/index/swiper-image",
     "index-nav": "/components/index/indx-nav",
     "index-header": "/components/index/index-header",
