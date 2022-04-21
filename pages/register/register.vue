@@ -28,6 +28,27 @@
               </u-form-item>
             </view>
             <view class="mx-2">
+              <u-form-item
+                label="出生日期:"
+                prop="userInfo.birthday"
+                labelWidth="80"
+                borderBottom
+                @click="
+                  showBirthday = true;
+                  hideKeyboard();
+                "
+              >
+                <u--input
+                  v-model="model1.userInfo.birthday"
+                  disabled
+                  disabledColor="#ffffff"
+                  placeholder="请选择出生日期"
+                  border="none"
+                ></u--input>
+                <u-icon slot="right" name="arrow-right"></u-icon>
+              </u-form-item>
+            </view>
+            <view class="mx-2">
               <u-form-item label="手机号:" prop="userInfo.phone" borderBottom ref="item1" labelWidth="55">
                 <u--input v-model="model1.userInfo.phone" placeholder="请输入手机号码" border="none"></u--input>
               </u-form-item>
@@ -83,8 +104,9 @@
             :show="showSex"
             :actions="sexActions"
             title="请选择性别"
-            @close="showSex = false"
+            @close="closeSex"
             @select="sexSelect"
+            cancelText="取消"
           ></u-action-sheet>
           <u-action-sheet
             :show="showProject"
@@ -97,10 +119,21 @@
             :show="showCalendar"
             :value="appointment"
             mode="datetime"
+            :minDate="Date.now()"
+            :filter="filter"
             closeOnClickOverlay
             @confirm="appointmentConfirm"
             @cancel="appointmentClose"
             @close="appointmentClose"
+          ></u-datetime-picker>
+          <u-datetime-picker
+            :show="showBirthday"
+            mode="date"
+            :minDate="1650538"
+            closeOnClickOverlay
+            @confirm="birthdayConfirm"
+            @cancel="showBirthday = false"
+            @close="showBirthday = false"
           ></u-datetime-picker>
         </view>
       </view>
@@ -117,7 +150,8 @@ export default {
       showSex: false,
       showProject: false,
       showCalendar: false,
-      appointment: Number(new Date()),
+      showBirthday: false,
+      appointment: '',
       model1: {
         userInfo: {
           name: '',
@@ -125,7 +159,8 @@ export default {
           phone: '',
           appointment: '',
           project: '',
-          desc: ''
+          desc: '',
+          birthday: ''
         }
       },
       sexActions: [
@@ -155,6 +190,12 @@ export default {
           max: 1,
           required: true,
           message: '请选择男或女',
+          trigger: ['blur', 'change']
+        },
+        'userInfo.birthday': {
+          type: 'string',
+          required: true,
+          message: '请选择出生日期',
           trigger: ['blur', 'change']
         },
         'userInfo.phone': {
@@ -197,13 +238,14 @@ export default {
       // 清空表单
       this.reset();
       this.show = false;
-
-      console.log('close');
     },
     // 选择性别
     sexSelect(e) {
       this.model1.userInfo.sex = e.name;
       this.$refs.userInfoRef.validateField('userInfo.sex');
+    },
+    closeSex() {
+      this.showSex = false;
     },
     projectSelect(e) {
       this.model1.userInfo.project = e.name;
@@ -217,6 +259,26 @@ export default {
     // 处理关闭
     appointmentClose() {
       this.showCalendar = false;
+    },
+    // 确认出生日期
+    birthdayConfirm(e){
+      this.showBirthday = false;
+      console.log(e.value)
+      this.model1.userInfo.birthday = uni.$u.timeFormat(e.value, 'yyyy-mm-dd');
+      console.log(uni.$u.timeFormat(e.value, 'yyyy-mm-dd'))
+    },
+    filter(mode, options) {
+      let currentYear = new Date().getFullYear();
+      let currentMoth = new Date().getMonth() + 1;
+      let currentDay = new Date().getDate();
+      let currentHour = new Date().getHours();
+      if (mode === 'year') {
+        return options.filter(option => option >= currentYear);
+      }
+      if (mode === 'minute') {
+        return options.filter(option => option % 15 === 0);
+      }
+      return options;
     },
     // 提交预约
     submit() {
@@ -242,7 +304,8 @@ export default {
         'userInfo.phone',
         'userInfo.appointment',
         'userInfo.project',
-        'userInfo.desc'
+        'userInfo.desc',
+        'userInfo.birthday'
       ];
 
       this.$refs.userInfoRef.resetFields();
@@ -254,6 +317,7 @@ export default {
       this.model1.userInfo.phone = '';
       this.model1.userInfo.project = '';
       this.model1.userInfo.sex = '';
+      this.model1.userInfo.birthday = '';
     },
     hideKeyboard() {
       uni.hideKeyboard();
