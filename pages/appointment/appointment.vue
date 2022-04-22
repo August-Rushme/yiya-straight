@@ -4,7 +4,7 @@
       <uni-section title="我的预约" type="line">
         <uni-card :cover="cover" @click="onClick">
           <view class="title d-flex flex-row j-sb px-1 a-center border-bottom pb-1">
-            <view>{{ appointment.appointmentTime }}</view>
+            <view>{{ appointment.appointmentTime}}  </view>
             <u-tag v-if="appointment.status == 0" text="预约中" plain shape="circle"></u-tag>
             <u-tag v-if="appointment.status == 1" text="预约成功" type="success" plain shape="circle"></u-tag>
           </view>
@@ -40,47 +40,23 @@
 export default {
   data() {
     return {
-      appointments: [
-        {
-          id: 1,
-          name: '张三',
-          gender: '男',
-          birthday: '2008-09-15',
-          appointmentTime: '2022-04-22 周五 09:00',
-          phone: '13888888888',
-          project: '牙齿美白',
-          status: '1'
-        },
-        {
-          id: 2,
-          name: '张三',
-          gender: '男',
-          birthday: '2008-09-15',
-          appointmentTime: '2022-05-22 周五 09:00',
-          phone: '13888888888',
-          project: '烤瓷牙',
-          status: '0'
-        },
-        {
-          id: 3,
-          name: '张三',
-          gender: '男',
-          birthday: '2008-09-15',
-          appointmentTime: '2022-04-29 周五 09:00',
-          phone: '13888888888',
-          project: '种植牙齿',
-          status: '0'
-        }
-      ]
+      appointments: []
     };
   },
   async onLoad() {
-   const res = await this.$http.post('/appointment/getAppointment',{
+    const res = await this.$http.post('/appointment/getAppointment', {
       userId: uni.getStorageSync('userInfo')[`id`],
       pageSize: 8,
-      pageNum:1
-    })
-    console.log(res)
+      pageNum: 1
+    });
+    if (!res.code == 200) {
+      return this.$message.toast('获取数据失败！');
+    }
+    // res.data.list.forEach(item => {
+    //  new Date(appointment.appointmentTime).getDay()
+    // });
+    this.appointments = res.data.list;
+    console.log(res);
   },
   methods: {}
 };

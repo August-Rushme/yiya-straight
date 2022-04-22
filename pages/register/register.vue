@@ -268,18 +268,12 @@ export default {
     // 确认出生日期
     birthdayConfirm(e){
       this.showBirthday = false;
-      console.log(e.value)
       this.model1.userInfo.birthday = uni.$u.timeFormat(e.value, 'yyyy-mm-dd');
-      console.log(uni.$u.timeFormat(e.value, 'yyyy-mm-dd'))
     },
     filter(mode, options) {
-      let currentYear = new Date().getFullYear();
-      let currentMoth = new Date().getMonth() + 1;
-      let currentDay = new Date().getDate();
-      let currentHour = new Date().getHours();
-
+    
       if (mode === 'minute') {
-        return options.filter(option => option % 15 === 0);
+        // return options.filter(option => option % 15 == 0);
       }
       return options;
     },
