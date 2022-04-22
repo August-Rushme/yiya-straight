@@ -51,7 +51,7 @@ const store = new Vuex.Store({
 			commit('changeUsername',uni.getStorageSync('username'));
 			commit('changeAvatar',uni.getStorageSync('avatar'));
 			commit('changeToken',uni.getStorageSync('token'));
-			commit('changeToken',uni.getStorageSync('changeUserInfo'));
+			commit('changeUserInfo',uni.getStorageSync('userInfo'));
 		}
 	}
 	}

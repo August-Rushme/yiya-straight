@@ -99,6 +99,9 @@
 			 ]
 			}
 		},
+		onShow(){
+			this.localLoginAction();
+		},
 		computed: {
 			...mapState(['username','avatar','token'])
 		},
