@@ -34,7 +34,7 @@ const store = new Vuex.Store({
 		  userName: payload.username,
 		  password: payload.password
 		});
-		if(res === '用户名不存在'){
+		if(!res.user){
 		 return message.message("账号或者密码错误")
 		}else{
 			commit('changeUsername',res.user.nickname);
