@@ -16,12 +16,33 @@
               </u-form-item>
             </view>
             <view class="mx-2">
-              <u-form-item label="性别:" prop="userInfo.sex" borderBottom @click="showSex = true" ref="item1">
+              <u-form-item label="性别:" prop="userInfo.gender" borderBottom @click="showSex = true" ref="item1">
                 <u--input
-                  v-model="model1.userInfo.sex"
+                  v-model="model1.userInfo.gender"
                   disabled
                   disabledColor="#ffffff"
                   placeholder="请选择性别"
+                  border="none"
+                ></u--input>
+                <u-icon slot="right" name="arrow-right"></u-icon>
+              </u-form-item>
+            </view>
+            <view class="mx-2">
+              <u-form-item
+                label="出生日期:"
+                prop="userInfo.birthday"
+                labelWidth="80"
+                borderBottom
+                @click="
+                  showBirthday = true;
+                  hideKeyboard();
+                "
+              >
+                <u--input
+                  v-model="model1.userInfo.birthday"
+                  disabled
+                  disabledColor="#ffffff"
+                  placeholder="请选择出生日期"
                   border="none"
                 ></u--input>
                 <u-icon slot="right" name="arrow-right"></u-icon>
@@ -35,7 +56,7 @@
             <view class="mx-2">
               <u-form-item
                 label="预约时间:"
-                prop="userInfo.appointment"
+                prop="userInfo.appointmentTime"
                 labelWidth="80"
                 borderBottom
                 @click="
@@ -44,7 +65,7 @@
                 "
               >
                 <u--input
-                  v-model="model1.userInfo.appointment"
+                  v-model="model1.userInfo.appointmentTime"
                   disabled
                   disabledColor="#ffffff"
                   placeholder="请选择预约时间"
@@ -81,10 +102,11 @@
           </u--form>
           <u-action-sheet
             :show="showSex"
-            :actions="sexActions"
+            :actions="genderActions"
             title="请选择性别"
-            @close="showSex = false"
-            @select="sexSelect"
+            @close="closeSex"
+            @select="genderSelect"
+            cancelText="取消"
           ></u-action-sheet>
           <u-action-sheet
             :show="showProject"
@@ -95,12 +117,23 @@
           ></u-action-sheet>
           <u-datetime-picker
             :show="showCalendar"
-            :value="appointment"
+            :value="appointmentTime"
             mode="datetime"
+            :minDate="Date.now()"
+            :filter="filter"
             closeOnClickOverlay
             @confirm="appointmentConfirm"
             @cancel="appointmentClose"
             @close="appointmentClose"
+          ></u-datetime-picker>
+          <u-datetime-picker
+            :show="showBirthday"
+            mode="date"
+            :minDate="1650538"
+            closeOnClickOverlay
+            @confirm="birthdayConfirm"
+            @cancel="showBirthday = false"
+            @close="showBirthday = false"
           ></u-datetime-picker>
         </view>
       </view>
@@ -109,6 +142,8 @@
 </template>
 
 <script>
+  import {mapActions} from 'vuex'
+
 export default {
   data() {
     return {
@@ -117,18 +152,22 @@ export default {
       showSex: false,
       showProject: false,
       showCalendar: false,
-      appointment: Number(new Date()),
+      showBirthday: false,
+      appointmentTime: '',
       model1: {
         userInfo: {
           name: '',
-          sex: '',
+          gender: '',
           phone: '',
-          appointment: '',
+          appointmentTime: '',
           project: '',
-          desc: ''
+          desc: '',
+          birthday: '',
+          userId: uni.getStorageSync('userInfo')[`id`],
+          status:'0'
         }
       },
-      sexActions: [
+      genderActions: [
         {
           name: '男'
         },
@@ -150,11 +189,17 @@ export default {
           message: '请填写姓名',
           trigger: ['blur', 'change']
         },
-        'userInfo.sex': {
+        'userInfo.gender': {
           type: 'string',
           max: 1,
           required: true,
           message: '请选择男或女',
+          trigger: ['blur', 'change']
+        },
+        'userInfo.birthday': {
+          type: 'string',
+          required: true,
+          message: '请选择出生日期',
           trigger: ['blur', 'change']
         },
         'userInfo.phone': {
@@ -163,7 +208,7 @@ export default {
           message: '请填写手机号',
           trigger: ['blur', 'change']
         },
-        'userInfo.appointment': {
+        'userInfo.appointmentTime': {
           type: 'string',
           required: true,
           message: '请选择预约时间',
@@ -185,6 +230,7 @@ export default {
   },
 
   methods: {
+      ...mapActions(['addAppoinmentAction']),
     // 预约
     register() {
       this.show = true;
@@ -197,13 +243,14 @@ export default {
       // 清空表单
       this.reset();
       this.show = false;
-
-      console.log('close');
     },
     // 选择性别
-    sexSelect(e) {
-      this.model1.userInfo.sex = e.name;
-      this.$refs.userInfoRef.validateField('userInfo.sex');
+    genderSelect(e) {
+      this.model1.userInfo.gender = e.name;
+      this.$refs.userInfoRef.validateField('userInfo.gender');
+    },
+    closeSex() {
+      this.showSex = false;
     },
     projectSelect(e) {
       this.model1.userInfo.project = e.name;
@@ -212,11 +259,29 @@ export default {
     // 确认预约时间
     appointmentConfirm(e) {
       this.showCalendar = false;
-      this.model1.userInfo.appointment = uni.$u.timeFormat(e.value, 'yyyy-mm-dd hh:MM');
+      this.model1.userInfo.appointmentTime = uni.$u.timeFormat(e.value, 'yyyy-mm-dd hh:MM');
     },
     // 处理关闭
     appointmentClose() {
       this.showCalendar = false;
+    },
+    // 确认出生日期
+    birthdayConfirm(e){
+      this.showBirthday = false;
+      console.log(e.value)
+      this.model1.userInfo.birthday = uni.$u.timeFormat(e.value, 'yyyy-mm-dd');
+      console.log(uni.$u.timeFormat(e.value, 'yyyy-mm-dd'))
+    },
+    filter(mode, options) {
+      let currentYear = new Date().getFullYear();
+      let currentMoth = new Date().getMonth() + 1;
+      let currentDay = new Date().getDate();
+      let currentHour = new Date().getHours();
+
+      if (mode === 'minute') {
+        return options.filter(option => option % 15 === 0);
+      }
+      return options;
     },
     // 提交预约
     submit() {
@@ -225,7 +290,8 @@ export default {
         .validate()
         .then(async res => {
           console.log(this.model1.userInfo);
-          uni.$u.toast('预约成功');
+        this.addAppoinmentAction(this.model1.userInfo)
+          
           this.show = false;
           this.reset();
         })
@@ -238,22 +304,24 @@ export default {
     reset() {
       const validateList = [
         'userInfo.name',
-        'userInfo.sex',
+        'userInfo.gender',
         'userInfo.phone',
-        'userInfo.appointment',
+        'userInfo.appointmentTime',
         'userInfo.project',
-        'userInfo.desc'
+        'userInfo.desc',
+        'userInfo.birthday'
       ];
 
       this.$refs.userInfoRef.resetFields();
       console.log(this.$refs.userInfoRef);
       this.$refs.userInfoRef.clearValidate();
-      this.model1.userInfo.appointment = '';
+      this.model1.userInfo.appointmentTime = '';
       this.model1.userInfo.desc = '';
       this.model1.userInfo.name = '';
       this.model1.userInfo.phone = '';
       this.model1.userInfo.project = '';
-      this.model1.userInfo.sex = '';
+      this.model1.userInfo.gender = '';
+      this.model1.userInfo.birthday = '';
     },
     hideKeyboard() {
       uni.hideKeyboard();

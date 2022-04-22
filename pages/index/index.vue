@@ -25,6 +25,7 @@ import indexNav from '@/components/index/indx-nav.vue';
 import indexHeader from '@/components/index/index-header.vue';
 import card from '@/components/common/card.vue';
 import goodsList from '@/components/goods-list/goods-list.vue'
+import {mapActions} from 'vuex'
 export default {
   components: {
     swiperImage,
@@ -37,6 +38,11 @@ export default {
     return {
       // 头部参数
       searchAuto: !0,
+	  pageInfo: {
+		pageSize: 5,
+		pageNum: 1,
+	  },
+	  shopData: [],
       searchTip: '请输入搜索关键字',
       swiperData: [
         { img: 'https://s1.ax1x.com/2022/03/09/bWKB6S.png' },
@@ -61,34 +67,32 @@ export default {
           text: '牙齿治疗'
         }
       ],
-      shopData: [
-        {
-          src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-          address: '国贸口腔(国贸路def区4栋11楼)',
-          desc: '国贸路|齿科',
-		  starsValue: 4.6,
-          label: ['']
-        },
-        {
-          src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-          address: '国兴口腔(国兴路xyz区5栋12楼)',
-          desc: '国兴路|齿科',
-		  starsValue: 4.6,
-          label: ['']
-        },
-        {
-          src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-          address: '德韩口腔(德胜路abc区3栋10楼)',
-          desc: 'abc路|齿科',
-		  starsValue: 4.6,
-          label: ['']
-        }
-      ],
-      
     };
   },
-  onLoad() {},
+ async onLoad() {
+	 const res = await this.getClinicListAction(this.pageInfo);
+	 this.shopData = res.list; 
+	 // this.requestState = true
+  },
+  async onReachBottom() {
+  	this.pageInfo.pageNum++;
+	uni.showLoading({
+		title: '加载中'
+	});
+	const res = await this.getClinicListAction(this.pageInfo);
+    if(res.list.length>0){
+		uni.hideLoading();
+		this.shopData.push(...res.list); 
+	}else{
+		uni.hideLoading();
+		uni.showToast({
+		  title: '没有更多数据了',
+		  icon: 'none'
+		});
+	}	
+  },
   methods: {
+	 	...mapActions(['getClinicListAction']),
     // 搜索回调函数
     search() {
       uni.navigateTo({

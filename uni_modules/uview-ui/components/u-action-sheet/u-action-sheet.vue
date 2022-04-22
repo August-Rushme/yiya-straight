@@ -17,7 +17,7 @@
 				    class="u-action-sheet__header__icon-wrap"
 				    @tap.stop="close"
 				>
-					<u-icon
+					<u-icon @click="closeHandler"
 					    name="close"
 					    size="17"
 					    color="#c8c9cc"

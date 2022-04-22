@@ -146,7 +146,7 @@
             "path" : "pages/appointment/appointment",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "我的预约",
                 "enablePullDownRefresh": false
             }
             
