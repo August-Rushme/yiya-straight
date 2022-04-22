@@ -165,7 +165,7 @@ margin: 0;
 .top-background {
 	width: 750rpx;
 	height: 150rpx;
-	background: linear-gradient(to bottom,#5c4afe 30%,#2495ff);
+	background: linear-gradient(to bottom,#22b1ac 30%,#55f6f0);
 }
 .my-card {
 	position: absolute;

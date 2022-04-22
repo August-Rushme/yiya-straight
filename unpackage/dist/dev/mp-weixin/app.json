@@ -26,7 +26,7 @@
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "神州牙都会",
-    "navigationBarBackgroundColor": "#5c4afe",
+    "navigationBarBackgroundColor": "#22b1ac",
     "backgroundColor": "#fff"
   },
   "tabBar": {
@@ -63,6 +63,5 @@
   },
   "usingComponents": {
     "divider": "/components/common/divider"
-  },
-  "sitemapLocation": "sitemap.json"
+  }
 }
