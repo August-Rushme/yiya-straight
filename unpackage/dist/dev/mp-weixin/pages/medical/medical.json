@@ -1,3 +1,5 @@
 {
+  "navigationBarTitleText": "我的病例",
+  "enablePullDownRefresh": false,
   "usingComponents": {}
 }

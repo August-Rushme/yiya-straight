@@ -27,7 +27,7 @@
 					</view>
 					<view class="d-flex">
 						<block v-for="item in businessInfo.licences" :key="item">
-							<view class="mr-1 p-1 text-dark" style="background-color: #f7f5f6;">{{item}}</view>
+							<view class="mr-1 p-1 text-dark" style="background-color: #f7f5f6;" >{{item}}</view>
 						</block>
 					</view>
 				</view>
@@ -53,24 +53,76 @@
 	<!-- 医师团队 -->
 	<physicianTeam :physicianList="list"></physicianTeam>
 	<divider></divider>
+	<!-- 用户评价-->
+	 <comments :comments="comments"></comments>
+	 <divider></divider>
+	 <!-- 更多商家 -->
+	 <view class="more px-2">
+		 <view class="title m-2 font-md font-weight">
+		 	更多商家
+		 </view>
+	 		 <goods-list :shopData="shopData"></goods-list>
+	 </view>
+
 	</view>
 </template>
 
 <script>
 	import physicianTeam from '@/components/page-detail/physician-team.vue';
 	import product from '@/components/page-detail/product.vue';
+	import goodsList from '@/components/goods-list/goods-list.vue';
+	import comments from  '@/components/comments/comments.vue'
 	export default {
 		components: {
 		  physicianTeam,
-		  product
+		  product,
+		  goodsList,
+		  comments
 		},
 		data() {
 			return {
+					shopData: [
+					  {
+					    src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
+					    address: '国贸口腔(国贸路def区4栋11楼)',
+					    desc: '国贸路|齿科',
+						starsValue: 5,
+					    label: ['']
+					  },
+					  {
+					    src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
+					    address: '国兴口腔(国兴路xyz区5栋12楼)',
+					    desc: '国兴路|齿科',
+						starsValue: 5,
+					    label: ['']
+					  },
+					  {
+					    src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
+					    address: '国兴口腔(国兴路xyz区5栋12楼)',
+					    desc: '国兴路|齿科',
+						starsValue: 5,
+					    label: ['']
+					  },
+					  {
+					    src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
+					    address: '国兴口腔(国兴路xyz区5栋12楼)',
+					    desc: '国兴路|齿科',
+						starsValue: 5,
+					    label: ['']
+					  },
+					  {
+					    src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
+					    address: '德韩口腔(德胜路abc区3栋10楼)',
+					    desc: 'abc路|齿科',
+						starsValue: 5,
+					    label: ['']
+					  }
+					],
 				               bannerSrc: [{
-				                    src1: 'http://t13.baidu.com/it/u=1041300143,4247585941&fm=224&app=112&f=JPEG?w=500&h=500&s=81515E94564262E988C424C10300B0BA',
+				                    src1: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
 				                }],
 								goodsInfo: {
-									imgSrc: 'https://img0.baidu.com/it/u=3586693767,1216901105&fm=253&fmt=auto&app=138&f=JPEG?w=440&h=300',
+									imgSrc: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
 									name: '海南市牙口腔门诊部',
 									startsValue: 4.6,
 									commentValue: 348,
@@ -308,10 +360,93 @@
 								    thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
 								  }
 								],
+								comments: 
+						                 {
+										options: [
+											{
+												name: '热情服务',
+												mount: 179
+											},
+											{
+												name: '洗牙',
+												mount: 144
+											},
+											{
+												name: '环境很好',
+												mount: 126
+											},
+											{
+												name: '性价比高',
+												mount: 87
+											},
+											{
+												name: '价格实惠',
+												mount: 119
+											},
+											{
+												name: '高大上',
+												mount: 60
+											},
+										],
+									  content: [
+										  {
+											  	avatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+							                    username: '我是顾客上帝哦',
+											    starsValue: 4.8,
+												commentTime: '2022/04/21',
+											    commentContent: '就感觉这此体验非常的好大大的好评哦然后就是就感觉这此体验非常的好大大的好评哦就感觉这此体验非常的好大大的好评哦',
+												photos: [
+													'https://cdn.uviewui.com/uview/album/2.jpg',
+													'https://cdn.uviewui.com/uview/album/3.jpg'
+												],
+												replies: [
+													{
+													isBusiness: false,
+													replyname: '小红',
+													replyContent: '感谢您的认可,祝您生活愉快哦亲感谢您的认可,祝您生活愉快哦亲'
+												   },
+												   {
+												   	isBusiness: false,
+													replyname: '小红',
+												   	replyContent: '这家店是真不错哦'
+												   },
+												],
+												likes: 66,
+												thumbColor: 'dark',
+										  },
+										  {
+										  		avatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
+										        username: '我是顾客上帝哦',
+										  		 starsValue: 4.8,
+										  		commentTime: '2022/04/21',
+										  		commentContent: '就感觉这此体验非常的好大大的好评哦然后就是就感觉这此体验非常的好大大的好评哦就感觉这此体验非常的好大大的好评哦就感觉这此体验非常的好大大的好评哦就感觉这此体验非常的好大大的好评哦',
+										  		photos: [
+										  		'https://cdn.uviewui.com/uview/album/2.jpg',
+										  		'https://cdn.uviewui.com/uview/album/3.jpg',
+												'https://cdn.uviewui.com/uview/album/3.jpg'
+										  		],
+		 
+										  		replies: [
+										  		{
+										  		isBusiness: true,
+												replyname: '小红',
+										  		replyContent: '感谢您的认可,祝您生活愉快哦亲'
+										  		 },
+										  		  {
+										  			isBusiness: false,
+													replyname: '小红',
+										  			replyContent: '这家店是真不错哦'
+										  			  },
+										  				],
+										  		likes: 66,
+												thumbColor: 'dark',
+										  },
+										
+									  ]
+									},
+									
+								
 			}
-		},
-		methods: {
-			
 		}
 	}
 </script>
@@ -320,5 +455,26 @@
 	.album >>> image {
 		width: 730upx !important;
 		height: 400upx !important;
+	}
+	.option-item {
+		height: 50rpx;
+		color: #636162;
+		line-height: 50rpx;
+		text-align: center;
+		background-color: #f7f5f6;
+		border-radius: 20rpx;
+	}
+	.select {
+	 color: #e0a534;
+     background-color: #fbf6ea;
+	}
+	.comment-content{
+	 margin-left: 100rpx;
+	}
+	.replyContent {
+		width: 470rpx;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 </style>

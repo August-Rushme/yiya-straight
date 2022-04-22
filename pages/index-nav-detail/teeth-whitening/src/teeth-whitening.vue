@@ -26,7 +26,7 @@
 						<view style="margin-left: -20upx;">
 							<u--image :showLoading="true" :src="item.src" width="84px" height="84px"></u--image>
 						</view>
-					  
+			
 					  <view class="infoText flex-column ml-2">
 					    <text class="font-weight font-md"  >{{ item.address }}</text>
 					    <u-rate count="5" v-model="value" readonly allowHalf="true"></u-rate>
@@ -58,8 +58,7 @@
 					 <view class="d-flex">
 						 <block v-for="skillType in item.skill" :key="skillType">
 						 <view class="border: 1px solid #6e6e6e;color: #6e6e6e;mr-1;px-1">{{skillType}}</view>
-						 </block>
-					
+						 </block>				
 					 </view>
 				 </view>
 				</view>

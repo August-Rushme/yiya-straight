@@ -9,7 +9,6 @@
     "pages/record/record",
     "pages/index-nav-detail/teeth-whitening/src/teeth-whitening",
     "components/search/search",
-    "pages/page-detail/page-detail",
     "pages/detail-comment/detail-comment",
     "pages/goods-detail/goods-detail",
     "pages/register-account/register-account",
@@ -20,7 +19,8 @@
     "pages/server/server",
     "pages/login/login",
     "pages/appointment/appointment",
-    "pages/aboutUs/aboutUs"
+    "pages/aboutUs/aboutUs",
+    "pages/push-comments/push-comments"
   ],
   "subPackages": [],
   "window": {

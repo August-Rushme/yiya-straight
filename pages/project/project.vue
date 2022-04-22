@@ -7,7 +7,7 @@
 			<view style="background-color: #FFFFFF;height: 80px;">
 				<u-row>
 					<u-col span="2" offset="1">
-						<u-avatar size="55px" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fimg95.699pic.com%2Felement%2F40162%2F5054.png_860.png"></u-avatar>
+						<u-avatar size="55px" src="https://bpic.588ku.com/element_pic/20/11/06/1486c17aa5c3ded9de2327fa5ad01242.jpg!/fw/329/quality/90/unsharp/true/compress/true"></u-avatar>
 					</u-col>
 					<u-col span="8">
 						<view>
@@ -41,7 +41,7 @@
 			<view style="background-color: #FFFFFF;height: 80px;">
 				<u-row>
 					<u-col span="2" offset="1">
-						<u-avatar size="55px" src="https://gimg2.baidu.com/image_search/src=http%3A%2F%2Fpic.51yuansu.com%2Fpic3%2Fcover%2F03%2F90%2F27%2F5c1dbe9030f1a_610.jpg"></u-avatar>
+						<u-avatar size="55px" src="https://bpic.588ku.com/element_pic/20/06/30/ffdeadc4cb6c2234d855a3f0e9705d10.jpg!/fw/329/quality/90/unsharp/true/compress/true"></u-avatar>
 					</u-col>
 					<u-col span="8">
 						<view>

@@ -39,7 +39,11 @@
     //   }
     // },
     {
-      "path": "pages/medical/medical"
+      "path": "pages/medical/medical",
+	  "style": {
+	    "navigationBarTitleText": "我的病例",
+		"enablePullDownRefresh": false
+	  }
     },
 
     {
@@ -56,15 +60,6 @@
       "style": {
         "navigationBarTitleText": "搜索"
       }
-    },
-
-    {
-      "path": "pages/page-detail/page-detail",
-      "style": {
-        "navigationBarTitleText": "",
-        "enablePullDownRefresh": false
-      }
-
     }
         ,{
             "path" : "pages/detail-comment/detail-comment",
@@ -151,13 +146,22 @@
             "path" : "pages/appointment/appointment",
             "style" :                                                                                    
             {
-                "navigationBarTitleText": "",
+                "navigationBarTitleText": "我的预约",
                 "enablePullDownRefresh": false
             }
             
         }
         ,{
             "path" : "pages/aboutUs/aboutUs",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/push-comments/push-comments",
             "style" :                                                                                    
             {
                 "navigationBarTitleText": "",
