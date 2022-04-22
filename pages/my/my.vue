@@ -102,9 +102,6 @@
 		computed: {
 			...mapState(['username','avatar','token'])
 		},
-		onShow(){
-          this.localLoginAction()
-		},
 		methods: {
 			...mapActions(['localLoginAction']),
 			gotoLogin() {

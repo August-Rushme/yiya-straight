@@ -28,7 +28,7 @@ export default {
 		canLookMore: false,
 		hasDivider: true,
 		pageBgColor: '#f5f5f5f',
-  comments:
+         comments:
            {
   		options: [
   			{
@@ -59,7 +59,7 @@ export default {
   	  content: [
   		  {
   			  	avatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-                  username: '我是顾客上帝哦',
+                username: '我是顾客上帝哦',
   			    starsValue: 4.8,
   				commentTime: '2022/04/21',
   			    commentContent: '就感觉这此体验非常的好大大的好评哦然后就是就感觉这此体验非常的好大大的好评哦就感觉这此体验非常的好大大的好评哦',
@@ -67,15 +67,20 @@ export default {
   					'https://cdn.uviewui.com/uview/album/2.jpg',
   					'https://cdn.uviewui.com/uview/album/3.jpg'
   				],
+				optionLables: ['热情服务','环境很好'],
   				replies: [
   					{
   					isBusiness: false,
 					replyname: '小红',
+					replyTime: '2022/04/21 08:31:24',
+					replyAvatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
   					replyContent: '感谢您的认可,祝您生活愉快哦亲感谢您的认可,祝您生活愉快哦亲'
   				   },
   				   {
   				   	isBusiness: false,
 					replyname: '小红',
+					replyTime: '2022/04/21 08:31:24',
+					replyAvatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
   				   	replyContent: '这家店是真不错哦'
   				   },
   				],
@@ -93,16 +98,20 @@ export default {
   		  		'https://cdn.uviewui.com/uview/album/3.jpg',
   				'https://cdn.uviewui.com/uview/album/3.jpg'
   		  		],
-  		 
+  		        optionLables: ['热情服务','环境很好'],
   		  		replies: [
   		  		{
   		  		isBusiness: true,
 				replyname: '小红',
+				replyTime: '2022/04/21 08:31:24',
+				replyAvatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
   		  		replyContent: '感谢您的认可,祝您生活愉快哦亲'
   		  		 },
   		  		  {
   		  			isBusiness: false,
 					replyname: '小红',
+					replyTime: '2022/04/21 08:31:24',
+					replyAvatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
   		  			replyContent: '这家店是真不错哦'
   		  			  },
   		  				],
@@ -129,13 +138,6 @@ export default {
 	}
  },
   methods: {
-    handleCateChange(index) {
-      this.cateIndex = index;
-      uni.showLoading({
-        title: '加载中...'
-      });
-      uni.hideLoading();
-    }
   }
 };
 </script>

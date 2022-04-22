@@ -7,7 +7,8 @@ const store = new Vuex.Store({
 	state: {
 		username: '默认昵称',
 		avatar: '',
-		token: ''
+		token: '',
+		userInfo: ''
 	},
 	mutations:{
 		changeUsername(state,payload){
@@ -21,6 +22,10 @@ const store = new Vuex.Store({
 		changeToken(state,payload){
 			state.token = payload
 			uni.setStorageSync('token',payload);
+		},
+		changeUserInfo(state,payload){
+			state.userInfo = payload
+			uni.setStorageSync('userInfo',payload);
 		}
 	},
 	actions: {
@@ -35,6 +40,7 @@ const store = new Vuex.Store({
 			commit('changeUsername',res.user.nickname);
 			commit('changeAvatar',res.user.photo);
 			commit('changeToken',res.token);
+			commit('changeUserInfo',res.user);
 			message.message("登录成功")
 		}
 
@@ -45,6 +51,7 @@ const store = new Vuex.Store({
 			commit('changeUsername',uni.getStorageSync('username'));
 			commit('changeAvatar',uni.getStorageSync('avatar'));
 			commit('changeToken',uni.getStorageSync('token'));
+			commit('changeToken',uni.getStorageSync('changeUserInfo'));
 		}
 	}
 	}
