@@ -102,6 +102,7 @@ export default {
 					replyAvatar: this.avatar,
 					replyContent: this.pushContent
 				});
+				this.pushContent = ''
 			}
 		},
 		onLoad: function(option){

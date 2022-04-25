@@ -26,8 +26,7 @@
                     :style="[
                         {
                             width: imageWidth,
-                            height: imageHeight,
-							borderRadius: radius
+                            height: imageHeight
                         }
                     ]"
                 ></image>

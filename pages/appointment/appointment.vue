@@ -4,7 +4,7 @@
       <uni-section title="我的预约" type="line">
         <uni-card :cover="cover" @click="onClick">
           <view class="title d-flex flex-row j-sb px-1 a-center border-bottom pb-1">
-            <view>{{ appointment.appointmentTime}}  </view>
+            <view>{{ appointment.appointmentTime }}</view>
             <u-tag v-if="appointment.status == 0" text="预约中" plain shape="circle"></u-tag>
             <u-tag v-if="appointment.status == 1" text="预约成功" type="success" plain shape="circle"></u-tag>
           </view>
@@ -40,14 +40,21 @@
 export default {
   data() {
     return {
-      appointments: []
+      appointments: [],
+      pageInfo: {
+        pageNum: 1,
+        pageSize: 3
+      }
     };
   },
   async onLoad() {
+    if (!uni.getStorageSync('token')) {
+      return this.$message.toast('请先登录！');
+    }
+
     const res = await this.$http.post('/appointment/getAppointment', {
-      userId: uni.getStorageSync('userInfo')[`id`],
-      pageSize: 8,
-      pageNum: 1
+      userId: uni.getStorageSync('userInfo').id,
+      ...this.pageInfo
     });
     if (!res.code == 200) {
       return this.$message.toast('获取数据失败！');
@@ -57,6 +64,23 @@ export default {
     // });
     this.appointments = res.data.list;
     console.log(res);
+  },
+  async onReachBottom() {
+    // 下拉刷新
+    this.pageInfo.pageNum++;
+    uni.showLoading({
+      title: '加载中'
+    });
+    const res = await this.$http.post('/appointment/getAppointment', {
+      userId: uni.getStorageSync('userInfo').id,
+      ...this.pageInfo
+    });
+    if (res.data.list.length > 0) {
+      uni.hideLoading();
+      this.appointments.push(...res.data.list);
+    } else {
+      this.$message.toast('没有更多数据了');
+    }
   },
   methods: {}
 };

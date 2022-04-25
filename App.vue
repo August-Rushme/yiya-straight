@@ -1,6 +1,7 @@
 <script>
 export default {
   onLaunch: function() {
+    this.globalData.goEasy = this.goEasy;
     console.log('App Launch');
   },
   onShow: function() {

@@ -1,6 +1,6 @@
 <template>
   <view class="detal-comment">
-     <comments :comments="comments" :isCard="isCard" :canLookMore="canLookMore" :hasDivider="hasDivider" :pageBgColor="pageBgColor">
+     <comments :comments="comments" :isCard="isCard" :canLookMore="canLookMore" >
 		 <template slot="title">
 		 	<view class="title d-flex j-sb p-3" style="background-color: #FFFFFF;">
 		 		<text class="font-md">用户评价({{comments.content.length}})</text>
@@ -11,9 +11,10 @@
 		 	</view>
 		 </template>
 	 </comments>
-    <divider />
+   
     <!-- 上拉加载 -->
-    <view class="d-flex a-center j-center text-light-muted font-md py-2">上拉加载更多</view>
+	 <divider />
+    <view class="d-flex a-center j-center text-light-muted font-md py-2" style="background-color: #FFFFFF;">上拉加载更多</view>
   </view>
 </template>
 <script>
@@ -26,8 +27,6 @@ export default {
     return {
 		isCard: true,
 		canLookMore: false,
-		hasDivider: true,
-		pageBgColor: '#f5f5f5f',
          comments:
            {
   		options: [
@@ -143,4 +142,7 @@ export default {
 </script>
 
 <style>
+	.detal-comment{
+		background-color: #F5F5F5;
+	}
 </style>

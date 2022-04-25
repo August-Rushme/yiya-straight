@@ -63,6 +63,7 @@ import physicianTeam from '@/components/page-detail/physician-team.vue';
 import product from '@/components/page-detail/product.vue';
 import goodsList from '@/components/goods-list/goods-list.vue';
 import comments from '@/components/comments/comments.vue';
+import {mapActions} from 'vuex'
 export default {
 	components: {
 		physicianTeam,
@@ -73,42 +74,11 @@ export default {
 	data() {
 		return {
 			shopData: [
-				{
-					src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-					address: '国贸口腔(国贸路def区4栋11楼)',
-					desc: '国贸路|齿科',
-					starsValue: 5,
-					label: ['']
-				},
-				{
-					src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-					address: '国兴口腔(国兴路xyz区5栋12楼)',
-					desc: '国兴路|齿科',
-					starsValue: 5,
-					label: ['']
-				},
-				{
-					src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-					address: '国兴口腔(国兴路xyz区5栋12楼)',
-					desc: '国兴路|齿科',
-					starsValue: 5,
-					label: ['']
-				},
-				{
-					src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-					address: '国兴口腔(国兴路xyz区5栋12楼)',
-					desc: '国兴路|齿科',
-					starsValue: 5,
-					label: ['']
-				},
-				{
-					src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-					address: '德韩口腔(德胜路abc区3栋10楼)',
-					desc: 'abc路|齿科',
-					starsValue: 5,
-					label: ['']
-				}
 			],
+      pageInfo: {
+      pageSize: 5,
+      pageNum: 1,
+      },
 			bannerSrc: [
 				{
 					src1: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png'
@@ -423,7 +393,32 @@ export default {
 				]
 			}
 		};
-	}
+	},
+  async onLoad() {
+  	 const res = await this.getClinicListAction(this.pageInfo);
+  	 this.shopData = res.list; 
+  	 // this.requestState = true
+   },
+   async onReachBottom() {
+   	this.pageInfo.pageNum++;
+  	uni.showLoading({
+  		title: '加载中'
+  	});
+  	const res = await this.getClinicListAction(this.pageInfo);
+     if(res.list.length>0){
+  		uni.hideLoading();
+  		this.shopData.push(...res.list); 
+  	}else{
+  		uni.hideLoading();
+  		uni.showToast({
+  		  title: '没有更多数据了',
+  		  icon: 'none'
+  		});
+  	}	
+   },
+  methods:{
+    ...mapActions(['getClinicListAction']),
+  }
 };
 </script>
 

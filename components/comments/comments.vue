@@ -12,9 +12,6 @@
 				<view @tap="changeOption(index)" class="option-item span-6 mr-2 px-2 mb-2" :class="index === optionsIndex ? 'select' : ''">{{ item.name }}({{ item.mount }})</view>
 			</block>
 		</view>
-		<template v-if="hasDivider">
-			<divider></divider>
-		</template>
 		<!-- 评论 -->
 		<view class="content" :class="isCard ? '.grayBg' : 'p-2'">
 			<block v-for="(item2, index2) in comments2.content" :key="index2">
@@ -73,15 +70,7 @@
 <script>
 export default {
 	props: {
-		hasDivider: {
-			type: Boolean,
-			default: false
-		},
 		isCard: {
-			type: Boolean,
-			default: false
-		},
-		isCanEdit: {
 			type: Boolean,
 			default: false
 		},
@@ -144,7 +133,7 @@ export default {
 }
 .card {
 	background-color: #ffffff;
-	margin: 0rpx 15rpx 15rpx 15rpx;
+	margin: 15rpx;
 	border-radius: 15rpx;
 }
 .reply {
