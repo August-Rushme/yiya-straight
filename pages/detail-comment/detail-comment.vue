@@ -29,7 +29,7 @@ export default {
 		canLookMore: false,
          comments:
            {
-  		options: [
+  		 options: [
   			{
   				name: '热情服务',
   				mount: 179
@@ -84,6 +84,7 @@ export default {
   				   },
   				],
   				likes: 66,
+				givueThumbPeople: [1,2,3],
   				thumbColor: 'dark',
   		  },
   		  {
@@ -115,6 +116,7 @@ export default {
   		  			  },
   		  				],
   		  		likes: 66,
+				givueThumbPeople: [1,2,3],
   				thumbColor: 'dark',
   		  },
   		

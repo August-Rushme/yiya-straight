@@ -32,7 +32,7 @@
 					<!-- 评论内容 -->
 					<view class="comment-content mb-1">{{ item2.commentContent }}</view>
 					<!-- 照片 -->
-					<view class="photo my-2" style="margin-left: 100rpx;"><u-album :urls="item2.photos" :radius="'15rpx'" multipleSize="95"></u-album></view>
+					<view class="photo my-2" style="margin-left: 100rpx;"><u-album :urls="item2.photos"  :radius="'15rpx'" multipleSize="95"></u-album></view>
 					<!-- 点赞以及回复数 -->
 					<view class="d-flex j-sb" style="margin-left: 100rpx;">
 						<view class="d-flex">

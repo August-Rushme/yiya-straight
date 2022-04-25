@@ -117,7 +117,7 @@ export default {
                       _this.userInfo.photo = userRes[1].userInfo.avatarUrl;
                       _this.userInfo.nickName = userRes[1].userInfo.nickName;
                       const res = await _this.$http.post('/user/register', _this.userInfo);
-                      if (res?.data?.code == 200) {
+                      if (res.code == 200) {
                         uni.navigateBack({
                           delta: 1
                         });

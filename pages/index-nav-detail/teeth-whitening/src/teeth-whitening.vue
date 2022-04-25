@@ -42,7 +42,7 @@
 		<!-- 医生信息 -->  
 		<template v-else-if="tabIndex === 1">
 			<view class="mb-2" v-for="(item, index) in doctorInfo" :key="index"> 
-			<uni-card :isFull="true"  padding="0px"  >
+			<uni-card :isFull="true"  padding="0px" @tap="goDoctorsDetail" >
 				<view class="d-flex flex-row m-2 a-center"  >
 					<view style="margin-left: -20upx;">	 <u-avatar :src="item.avatar" size="60"></u-avatar></view>
 			
@@ -215,6 +215,11 @@ import swiperImage from '@/components/index/swiper-image.vue';
 	  goGoodsDeatail(){
 		  uni.navigateTo({
 		  	url: '/pages/goods-detail/goods-detail'
+		  })
+	  },
+	  goDoctorsDetail(){
+		  uni.navigateTo({
+		  	url: '/pages/doctors-detail/doctors-detail'
 		  })
 	  }
     }

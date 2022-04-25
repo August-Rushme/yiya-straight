@@ -169,6 +169,15 @@
             }
             
         }
+        ,{
+            "path" : "pages/doctors-detail/doctors-detail",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
     ],
   "globalStyle": {
     "navigationBarTextStyle": "white",

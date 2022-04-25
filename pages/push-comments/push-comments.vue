@@ -103,6 +103,14 @@ export default {
 					replyContent: this.pushContent
 				});
 				this.pushContent = ''
+				this.$nextTick(function(){
+					uni.pageScrollTo({
+						scrollTop: 99699,
+						duration: 0
+					});
+				})
+		
+				console.log(111)
 			}
 		},
 		onLoad: function(option){

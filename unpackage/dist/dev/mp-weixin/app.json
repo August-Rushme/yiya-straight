@@ -20,7 +20,8 @@
         "pages/login/login",
         "pages/appointment/appointment",
         "pages/aboutUs/aboutUs",
-        "pages/push-comments/push-comments"
+        "pages/push-comments/push-comments",
+        "pages/doctors-detail/doctors-detail"
     ],
     "subPackages": [],
     "window": {
