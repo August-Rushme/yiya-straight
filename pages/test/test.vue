@@ -1,20 +1,32 @@
 <template>
-  <view>
-    <text class="font-big font-weight">开发小哥哥正在玩命开发中，请耐心等等！！！！！</text>
-  </view>
+	<view class="content">
+     <view class="bg-danger" @tap="test">
+     	选择
+     </view>
+	</view>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        
-      }
-    },
-    methods: {
-      
-    }
-  }
+
+export default {
+	data() {
+		return {
+	
+		};
+	},
+	methods: {
+		test(){
+			uni.chooseImage({
+				count:3,
+				sizeType: ["compressed"],
+				success: (res) => {
+					console.log(res)
+				}
+			})
+		}
+	}
+
+};
 </script>
 
 <style>

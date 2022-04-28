@@ -9,7 +9,7 @@
             <text class="font-weight m-1 font-md">预约信息</text>
             <button type="default" size="mini" @click="show = !show" class="m-1">取消</button>
           </view>
-          <u--form labelPosition="left" :model="model1" :rules="rules" ref="userInfoRef">
+          <u--form labelPosition="left" :model="model1"  ref="userInfoRef">
             <view class="mx-2">
               <u-form-item label="姓名:" prop="userInfo.name" borderBottom ref="item1">
                 <u--input v-model="model1.userInfo.name" border="none" placeholder="请输入姓名"></u--input>
@@ -142,7 +142,7 @@
 </template>
 
 <script>
-  import {mapActions} from 'vuex'
+import { mapActions } from 'vuex';
 
 export default {
   data() {
@@ -164,7 +164,7 @@ export default {
           desc: '',
           birthday: '',
           userId: uni.getStorageSync('userInfo')[`id`],
-          status:'0'
+          status: '0'
         }
       },
       genderActions: [
@@ -202,12 +202,21 @@ export default {
           message: '请选择出生日期',
           trigger: ['blur', 'change']
         },
-        'userInfo.phone': {
-          type: 'string',
-          required: true,
-          message: '请填写手机号',
-          trigger: ['blur', 'change']
-        },
+        'userInfo.phone': [
+          {
+            type: 'number',
+            required: true,
+            message: '请填写手机号',
+            trigger: ['blur']
+          },
+          {
+            validator: (rule, value, callback) => {
+              return uni.$u.test.mobile(value);
+            },
+            message: '手机号码格式不正确',
+            trigger: [ 'blur']
+          }
+        ],
         'userInfo.appointmentTime': {
           type: 'string',
           required: true,
@@ -228,9 +237,12 @@ export default {
       }
     };
   },
-
+  onReady() {
+    // 需要在onReady中设置规则
+    this.$refs.userInfoRef.setRules(this.rules);
+  },
   methods: {
-      ...mapActions(['addAppoinmentAction']),
+    ...mapActions(['addAppoinmentAction']),
     // 预约
     register() {
       this.show = true;
@@ -266,20 +278,13 @@ export default {
       this.showCalendar = false;
     },
     // 确认出生日期
-    birthdayConfirm(e){
+    birthdayConfirm(e) {
       this.showBirthday = false;
-      console.log(e.value)
       this.model1.userInfo.birthday = uni.$u.timeFormat(e.value, 'yyyy-mm-dd');
-      console.log(uni.$u.timeFormat(e.value, 'yyyy-mm-dd'))
     },
     filter(mode, options) {
-      let currentYear = new Date().getFullYear();
-      let currentMoth = new Date().getMonth() + 1;
-      let currentDay = new Date().getDate();
-      let currentHour = new Date().getHours();
-
       if (mode === 'minute') {
-        return options.filter(option => option % 15 === 0);
+        // return options.filter(option => option % 15 == 0);
       }
       return options;
     },
@@ -290,8 +295,8 @@ export default {
         .validate()
         .then(async res => {
           console.log(this.model1.userInfo);
-        this.addAppoinmentAction(this.model1.userInfo)
-          
+          this.addAppoinmentAction(this.model1.userInfo);
+
           this.show = false;
           this.reset();
         })

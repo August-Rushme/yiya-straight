@@ -24,7 +24,7 @@ export default {
     event(item) {
       console.log(item);
       uni.navigateTo({
-        url:'../../pages/index-nav-detail/teeth-whitening/src/teeth-whitening'
+        url:'/subpackage-index/teeth-whitening/teeth-whitening'
       })
     }
   }

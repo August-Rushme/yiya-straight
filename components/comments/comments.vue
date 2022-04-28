@@ -23,7 +23,7 @@
 								<u-avatar :src="item2.avatar"></u-avatar>
 								<view class="ml-1">
 									<text class="pl-1">{{ item2.username }}</text>
-									<u-rate :count="5" readonly="true" v-model="item2.starsValue"></u-rate>
+									<u-rate :count="5" :readonly="true" v-model="item2.starsValue"></u-rate>
 								</view>
 							</view>
 							<view class="text-muted">{{ item2.commentTime }}</view>
@@ -92,12 +92,12 @@ export default {
 		},
 		goPushCommentsPage(index) {
 			uni.navigateTo({
-				url: `/pages/push-comments/push-comments?id=${index}`
+				url: `/subpackage-index/push-comments/push-comments?id=${index}`
 			});
 		},
 		lookAllComments() {
 			uni.navigateTo({
-				url: '/pages/detail-comment/detail-comment'
+				url: '/subpackage-index/detail-comment/detail-comment'
 			});
 		},
 		giveThumbUp(index2) {

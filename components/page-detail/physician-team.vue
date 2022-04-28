@@ -2,7 +2,7 @@
   <view class="mx-2">
     <view class="d-flex flex-row j-sb mt-2 mb-2 font-weight font-md"><text>医师团队(7)</text></view>
     <view class="mx-0">
-      <u-scroll-list @right="right" @left="left" indicator="false">
+      <u-scroll-list @right="right" @left="left" :indicator="false">
         <view class="scroll-list" style="flex-direction: row;">
           <view
             class="scroll-list__goods-item"

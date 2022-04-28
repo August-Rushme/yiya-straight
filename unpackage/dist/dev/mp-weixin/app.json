@@ -2,28 +2,39 @@
     "pages": [
         "pages/index/index",
         "pages/project/project",
-        "pages/register/register",
         "pages/my/my",
         "pages/test/test",
-        "pages/medical/medical",
-        "pages/record/record",
-        "pages/index-nav-detail/teeth-whitening/src/teeth-whitening",
-        "components/search/search",
-        "pages/detail-comment/detail-comment",
-        "pages/goods-detail/goods-detail",
-        "pages/register-account/register-account",
-        "pages/order/order",
-        "pages/coupon/coupon",
-        "pages/message/message",
-        "pages/setInfo/setInfo",
-        "pages/server/server",
-        "pages/login/login",
-        "pages/appointment/appointment",
-        "pages/aboutUs/aboutUs",
-        "pages/push-comments/push-comments",
-        "pages/doctors-detail/doctors-detail"
+        "pages/register/register",
+        "components/search/search"
     ],
-    "subPackages": [],
+    "subPackages": [
+        {
+            "root": "subpackage-my",
+            "pages": [
+                "coupon/coupon",
+                "order/order",
+                "appointment/appointment",
+                "register-account/register-account",
+                "setInfo/setInfo",
+                "login/login",
+                "medical/medical",
+                "server/server",
+                "message/message",
+                "record/record",
+                "aboutUs/aboutUs"
+            ]
+        },
+        {
+            "root": "subpackage-index",
+            "pages": [
+                "teeth-whitening/teeth-whitening",
+                "detail-comment/detail-comment",
+                "doctors-detail/doctors-detail",
+                "goods-detail/goods-detail",
+                "push-comments/push-comments"
+            ]
+        }
+    ],
     "window": {
         "navigationBarTextStyle": "white",
         "navigationBarTitleText": "神州牙都会",
@@ -62,6 +73,21 @@
             }
         ]
     },
+    "preloadRule": {
+        "pages/index/index": {
+            "packages": [
+                "subpackage-index"
+            ],
+            "network": "all"
+        },
+        "pages/my/my": {
+            "packages": [
+                "subpackage-my"
+            ],
+            "network": "all"
+        }
+    },
+    "lazyCodeLoading": "requiredComponents",
     "usingComponents": {
         "divider": "/components/common/divider"
     },

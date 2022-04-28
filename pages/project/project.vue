@@ -25,7 +25,6 @@
 					placeholder="请描述您的问题或症状(5-100字)"
 				    border="surround"
 				    v-model="value"
-				    @change="change"
 				>
 				  	<template slot="suffix">
 				  		<u-button
@@ -59,7 +58,6 @@
 					placeholder="请描述您的问题或症状(5-100字)"
 				    border="surround"
 				    v-model="value"
-				    @change="change"
 				>
 				  	<template slot="suffix">
 				  		<u-button
