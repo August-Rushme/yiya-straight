@@ -394,9 +394,10 @@ export default {
 			}
 		};
 	},
-  async onLoad() {
+  async onLoad(option) {
   	 const res = await this.getClinicListAction(this.pageInfo);
   	 this.shopData = res.list; 
+	 console.log(option)
   	 // this.requestState = true
    },
    async onReachBottom() {

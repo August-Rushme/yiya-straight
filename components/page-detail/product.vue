@@ -66,7 +66,12 @@ export default {
         this.tabIndex = item.index;
       } else {
         // 原生处理
-        this.tabIndex = item;
+		if(item.index === undefined){
+			    this.tabIndex = item
+		}else{
+			this.tabIndex = item.index
+		}
+    
       }
     },
     // 处理swiper滑动时的页面切换

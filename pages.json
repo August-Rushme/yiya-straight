@@ -143,6 +143,28 @@
                 }
             ]
 		},
+		//问诊
+		{
+			"root": "subpackage-project",
+			"pages": [
+				{
+					"path": "doctor-detail/doctor-detail",
+					"style": {
+						"navigationBarTitleText": "医生详情",
+						"enablePullDownRefresh": false
+					}
+				} 
+			    ,{
+                    "path" : "chat/chat",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "在线问诊",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
+		},
 		// 首页
 		{
 			"root": "subpackage-index",
@@ -160,14 +182,7 @@
 				}
 
 			}
-			, {
-				"path": "doctors-detail/doctors-detail",
-				"style": {
-					"navigationBarTitleText": "",
-					"enablePullDownRefresh": false
-				}
-			
-			}, {
+			,  {
 			"path": "goods-detail/goods-detail",
 			"style": {
 				"navigationBarTitleText": "",

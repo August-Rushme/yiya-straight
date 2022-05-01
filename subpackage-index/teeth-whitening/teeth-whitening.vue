@@ -21,16 +21,16 @@
 			<!-- 具体商品信息 -->
 		<template v-if="tabIndex === 0">
 			<view class="mb-2" v-for="(item, index) in shopData" :key="index">
-				<uni-card :isFull="true"  padding="0px" @click="goGoodsDeatail">
+				<uni-card :isFull="true"  padding="0px" @click="goGoodsDeatail(item.id)">
 					<view class="d-flex flex-row m-2 a-center"  >
 						<view style="margin-left: -20upx;">
-							<u--image :showLoading="true" :src="item.src" width="84px" height="84px"></u--image>
+							<u--image :showLoading="true" :src="item.img" width="84px" height="84px"></u--image>
 						</view>
 			
 					  <view class="infoText flex-column ml-2">
-					    <text class="font-weight font-md"  >{{ item.address }}</text>
-					    <u-rate count="5" v-model="value" readonly allowHalf="true"></u-rate>
-					    <text>{{ item.desc }}</text>
+					    <text class="font-weight font-md"  >{{ item.address  }}</text>
+					    <u-rate count="5" v-model="item.rate" readonly allowHalf="true"></u-rate>
+					    <text>{{ item.detailedAddress }}</text>
 					    <view class="flex-row j-center a-center "></view>
 					    <text style="border: #F0AD4E solid 1px; color: #E45656;" class="px-1">国家认证</text>
 					    <text style="border: #F0AD4E solid 1px; color: #E45656;" class="mx-1 px-1">顶级医师</text>
@@ -72,14 +72,18 @@
 </template>
 <script>
 import swiperImage from '@/components/index/swiper-image.vue';
+import { mapActions } from 'vuex'
   export default {
   components:{
 	  swiperImage 
   },
     data() {
       return {
-		  value: 4.5,
 		  tabIndex: 0,
+		  pageInfo: {
+		  		pageSize: 5,
+		  		pageNum: 1,
+		  },
         swiperData: [
           { img: 'https://s1.ax1x.com/2022/03/09/bWKB6S.png' },
           { img: 'https://s1.ax1x.com/2022/03/09/bWKNFI.png' },
@@ -95,38 +99,7 @@ import swiperImage from '@/components/index/swiper-image.vue';
 			 name: '医生'
 		 }
 		],
-		shopData: [
-		  {
-		    src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-		    address: '国贸口腔(国贸路def区4栋11楼)',
-		    desc: '国贸路|齿科',
-		    label: ['']
-		  },
-		  {
-		    src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-		    address: '国兴口腔(国兴路xyz区5栋12楼)',
-		    desc: '国兴路|齿科',
-		    label: ['']
-		  },
-		  {
-		    src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-		    address: '国兴口腔(国兴路xyz区5栋12楼)',
-		    desc: '国兴路|齿科',
-		    label: ['']
-		  },
-		  {
-		    src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-		    address: '国兴口腔(国兴路xyz区5栋12楼)',
-		    desc: '国兴路|齿科',
-		    label: ['']
-		  },
-		  {
-		    src: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-		    address: '德韩口腔(德胜路abc区3栋10楼)',
-		    desc: 'abc路|齿科',
-		    label: ['']
-		  }
-		],
+		shopData: [],
 		doctorInfo: [
 			{
 				avatar: 'https://img0.baidu.com/it/u=105674555,346783603&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
@@ -203,7 +176,29 @@ import swiperImage from '@/components/index/swiper-image.vue';
 		]
       }
     },
+	async onLoad(){
+		const res = await this.getClinicListAction(this.pageInfo);
+		this.shopData = res.list; 	
+	},
+	async onReachBottom() {
+		this.pageInfo.pageNum++;
+		uni.showLoading({
+			title: '加载中'
+		});
+		const res = await this.getClinicListAction(this.pageInfo);
+	  if(res.list.length>0){
+			uni.hideLoading();
+			this.shopData.push(...res.list); 
+		}else{
+			uni.hideLoading();
+			uni.showToast({
+			  title: '没有更多数据了',
+			  icon: 'none'
+			});
+		}	
+	},
     methods: {
+		...mapActions(['getClinicListAction']),
       search(){
 		  uni.navigateTo({
 		  	url: '/components/search/search'
@@ -212,14 +207,14 @@ import swiperImage from '@/components/index/swiper-image.vue';
 	  changeTab(item) {
 		  this.tabIndex = item.index
 	  },
-	  goGoodsDeatail(){
+	  goGoodsDeatail(id){
 		  uni.navigateTo({
-		  	url: '/subpackage-index/goods-detail/goods-detail'
+		  	url: `/subpackage-index/goods-detail/goods-detail?id=${id}`
 		  })
 	  },
 	  goDoctorsDetail(){
 		  uni.navigateTo({
-		  	url: '/subpackage-index/doctors-detail/doctors-detail'
+		  	url: '/subpackage-project/doctor-detail/doctor-detail'
 		  })
 	  }
     }

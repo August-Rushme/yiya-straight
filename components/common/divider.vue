@@ -5,7 +5,7 @@
 <script>
 </script>
 
-<style>
+<style scoped>
 	.divider{
 		height: 18rpx;background-color: #F5F5F5;
 	}
