@@ -1,3 +1,4 @@
+<!-- 
 <template>
   <view class="content">
     <view class="header">
@@ -165,4 +166,4 @@ export default {
 .message-text {
   padding: 4px 11px;
 }
-</style>
+ -->

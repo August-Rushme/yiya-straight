@@ -16,7 +16,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.uni-status-bar {
 		display: block;
 		width: 100%;

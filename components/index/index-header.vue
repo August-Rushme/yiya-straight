@@ -50,7 +50,7 @@
   }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
   .use-header-placeholder {
   	height: 100rpx;
   }

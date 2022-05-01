@@ -6,8 +6,14 @@ import {
   addAppointment
 } from '../service/appoinment/http-appoinment.js'
 import {
-  getClinicList
+  getClinicList,
+  getClinicById
 } from '../service/clinic/clinic.js'
+import {
+	getAllDoctorLabel,
+	getDoctorBylLabelId,
+	 getDoctorById
+} from '../service/doctor/doctor.js'
 Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
@@ -32,7 +38,7 @@ const store = new Vuex.Store({
     changeUserInfo(state, payload) {
       state.userInfo = payload
       uni.setStorageSync('userInfo', payload);
-    }
+    },
   },
   actions: {
     async loginByAccountAction({
@@ -75,6 +81,34 @@ const store = new Vuex.Store({
       uni.$u.toast("预约中，请等医生接单！")
       console.log(res)
     },
+	//医生相关请求
+	async getAllDoctorLabelAction({commit},payload){
+		const res = await getAllDoctorLabel(); 
+		if(!res.code == 200){
+		  uni.$u.toast('获取分类失败')
+		}
+		else{
+			return res.data
+		}
+	},
+	async getDoctorBylLabelIdAction({commit},payload) {
+		const res = await getDoctorBylLabelId(payload)
+		if(!res.code == 200){
+			uni.$u.toast('获取医生信息失败')
+		}
+		else{
+			return res.data
+		}
+	},
+	async getDoctorByIdAction({commit},payload){
+		const res = await getDoctorById(payload);
+		if(!res.code == 200){
+			uni.$u.toast('获取医生信息失败')
+		}
+		else{
+			return res.data
+		}
+	},
     //诊所请求 后期分stoe模块
     async getClinicListAction({
       commit
@@ -84,8 +118,16 @@ const store = new Vuex.Store({
         return uni.$u.toast('请求失败');
       }
       return res.data
-    }
-
+    },
+  async getClinicById({commit},payload){
+	  const res = await getClinicById(payload)
+	  if (!res.code == 200) {
+	    return uni.$u.toast('请求失败');
+	  }
+	  return res.data
+  }
   },
+  
+
 })
 export default store

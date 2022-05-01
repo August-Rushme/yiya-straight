@@ -34,7 +34,7 @@
 			goDetail(){
 				console.log(111)
 				uni.navigateTo({
-					url: '/pages/goods-detail/goods-detail'
+					url: '/subpackage-index/goods-detail/goods-detail'
 				})
 			}
 		}

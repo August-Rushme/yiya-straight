@@ -1,9 +1,9 @@
 <script>
 export default {
-  onLaunch: function() {
-    this.globalData.goEasy = this.goEasy;
-    console.log('App Launch');
-  },
+  // onLaunch: function() {
+  //   this.globalData.goEasy = this.goEasy;
+  //   console.log('App Launch');
+  // },
   onShow: function() {
     console.log('App Show');
   },
@@ -18,9 +18,7 @@ export default {
 @import '@/uni_modules/uview-ui/index.scss';
 /* 每个页面的公共css */
 @import url('/common/uni.css');
-@import url('/common/animate.css');
 /* 自定义图标库 */
-@import url('/common/icon.css');
 /* 公共样式库 */
 @import url('/common/common.css');
 /* 基础样式 */

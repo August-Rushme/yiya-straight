@@ -12,7 +12,7 @@
     <!-- 基础卡片 -->
     <card>
       <block slot="title">每日精选</block>
-     <goods-list :shopData="shopData" :hasDivider="true"></goods-list>
+     <goods-list :shopData="shopData" :hasDivider="hasDivider"></goods-list>
     </card>
 
     <!-- 商品 -->
@@ -37,6 +37,7 @@ export default {
   data() {
     return {
       // 头部参数
+	  hasDivider: true,
       searchAuto: !0,
 	  pageInfo: {
 		pageSize: 5,
@@ -71,6 +72,7 @@ export default {
   },
  async onLoad() {
 	 const res = await this.getClinicListAction(this.pageInfo);
+
 	 this.shopData = res.list; 
 	 // this.requestState = true
   },

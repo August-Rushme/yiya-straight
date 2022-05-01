@@ -109,52 +109,52 @@
 			...mapActions(['localLoginAction']),
 			gotoLogin() {
 				uni.navigateTo({
-					url: '/pages/login/login'
+					url: '/subpackage-my/login/login'
 				})
 			},
 			goSetInfo() {
 				if(this.token){
 					uni.navigateTo({
-						url: '/pages/setInfo/setInfo'
+						url: '/subpackage-my/setInfo/setInfo'
 					})
 				}
 				else{
 					uni.navigateTo({
-						url: '/pages/login/login'
+						url: '/subpackage-my/login/login'
 					})
 				}
 			},
 			goToDedical() {
 				uni.navigateTo({
-					url: '/pages/medical/medical'
+					url: '/subpackage-my/medical/medical'
 				})
 			},
 			goToRecord() {
 				uni.navigateTo({
-					url: '/pages/record/record'
+					url: '/subpackage-my/record/record'
 				})
 			},
 			goToAppointment() {
 				uni.navigateTo({
-					url: '/pages/appointment/appointment'
+					url: '/subpackage-my/appointment/appointment'
 				})
 			},
 			goToAboutUs() {
 				uni.navigateTo({
-					url: '/pages/aboutUs/aboutUs'
+					url: '/subpackage-my/aboutUs/aboutUs'
 				})
 			},
 			//底部导航跳转
 			goToPage(pageName){
 				if(this.token){
-					const pagePath = '/pages/'+ pageName + '/' + pageName;
+					const pagePath = '/subpackage-my/'+ pageName + '/' + pageName;
 					uni.navigateTo({
 						url: pagePath
 					})
 				}
 				else{
 					uni.navigateTo({
-						url: '/pages/login/login'
+						url: '/subpackage-my/login/login'
 					})
 				}
 			}

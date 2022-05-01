@@ -1,7 +1,7 @@
 <template>
   <view class="register">
     <view class="backg"></view>
-    <button @tap="register" class="registerBtn">点击挂号</button>
+    <button @click="register" class="registerBtn">点击挂号</button>
     <u-popup :show="show" mode="bottom" @close="close" @open="open" round="10">
       <view>
         <view class="u-popup-slot">
@@ -9,7 +9,7 @@
             <text class="font-weight m-1 font-md">预约信息</text>
             <button type="default" size="mini" @click="show = !show" class="m-1">取消</button>
           </view>
-          <u--form labelPosition="left" :model="model1"  ref="userInfoRef">
+          <u--form labelPosition="left" :model="model1" ref="userInfoRef">
             <view class="mx-2">
               <u-form-item label="姓名:" prop="userInfo.name" borderBottom ref="item1">
                 <u--input v-model="model1.userInfo.name" border="none" placeholder="请输入姓名"></u--input>
@@ -214,7 +214,7 @@ export default {
               return uni.$u.test.mobile(value);
             },
             message: '手机号码格式不正确',
-            trigger: [ 'blur']
+            trigger: ['blur']
           }
         ],
         'userInfo.appointmentTime': {

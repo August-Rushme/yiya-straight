@@ -96,7 +96,6 @@ var http = {
               // console.log(token)
               uni.setStorageSync("token", token)
             }
-            fun(res)
             console.log('request:GET请求' + config.baseUrl + path + ' 成功', res.data)
           }
           resolve(res.data)
