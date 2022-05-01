@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "我的预约",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "uni-card": "/uni_modules/uni-card/components/uni-card/uni-card",
-    "u-tag": "/uni_modules/uview-ui/components/u-tag/u-tag"
-  }
-}
