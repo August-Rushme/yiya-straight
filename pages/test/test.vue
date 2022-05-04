@@ -1,3 +1,4 @@
+
 <template>
 	<view class="content">
      <view class="bg-danger" @tap="test">

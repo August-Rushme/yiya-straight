@@ -85,6 +85,7 @@ var http = {
         url,
         data: params,
         header: {
+          "content-type": 'application/json',
           token: uni.getStorageSync("token")
         },
         success: (res) => {
@@ -130,7 +131,7 @@ var http = {
               // console.log(token)
               uni.setStorageSync("token", token)
             }
-            
+
             console.log('request:DELETE请求' + config.baseUrl + path + ' 成功', res.data)
           }
           resolve(res.data)

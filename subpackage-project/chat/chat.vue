@@ -49,6 +49,7 @@
 	</view>
 </template>
 
+
 <script>
 import GoEasy from 'goeasy';
 import { mapActions } from 'vuex';
