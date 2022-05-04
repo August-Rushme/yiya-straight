@@ -2,14 +2,14 @@
 	<view class="comment">
 		<slot name="title">
 			<view class="title d-flex j-sb p-2" style="background-color: #FFFFFF;">
-				<text class="font-md font-weight">用户评价({{ comments.content.length }})</text>
+				<text class="font-md font-weight">用户评价({{ total }})</text>
 				<text class="font-md text-muted">></text>
 			</view>
 		</slot>
 		<!-- 类型选项 -->
 		<view class="options row px-2" style="background-color: #FFFFFF;">
 			<block v-for="(item, index) in comments2.options" :key="index">
-				<view @tap="changeOption(index)" class="option-item span-6 mr-2 px-2 mb-2" :class="index === optionsIndex ? 'select' : ''">{{ item.name }}({{ item.mount }})</view>
+				<view @tap="changeOption(index)" class="option-item span-6 mr-2 px-2 mb-2" :class="index === optionsIndex ? 'select' : ''">{{ item.label }}({{ item.total }})</view>
 			</block>
 		</view>
 		<!-- 评论 -->
@@ -22,22 +22,22 @@
 							<view class="d-flex">
 								<u-avatar :src="item2.avatar"></u-avatar>
 								<view class="ml-1">
-									<text class="pl-1">{{ item2.username }}</text>
-									<u-rate :count="5" :readonly="true" v-model="item2.starsValue"></u-rate>
+									<text class="pl-1">{{ item2.nickName }}</text>
+									<u-rate :count="5" :readonly="true" v-model="item2.rate"></u-rate>
 								</view>
 							</view>
-							<view class="text-muted">{{ item2.commentTime }}</view>
+							<view class="text-muted">{{item2.createTime}} </view>
 						</view>
 					</view>
 					<!-- 评论内容 -->
-					<view class="comment-content mb-1">{{ item2.commentContent }}</view>
+					<view class="comment-content mb-1">{{ item2.content }}</view>
 					<!-- 照片 -->
-					<view class="photo my-2" style="margin-left: 100rpx;"><u-album :urls="item2.photos"  :radius="'15rpx'" multipleSize="95"></u-album></view>
+					<view class="photo my-2" style="margin-left: 100rpx;"><u-album :urls="item2.photo"  :radius="'15rpx'" multipleSize="95" ></u-album></view>
 					<!-- 点赞以及回复数 -->
 					<view class="d-flex j-sb" style="margin-left: 100rpx;">
 						<view class="d-flex">
-							<u-icon name="chat" color="dark" size="15" @tap="goPushCommentsPage(index2)"></u-icon>
-							<text>{{ item2.replies.length }}</text>
+							<u-icon name="chat" color="dark" size="15" @tap="goPushCommentsPage(index2,item2.id)"></u-icon>
+							<text>{{ item2.newReply.length }}</text>
 						</view>
 						<view class="d-flex">
 							<u-icon name="thumb-up" @tap="giveThumbUp(index2)" :color="item2.thumbColor" size="15"></u-icon>
@@ -45,10 +45,10 @@
 						</view>
 					</view>
 					<!-- 回复内容 -->
-					<view class="py-1 mt-1 d-flex a-center j-sb border-top" style="margin-left: 100rpx;" @tap="goPushCommentsPage(index2)">
+					<view class="py-1 mt-1 d-flex a-center j-sb border-top" style="margin-left: 100rpx;" @tap="goPushCommentsPage(item2.id)">
 						<view class="d-flex reply">
-							<view class="text-muted pr-1">{{ item2.replies[0].isBusiness ? '商家回复:' : item2.replies[0].replyname + ':' }}</view>
-							<view class="replyContent">{{ item2.replies[0].replyContent }}</view>
+							<view class="text-muted pr-1">{{ item2.newReply[0].role === '用户' ? item2.newReply[0].nickName + ':' : '商家回复:'  }}</view>
+							<view class="replyContent">{{ item2.newReply[0].content }}</view>
 						</view>
 
 						<view class="ml-1"><u-icon name="arrow-right" color="dark" size="10"></u-icon></view>
@@ -68,6 +68,7 @@
 </template>
 
 <script>
+	import { mapActions } from 'vuex';
 export default {
 	props: {
 		isCard: {
@@ -78,16 +79,56 @@ export default {
 		canLookMore: {
 			type: Boolean,
 			default: true
+		},
+		total: {
+			type: Number,
+			default: 0
+		},
+		moreCommentsId: {
+			type: Number,
+			default: 0
 		}
 	},
 	data() {
 		return {
 			optionsIndex: 0,
-			comments2: this.$props.comments
 		};
 	},
-	methods: {
-		changeOption(index) {
+   computed: {
+	   comments2(){
+		   this.$props.comments.content.forEach(item => {
+			   item.createTime = this.createTime(item.createTime);
+		   })
+		   return this.$props.comments
+	   },
+	   createTime(){
+		   return  function(time){
+		            var date = new Date(time);
+		           var y = date.getFullYear()
+		             var m = date.getMonth() + 1
+		             m = m < 10 ? '0' + m : m
+		             var d = date.getDate()
+		             d = d < 10 ? '0' + d : d
+		             var h = date.getHours()
+		             h = h < 10 ? '0' + h : h
+		             var minute = date.getMinutes()
+		             minute = minute < 10 ? '0' + minute : minute
+		             var second = date.getSeconds()
+		             second = second < 10 ? '0' + second : second
+		             return y + '/' + m + '/' + d + ' ' + h + ':' + minute + ':' + second
+	 } 
+	   }
+   },
+ 	methods: {
+		...mapActions(['praise','unPraise','getCommentsByTypeAction']),
+	      async	changeOption(index) {
+		       const res =  await this.getCommentsByTypeAction({
+						   pageNum: 1,
+						   pageSize: 3,
+						   clinicId: this.$props.moreCommentsId,
+						   labelId: index+1
+					   });
+		  this.$props.comments.content = res.list;
 			this.optionsIndex = index;
 		},
 		goPushCommentsPage(index) {
@@ -97,13 +138,21 @@ export default {
 		},
 		lookAllComments() {
 			uni.navigateTo({
-				url: '/subpackage-index/detail-comment/detail-comment'
+				url: '/subpackage-index/detail-comment/detail-comment?id=' + this.$props.moreCommentsId
 			});
 		},
-		giveThumbUp(index2) {
+		async giveThumbUp(index2,id) {
 			if (this.comments2.content[index2].thumbColor === 'dark') {
+			   await this.praise({
+					userId: uni.getStorageSync('userInfo').id,
+					commentId: id,
+				})
 				this.comments2.content[index2].likes++;
 			} else {
+				  await this.unPraise({
+					userId: uni.getStorageSync('userInfo').id,
+					commentId: id,
+				})
 				this.comments2.content[index2].likes--;
 			}
 			this.comments2.content[index2].thumbColor = this.comments2.content[index2].thumbColor === 'dark' ? 'red' : 'dark';

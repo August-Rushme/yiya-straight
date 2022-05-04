@@ -1,9 +1,9 @@
 <template>
   <view class="detal-comment">
-     <comments :comments="comments" :isCard="isCard" :canLookMore="canLookMore" >
+     <comments :comments="comments" :isCard="isCard" :canLookMore="canLookMore"  :moreCommentsId="commentId">
 		 <template slot="title">
 		 	<view class="title d-flex j-sb p-3" style="background-color: #FFFFFF;">
-		 		<text class="font-md">用户评价({{comments.content.length}})</text>
+		 		<text class="font-md">用户评价({{commentsTotal}})</text>
 		 		<view class="font-md d-flex">
 					{{getPraisePercent}}
 					<u-icon name="heart-fill" color="red" size="20"></u-icon>
@@ -14,111 +14,32 @@
    
     <!-- 上拉加载 -->
 	 <divider />
-    <view class="d-flex a-center j-center text-light-muted font-md py-2" style="background-color: #FFFFFF;">上拉加载更多</view>
+    <view class="d-flex a-center j-center text-light-muted font-md py-2" style="background-color: #FFFFFF;">暂无更多数据</view>
   </view>
 </template>
 <script>
-import comments from '@/components/comments/comments.vue'
+import comments from '@/components/comments/comments.vue';
+import { mapActions } from 'vuex';
 export default {
 	components:{
 		comments
 	},
   data() {
     return {
+		pageInfo: {
+			pageSize: 2,
+			pageNum: 1,
+		},
 		isCard: true,
+		commentId: 0,
 		canLookMore: false,
+		commentsTotal: 0,
          comments:
            {
   		 options: [
-  			{
-  				name: '热情服务',
-  				mount: 179
-  			},
-  			{
-  				name: '洗牙',
-  				mount: 144
-  			},
-  			{
-  				name: '环境很好',
-  				mount: 126
-  			},
-  			{
-  				name: '性价比高',
-  				mount: 87
-  			},
-  			{
-  				name: '价格实惠',
-  				mount: 119
-  			},
-  			{
-  				name: '高大上',
-  				mount: 60
-  			},
+
   		],
   	  content: [
-  		  {
-  			  	avatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-                username: '我是顾客上帝哦',
-  			    starsValue: 4.8,
-  				commentTime: '2022/04/21',
-  			    commentContent: '就感觉这此体验非常的好大大的好评哦然后就是就感觉这此体验非常的好大大的好评哦就感觉这此体验非常的好大大的好评哦',
-  				photos: [
-  					'https://cdn.uviewui.com/uview/album/2.jpg',
-  					'https://cdn.uviewui.com/uview/album/3.jpg'
-  				],
-				optionLables: ['热情服务','环境很好'],
-  				replies: [
-  					{
-  					isBusiness: false,
-					replyname: '小红',
-					replyTime: '2022/04/21 08:31:24',
-					replyAvatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-  					replyContent: '感谢您的认可,祝您生活愉快哦亲感谢您的认可,祝您生活愉快哦亲'
-  				   },
-  				   {
-  				   	isBusiness: false,
-					replyname: '小红',
-					replyTime: '2022/04/21 08:31:24',
-					replyAvatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-  				   	replyContent: '这家店是真不错哦'
-  				   },
-  				],
-  				likes: 66,
-				givueThumbPeople: [1,2,3],
-  				thumbColor: 'dark',
-  		  },
-  		  {
-  		  		avatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-  		        username: '我是顾客上帝哦',
-  		  		 starsValue: 5,
-  		  		commentTime: '2022/04/21',
-  		  		commentContent: '就感觉这此体验非常的好大大的好评哦然后就是就感觉这此体验非常的好大大的好评哦就感觉这此体验非常的好大大的好评哦就感觉这此体验非常的好大大的好评哦就感觉这此体验非常的好大大的好评哦',
-  		  		photos: [
-  		  		'https://cdn.uviewui.com/uview/album/2.jpg',
-  		  		'https://cdn.uviewui.com/uview/album/3.jpg',
-  				'https://cdn.uviewui.com/uview/album/3.jpg'
-  		  		],
-  		        optionLables: ['热情服务','环境很好'],
-  		  		replies: [
-  		  		{
-  		  		isBusiness: true,
-				replyname: '小红',
-				replyTime: '2022/04/21 08:31:24',
-				replyAvatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-  		  		replyContent: '感谢您的认可,祝您生活愉快哦亲'
-  		  		 },
-  		  		  {
-  		  			isBusiness: false,
-					replyname: '小红',
-					replyTime: '2022/04/21 08:31:24',
-					replyAvatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-  		  			replyContent: '这家店是真不错哦'
-  		  			  },
-  		  				],
-  		  		likes: 66,
-				givueThumbPeople: [1,2,3],
-  				thumbColor: 'dark',
-  		  },
   		
   	  ]
   	},
@@ -130,7 +51,7 @@ export default {
 		let totalStars = 0;
          this.comments.content.forEach(
 		item => {
-			totalStars = item.starsValue + totalStars
+			totalStars =  parseInt(item.rate)  + totalStars
 		}
 		)
 		percent =  (totalStars*100)/(5*this.comments.content.length)
@@ -138,7 +59,62 @@ export default {
 		return PraisePercent 
 	}
  },
+ async onLoad(option) {
+	this.commentId = option.id;
+ 	const reply = await this.getCommentsByClinicAction({
+        ...this.pageInfo,
+ 		clinicId: parseInt(option.id)
+ 	});
+ 	const content = [];
+ 	reply.list.forEach(async (item) => {
+ 		const isPraise = await this.isPraiseAction({
+ 			userId: uni.getStorageSync('userInfo').id,
+ 			commentId: item.id
+ 		});
+	const newReply = [];
+	item.replyId.forEach(item2 =>{
+		newReply.push( item.reply[item2])
+	})
+	const newObj = {
+		...item,
+		newReply: newReply,
+		thumbColor: isPraise == 'true' ? 'red' : 'dark'
+	};
+ 		content.push(newObj);
+ 	});
+ 	
+	const labels = await this.getCommentsLabelsAction({
+		  clinicId: parseInt(option.id)
+		});
+ 	this.comments.options = labels;
+ 	this.commentsTotal = reply.total;
+     this.comments.content = content;
+ },
+ async onReachBottom() {
+ 	this.pageInfo.pageNum ++;
+	const reply = await this.getCommentsByClinicAction({
+	    ...this.pageInfo,
+		clinicId: this.commentId
+	});
+	reply.list.forEach(async (item) => {
+		const isPraise = await this.isPraiseAction({
+			userId: uni.getStorageSync('userInfo').id,
+			commentId: item.id
+		});
+	const newReply = [];
+	item.replyId.forEach(item2 =>{
+		newReply.push( item.reply[item2])
+	})
+	const newObj = {
+		...item,
+		newReply: newReply,
+		thumbColor: isPraise == 'true' ? 'red' : 'dark'
+	};
+	this.comments.content.push(newObj)
+	});
+ },
   methods: {
+	  ...mapActions([ 'getCommentsByClinicAction', 'getCommentsLabelsAction', 'isPraiseAction'])
   }
 };
 </script>

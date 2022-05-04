@@ -30,12 +30,11 @@
             "outputPath": ""
         },
         "disableUseStrict": false,
-        "useCompilerPlugins": false,
-        "minifyWXML": true
+        "useCompilerPlugins": false
     },
     "compileType": "miniprogram",
     "libVersion": "2.24.1",
-    "appid": "wxa46bc73b729a102d",
+    "appid": "wx32ef92a691bc8db4",
     "projectname": "yiya-straight",
     "condition": {
         "search": {

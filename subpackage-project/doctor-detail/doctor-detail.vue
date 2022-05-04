@@ -55,14 +55,8 @@
 			</view>
 		</view>
 		
-		<view >
-			<button style="background: #d81421; color: white; width: 500rpx;">
-				评价Ta
-			</button>
-		</view>
-		
-		<view class="mt-3">
-			<button style="background: #21b0ab; color: white; width: 500rpx;">
+		<view class="bottom" @click="goTocChat">
+			<button style="background: #21b0ab; color: white; width:100%;" >
 				在线问诊
 			</button>
 		</view>
@@ -72,7 +66,7 @@
 </template>
 
 <script>
-	import { mapActions } from 'vuex'
+import { mapActions } from 'vuex'
 export default {
 	data() {
 		return {
@@ -90,7 +84,12 @@ export default {
 	 this.clinicInfo = clinicRes
 	},
 	methods: {
-		...mapActions(['getDoctorByIdAction','getClinicById'])
+		...mapActions(['getDoctorByIdAction','getClinicById']),
+		goTocChat(){
+			uni.navigateTo({
+				url: '/subpackage-project/chat/chat?id=' + this.doctorInfo.userId
+			})
+		}
 	}
 };
 </script>
@@ -98,12 +97,12 @@ export default {
 <style scoped lang="scss">
 .page{
 	height: 100%;
-	// .bottom {
-	// 	position: absolute;
-	// 	width: 100%;
+	.bottom {
+		position: absolute;
+		width: 100%;
 		
-	// 	bottom: 0;
-	// }
+		bottom: 0;
+	}
 }
 
 </style>

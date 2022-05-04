@@ -14,6 +14,16 @@ import {
 	getDoctorBylLabelId,
 	 getDoctorById
 } from '../service/doctor/doctor.js'
+import { getUserById } from '../service/user/user.js';
+import {
+	getCommentsByClinic,
+	getReplyById,
+	getCommentsLabels,
+	getCommentsByType,
+	isPraise,
+	praise,
+	unPraise
+} from '../service/comments/comments.js'
 Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
@@ -108,6 +118,57 @@ const store = new Vuex.Store({
 		else{
 			return res.data
 		}
+	},
+	//用户相关请求
+	async getUserByIdAction({commit},payload){
+		const res = await getUserById(payload)
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.user
+	},
+	//评论相关请求
+	async getCommentsByClinicAction({commit},payload){
+		const res = await getCommentsByClinic(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('获取评论失败');
+		}
+		return res.data
+	},
+	async getCommentsLabelsAction({commit},payload){
+		const res = await getCommentsLabels(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async isPraiseAction({commit},payload){
+		const res = await isPraise(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async praise({commit},payload){
+		const res = await praise(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async unPraise({commit},payload){
+		const res = await unPraise(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async getCommentsByTypeAction({commit},payload){
+		const res = await getCommentsByType(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
 	},
     //诊所请求 后期分stoe模块
     async getClinicListAction({

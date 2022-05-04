@@ -28,9 +28,9 @@
 						</view>
 			
 					  <view class="infoText flex-column ml-2">
-					    <text class="font-weight font-md"  >{{ item.address  }}</text>
+					    <text class="font-weight font-md"  >{{ item.name  }}</text>
 					    <u-rate count="5" v-model="item.rate" readonly allowHalf="true"></u-rate>
-					    <text>{{ item.detailedAddress }}</text>
+					    <text>{{ item.address }}</text>
 					    <view class="flex-row j-center a-center "></view>
 					    <text style="border: #F0AD4E solid 1px; color: #E45656;" class="px-1">国家认证</text>
 					    <text style="border: #F0AD4E solid 1px; color: #E45656;" class="mx-1 px-1">顶级医师</text>

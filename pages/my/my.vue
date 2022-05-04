@@ -146,17 +146,17 @@
 			},
 			//底部导航跳转
 			goToPage(pageName){
-				if(this.token){
+				// if(this.token){
 					const pagePath = '/subpackage-my/'+ pageName + '/' + pageName;
 					uni.navigateTo({
 						url: pagePath
 					})
-				}
-				else{
-					uni.navigateTo({
-						url: '/subpackage-my/login/login'
-					})
-				}
+				// }
+				// else{
+				// 	uni.navigateTo({
+				// 		url: '/subpackage-my/login/login'
+				// 	})
+				// }
 			}
          },
 		 }
