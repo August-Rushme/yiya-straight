@@ -21,14 +21,17 @@
                 "server/server",
                 "message/message",
                 "record/record",
-                "aboutUs/aboutUs"
+                "aboutUs/aboutUs",
+                "evaluation/evaluation"
             ]
         },
         {
             "root": "subpackage-project",
             "pages": [
                 "doctor-detail/doctor-detail",
-                "chat/chat"
+                "chat/chat",
+                "imme-register/imme-register",
+                "designative-register/designative-register"
             ]
         },
         {

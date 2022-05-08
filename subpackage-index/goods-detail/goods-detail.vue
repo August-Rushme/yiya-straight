@@ -319,10 +319,11 @@ export default {
 		this.moreCommentsId = option.id;
 		const res = await this.getClinicListAction(this.pageInfo);
 		this.shopData = res.list;
-		const reply = await this.getCommentsByClinicAction({
+		const reply = await this.getCommentsByTypeAction({
 			pageSize: 2,
 			pageNum: 1,
-			clinicId: parseInt(option.id)
+			clinicId: parseInt(option.id),
+			labelId: 1,
 		});
 		const content = [];
 		reply.list.forEach(async (item) => {
@@ -331,9 +332,15 @@ export default {
 				commentId: item.id
 			});
 			const newReply = [];
-			item.replyId.forEach(item2 =>{
-				newReply.push( item.reply[item2])
+		const _this = this
+		item.replyId.forEach( async item2 =>{
+			const reply2 = await _this.getReplyById({
+				pageSize: 99,
+				pageNum: 1,
+				replyId: item2
 			})
+			newReply.push(reply2.list[0])
+		})
 			const newObj = {
 				...item,
 				newReply: newReply,
@@ -367,7 +374,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions(['getClinicListAction', 'getCommentsByClinicAction', 'getCommentsLabelsAction', 'isPraiseAction'])
+		...mapActions(['getClinicListAction',  'getCommentsLabelsAction', 'isPraiseAction','getCommentsByTypeAction','getReplyById'])
 	}
 };
 </script>

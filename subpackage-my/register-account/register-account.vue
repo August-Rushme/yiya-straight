@@ -2,7 +2,7 @@
   <view class="register d-flex j-center">
     <view class="card mt-4 p-4 d-flex flex-column a-center">
       <view>
-        <image src="/static/images/logo.png" style="width: 220upx;height: 220upx;margin-bottom: 40upx;" mode=""></image>
+        <image src="https://oss-augustrush.oss-cn-shenzhen.aliyuncs.com/yayiImage/logo.png" style="width: 220upx;height: 220upx;margin-bottom: 40upx;" mode=""></image>
       </view>
 
       <u--form ref="userRef" labelPosition="left" :model="userInfo" :rules="rules" labelWidth="auto">
@@ -17,15 +17,15 @@
         </u-form-item>
       </u--form>
       <view
-        class="py-2 w-100 d-flex a-center j-center main-bg-color text-white rounded font-md my-4"
-        hover-class="main-bg-hover-color"
+       class="py-2 w-100 d-flex a-center j-center  text-white rounded font-md mb-4 mt-3"
+       style="background: linear-gradient(to right,#20dab4,#22b1ac)"
         @click="submit"
       >
         注册
       </view>
       <view class="text-light-muted">
         已有账号?
-        <text style="color: #2b59c1" @click="goToLogin">去登录</text>
+        <text style="color: #4a7cee" @click="goToLogin">去登录</text>
       </view>
     </view>
   </view>

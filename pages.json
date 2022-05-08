@@ -78,7 +78,7 @@
 			}, {
 			"path": "register-account/register-account",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "注册",
 				"enablePullDownRefresh": false
 			}
 
@@ -86,7 +86,7 @@
 			, {
 				"path": "setInfo/setInfo",
 				"style": {
-					"navigationBarTitleText": "个人信息设置",
+					"navigationBarTitleText": "个人信息",
 					"enablePullDownRefresh": false
 				}
 			
@@ -128,7 +128,7 @@
 			{
 				"path": "record/record",
 				"style": {
-					"navigationBarTitleText": "我的病例",
+					"navigationBarTitleText": "我的CT",
 					"enablePullDownRefresh": false
 				}
 
@@ -137,6 +137,15 @@
                     "style" :                                                                                    
                 {
                     "navigationBarTitleText": "关于我们",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "evaluation/evaluation",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "评价",
                     "enablePullDownRefresh": false
                 }
                 
@@ -159,6 +168,24 @@
                     "style" :                                                                                    
                 {
                     "navigationBarTitleText": "在线问诊",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "imme-register/imme-register",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "极速预约",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "designative-register/designative-register",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
                     "enablePullDownRefresh": false
                 }
                 
@@ -191,7 +218,7 @@
 		}, {
 			"path": "push-comments/push-comments",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "评论详情",
 				"enablePullDownRefresh": false
 			}
 

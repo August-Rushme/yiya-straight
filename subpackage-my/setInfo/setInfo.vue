@@ -1,21 +1,22 @@
 <template>
-	<view>
+	<view class="page">
+		<view class="d-flex j-center a-center mt-3">
+			<view class="d-flex j-center a-center flex-column">
+				<u-avatar :src="avatar" size="100"></u-avatar>
+			   <text class="font-md pt-1">
+				   更换头像
+			   </text>
+			</view>
+		
+		</view>
 		<block v-for="(item, index) in userInfo" :key="index">
 			<view class="item d-flex j-sb py-3 px-2 border-bottom">
 				<view class="font-weight">{{ item.title }}</view>
 				<view class="d-flex text-muted">
-					<template v-if="item.title === '头像'">
-						<view class="d-flex a-center">
-							<u-avatar :src="item.value" size="30"></u-avatar>
-							<text class="font-md text-light-muted ml-1">></text>
-						</view>
-					</template>
-					<template v-else>
 						<view class="d-flex a-center">
 							<text>{{ item.value === null ? '去设置' : item.value }}</text>
 							<text class="font-md text-light-muted ml-1">></text>
 						</view>
-					</template>
 				</view>
 			</view>
 		</block>
@@ -26,11 +27,8 @@
 export default {
 	data() {
 		return {
+			avatar: uni.getStorageSync('avatar'),
 			userInfo: [
-				{
-					title: '头像',
-					value: uni.getStorageSync('userInfo').photo
-				},
 				{
 					title: '昵称',
 					value: uni.getStorageSync('userInfo').nickname
@@ -66,4 +64,6 @@ export default {
 };
 </script>
 
-<style></style>
+<style scope>
+
+</style>

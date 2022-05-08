@@ -32,15 +32,15 @@
 					<!-- 评论内容 -->
 					<view class="comment-content mb-1">{{ item2.content }}</view>
 					<!-- 照片 -->
-					<view class="photo my-2" style="margin-left: 100rpx;"><u-album :urls="item2.photo"  :radius="'15rpx'" multipleSize="95" ></u-album></view>
+					<view class="photo my-2" style="margin-left: 100rpx;"><u-album :urls="item2.photo"  :radius="'15rpx'" multipleSize="95"></u-album></view>
 					<!-- 点赞以及回复数 -->
 					<view class="d-flex j-sb" style="margin-left: 100rpx;">
 						<view class="d-flex">
-							<u-icon name="chat" color="dark" size="15" @tap="goPushCommentsPage(index2,item2.id)"></u-icon>
+							<u-icon name="chat" color="dark" size="15" @tap="goPushCommentsPage(item2.id)"></u-icon>
 							<text>{{ item2.newReply.length }}</text>
 						</view>
 						<view class="d-flex">
-							<u-icon name="thumb-up" @tap="giveThumbUp(index2)" :color="item2.thumbColor" size="15"></u-icon>
+							<u-icon name="thumb-up" @tap="giveThumbUp(index2,item2.id)" :color="item2.thumbColor" size="15"></u-icon>
 							<text class="pr-1">{{ item2.likes }}</text>
 						</view>
 					</view>
@@ -120,20 +120,46 @@ export default {
 	   }
    },
  	methods: {
-		...mapActions(['praise','unPraise','getCommentsByTypeAction']),
+		...mapActions(['praise','unPraise','getCommentsByTypeAction','isPraiseAction','getReplyById']),
 	      async	changeOption(index) {
-		       const res =  await this.getCommentsByTypeAction({
+			  this.$emit('indexChange',index+1);
+		       const reply =  await this.getCommentsByTypeAction({
 						   pageNum: 1,
-						   pageSize: 3,
+						   pageSize: 2,
 						   clinicId: this.$props.moreCommentsId,
 						   labelId: index+1
 					   });
-		  this.$props.comments.content = res.list;
+					   console.log(reply);
+					   const content = [];
+					   reply.list.forEach(async (item) => {
+					   	const isPraise = await this.isPraiseAction({
+					   		userId: uni.getStorageSync('userInfo').id,
+					   		commentId: item.id
+					   	});
+					   	const newReply = [];
+						const _this = this
+					   	item.replyId.forEach( async item2 =>{
+							const reply2 = await _this.getReplyById({
+								pageSize: 99,
+								pageNum: 1,
+								replyId: item2
+							})
+					   		newReply.push(reply2.list[0])
+					   	})
+	
+					   	const newObj = {
+					   		...item,
+					   		newReply: newReply,
+					   		thumbColor: isPraise == 'true' ? 'red' : 'dark'
+					   	};
+					   	content.push(newObj);
+					   });
+		  this.$props.comments.content = content;
 			this.optionsIndex = index;
 		},
-		goPushCommentsPage(index) {
+		goPushCommentsPage(id) {
 			uni.navigateTo({
-				url: `/subpackage-index/push-comments/push-comments?id=${index}`
+				url: `/subpackage-index/push-comments/push-comments?id=${id}&clinicId=${this.$props.moreCommentsId}`
 			});
 		},
 		lookAllComments() {

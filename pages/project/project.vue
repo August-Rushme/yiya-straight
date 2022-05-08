@@ -66,7 +66,7 @@ export default {
 			})
 		}
 	},
-     async onLoad() {
+     async onShow() {
 		 const res = await this.getAllDoctorLabelAction();
 		 const res2 = await this.getDoctorBylLabelIdAction({labelId:1});
 		 this.cateData = res;
