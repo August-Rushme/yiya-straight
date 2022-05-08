@@ -12,7 +12,8 @@ import {
 import {
 	getAllDoctorLabel,
 	getDoctorBylLabelId,
-	 getDoctorById
+	 getDoctorById,
+	 getAllDoctor
 } from '../service/doctor/doctor.js'
 import { getUserById } from '../service/user/user.js';
 import {
@@ -20,10 +21,16 @@ import {
 	getReplyById,
 	getCommentsLabels,
 	getCommentsByType,
+	getCommentsById,
 	isPraise,
 	praise,
-	unPraise
+	unPraise,
+	commentReply
 } from '../service/comments/comments.js'
+
+import { 
+	messageSave
+} from '../service/chat/chat.js'
 Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
@@ -119,6 +126,15 @@ const store = new Vuex.Store({
 			return res.data
 		}
 	},
+	async getAllDoctorAction({commit},payload){
+		const res = await getAllDoctor(payload)
+		if(!res.code == 200){
+			uni.$u.toast('获取医生信息失败')
+		}
+		else{
+			return res.data
+		}
+	},
 	//用户相关请求
 	async getUserByIdAction({commit},payload){
 		const res = await getUserById(payload)
@@ -135,8 +151,29 @@ const store = new Vuex.Store({
 		}
 		return res.data
 	},
+	async commentReply({commit},payload){
+		const res = await commentReply(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('获取评论失败');
+		}
+		return res.data
+	},
+	async getCommentsById({commit},payload){
+		const res = await getCommentsById(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('获取评论失败');
+		}
+		return res.data
+	},
 	async getCommentsLabelsAction({commit},payload){
 		const res = await getCommentsLabels(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async getReplyById({commit},payload){
+		const res = await getReplyById(payload);
 		if (!res.code == 200) {
 		  return uni.$u.toast('请求失败');
 		}
@@ -165,6 +202,14 @@ const store = new Vuex.Store({
 	},
 	async getCommentsByTypeAction({commit},payload){
 		const res = await getCommentsByType(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	//聊天相关请求
+	async messageSave({commit},payload){
+		const res = await messageSave(payload);
 		if (!res.code == 200) {
 		  return uni.$u.toast('请求失败');
 		}

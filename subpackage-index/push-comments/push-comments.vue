@@ -7,22 +7,22 @@
 					<view class="d-flex">
 						<u-avatar :src="content.avatar"></u-avatar>
 						<view class="ml-1">
-							<text class="pl-1">{{ content.username }}</text>
-							<u-rate :count="5" readonly="true" v-model="content.starsValue"></u-rate>
+							<text class="pl-1">{{ content.nickName }}</text>
+							<u-rate :count="5" readonly="true" v-model="content.rate"></u-rate>
 						</view>
 					</view>
-					<view class="text-muted">{{ content.commentTime }}</view>
+					<view class="text-muted">{{ content.createTime }}</view>
 				</view>
 			</view>
 			<!-- 评论内容 -->
-			<view class="comment-content my-1">{{ content.commentContent }}</view>
+			<view class="comment-content my-1">{{ content.content }}</view>
 			<!-- 照片 -->
-			<view class="photo my-2"><u-album :urls="content.photos" :radius="'15rpx'" multipleSize="95"></u-album></view>
+			<view class="photo my-2"><u-album :urls="content.photo === undefined ? defaultUrls : content.photo" :radius="'15rpx'" multipleSize="95"></u-album></view>
 			<!-- 点赞以及回复数 -->
 			<view class="d-flex j-sb">
 				<view class="d-flex" @tap="leaveMessage">
 					<u-icon name="chat" color="dark" size="15"></u-icon>
-					<text>{{ content.replies.length }}</text>
+					<text>{{ content.newReply.length }}</text>
 				</view>
 				<view class="d-flex">
 					<u-icon name="thumb-up" @tap="giveThumbUp(index2)" :color="content.thumbColor" size="15"></u-icon>
@@ -31,14 +31,14 @@
 			</view>
 			<!-- 回复内容 -->
 			<view class="py-1 border-top">
-				<block v-for="(item, index) in content.replies" :key="index">
+				<block v-for="(item, index) in content.newReply" :key="index">
 					<view class="d-flex my-2 reply-content">
-						<view style="padding-top: 8rpx;"><u-avatar :src="item.replyAvatar"></u-avatar></view>
+						<view style="padding-top: 8rpx;"><u-avatar :src="item.avatar"></u-avatar></view>
 						<view class="reply-content ml-1">
 							<view class="who">
-								<view>{{ item.isBusiness ? '商家回复' : item.replyname }}</view>
-								<view class="text-muted py-2 line-h0">{{ item.replyTime }}</view>
-								<view class="info">{{ item.replyContent }}</view>
+								<view>{{ item.role === '用户' ? item.nickName : '商家回复' }}</view>
+								<view class="text-muted py-2 line-h0">{{ item.time }}</view>
+								<view class="info">{{ item.content }}</view>
 							</view>
 						</view>
 					</view>
@@ -60,74 +60,110 @@ export default {
 	data() {
 		return {
 			pushContent: '',
+			id: 1,
+			clinicId: 1,
 			focus: false,
-			content: {
-				avatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-				username: '我是顾客上帝哦',
-				starsValue: 4.8,
-				commentTime: '2022/04/21',
-				commentContent: '就感觉这此体验非常的好大大的好评哦然后就是就感觉这此体验非常的好大大的好评哦就感觉这此体验非常的好大大的好评哦',
-				photos: ['https://cdn.uviewui.com/uview/album/2.jpg', 'https://cdn.uviewui.com/uview/album/3.jpg'],
-				optionLables: ['热情服务', '环境很好'],
-				replies: [
-					{
-						isBusiness: false,
-						replyname: '小红',
-						replyTime: '2022/04/21 08:31:24',
-						replyAvatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-						replyContent: '感谢您的认可,祝您生活愉快哦亲感谢您的认可,祝您生活愉快哦亲'
-					},
-					{
-						isBusiness: false,
-						replyname: '小红',
-						replyTime: '2022/04/21 08:31:24',
-						replyAvatar: 'https://img0.baidu.com/it/u=4179632920,2441308760&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-						replyContent: '这家店是真不错哦'
-					}
-				],
-				likes: 66,
-				thumbColor: 'dark'
-			}
+			defaultUrls: ['https://cdn.uviewui.com/uview/album/3.jpg'],
+			content: {}
 		};
 	},
 	methods: {
-		send() {
+	 async send() {
 			if (this.pushContent.length > 0) {
 				const date = new Date();
-				const formatDate = uni.$u.timeFormat(date,'yyyy-mm-dd hh:MM:ss');
-				this.content.replies.push({
-					isBusiness: false,
-					replyname: this.username,
-					replyTime: formatDate,
-					replyAvatar: this.avatar,
-					replyContent: this.pushContent
+				const formatDate = uni.$u.timeFormat(date, 'yyyy-mm-dd hh:MM:ss');
+				this.content.newReply.push({
+					role: '用户',
+					nickName: this.username,
+					time: formatDate,
+					avatar: this.avatar,
+					content: this.pushContent
 				});
-				this.pushContent = ''
-				this.$nextTick(function(){
+				await this.commentReply({
+					userId: uni.getStorageSync('userInfo').id,
+					commentId: this.id,
+					clinicId: this.clinicId,
+					content: this.pushContent,
+					role: "用户",
+					time: uni.$u.timeFormat(date, 'yyyy-mm-dd hh:MM:ss')
+				})
+				this.pushContent = '';
+				this.$nextTick(function() {
 					uni.pageScrollTo({
 						scrollTop: 9999,
 						duration: 0
 					});
-				})
-		
-				console.log(111)
+				});
+
+				console.log(111);
 			}
 		},
-		onLoad: function(option){
-			console.log(option)
+		formatTime(time) {
+			var date = new Date(time);
+			var y = date.getFullYear();
+			var m = date.getMonth() + 1;
+			m = m < 10 ? '0' + m : m;
+			var d = date.getDate();
+			d = d < 10 ? '0' + d : d;
+			var h = date.getHours();
+			h = h < 10 ? '0' + h : h;
+			var minute = date.getMinutes();
+			minute = minute < 10 ? '0' + minute : minute;
+			var second = date.getSeconds();
+			second = second < 10 ? '0' + second : second;
+			return y + '/' + m + '/' + d + ' ' + h + ':' + minute + ':' + second;
 		},
 		leaveMessage() {
 			this.focus = !this.focus;
 		},
-		giveThumbUp(index2) {
+		async giveThumbUp(index2) {
 			if (this.content.thumbColor === 'dark') {
+				await this.praise({
+					userId: uni.getStorageSync('userInfo').id,
+					commentId: this.id
+				});
 				this.content.likes++;
 			} else {
+				await this.unPraise({
+					userId: uni.getStorageSync('userInfo').id,
+					commentId: this.id
+				});
 				this.content.likes--;
 			}
 			this.content.thumbColor = this.content.thumbColor === 'dark' ? 'red' : 'dark';
 		},
-		...mapActions(['localLoginAction'])
+		...mapActions(['localLoginAction', 'getCommentsById', 'getReplyById', 'isPraiseAction', 'praise', 'unPraise','commentReply'])
+	},
+	async onLoad(option) {
+		this.id = parseInt(option.id);
+		console.log(option)
+		this.clinicId = parseInt(option.clinicId);
+	
+		const res = await this.getCommentsById(parseInt(option.id));
+		res.createTime = this.formatTime(res.createTime);
+		const reply = [];
+		const _this = this;
+		const isPraise = await this.isPraiseAction({
+			commentId: parseInt(option.id),
+			userId: uni.getStorageSync('userInfo').id
+		});
+		res.replyId.forEach(async item2 => {
+			const replyContent = await _this.getReplyById({
+				pageSize: 99,
+				pageNum: 1,
+				replyId: item2
+			});
+				console.log(replyContent.list[0]);
+			replyContent.list[0].time = _this.formatTime(replyContent.list[0].time);
+			reply.push(replyContent.list[0]);
+		});
+		console.log(isPraise)
+		const content = {
+			...res,
+			newReply: reply,
+			thumbColor: isPraise == 'true' ? 'red' : 'dark'
+		};
+		this.content = content;
 	},
 	computed: {
 		...mapState(['username', 'avatar'])

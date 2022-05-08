@@ -33,7 +33,7 @@
 			我的CT
 		</view>
 		<view class="navItem span-5" @tap="goToAppointment">
-			<image src="../../static/images/fankui.png" style="height: 60rpx;width: 60rpx;" mode=""></image>
+			<image src="../../static/images/yuyue.png" style="height: 60rpx;width: 60rpx;" mode=""></image>
 			我的预约
 		</view>
 		<view class="navItem span-5" @tap="goToAboutUs">

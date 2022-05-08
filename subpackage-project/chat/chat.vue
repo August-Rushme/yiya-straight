@@ -116,7 +116,7 @@ export default {
 		});
 	},
 	methods: {
-		...mapActions(['getUserByIdAction']),
+		...mapActions(['getUserByIdAction','messageSave']),
 		sendMessage() {
 			if (this.message.length > 0) {
 				const messageInfo = {
@@ -272,7 +272,7 @@ export default {
 			const _this = this;
 			this.im.sendMessage({
 				message: messageInfo,
-				onSuccess: function(message) {
+				onSuccess: async function(message) {
 					if (message.type !== 'mark') {
 						//发送成功
 						_this.messagelist.push({
@@ -287,6 +287,25 @@ export default {
 							videoSrc: message.payload.videoSrc,
 							text: message.payload.text
 						});
+						const Info = {
+							msg: message.payload.text,
+							status: 0,
+							sendDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+							readDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+							type: 'text',
+							url: '',
+							from: {
+								id: uni.getStorageSync('userInfo').id,
+								nickname: uni.getStorageSync('username'),
+								photo: uni.getStorageSync('avatar')
+							},
+							to: {
+								id: _this.receiverId,
+								nickname: _this.receiverName,
+								photo: _this.receiverAvatar
+							}
+						}
+					  const res = await	_this.messageSave(Info);
 						_this.message = '';
 					}
 				},

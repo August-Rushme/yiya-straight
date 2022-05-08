@@ -42,22 +42,22 @@
 		<!-- 医生信息 -->  
 		<template v-else-if="tabIndex === 1">
 			<view class="mb-2" v-for="(item, index) in doctorInfo" :key="index"> 
-			<uni-card :isFull="true"  padding="0px" @tap="goDoctorsDetail" >
+			<uni-card :isFull="true"  padding="0px" @tap="goDoctorsDetail(item.id)" >
 				<view class="d-flex flex-row m-2 a-center"  >
 					<view style="margin-left: -20upx;">	 <u-avatar :src="item.avatar" size="60"></u-avatar></view>
 			
 				 <view class="doctorDesc font-md ml-2">
 					 <text>
 						 <text class="font-weight font-lg text-dark pr-1">{{item.name}}</text>
-						 <text >{{item.level}} 从业{{item.workYear}}年
+						 <text >{{item.profession}} 从业{{item.workYears}}年
 						 </text>
 					 </text>
 					 <view class="mb-1">
-						 {{item.address}}
+						 {{item.clinicName}}
 					 </view>
 					 <view class="d-flex">
-						 <block v-for="skillType in item.skill" :key="skillType">
-						 <view class="border: 1px solid #6e6e6e;color: #6e6e6e;mr-1;px-1">{{skillType}}</view>
+						 <block v-for="skillType in item.labels" :key="skillType">
+						 <view class="border: 1px solid #6e6e6e;color: #6e6e6e;mr-1;px-1">{{skillType.label}}</view>
 						 </block>				
 					 </view>
 				 </view>
@@ -84,6 +84,10 @@ import { mapActions } from 'vuex'
 		  		pageSize: 5,
 		  		pageNum: 1,
 		  },
+		 pageInfo2: {
+		 		pageSize: 5,
+		 		pageNum: 1,
+		 },
         swiperData: [
           { img: 'https://s1.ax1x.com/2022/03/09/bWKB6S.png' },
           { img: 'https://s1.ax1x.com/2022/03/09/bWKNFI.png' },
@@ -101,104 +105,55 @@ import { mapActions } from 'vuex'
 		],
 		shopData: [],
 		doctorInfo: [
-			{
-				avatar: 'https://img0.baidu.com/it/u=105674555,346783603&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-				name: '张三',
-				level: '主任医生',
-				workYear: 15,
-				address: '海南口腔医院',
-				skill: [
-					'普通种植',
-					'冷光美白',
-					'即刻种植'
-				]
-			},
-			{
-				avatar: 'https://img0.baidu.com/it/u=105674555,346783603&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-				name: '张三',
-				level: '主任医生',
-				workYear: 15,
-				address: '海南口腔医院',
-				skill: [
-					'普通种植',
-					'冷光美白',
-					'即刻种植'
-				]
-			},
-			{
-				avatar: 'https://img0.baidu.com/it/u=105674555,346783603&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-				name: '张三',
-				level: '主任医生',
-				workYear: 15,
-				address: '海南口腔医院',
-				skill: [
-					'普通种植',
-					'冷光美白',
-					'即刻种植'
-				]
-			},
-			{
-				avatar: 'https://img2.baidu.com/it/u=3692805559,3486749732&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=538',
-				name: '小明',
-				level: '副主任医生',
-				workYear: 10,
-				address: '杭牙维信口腔',
-				skill: [
-					'冷光美白',
-					'拔智齿',
-					'即刻种植'
-				]
-			},
-	{
-		avatar: 'https://img0.baidu.com/it/u=105674555,346783603&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=500',
-		name: '张三',
-		level: '主任医生',
-		workYear: 15,
-		address: '海南口腔医院',
-		skill: [
-			'普通种植',
-			'冷光美白',
-			'即刻种植'
-		]
-	},
-	{
-		avatar: 'https://img2.baidu.com/it/u=3692805559,3486749732&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=538',
-		name: '小明',
-		level: '副主任医生',
-		workYear: 10,
-		address: '杭牙维信口腔',
-		skill: [
-			'冷光美白',
-			'拔智齿',
-			'即刻种植'
-		]
-	},
+
 		]
       }
     },
 	async onLoad(){
 		const res = await this.getClinicListAction(this.pageInfo);
+		const doctorData = await this.getAllDoctorAction(this.pageInfo2);
+		this.doctorInfo = doctorData.list;
 		this.shopData = res.list; 	
 	},
 	async onReachBottom() {
-		this.pageInfo.pageNum++;
-		uni.showLoading({
-			title: '加载中'
-		});
-		const res = await this.getClinicListAction(this.pageInfo);
-	  if(res.list.length>0){
-			uni.hideLoading();
-			this.shopData.push(...res.list); 
+		
+		if(this.tabIndex === 0){
+			this.pageInfo.pageNum++;
+					uni.showLoading({
+						title: '加载中'
+					});
+					const res = await this.getClinicListAction(this.pageInfo);
+			if(res.list.length>0){
+						uni.hideLoading();
+						this.shopData.push(...res.list); 
+					}else{
+						uni.hideLoading();
+						uni.showToast({
+						  title: '没有更多数据了',
+						  icon: 'none'
+						});
+					}
 		}else{
-			uni.hideLoading();
-			uni.showToast({
-			  title: '没有更多数据了',
-			  icon: 'none'
-			});
-		}	
+			this.pageInfo2.pageNum++;
+					uni.showLoading({
+						title: '加载中'
+					});
+					const doctorData =  await this.getAllDoctorAction(this.pageInfo2);
+			if(doctorData.list.length>0){
+						uni.hideLoading();
+						this.doctorInfo .push(...doctorData.list); 
+					}else{
+						uni.hideLoading();
+						uni.showToast({
+						  title: '没有更多数据了',
+						  icon: 'none'
+						});
+					}
+		}
+	
 	},
     methods: {
-		...mapActions(['getClinicListAction']),
+		...mapActions(['getClinicListAction','getAllDoctorAction']),
       search(){
 		  uni.navigateTo({
 		  	url: '/components/search/search'
@@ -212,9 +167,9 @@ import { mapActions } from 'vuex'
 		  	url: `/subpackage-index/goods-detail/goods-detail?id=${id}`
 		  })
 	  },
-	  goDoctorsDetail(){
+	  goDoctorsDetail(id){
 		  uni.navigateTo({
-		  	url: '/subpackage-project/doctor-detail/doctor-detail'
+		  	url: `/subpackage-project/doctor-detail/doctor-detail?id=${id}`
 		  })
 	  }
     }

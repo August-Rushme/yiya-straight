@@ -72,7 +72,6 @@ export default {
   },
  async onLoad() {
 	 const res = await this.getClinicListAction(this.pageInfo);
-
 	 this.shopData = res.list; 
 	 // this.requestState = true
   },

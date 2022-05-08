@@ -37,7 +37,7 @@
 					<view class="text-light-muted " style="text-align: end;">
 						×1
 					</view>
-					<view class="text-center comment">
+					<view class="text-center comment" @click="goToEvaluation">
 						评价
 					</view>
 					</view>
@@ -56,7 +56,11 @@
 			}
 		},
 		methods: {
-			
+			goToEvaluation(){
+				uni.navigateTo({
+					url: '/subpackage-my/evaluation/evaluation'
+				})
+			}
 		}
 	}
 </script>

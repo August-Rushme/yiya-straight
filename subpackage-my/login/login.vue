@@ -3,11 +3,11 @@
     <uni-status-bar />
     <view class="d-flex a-center j-sb py-2 px-3 text-light-muted">
       <view class="iconfont icon-shanchu1" @click="goBack"></view>
-      <view class="font-md" @click="forget">忘记密码</view>
+ <!--     <view class="font-md" @click="forget">忘记密码</view> -->
     </view>
 
     <view class="p-5">
-      <view class="font-big mb-5">密码登录</view>
+      <view class="font-big mb-5">账密登录</view>
 
       <input
         type="text"
@@ -31,8 +31,8 @@
         :class="focusClass.password ? 'input-border-color' : ''"
       />
       <view
-        class="py-2 w-100 d-flex a-center j-center main-bg-color text-white rounded font-md mb-4"
-        hover-class="main-bg-hover-color"
+        class="py-2 w-100 d-flex a-center j-center  text-white rounded font-md mb-4"
+		style="background: linear-gradient(to right,#20dab4,#22b1ac)"
         @click="submit"
       >
         登录
@@ -44,7 +44,7 @@
         </label>
         <view class="text-light-muted">
           没有账号?
-          <text style="color: #2b59c1" @click="goToRegester">立即注册</text>
+          <text style="color: #4a7cee" @click="goToRegester">立即注册</text>
         </view>
       </view>
       <view class="d-flex j-center mt-3">
