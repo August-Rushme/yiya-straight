@@ -22,8 +22,12 @@
         "message/message",
         "record/record",
         "aboutUs/aboutUs",
+<<<<<<< HEAD
         "evaluation/evaluation",
         "wallet/wallet"
+=======
+        "evaluation/evaluation"
+>>>>>>> 93811e72cbd9fd64efa454aeb14e128b4c6a2c8d
       ]
     },
     {
@@ -32,8 +36,12 @@
         "doctor-detail/doctor-detail",
         "chat/chat",
         "imme-register/imme-register",
+<<<<<<< HEAD
         "designative-register/designative-register",
         "designative-appointment/designative-appointment"
+=======
+        "designative-register/designative-register"
+>>>>>>> 93811e72cbd9fd64efa454aeb14e128b4c6a2c8d
       ]
     },
     {
@@ -100,5 +108,10 @@
   },
   "usingComponents": {
     "divider": "/components/common/divider"
+<<<<<<< HEAD
   }
+=======
+  },
+  "sitemapLocation": "sitemap.json"
+>>>>>>> 93811e72cbd9fd64efa454aeb14e128b4c6a2c8d
 }
