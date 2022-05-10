@@ -150,6 +150,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "wallet/wallet",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		},
 		//问诊
@@ -176,7 +185,7 @@
                     "path" : "imme-register/imme-register",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "极速预约",
+                    "navigationBarTitleText": "预约信息",
                     "enablePullDownRefresh": false
                 }
                 
@@ -185,7 +194,16 @@
                     "path" : "designative-register/designative-register",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    "navigationBarTitleText": "指定预约",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "designative-appointment/designative-appointment",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "预约列表",
                     "enablePullDownRefresh": false
                 }
                 

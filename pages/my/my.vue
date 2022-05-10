@@ -72,6 +72,11 @@
 					  pageName: 'order'
 				  }, 
 				  {
+					name: '我的钱包',
+					  src: '/static/images/wallet.png',
+					  pageName: 'wallet',
+				  },
+				  {
 					  name: '我的优惠卷',
 					  src: '/static/images/coupon.png',
 					  pageName: 'coupon'
@@ -95,7 +100,7 @@
 					  name: '切换账号',
 					  src: '/static/images/switchAccount.png',
 					  pageName: 'login'
-				  }
+				  },
 			 ]
 			}
 		},
