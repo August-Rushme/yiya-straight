@@ -154,7 +154,7 @@
                     "path" : "wallet/wallet",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    "navigationBarTitleText": "我的钱包",
                     "enablePullDownRefresh": false
                 }
                 
