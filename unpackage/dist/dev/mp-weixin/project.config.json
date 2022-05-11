@@ -11,19 +11,23 @@
   },
   "compileType": "miniprogram",
   "libVersion": "",
-  "appid": "wxa46bc73b729a102d",
+  "appid": "wx32ef92a691bc8db4",
   "projectname": "yiya-straight",
   "condition": {
     "search": {
+      "current": -1,
       "list": []
     },
     "conversation": {
+      "current": -1,
       "list": []
     },
     "game": {
+      "current": -1,
       "list": []
     },
     "miniprogram": {
+      "current": 0,
       "list": [
         {
           "name": "",
