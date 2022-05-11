@@ -18,7 +18,7 @@
         <scroll-view scroll-y="true" style="height: 400rpx;" enable-flex>
           <!-- 产品 -->
           <card>
-            <view class="content" v-for="(itemData, indexContent) in goodsData" :key="indexContent">
+            <view class="content" v-for="(itemData, indexContent) in goodsData" :key="indexContent" @click="goToProduct">
               <block v-for="(item, listIndex) in itemData.list" :key="listIndex">
                 <view class="goodsInfo d-flex flex-row m-2 " v-if="itemData.name == itemTab.name">
                   <u--image :showLoading="true" :src="item.src" width="64px" height="64px" radius="5"></u--image>
@@ -74,6 +74,12 @@ export default {
     
       }
     },
+	//页面跳转
+	goToProduct(){
+		uni.navigateTo({
+			url: '/subpackage-index/product-info/product-info'
+		})
+	},
     // 处理swiper滑动时的页面切换
     handleChangeTab(item) {
       this.changeTab(item.detail.current);

@@ -4,10 +4,13 @@
 		<view class="search mb-1">
 			<u--input
 			    placeholder="搜索"
+				v-model="searchContent"
+				@change="change"
 			    prefixIcon="search"
 			    prefixIconStyle="font-size: 22px;color: #909399"
 			></u--input>
 		</view>
+		
 		<block v-for="(item,index) in friends" :key="index">
 			<view class="my-2">
 				<uni-card :is-full="true">
@@ -22,19 +25,34 @@
 						  <view class=" ml-2 " style="width: 100%;">
 						  	<view class="d-flex j-sb a-center">
 								<view class="font-md font-weight">
-									{{item.nickname}}
+									{{item.nickName}}
 								</view>
 						  		<view class=" text-light-muted">
 						  			{{item.latestMessage.time}}
 						  		</view>
 						  	</view>
 							<view class="d-flex j-sb a-center">
-								<view class="text-light-muted mt-1 content">
-									{{item.latestMessage.content}}				
-								</view>
-								<view class="myBadage" :class="item.value > 99 ? 'px-2' : ''">
-									 {{item.value > 99 ? '99+' : item.value}}
+								<template v-if="item.latestMessage.type === 'text'">
+									<view class="text-light-muted mt-1 content">
+										{{item.latestMessage.content}}				
+									</view>
+								</template>
+						        <template v-else-if="item.latestMessage.type === 'image'">
+						        	<view class="text-light-muted mt-1 content">
+						        		对方给你发送了一张图片				
+						        	</view>
+						        </template>
+								<template v-else>
+									<view class="text-light-muted mt-1 content">
+										对方给你发送了一个视频				
+									</view>
+								</template>
+								<template v-if="item.unReadMount>0">
+								<view class="myBadage" :class="item.unReadMount > 99 ? 'px-2' : ''">
+									 {{item.unReadMount > 99 ? '99+' : item.unReadMount}}
 								</view>	
+								</template>
+						
 							</view>
 						
 						  </view>
@@ -48,32 +66,88 @@
 </template>
 
 <script>
+	import { mapActions } from 'vuex';
 	export default {
 		data() {
 			return {
+				searchContent:'',
+				allInfo: [],
+				pageInfo: {
+					pageNum: 1,
+					pageSize: 10,
+				},
 				friends: [
-					{
-						avatar: 'https://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJsAibhKl94xrSQVNECeRk35s4AZB5wk6U9SwmQPzRTnCuEwiaRjCsA1BBwwKic2jtO9PCUG9icFqznjQ/132',
-						nickname: 'August Rush',
-						value: 166,
-						latestMessage: {
-							content: '哈哈哈哈hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
-							time: '2022/5/2 16:47'
-						},
-					},
-					{
-						avatar: 'https://thirdwx.qlogo.cn/mmopen/vi_32/PiajxSqBRaEJsAibhKl94xrSQVNECeRk35s4AZB5wk6U9SwmQPzRTnCuEwiaRjCsA1BBwwKic2jtO9PCUG9icFqznjQ/132',
-						nickname: 'August Rush',
-						value: 186,
-						latestMessage: {
-							content: '哈哈哈哈',
-							time: '2022/5/2 16:48'
-						},
-					}
 				]
 			}
 		},
+	  async	onLoad() {
+		
+			const res = await this.getMessageListAction({
+				userId: uni.getStorageSync('userInfo').id,
+				...this.pageInfo
+			})
+			const friends = [];
+           this.setFriendsInfo(res.list);
+		   this.allInfo = this.friends
+		},
 		methods: {
+			...mapActions(['getMessageListAction','searchMessageAction']),
+			setFriendsInfo(res,isReset = false){
+				  const _this = this;
+				  if(res.length > 0){
+					  if(isReset){
+					  	_this.friends = []
+					  }
+					  res.forEach(item => {
+					  	if(item.message.length > 0){
+					  		const latestMessage = {
+					  		content: item.message[item.message.length-1].msg,
+					  		time: item.message[item.message.length-1].sendDate,
+							type: item.message[item.message.length-1].type
+					  			}
+								console.log(latestMessage);
+					  			const userInfo = {
+					  			  avatar:item.user.avatar,
+					  			  nickName: item.user.nickName,
+					  			  unReadMount: item.unReadMount
+					  			}
+					  			const friend = {
+					  				latestMessage:latestMessage,
+					  				...userInfo
+					  			}
+					
+								console.log(friend);
+					  			_this.friends.push(friend)
+					  	}
+					  })
+				  }else{
+					  _this.friends = [];
+				  }
+	
+			},
+		  	change(){
+				const _this = this;
+				uni.showLoading({
+					title: '加载中'
+				});
+				  uni.$u.debounce( async () => {
+					    if(this.searchContent.length > 0){
+					  const res = await _this .searchMessageAction({
+					  				  				  key: _this .searchContent,
+					  				  				  userId: uni.getStorageSync('userInfo').id
+					  				  })
+					  				  console.log(res)
+					  this.setFriendsInfo(res,true);
+					    }
+						else{
+									  this.friends = this.allInfo
+						}
+				uni.hideLoading();
+				  }, 400)
+	
+			
+	
+			}
 		}
 	}
 </script>

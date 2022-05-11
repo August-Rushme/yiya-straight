@@ -31,6 +31,11 @@ import {
 import { 
 	messageSave
 } from '../service/chat/chat.js'
+import {
+	getMessageList,
+	searchMessage,
+	getMessage
+} from '../service/message/message.js'
 Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
@@ -208,8 +213,31 @@ const store = new Vuex.Store({
 		return res.data
 	},
 	//聊天相关请求
-	async messageSave({commit},payload){
+	async messageSaveAction({commit},payload){
 		const res = await messageSave(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+
+	//我的消息 
+	async getMessageListAction({commit},payload){
+		const res = await getMessageList(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async searchMessageAction({commit},payload){
+		const res = await searchMessage(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async getMessageAction({commit},payload){
+		const res = await getMessage(payload);
 		if (!res.code == 200) {
 		  return uni.$u.toast('请求失败');
 		}

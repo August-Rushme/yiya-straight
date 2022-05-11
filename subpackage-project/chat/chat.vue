@@ -15,14 +15,14 @@
 						<view class="text">{{ item.text }}</view>
 					</template>
 					<template v-else-if="item.type === 'image'">
-						<view class="image"><image @tap="preview(index)" :src="item.imgSrc" mode="widthFix"></image></view>
+						<view class="image"><image @tap="preview(index)" :src="item.url" mode="widthFix"></image></view>
 					</template>
 					<template v-else-if="item.type === 'audio'">
 						<template v-if="item.tmpId === loadingIndex && item.isMe ? isloading[loadingIndex] : false">
 							<u-loading-icon mode="circle" :text="progress"></u-loading-icon>
 						</template>
 						<template v-else>
-							<view class="video"><video :src="item.videoSrc" controls></video></view>
+							<view class="video"><video :src="item.url" controls></video></view>
 						</template>
 					</template>
 					<template v-if="item.isMe">
@@ -56,6 +56,10 @@ import { mapActions } from 'vuex';
 export default {
 	data() {
 		return {
+			pageInfo: {
+				pageSize: 15,
+				pageNum: 1
+			},
 			loadingIndex: 0,
 			isloading: [true],
 			progress: '0%',
@@ -70,11 +74,33 @@ export default {
 	async onLoad(options) {
 		this.receiverId = options.id;
 		const receiverInfo = await this.getUserByIdAction(parseInt(options.id));
-
-		console.log(this.receiverId, typeof this.receiverId, uni.getStorageSync('userInfo').id, typeof uni.getStorageSync('userInfo').id);
+		const messagelist = await this.getMessageAction({
+			fromId: parseInt(uni.getStorageSync('userInfo').id),
+			toId: parseInt(options.id),
+			...this.pageInfo
+		})
+		let index = 0;
+		const rawList = [];
+		console.log(messagelist.list.reverse());
+		messagelist.list.reverse().forEach(item => {
+				const message = {
+						text: item.msg,
+						isRead: item.status === 1 ? true : false,
+						type: item.type,
+						url: item.url,
+						nickName: uni.getStorageSync('userInfo') == item.userId ? uni.getStorageSync('username') : receiverInfo.nickName,
+						avatar: uni.getStorageSync('userInfo') == item.userId ? uni.getStorageSync('avatar') : receiverInfo.photo
+				}
+				console.log(message);
+				rawList.push(message)
+				if( item.status === 1){
+			      	index ++;
+				}
+				
+		})
+		console.log(rawList.slice(0,index > 10 ? rawList.length-index : rawList.length-10));
 		this.receiverAvatar = receiverInfo.photo;
 		this.receiverName = receiverInfo.nickname;
-		console.log(receiverInfo);
 		const goeasy = GoEasy.getInstance({
 			host: 'hangzhou.goeasy.io', //若是新加坡区域：singapore.goeasy.io
 			appkey: 'BC-e96694fd44c241118ac251cc61492c8d',
@@ -116,7 +142,7 @@ export default {
 		});
 	},
 	methods: {
-		...mapActions(['getUserByIdAction','messageSave']),
+		...mapActions(['getUserByIdAction','messageSaveAction','getMessageAction']),
 		sendMessage() {
 			if (this.message.length > 0) {
 				const messageInfo = {
@@ -132,14 +158,16 @@ export default {
 		},
 		preview(index) {
 			uni.previewImage({
-				urls: [this.messagelist[index].imgSrc]
+				urls: [this.messagelist[index].url]
 			});
 		},
 		chooseVideo() {
 			const _this = this;
+			let res2 = null;
 			uni.chooseVideo({
 				mediaType: ['image', 'video'],
 				success: res => {
+					res2 = res
 					let hasPush = false;
 					_this.loadingIndex = _this.loadingIndex + 1;
 					_this.isloading.push(true);
@@ -160,7 +188,6 @@ export default {
 									tmpId: _this.loadingIndex,
 									avatar: uni.getStorageSync('avatar'),
 									nickName: uni.getStorageSync('username'),
-									imgSrc: null,
 									text: null
 								});
 								_this.pageToBottom();
@@ -172,23 +199,35 @@ export default {
 					});
 					this.im.sendMessage({
 						message: message,
-						onSuccess: function(message) {
+						onSuccess: async function(message) {
 							_this.isloading[_this.loadingIndex] = false;
 							_this.progress = '0%';
 							const index = _this.messagelist.findIndex(item => {
-								return item.mark === res;
+								return item.mark == res2;
 							});
+							console.log(index);
 							const currentItem = _this.messagelist.find(item => {
-								return item.mark === res;
+								return item.mark == res2;
 							});
 							const moreMessInfo = {
 								messageId: message.messageId,
 								timestamp: message.timestamp,
 								isRead: message.read,
-								videoSrc: message.payload.url
+								url: message.payload.url
 							};
 							const moreInfo = { ...currentItem, ...moreMessInfo };
 							_this.messagelist.splice(index, 1, moreInfo);
+							const Info = {
+								msg: message.payload.text,
+								status: 0,
+								sendDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+								readDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+								type: message.type,
+								url: message.payload.url,
+								userId: uni.getStorageSync('userInfo').id,
+								receiverId: _this.receiverId
+							}
+							const res = await _this.messageSaveAction(Info);
 							_this.pageToBottom();
 						},
 						onFailed: function(error) {
@@ -218,7 +257,7 @@ export default {
 						});
 						this.im.sendMessage({
 							message: message,
-							onSuccess: function(message) {
+							onSuccess: async function(message) {
 								_this.messagelist.push({
 									type: message.type,
 									isMe: true,
@@ -228,8 +267,19 @@ export default {
 									timestamp: message.timestamp,
 									isRead: message.read,
 									text: null,
-									imgSrc: message.payload.url
+									url: message.payload.url
 								});
+								const Info = {
+									msg: message.payload.text,
+									status: 0,
+									sendDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+									readDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+									type: message.type,
+									url: message.payload.url,
+									userId: uni.getStorageSync('userInfo').id,
+									receiverId: _this.receiverId
+								}
+								const res = await _this.messageSaveAction(Info);
 								_this.pageToBottom();
 							},
 							onFailed: function(error) {
@@ -283,8 +333,7 @@ export default {
 							messageId: message.messageId,
 							timestamp: message.timestamp,
 							isRead: message.read,
-							imgSrc: message.payload.imgSrc,
-							videoSrc: message.payload.videoSrc,
+							url: '',
 							text: message.payload.text
 						});
 						const Info = {
@@ -292,20 +341,13 @@ export default {
 							status: 0,
 							sendDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
 							readDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
-							type: 'text',
+							type: message.type,
 							url: '',
-							from: {
-								id: uni.getStorageSync('userInfo').id,
-								nickname: uni.getStorageSync('username'),
-								photo: uni.getStorageSync('avatar')
-							},
-							to: {
-								id: _this.receiverId,
-								nickname: _this.receiverName,
-								photo: _this.receiverAvatar
-							}
+							userId: uni.getStorageSync('userInfo').id,
+							receiverId: _this.receiverId
 						}
-					  const res = await	_this.messageSave(Info);
+					  const res = await	_this.messageSaveAction(Info);
+					  _this.pageToBottom();
 						_this.message = '';
 					}
 				},
@@ -345,8 +387,7 @@ export default {
 						isRead: true,
 						avatar: _this.receiverAvatar,
 						text: message.payload.text,
-						imgSrc: message.payload.url,
-						videoSrc: message.payload.url,
+						url: message.payload.url,
 						nickName: _this.receiverName
 					};
 					const update = () => {
