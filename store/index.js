@@ -34,7 +34,9 @@ import {
 import {
 	getMessageList,
 	searchMessage,
-	getMessage
+	getMessage,
+	remarkIsRead,
+	hasMessage
 } from '../service/message/message.js'
 Vue.use(Vuex);
 const store = new Vuex.Store({
@@ -60,7 +62,7 @@ const store = new Vuex.Store({
     changeUserInfo(state, payload) {
       state.userInfo = payload
       uni.setStorageSync('userInfo', payload);
-    },
+    }
   },
   actions: {
     async loginByAccountAction({
@@ -242,6 +244,20 @@ const store = new Vuex.Store({
 		  return uni.$u.toast('请求失败');
 		}
 		return res.data
+	},
+	async remarkIsReadAction({commit},payload){
+		const res = await remarkIsRead(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async hasMessageAction({commit},payload){
+		const res = await hasMessage(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res
 	},
     //诊所请求 后期分stoe模块
     async getClinicListAction({

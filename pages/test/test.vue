@@ -1,8 +1,8 @@
 
 <template>
-	<view class="d-flex flex-column j-center a-center" style="height: 100vh;">
-            测试页面
-	</view>
+  <scroll-view scroll-x class="scroll-row" :scroll-into-view="scollInto" scroll-with-animation>
+  	<view class="scroll-row-item px-5 py-3" v-for="i in 20" :key="i" :id="'tab'+i" @click="change(i)">{{i}}</view>
+  </scroll-view>
 
 </template>
 
@@ -11,11 +11,14 @@
 export default {
 	data() {
 		return {
-	
+	    scollInto: 'tab1',
 		};
 	},
 	methods: {
-
+		change(i){
+		this.scollInto = 'tab' + (i > 1 ? i -1 : i);
+		console.log(this.scollInto);
+		}
 	}
 
 };

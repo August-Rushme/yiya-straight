@@ -1,7 +1,19 @@
 <template>
 	<view class="page">
 		<view class="ask d-flex j-center">
-			<view class="tip text-center my-3">{{ title }}</view>
+			<template v-if="!hasMore">
+					<view class="tip text-center my-3">  {{title}}</view>
+			</template>
+			<template v-else>
+				<template v-if="moreloading">
+						<u-loading-icon mode="circle" text="加载中"></u-loading-icon>
+				</template>
+			   <template v-else>
+			   	<view class="tip text-center my-3" @click="lookMoreMessage"> 查看更多历史消息</view>
+			   </template>
+			
+			</template>
+		
 		</view>
 
 		<block v-for="(item, index) in messagelist" :key="index">
@@ -12,7 +24,11 @@
 						<view class="name">{{ item.nickName }}</view>
 					</template>
 					<template v-if="item.type === 'message'">
-						<view class="text">{{ item.text }}</view>
+						<view class="d-flex" :class="item.isMe ? 'j-sb' : ''">
+						<view style="width: 0rpx;">
+						</view>	<view class="text">{{ item.text }}</view>
+						</view>
+					
 					</template>
 					<template v-else-if="item.type === 'image'">
 						<view class="image"><image @tap="preview(index)" :src="item.url" mode="widthFix"></image></view>
@@ -22,7 +38,7 @@
 							<u-loading-icon mode="circle" :text="progress"></u-loading-icon>
 						</template>
 						<template v-else>
-							<view class="video"><video :src="item.url" controls></video></view>
+							<view class="video"><video :src="item.url" v-if="!!item.url" controls show-progress></video></view>
 						</template>
 					</template>
 					<template v-if="item.isMe">
@@ -60,7 +76,12 @@ export default {
 				pageSize: 15,
 				pageNum: 1
 			},
+			moreloading: false, 
+			allMessage: [],
+			hasMore: false,
+			first: true,
 			loadingIndex: 0,
+			messageId: [],
 			isloading: [true],
 			progress: '0%',
 			title: '正在连接该医生',
@@ -72,6 +93,10 @@ export default {
 		};
 	},
 	async onLoad(options) {
+	     uni.showLoading({
+	     	title: '加载中',
+	     	mask: false
+	     });
 		this.receiverId = options.id;
 		const receiverInfo = await this.getUserByIdAction(parseInt(options.id));
 		const messagelist = await this.getMessageAction({
@@ -79,26 +104,36 @@ export default {
 			toId: parseInt(options.id),
 			...this.pageInfo
 		})
+		const messageAll =  await this.getMessageAction({
+			fromId: parseInt(uni.getStorageSync('userInfo').id),
+			toId: parseInt(options.id),
+			pageNum: 1,
+			pageSize: 99999
+		})
+		this.hasMore = messageAll.list.length > 15 ? true : false;
 		let index = 0;
 		const rawList = [];
-		console.log(messagelist.list.reverse());
+		this.allMessage = messageAll.list;
 		messagelist.list.reverse().forEach(item => {
 				const message = {
+					    id: item.id,
 						text: item.msg,
+						isMe: uni.getStorageSync('userInfo').id == item.userId ?  true : false,
 						isRead: item.status === 1 ? true : false,
 						type: item.type,
 						url: item.url,
-						nickName: uni.getStorageSync('userInfo') == item.userId ? uni.getStorageSync('username') : receiverInfo.nickName,
-						avatar: uni.getStorageSync('userInfo') == item.userId ? uni.getStorageSync('avatar') : receiverInfo.photo
+						nickName: uni.getStorageSync('userInfo').id == item.userId ? uni.getStorageSync('username') : receiverInfo.nickname,
+						avatar: uni.getStorageSync('userInfo').id == item.userId ? uni.getStorageSync('avatar') : receiverInfo.photo
 				}
-				console.log(message);
 				rawList.push(message)
-				if( item.status === 1){
+				if( item.status === 0 && uni.getStorageSync('userInfo').id != item.userId){
 			      	index ++;
 				}
 				
 		})
-		console.log(rawList.slice(0,index > 10 ? rawList.length-index : rawList.length-10));
+      this.messagelist = rawList.slice(0,index > 10 ? rawList.length-10 : rawList.length-index);
+	  	uni.hideLoading();
+	  this.pageToBottom();
 		this.receiverAvatar = receiverInfo.photo;
 		this.receiverName = receiverInfo.nickname;
 		const goeasy = GoEasy.getInstance({
@@ -132,6 +167,7 @@ export default {
 		this.messageReceived();
 	},
 	onUnload() {
+		this.first = true;
 		this.goeasy.disconnect({
 			onSuccess: function() {
 				console.log('GoEasy disconnect successfully.');
@@ -142,7 +178,42 @@ export default {
 		});
 	},
 	methods: {
-		...mapActions(['getUserByIdAction','messageSaveAction','getMessageAction']),
+		...mapActions(['getUserByIdAction','messageSaveAction','getMessageAction','remarkIsReadAction']),
+		async lookMoreMessage(){
+			this.moreloading = true
+			const _this = this
+			this.pageInfo.pageNum++;
+			const moreMessagelist = await this.getMessageAction({
+				fromId: parseInt(uni.getStorageSync('userInfo').id),
+				toId: _this.receiverId,
+				...this.pageInfo
+			});
+			const pageInfo = {...this.pageInfo};
+			pageInfo.pageNum++;
+			const moreMessagelist2 = await this.getMessageAction({
+				fromId: parseInt(uni.getStorageSync('userInfo').id),
+				toId: _this.receiverId,
+				...pageInfo 
+			});
+			this.hasMore =  moreMessagelist2.list.length > 0 ? true : false;
+			const rawList = [];
+			moreMessagelist.list.reverse().forEach(item => {
+					const message = {
+						    id: item.id,
+							text: item.msg,
+							isMe: uni.getStorageSync('userInfo').id == item.userId ?  true : false,
+							isRead: item.status === 1 ? true : false,
+							type: item.type,
+							url: item.url,
+							nickName: uni.getStorageSync('userInfo').id == item.userId ? uni.getStorageSync('username') : _this.receiverName,
+							avatar: uni.getStorageSync('userInfo').id == item.userId ? uni.getStorageSync('avatar') : _this.receiverAvatar
+					}
+					rawList.push(message)
+					})
+			this.messagelist = [...rawList ,...this.messagelist];
+			this.moreloading = false
+          console.log(moreMessagelist,6666);
+		},
 		sendMessage() {
 			if (this.message.length > 0) {
 				const messageInfo = {
@@ -194,7 +265,6 @@ export default {
 								hasPush = true;
 							}
 							_this.progress = event.progress + '%';
-							console.log('file uploading:', event);
 						} //获取上传进度
 					});
 					this.im.sendMessage({
@@ -205,7 +275,6 @@ export default {
 							const index = _this.messagelist.findIndex(item => {
 								return item.mark == res2;
 							});
-							console.log(index);
 							const currentItem = _this.messagelist.find(item => {
 								return item.mark == res2;
 							});
@@ -228,6 +297,7 @@ export default {
 								receiverId: _this.receiverId
 							}
 							const res = await _this.messageSaveAction(Info);
+							_this.messageId.push(res.id);
 							_this.pageToBottom();
 						},
 						onFailed: function(error) {
@@ -280,6 +350,7 @@ export default {
 									receiverId: _this.receiverId
 								}
 								const res = await _this.messageSaveAction(Info);
+								_this.messageId.push(res.id);
 								_this.pageToBottom();
 							},
 							onFailed: function(error) {
@@ -303,7 +374,6 @@ export default {
 			const _this = this;
 			const payload = {
 				messageReadId: message.messageId,
-				text: '已读'
 			};
 			_this.im.markPrivateMessageAsRead({
 				userId: message.senderId, //聊天对象的userId
@@ -347,6 +417,7 @@ export default {
 							receiverId: _this.receiverId
 						}
 					  const res = await	_this.messageSaveAction(Info);
+					  _this.messageId.push(res.id);
 					  _this.pageToBottom();
 						_this.message = '';
 					}
@@ -378,6 +449,19 @@ export default {
 			const _this = this;
 
 			let onPrivateMessageReceived = function(message) {
+				if(_this.first){
+					_this.allMessage.forEach(item => {
+						if(item.status === 0){
+							const res = _this.remarkIsReadAction({
+								id: item.id,
+								status: 1
+							})
+						}
+				
+					});
+					_this.first = false;
+				}
+	
 				if (_this.receiverId === message.senderId) {
 					const pushInfo = {
 						type: message.type,
@@ -396,8 +480,14 @@ export default {
 						_this.remarkAndSend(message);
 					};
 					if (message.type === 'mark') {
+						const messageId = _this.messageId[_this.messageId.length-1];
+						const res = _this.remarkIsReadAction({
+							id: messageId,
+							status: 1
+						});
 						_this.messagelist.forEach(item => {
 							if (item.messageId === message.payload.messageReadId) {
+							
 								item.isRead = true;
 							}
 						});
@@ -434,6 +524,7 @@ export default {
 	}
 	.isNotMe {
 		display: flex;
+			align-items: center;
 	}
 	.isRead {
 		width: 100rpx;
@@ -455,11 +546,15 @@ export default {
 	.text {
 		background-color: #21b0ab;
 		max-width: 400rpx;
-		text-align: justify; /*实现两端对齐*/
+		text-align: justify; 
 		word-break: break-all;
 		border-radius: 15rpx;
 		padding: 5rpx 15rpx;
 		color: white;
+	}
+	video {
+		width: 420rpx !important;
+		height: 350rpx !important;
 	}
 	.sendInput {
 		position: fixed;

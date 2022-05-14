@@ -2,10 +2,10 @@
 	<view>
 		<view class="d-flex py-2 pl-2 title">
 			<view class="total" :class="currentIndex === 0 ? 'isactive' : ''" @click="setIndexZero">全部日期</view>
-			<scroll-view scroll-x scroll-with-animation style="width: 640rpx;">
+			<scroll-view scroll-x scroll-with-animation style="width: 640rpx;" :scroll-into-view="srollInto" >
 				<view class="d-flex">
-					<block v-for="(item, index) in recentlyDate" :key="index">
-						<view class="text-muted d-flex flex-column j-center a-center mx-1" :class="currentIndex === index + 1 ? 'isactive' : ''" @click="changeItem(index)">
+					<block v-for="(item, index) in recentlyDate" :key="index" >
+						<view :id="'tab'+index" class="text-muted d-flex flex-column j-center a-center mx-1" :class="currentIndex === index + 1 ? 'isactive' : ''" @click="changeItem(index)">
 							<view>{{ item.date }}</view>
 							<view>{{ item.weekDay }}</view>
 						</view>
@@ -48,6 +48,7 @@ export default {
 	data() {
 		return {
 			currentIndex: 0,
+			srollInto: '',
 			recentlyDate: [],
 			doctorInfo: [
 				{
@@ -92,8 +93,9 @@ export default {
 	},
 	methods: {
 		changeItem(index) {
-			console.log(index + 1);
 			this.currentIndex = index + 1;
+			this.srollInto = 'tab' + (index > 0 ? index - 1 : index);
+			console.log(this.srollInto);
 		},
 		setIndexZero() {
 			this.currentIndex = 0;

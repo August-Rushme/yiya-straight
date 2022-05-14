@@ -12,7 +12,7 @@
 		</view>
 		
 		<block v-for="(item,index) in friends" :key="index">
-			<view class="my-2">
+			<view class="my-2" @click="goToChatPage(item.id)">
 				<uni-card :is-full="true">
 					<view class="d-flex a-center">
 						<view>
@@ -32,19 +32,19 @@
 						  		</view>
 						  	</view>
 							<view class="d-flex j-sb a-center">
-								<template v-if="item.latestMessage.type === 'text'">
+								<template v-if="item.latestMessage.type === 'message'">
 									<view class="text-light-muted mt-1 content">
 										{{item.latestMessage.content}}				
 									</view>
 								</template>
 						        <template v-else-if="item.latestMessage.type === 'image'">
 						        	<view class="text-light-muted mt-1 content">
-						        		对方给你发送了一张图片				
+						        		【图片】				
 						        	</view>
 						        </template>
 								<template v-else>
 									<view class="text-light-muted mt-1 content">
-										对方给你发送了一个视频				
+										【视频】				
 									</view>
 								</template>
 								<template v-if="item.unReadMount>0">
@@ -80,15 +80,20 @@
 				]
 			}
 		},
-	  async	onLoad() {
-		
+	  async	onShow() {
+		  uni.showLoading({
+		  	title: '加载中',
+		  	mask: false
+		  });
+		  this.friends = [];
 			const res = await this.getMessageListAction({
 				userId: uni.getStorageSync('userInfo').id,
 				...this.pageInfo
 			})
 			const friends = [];
            this.setFriendsInfo(res.list);
-		   this.allInfo = this.friends
+		   this.allInfo = this.friends;
+		   uni.hideLoading();
 		},
 		methods: {
 			...mapActions(['getMessageListAction','searchMessageAction']),
@@ -107,6 +112,7 @@
 					  			}
 								console.log(latestMessage);
 					  			const userInfo = {
+								  id: item.user.userId,
 					  			  avatar:item.user.avatar,
 					  			  nickName: item.user.nickName,
 					  			  unReadMount: item.unReadMount
@@ -124,6 +130,11 @@
 					  _this.friends = [];
 				  }
 	
+			},
+			goToChatPage(id){
+				uni.navigateTo({
+					url: `/subpackage-project/chat/chat?id=${id}`
+				})
 			},
 		  	change(){
 				const _this = this;

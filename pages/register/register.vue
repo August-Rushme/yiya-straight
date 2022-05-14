@@ -27,11 +27,13 @@
 </template>
 
 <script>
+	import { mapActions } from 'vuex'
 export default {
 	data() {
 		return {};
 	},
 	methods: {
+		...mapActions(['hasMessageAction']),
 		goToImmeRegeitser() {
 			uni.navigateTo({
 				url: '/subpackage-project/imme-register/imme-register'
@@ -41,6 +43,18 @@ export default {
 			uni.navigateTo({
 				url: '/subpackage-project/designative-register/designative-register'
 			});
+		}
+	},
+	async onShow() {
+		const res3 = await this.hasMessageAction(parseInt(uni.getStorageSync('userInfo').id));
+		if(res3.count){
+				 uni.showTabBarRedDot({
+				 		 index: 3,
+				 })
+		}else{
+			uni.hideTabBarRedDot({
+				index:3
+			})
 		}
 	}
 };

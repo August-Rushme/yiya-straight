@@ -50,7 +50,7 @@ export default {
 		};
 	},
 	methods: {
-		...mapActions(['getAllDoctorLabelAction','getDoctorBylLabelIdAction']),
+		...mapActions(['getAllDoctorLabelAction','getDoctorBylLabelIdAction','hasMessageAction']),
 	 async changeCate(index,id) {
 			this.currentIndex = index;
 			this.doctorInfo = [];
@@ -71,6 +71,17 @@ export default {
 		 const res2 = await this.getDoctorBylLabelIdAction({labelId:1});
 		 this.cateData = res;
 		 this.doctorInfo = res2;
+		 const res3 = await this.hasMessageAction(parseInt(uni.getStorageSync('userInfo').id));
+		 if(res3.count){
+		 		 uni.showTabBarRedDot({
+		 		 		 index: 3,
+		 		 })
+		 }
+		 else{
+			 uni.hideTabBarRedDot({
+			 	index:3
+			 })
+		 }
 	},
 
 };
