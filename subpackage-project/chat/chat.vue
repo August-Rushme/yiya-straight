@@ -1,7 +1,19 @@
 <template>
 	<view class="page">
 		<view class="ask d-flex j-center">
-			<view class="tip text-center my-3">{{ title }}</view>
+			<template v-if="!hasMore">
+					<view class="tip text-center my-3">  {{title}}</view>
+			</template>
+			<template v-else>
+				<template v-if="moreloading">
+						<u-loading-icon mode="circle" text="加载中"></u-loading-icon>
+				</template>
+			   <template v-else>
+			   	<view class="tip text-center my-3" @click="lookMoreMessage"> 查看更多历史消息</view>
+			   </template>
+			
+			</template>
+		
 		</view>
 
 		<block v-for="(item, index) in messagelist" :key="index">
@@ -12,17 +24,21 @@
 						<view class="name">{{ item.nickName }}</view>
 					</template>
 					<template v-if="item.type === 'message'">
-						<view class="text">{{ item.text }}</view>
+						<view class="d-flex" :class="item.isMe ? 'j-sb' : ''">
+						<view style="width: 0rpx;">
+						</view>	<view class="text">{{ item.text }}</view>
+						</view>
+					
 					</template>
 					<template v-else-if="item.type === 'image'">
-						<view class="image"><image @tap="preview(index)" :src="item.imgSrc" mode="widthFix"></image></view>
+						<view class="image"><image @tap="preview(index)" :src="item.url" mode="widthFix"></image></view>
 					</template>
 					<template v-else-if="item.type === 'audio'">
 						<template v-if="item.tmpId === loadingIndex && item.isMe ? isloading[loadingIndex] : false">
 							<u-loading-icon mode="circle" :text="progress"></u-loading-icon>
 						</template>
 						<template v-else>
-							<view class="video"><video :src="item.videoSrc" controls></video></view>
+							<view class="video"><video :src="item.url" v-if="!!item.url" controls show-progress></video></view>
 						</template>
 					</template>
 					<template v-if="item.isMe">
@@ -56,7 +72,16 @@ import { mapActions } from 'vuex';
 export default {
 	data() {
 		return {
+			pageInfo: {
+				pageSize: 15,
+				pageNum: 1
+			},
+			moreloading: false, 
+			allMessage: [],
+			hasMore: false,
+			first: true,
 			loadingIndex: 0,
+			messageId: [],
 			isloading: [true],
 			progress: '0%',
 			title: '正在连接该医生',
@@ -68,13 +93,49 @@ export default {
 		};
 	},
 	async onLoad(options) {
+	     uni.showLoading({
+	     	title: '加载中',
+	     	mask: false
+	     });
 		this.receiverId = options.id;
 		const receiverInfo = await this.getUserByIdAction(parseInt(options.id));
-
-		console.log(this.receiverId, typeof this.receiverId, uni.getStorageSync('userInfo').id, typeof uni.getStorageSync('userInfo').id);
+		const messagelist = await this.getMessageAction({
+			fromId: parseInt(uni.getStorageSync('userInfo').id),
+			toId: parseInt(options.id),
+			...this.pageInfo
+		})
+		const messageAll =  await this.getMessageAction({
+			fromId: parseInt(uni.getStorageSync('userInfo').id),
+			toId: parseInt(options.id),
+			pageNum: 1,
+			pageSize: 99999
+		})
+		this.hasMore = messageAll.list.length > 15 ? true : false;
+		let index = 0;
+		const rawList = [];
+		this.allMessage = messageAll.list;
+		messagelist.list.reverse().forEach(item => {
+				const message = {
+					    id: item.id,
+						text: item.msg,
+						isMe: uni.getStorageSync('userInfo').id == item.userId ?  true : false,
+						isRead: item.status === 1 ? true : false,
+						type: item.type,
+						url: item.url,
+						nickName: uni.getStorageSync('userInfo').id == item.userId ? uni.getStorageSync('username') : receiverInfo.nickname,
+						avatar: uni.getStorageSync('userInfo').id == item.userId ? uni.getStorageSync('avatar') : receiverInfo.photo
+				}
+				rawList.push(message)
+				if( item.status === 0 && uni.getStorageSync('userInfo').id != item.userId){
+			      	index ++;
+				}
+				
+		})
+      this.messagelist = rawList.slice(0,index > 10 ? rawList.length-10 : rawList.length-index);
+	  	uni.hideLoading();
+	  this.pageToBottom();
 		this.receiverAvatar = receiverInfo.photo;
 		this.receiverName = receiverInfo.nickname;
-		console.log(receiverInfo);
 		const goeasy = GoEasy.getInstance({
 			host: 'hangzhou.goeasy.io', //若是新加坡区域：singapore.goeasy.io
 			appkey: 'BC-e96694fd44c241118ac251cc61492c8d',
@@ -106,6 +167,7 @@ export default {
 		this.messageReceived();
 	},
 	onUnload() {
+		this.first = true;
 		this.goeasy.disconnect({
 			onSuccess: function() {
 				console.log('GoEasy disconnect successfully.');
@@ -116,7 +178,42 @@ export default {
 		});
 	},
 	methods: {
-		...mapActions(['getUserByIdAction','messageSave']),
+		...mapActions(['getUserByIdAction','messageSaveAction','getMessageAction','remarkIsReadAction']),
+		async lookMoreMessage(){
+			this.moreloading = true
+			const _this = this
+			this.pageInfo.pageNum++;
+			const moreMessagelist = await this.getMessageAction({
+				fromId: parseInt(uni.getStorageSync('userInfo').id),
+				toId: _this.receiverId,
+				...this.pageInfo
+			});
+			const pageInfo = {...this.pageInfo};
+			pageInfo.pageNum++;
+			const moreMessagelist2 = await this.getMessageAction({
+				fromId: parseInt(uni.getStorageSync('userInfo').id),
+				toId: _this.receiverId,
+				...pageInfo 
+			});
+			this.hasMore =  moreMessagelist2.list.length > 0 ? true : false;
+			const rawList = [];
+			moreMessagelist.list.reverse().forEach(item => {
+					const message = {
+						    id: item.id,
+							text: item.msg,
+							isMe: uni.getStorageSync('userInfo').id == item.userId ?  true : false,
+							isRead: item.status === 1 ? true : false,
+							type: item.type,
+							url: item.url,
+							nickName: uni.getStorageSync('userInfo').id == item.userId ? uni.getStorageSync('username') : _this.receiverName,
+							avatar: uni.getStorageSync('userInfo').id == item.userId ? uni.getStorageSync('avatar') : _this.receiverAvatar
+					}
+					rawList.push(message)
+					})
+			this.messagelist = [...rawList ,...this.messagelist];
+			this.moreloading = false
+          console.log(moreMessagelist,6666);
+		},
 		sendMessage() {
 			if (this.message.length > 0) {
 				const messageInfo = {
@@ -132,14 +229,16 @@ export default {
 		},
 		preview(index) {
 			uni.previewImage({
-				urls: [this.messagelist[index].imgSrc]
+				urls: [this.messagelist[index].url]
 			});
 		},
 		chooseVideo() {
 			const _this = this;
+			let res2 = null;
 			uni.chooseVideo({
 				mediaType: ['image', 'video'],
 				success: res => {
+					res2 = res
 					let hasPush = false;
 					_this.loadingIndex = _this.loadingIndex + 1;
 					_this.isloading.push(true);
@@ -160,35 +259,45 @@ export default {
 									tmpId: _this.loadingIndex,
 									avatar: uni.getStorageSync('avatar'),
 									nickName: uni.getStorageSync('username'),
-									imgSrc: null,
 									text: null
 								});
 								_this.pageToBottom();
 								hasPush = true;
 							}
 							_this.progress = event.progress + '%';
-							console.log('file uploading:', event);
 						} //获取上传进度
 					});
 					this.im.sendMessage({
 						message: message,
-						onSuccess: function(message) {
+						onSuccess: async function(message) {
 							_this.isloading[_this.loadingIndex] = false;
 							_this.progress = '0%';
 							const index = _this.messagelist.findIndex(item => {
-								return item.mark === res;
+								return item.mark == res2;
 							});
 							const currentItem = _this.messagelist.find(item => {
-								return item.mark === res;
+								return item.mark == res2;
 							});
 							const moreMessInfo = {
 								messageId: message.messageId,
 								timestamp: message.timestamp,
 								isRead: message.read,
-								videoSrc: message.payload.url
+								url: message.payload.url
 							};
 							const moreInfo = { ...currentItem, ...moreMessInfo };
 							_this.messagelist.splice(index, 1, moreInfo);
+							const Info = {
+								msg: message.payload.text,
+								status: 0,
+								sendDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+								readDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+								type: message.type,
+								url: message.payload.url,
+								userId: uni.getStorageSync('userInfo').id,
+								receiverId: _this.receiverId
+							}
+							const res = await _this.messageSaveAction(Info);
+							_this.messageId.push(res.id);
 							_this.pageToBottom();
 						},
 						onFailed: function(error) {
@@ -218,7 +327,7 @@ export default {
 						});
 						this.im.sendMessage({
 							message: message,
-							onSuccess: function(message) {
+							onSuccess: async function(message) {
 								_this.messagelist.push({
 									type: message.type,
 									isMe: true,
@@ -228,8 +337,20 @@ export default {
 									timestamp: message.timestamp,
 									isRead: message.read,
 									text: null,
-									imgSrc: message.payload.url
+									url: message.payload.url
 								});
+								const Info = {
+									msg: message.payload.text,
+									status: 0,
+									sendDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+									readDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+									type: message.type,
+									url: message.payload.url,
+									userId: uni.getStorageSync('userInfo').id,
+									receiverId: _this.receiverId
+								}
+								const res = await _this.messageSaveAction(Info);
+								_this.messageId.push(res.id);
 								_this.pageToBottom();
 							},
 							onFailed: function(error) {
@@ -253,7 +374,6 @@ export default {
 			const _this = this;
 			const payload = {
 				messageReadId: message.messageId,
-				text: '已读'
 			};
 			_this.im.markPrivateMessageAsRead({
 				userId: message.senderId, //聊天对象的userId
@@ -283,8 +403,7 @@ export default {
 							messageId: message.messageId,
 							timestamp: message.timestamp,
 							isRead: message.read,
-							imgSrc: message.payload.imgSrc,
-							videoSrc: message.payload.videoSrc,
+							url: '',
 							text: message.payload.text
 						});
 						const Info = {
@@ -292,20 +411,14 @@ export default {
 							status: 0,
 							sendDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
 							readDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
-							type: 'text',
+							type: message.type,
 							url: '',
-							from: {
-								id: uni.getStorageSync('userInfo').id,
-								nickname: uni.getStorageSync('username'),
-								photo: uni.getStorageSync('avatar')
-							},
-							to: {
-								id: _this.receiverId,
-								nickname: _this.receiverName,
-								photo: _this.receiverAvatar
-							}
+							userId: uni.getStorageSync('userInfo').id,
+							receiverId: _this.receiverId
 						}
-					  const res = await	_this.messageSave(Info);
+					  const res = await	_this.messageSaveAction(Info);
+					  _this.messageId.push(res.id);
+					  _this.pageToBottom();
 						_this.message = '';
 					}
 				},
@@ -336,6 +449,19 @@ export default {
 			const _this = this;
 
 			let onPrivateMessageReceived = function(message) {
+				if(_this.first){
+					_this.allMessage.forEach(item => {
+						if(item.status === 0){
+							const res = _this.remarkIsReadAction({
+								id: item.id,
+								status: 1
+							})
+						}
+				
+					});
+					_this.first = false;
+				}
+	
 				if (_this.receiverId === message.senderId) {
 					const pushInfo = {
 						type: message.type,
@@ -345,8 +471,7 @@ export default {
 						isRead: true,
 						avatar: _this.receiverAvatar,
 						text: message.payload.text,
-						imgSrc: message.payload.url,
-						videoSrc: message.payload.url,
+						url: message.payload.url,
 						nickName: _this.receiverName
 					};
 					const update = () => {
@@ -355,8 +480,14 @@ export default {
 						_this.remarkAndSend(message);
 					};
 					if (message.type === 'mark') {
+						const messageId = _this.messageId[_this.messageId.length-1];
+						const res = _this.remarkIsReadAction({
+							id: messageId,
+							status: 1
+						});
 						_this.messagelist.forEach(item => {
 							if (item.messageId === message.payload.messageReadId) {
+							
 								item.isRead = true;
 							}
 						});
@@ -393,6 +524,7 @@ export default {
 	}
 	.isNotMe {
 		display: flex;
+			align-items: center;
 	}
 	.isRead {
 		width: 100rpx;
@@ -414,11 +546,15 @@ export default {
 	.text {
 		background-color: #21b0ab;
 		max-width: 400rpx;
-		text-align: justify; /*实现两端对齐*/
+		text-align: justify; 
 		word-break: break-all;
 		border-radius: 15rpx;
 		padding: 5rpx 15rpx;
 		color: white;
+	}
+	video {
+		width: 420rpx !important;
+		height: 350rpx !important;
 	}
 	.sendInput {
 		position: fixed;

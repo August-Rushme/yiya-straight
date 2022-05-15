@@ -1,7 +1,7 @@
 <template>
 	<view>
 		<image src="https://img2.baidu.com/it/u=372769992,179618338&fm=253&fmt=auto&app=138&f=JPEG?w=1920&h=494" mode="widthFix"></image>
-		<view class="border-bottom pb-1 font-md px-1" @click="phone"><text>联系我们: 18976329982(点击拨打)</text></view>
+		<view class="border-bottom pb-1 font-md px-1" @click="phone"><text>联系电话: 18976329982(点击拨打)</text></view>
 		<view class="border-bottom pt-1 pb-2 font-md px-1">地址：海南省海口市xxx区xxx号xxx店</view>
 		
 		<map style="width: 100%; height: 300px;" :latitude="latitude" :longitude="longitude" :markers="covers"></map>

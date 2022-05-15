@@ -42,7 +42,8 @@
                 "teeth-whitening/teeth-whitening",
                 "detail-comment/detail-comment",
                 "goods-detail/goods-detail",
-                "push-comments/push-comments"
+                "push-comments/push-comments",
+                "product-info/product-info"
             ]
         }
     ],

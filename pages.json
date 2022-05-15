@@ -241,7 +241,16 @@
 			}
 
 		}
-			]
+			    ,{
+                    "path" : "product-info/product-info",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+            ]
 		}
 	],
 	"globalStyle": {

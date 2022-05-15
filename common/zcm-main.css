@@ -53,6 +53,9 @@ body{
 
 .line-h0{ line-height: 0!important; }
 .line-h{ line-height: 1!important; }
+.line-30 {
+	line-height: 30rpx !important;
+}
 .line-h-sm{ line-height: 1.2!important; }
 .line-h-md{ line-height: 1.5!important; }
 .line-h-lg{ line-height: 2!important; }
@@ -62,7 +65,7 @@ body{
 
 .text-center{ text-align: center; }
 .text-left{ text-align: left; }
-.text-right{ text-align: right; }
+.text-end{ text-align: end; }
 
 .row { box-sizing: border-box!important; display: flex!important; flex-direction: row!important; flex-wrap: wrap;}
 [class*='col-'],[class*='span-'],[class*='span24-'] { min-height: 1px;box-sizing: border-box!important;}

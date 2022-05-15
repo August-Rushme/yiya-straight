@@ -48,8 +48,21 @@
 	<block v-for="item in otherNav" :key="item.name">
 	<view  class="navItem d-flex j-sb a-center border-bottom  py-2 px-3" @tap="goToPage(item.pageName)">
 	 <view class="itemname d-flex">
-	 	<image :src="item.src" mode="" style="width: 48rpx;height: 48rpx;"></image>
-	    <text class="ml-2">{{item.name}}</text>
+		 <template v-if="item.needMark">
+			 <view class="needMark">
+			 		 <image :src="item.src" mode="" style="width: 48rpx;height: 48rpx;"></image>
+					 <view class="redDot">
+					 	
+					 </view>
+			 </view>
+	
+		 <text class="ml-2">{{item.name}}</text>
+		 </template>
+		 <template v-else>
+		 <image :src="item.src" mode="" style="width: 48rpx;height: 48rpx;"></image>
+		 <text class="ml-2">{{item.name}}</text>
+		 </template>
+	 
 	 </view>
 	 <view class="arrow font-md">
 	 	 >
@@ -84,7 +97,8 @@
 				  {
 					  name: '我的消息',
 					  src: '/static/images/message.png',
-					  pageName: 'message'
+					  pageName: 'message',
+					  needMark: false
 				  }, 
 				  {
 					  name: '设置个人信息',
@@ -104,14 +118,26 @@
 			 ]
 			}
 		},
-		onShow(){
+	 async onShow(){
 			this.localLoginAction();
+			const res = await this.hasMessageAction(parseInt(uni.getStorageSync('userInfo').id));
+			if(res.count){
+				this.otherNav[3].needMark = true;
+					 uni.showTabBarRedDot({
+					 		 index: 3,
+					 })
+			}else {
+				uni.hideTabBarRedDot({
+					index:3
+				})
+				this.otherNav[3].needMark = false
+			}
 		},
 		computed: {
 			...mapState(['username','avatar','token'])
 		},
 		methods: {
-			...mapActions(['localLoginAction']),
+			...mapActions(['localLoginAction','hasMessageAction']),
 			gotoLogin() {
 				uni.navigateTo({
 					url: '/subpackage-my/login/login'
@@ -196,6 +222,18 @@ margin: 0;
 	text-align: center;
 	color: white;
 	background: linear-gradient(to right,#f8c897,#b07942);
+}
+.needMark {
+	position: relative;
+	.redDot {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 20rpx;
+		height: 20rpx;
+		background-color: red;
+		border-radius: 50%;
+	}
 }
 .nav {
 	.navItem {
