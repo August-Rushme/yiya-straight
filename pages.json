@@ -250,6 +250,24 @@
                 }
                 
                 }
+                ,{
+                    "path" : "pay/pay",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
+                ,{
+                    "path" : "pay-success/pay-success",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "支付",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],

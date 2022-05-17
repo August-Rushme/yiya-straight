@@ -1,106 +1,107 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/project/project",
-        "pages/my/my",
-        "pages/test/test",
-        "pages/register/register",
-        "components/search/search"
-    ],
-    "subPackages": [
-        {
-            "root": "subpackage-my",
-            "pages": [
-                "coupon/coupon",
-                "order/order",
-                "appointment/appointment",
-                "register-account/register-account",
-                "setInfo/setInfo",
-                "login/login",
-                "medical/medical",
-                "server/server",
-                "message/message",
-                "record/record",
-                "aboutUs/aboutUs",
-                "evaluation/evaluation",
-                "wallet/wallet"
-            ]
-        },
-        {
-            "root": "subpackage-project",
-            "pages": [
-                "doctor-detail/doctor-detail",
-                "chat/chat",
-                "imme-register/imme-register",
-                "designative-register/designative-register",
-                "designative-appointment/designative-appointment"
-            ]
-        },
-        {
-            "root": "subpackage-index",
-            "pages": [
-                "teeth-whitening/teeth-whitening",
-                "detail-comment/detail-comment",
-                "goods-detail/goods-detail",
-                "push-comments/push-comments",
-                "product-info/product-info"
-            ]
-        }
-    ],
-    "window": {
-        "navigationBarTextStyle": "white",
-        "navigationBarTitleText": "神州牙都会",
-        "navigationBarBackgroundColor": "#22b1ac",
-        "backgroundColor": "#fff"
+  "pages": [
+    "pages/index/index",
+    "pages/project/project",
+    "pages/my/my",
+    "pages/test/test",
+    "pages/register/register",
+    "components/search/search"
+  ],
+  "subPackages": [
+    {
+      "root": "subpackage-my",
+      "pages": [
+        "coupon/coupon",
+        "order/order",
+        "appointment/appointment",
+        "register-account/register-account",
+        "setInfo/setInfo",
+        "login/login",
+        "medical/medical",
+        "server/server",
+        "message/message",
+        "record/record",
+        "aboutUs/aboutUs",
+        "evaluation/evaluation",
+        "wallet/wallet"
+      ]
     },
-    "tabBar": {
-        "color": "#B5B5B5",
-        "selectedColor": "#20b2aa",
-        "borderStyle": "black",
-        "backgroundColor": "#ffffff",
-        "list": [
-            {
-                "pagePath": "pages/index/index",
-                "text": "首页",
-                "iconPath": "static/tabbar/index.jpg",
-                "selectedIconPath": "static/tabbar/indexSelected.jpg"
-            },
-            {
-                "pagePath": "pages/project/project",
-                "text": "极速问诊",
-                "iconPath": "static/tabbar/msg.jpg",
-                "selectedIconPath": "static/tabbar/msgSelected.jpg"
-            },
-            {
-                "pagePath": "pages/register/register",
-                "text": "挂号",
-                "iconPath": "static/tabbar/register.jpg",
-                "selectedIconPath": "static/tabbar/registerSelected.jpg"
-            },
-            {
-                "pagePath": "pages/my/my",
-                "text": "个人中心",
-                "iconPath": "static/tabbar/my.jpg",
-                "selectedIconPath": "static/tabbar/mySelected.jpg"
-            }
-        ]
+    {
+      "root": "subpackage-project",
+      "pages": [
+        "doctor-detail/doctor-detail",
+        "chat/chat",
+        "imme-register/imme-register",
+        "designative-register/designative-register",
+        "designative-appointment/designative-appointment"
+      ]
     },
-    "preloadRule": {
-        "pages/index/index": {
-            "packages": [
-                "subpackage-index"
-            ],
-            "network": "all"
-        },
-        "pages/my/my": {
-            "packages": [
-                "subpackage-my"
-            ],
-            "network": "all"
-        }
+    {
+      "root": "subpackage-index",
+      "pages": [
+        "teeth-whitening/teeth-whitening",
+        "detail-comment/detail-comment",
+        "goods-detail/goods-detail",
+        "push-comments/push-comments",
+        "product-info/product-info",
+        "pay/pay",
+        "pay-success/pay-success"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "神州牙都会",
+    "navigationBarBackgroundColor": "#22b1ac",
+    "backgroundColor": "#fff"
+  },
+  "tabBar": {
+    "color": "#B5B5B5",
+    "selectedColor": "#20b2aa",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/index.jpg",
+        "selectedIconPath": "static/tabbar/indexSelected.jpg"
+      },
+      {
+        "pagePath": "pages/project/project",
+        "text": "极速问诊",
+        "iconPath": "static/tabbar/msg.jpg",
+        "selectedIconPath": "static/tabbar/msgSelected.jpg"
+      },
+      {
+        "pagePath": "pages/register/register",
+        "text": "挂号",
+        "iconPath": "static/tabbar/register.jpg",
+        "selectedIconPath": "static/tabbar/registerSelected.jpg"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "个人中心",
+        "iconPath": "static/tabbar/my.jpg",
+        "selectedIconPath": "static/tabbar/mySelected.jpg"
+      }
+    ]
+  },
+  "preloadRule": {
+    "pages/index/index": {
+      "packages": [
+        "subpackage-index"
+      ],
+      "network": "all"
     },
-    "usingComponents": {
-        "divider": "/components/common/divider"
-    },
-    "sitemapLocation": "sitemap.json"
+    "pages/my/my": {
+      "packages": [
+        "subpackage-my"
+      ],
+      "network": "all"
+    }
+  },
+  "usingComponents": {
+    "divider": "/components/common/divider"
+  }
 }

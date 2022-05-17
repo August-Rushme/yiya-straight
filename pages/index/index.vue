@@ -71,6 +71,19 @@ export default {
 		};
 	},
 	async onShow() {
+		console.log(2222,uni.getStorageSync('token'),11111);
+		if(uni.getStorageSync('token') === ''){
+			uni.navigateTo({
+				url: '/subpackage-my/login/login'
+			})
+			return false
+		}
+		this.pageInfo = {
+				pageSize: 5,
+				pageNum: 1
+			}
+		const res2 = await this.getClinicListAction(this.pageInfo);
+		this.shopData = res2.list;
 	 const res = await this.hasMessageAction(parseInt(uni.getStorageSync('userInfo').id));
 	 if(res.count){
 		 uni.showTabBarRedDot({
@@ -81,12 +94,6 @@ export default {
 		 	index:3
 		 })
 	 }
-
-	},
-	async onLoad() {
-		const res = await this.getClinicListAction(this.pageInfo);
-		this.shopData = res.list;
-		// this.requestState = true
 	},
 	async onReachBottom() {
 		this.pageInfo.pageNum++;

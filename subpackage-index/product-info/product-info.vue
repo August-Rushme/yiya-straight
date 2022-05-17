@@ -78,8 +78,8 @@
 				 	咨询
 				 </view>
 			</view>
-			 <view class="buyButton pb-2">
-			 	<text class="font-lg">￥ </text> <text class="font-big mr-3">{{goodsInfo.price}}</text>  <text class="font-big">立即购买</text>
+			 <view class="buyButton pb-2" @click="goToPay">
+			 	<text class="font-lg">￥ </text> <text class="font-big mr-3">{{goodsInfo.price}}</text>  <text class="font-big" >立即购买</text>
 			 </view>
 		</view>
 	</view>
@@ -149,6 +149,11 @@ export default {
 			uni.previewImage({
 				urls: this.goodsInfo.bannerSrc
 			});
+		},
+		goToPay() {
+			uni.navigateTo({
+				url: '/subpackage-index/pay/pay'
+			})
 		}
 	},
   async	onLoad() {

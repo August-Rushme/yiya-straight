@@ -199,7 +199,8 @@ import { mapActions } from 'vuex'
 .underline {
 	height: 10upx;
 	width: 90upx;
-	background-color: #007AFF;
+	border-radius: 5upx;
+	background-color: #22b1ac;
 }
 .goodsInfo {
 	background-color: #f5f5f5;

@@ -125,7 +125,9 @@ export default {
       if (!this.validate('password')) return;
       
 	  this.loginByAccountAction({username: _this.username,password: _this.password});
-      this.goBack();
+       uni.switchTab({
+     	url: '/pages/my/my'
+       })
     },
     //wx登录
     loginByWx() {
