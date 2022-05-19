@@ -83,16 +83,16 @@ export default {
 			},
 			bannerSrc: [
 				{
-					src1: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png'
+					src1: 'https://preview.qiantucdn.com/ing/64/59/02/31858PICfATERV2vjbGdg_PIC2018.jpg!qt324_nowater_jpg'
 				}
 			],
 			goodsInfo: {
-				imgSrc: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-				name: '海南市牙口腔门诊部',
-				startsValue: 4.6,
-				commentValue: 348,
+				imgSrc: 'https://preview.qiantucdn.com/ing/64/59/02/31858PICfATERV2vjbGdg_PIC2018.jpg!qt324_nowater_jpg',
+				name: '海南清合口腔',
+				startsValue: 4.8,
+				commentValue: 13,
 				organ: '口腔医疗机构',
-				address: '白龙路路线'
+				address: '海南省海口市美兰区南宝路'
 			},
 			businessInfo: {
 				status: '营业中',

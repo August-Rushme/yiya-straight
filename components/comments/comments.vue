@@ -167,21 +167,25 @@ export default {
 				url: '/subpackage-index/detail-comment/detail-comment?id=' + this.$props.moreCommentsId
 			});
 		},
-		async giveThumbUp(index2,id) {
-			if (this.comments2.content[index2].thumbColor === 'dark') {
-			   await this.praise({
-					userId: uni.getStorageSync('userInfo').id,
-					commentId: id,
-				})
-				this.comments2.content[index2].likes++;
-			} else {
-				  await this.unPraise({
-					userId: uni.getStorageSync('userInfo').id,
-					commentId: id,
-				})
-				this.comments2.content[index2].likes--;
-			}
-			this.comments2.content[index2].thumbColor = this.comments2.content[index2].thumbColor === 'dark' ? 'red' : 'dark';
+	 giveThumbUp(index2,id) {
+			const _this = this
+			uni.$u.throttle(async ()=>{
+				if (_this.comments2.content[index2].thumbColor === 'dark') {
+				   await _this.praise({
+						userId: uni.getStorageSync('userInfo').id,
+						commentId: id,
+					})
+					_this.comments2.content[index2].likes++;
+				} else {
+					  await _this.unPraise({
+						userId: uni.getStorageSync('userInfo').id,
+						commentId: id,
+					})
+					_this.comments2.content[index2].likes--;
+				}
+				_this.comments2.content[index2].thumbColor = _this.comments2.content[index2].thumbColor === 'dark' ? 'red' : 'dark';
+			}, 500)
+			
 		}
 	}
 };

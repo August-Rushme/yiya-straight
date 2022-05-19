@@ -21,19 +21,31 @@
 			<!-- 具体商品信息 -->
 		<template v-if="tabIndex === 0">
 			<view class="mb-2" v-for="(item, index) in shopData" :key="index">
-				<uni-card :isFull="true"  padding="0px" @click="goGoodsDeatail(item.id)">
-					<view class="d-flex flex-row m-2 a-center"  >
-						<view style="margin-left: -20upx;">
+				<uni-card :isFull="true" spacing="0"  padding="0"  @click="goGoodsDeatail(item.id)">
+					<view class="d-flex flex-row m-2 a-center"  style="position: relative;" >
+						<view>
 							<u--image :showLoading="true" :src="item.img" width="84px" height="84px"></u--image>
 						</view>
 			
-					  <view class="infoText flex-column ml-2">
-					    <text class="font-weight font-md"  >{{ item.name  }}</text>
+					   <view class="infoText flex-column mx-2" style="flex: 1;">
+					   		  <view class="d-flex" style="position: relative;">
+					   		  	    <text class="font-weight font-md line-30" style="display: inline-block; width: 400rpx;padding-bottom: 8rpx;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{ item.name }}</text>
+					   				<view class="d-flex flex-column j-center a-center" style="position: absolute; right: -14rpx;top:-14rpx;" @click.stop="goHere">
+					   					<image src="../../static/images/navigation.png" mode="heightFix" style="height: 60rpx;"></image>
+					   					<view class="text-light-muted  font-sm">
+					   						去这里
+					   					</view>
+					   				</view>
+					   		  </view>
 					    <u-rate count="5" v-model="item.rate" readonly allowHalf="true"></u-rate>
-					    <text>{{ item.address }}</text>
+					    <text  style="display: inline-block; width: 400rpx;white-space: nowrap;text-overflow: ellipsis;padding-top: 8rpx; overflow: hidden;line-height: 30rpx;">{{ item.address }}</text>
 					    <view class="flex-row j-center a-center "></view>
 					    <text style="border: #F0AD4E solid 1px; color: #E45656;" class="px-1">国家认证</text>
 					    <text style="border: #F0AD4E solid 1px; color: #E45656;" class="mx-1 px-1">顶级医师</text>
+						
+						<view class="text-light-muted" style="position: absolute; bottom: 0;right: 6rpx;">
+						     4.0km
+						</view>
 					  </view>
 					</view>
 				</uni-card>
@@ -171,6 +183,19 @@ import { mapActions } from 'vuex'
 		  uni.navigateTo({
 		  	url: `/subpackage-project/doctor-detail/doctor-detail?id=${id}`
 		  })
+	  },
+	  goHere(){
+	  	let plugin = requirePlugin('routePlan');
+	  	let key = 'GG6BZ-LTCWP-BG4DD-VRG5X-YA4LF-FZB23';  //使用在腾讯位置服务申请的key
+	  	let referer = 'straight';   //调用插件的app的名称
+	  	let endPoint = JSON.stringify({  //终点
+	  	    'name': '吉野家(北京西站北口店)',
+	  	    'latitude': 19.981393,
+	  	    'longitude': 110.510048
+	  	});
+	  	wx.navigateTo({
+	  	    url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
+	  	});
 	  }
     }
   }
