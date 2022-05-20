@@ -10,7 +10,7 @@
       circular="true"
     >
       <swiper-item class="swiper-item  box-sizing-b" v-for="(item, index) in swiperData" :key="index">
-        <view class="wh-full" @click.stop="topage(item)">
+        <view class="wh-full">
           <image class="wh-full" mode="aspectFill" :lazy-load="true" :src="item.img" />
         </view>
       </swiper-item>
