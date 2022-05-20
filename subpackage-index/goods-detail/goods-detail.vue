@@ -74,6 +74,7 @@ export default {
 	data() {
 		return {
 			shopData: [],
+			location: {},
 			commentsTotal: 0,
 			moreCommentsId: 0,
 			requestOk: false,
@@ -83,16 +84,16 @@ export default {
 			},
 			bannerSrc: [
 				{
-					src1: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png'
+					src1: 'https://preview.qiantucdn.com/ing/64/59/02/31858PICfATERV2vjbGdg_PIC2018.jpg!qt324_nowater_jpg'
 				}
 			],
 			goodsInfo: {
-				imgSrc: 'https://s1.ax1x.com/2022/03/09/bWK0l8.png',
-				name: '海南市牙口腔门诊部',
-				startsValue: 4.6,
-				commentValue: 348,
+				imgSrc: 'https://preview.qiantucdn.com/ing/64/59/02/31858PICfATERV2vjbGdg_PIC2018.jpg!qt324_nowater_jpg',
+				name: '海南清合口腔',
+				startsValue: 4.8,
+				commentValue: 13,
 				organ: '口腔医疗机构',
-				address: '白龙路路线'
+				address: '海南省海口市美兰区南宝路'
 			},
 			businessInfo: {
 				status: '营业中',
@@ -317,8 +318,23 @@ export default {
 	},
 	async onLoad(option) {
 		this.moreCommentsId = option.id;
-		const res = await this.getClinicListAction(this.pageInfo);
-		this.shopData = res.list;
+	const _this = this;
+	uni.getLocation({
+			type: 'wgs84',
+			success: async res => {
+			  const	location =  {
+					lat: res.latitude,
+					lng: res.longitude
+				}
+				_this.location = location
+			const res2 = await _this.getClinicByLocationAction(
+			{
+				..._this.pageInfo,
+				...location
+			});
+			this.shopData = res2.list;
+			}
+	});
 		const reply = await this.getCommentsByTypeAction({
 			pageSize: 2,
 			pageNum: 1,
@@ -346,6 +362,7 @@ export default {
 				newReply: newReply,
 				thumbColor: isPraise == 'true' ? 'red' : 'dark'
 			};
+			console.log(newObj);
 			content.push(newObj);
 		});
 
@@ -361,20 +378,23 @@ export default {
 		uni.showLoading({
 			title: '加载中'
 		});
-		const res = await this.getClinicListAction(this.pageInfo);
-		if (res.list.length > 0) {
-			uni.hideLoading();
-			this.shopData.push(...res.list);
-		} else {
-			uni.hideLoading();
-			uni.showToast({
-				title: '没有更多数据了',
-				icon: 'none'
-			});
-		}
+	const res = await this.getClinicByLocationAction({
+		...this.location ,
+		...this.pageInfo
+	});
+	if (res.list.length >= 0) {
+		uni.hideLoading();
+		this.shopData.push(...res.list);
+	} else {
+		uni.hideLoading();
+		uni.showToast({
+			title: '没有更多数据了',
+			icon: 'none'
+		});
+	}
 	},
 	methods: {
-		...mapActions(['getClinicListAction',  'getCommentsLabelsAction', 'isPraiseAction','getCommentsByTypeAction','getReplyById'])
+		...mapActions(['getClinicByLocationAction',  'getCommentsLabelsAction', 'isPraiseAction','getCommentsByTypeAction','getReplyById'])
 	}
 };
 </script>

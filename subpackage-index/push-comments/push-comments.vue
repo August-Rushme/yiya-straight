@@ -116,21 +116,27 @@ export default {
 		leaveMessage() {
 			this.focus = !this.focus;
 		},
-		async giveThumbUp(index2) {
-			if (this.content.thumbColor === 'dark') {
-				await this.praise({
-					userId: uni.getStorageSync('userInfo').id,
-					commentId: this.id
-				});
-				this.content.likes++;
-			} else {
-				await this.unPraise({
-					userId: uni.getStorageSync('userInfo').id,
-					commentId: this.id
-				});
-				this.content.likes--;
-			}
-			this.content.thumbColor = this.content.thumbColor === 'dark' ? 'red' : 'dark';
+		 giveThumbUp(index2) {
+			 
+			 const _this = this;
+			uni.$u.throttle(async ()=>{
+				if (_this.content.thumbColor === 'dark') {
+					await _this.praise({
+						userId: uni.getStorageSync('userInfo').id,
+						commentId: _this.id
+					});
+					_this.content.likes++;
+				} else {
+					await _this.unPraise({
+						userId: uni.getStorageSync('userInfo').id,
+						commentId: _this.id
+					});
+					_this.content.likes--;
+				}
+				_this.content.thumbColor = _this.content.thumbColor === 'dark' ? 'red' : 'dark';
+			}, 500)
+			
+
 		},
 		...mapActions(['localLoginAction', 'getCommentsById', 'getReplyById', 'isPraiseAction', 'praise', 'unPraise','commentReply'])
 	},

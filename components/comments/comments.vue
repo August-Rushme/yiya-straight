@@ -12,6 +12,8 @@
 				<view @tap="changeOption(index)" class="option-item span-6 mr-2 px-2 mb-2" :class="index === optionsIndex ? 'select' : ''">{{ item.label }}({{ item.total }})</view>
 			</block>
 		</view>
+		<!-- 如果有评论 -->
+		<template v-if="comments2.content.length > 0">
 		<!-- 评论 -->
 		<view class="content" :class="isCard ? '.grayBg' : 'p-2'">
 			<block v-for="(item2, index2) in comments2.content" :key="index2">
@@ -50,19 +52,24 @@
 							<view class="text-muted pr-1">{{ item2.newReply[0].role === '用户' ? item2.newReply[0].nickName + ':' : '商家回复:'  }}</view>
 							<view class="replyContent">{{ item2.newReply[0].content }}</view>
 						</view>
-
+		
 						<view class="ml-1"><u-icon name="arrow-right" color="dark" size="10"></u-icon></view>
 					</view>
 				</view>
 			</block>
 		</view>
-
+		
 		<!-- 更多评价 -->
 		<template v-if="canLookMore">
 			<view class="lookAll d-flex m-2 j-center">
 				<text class="font-md" @tap="lookAllComments">查看全部评价</text>
 				<u-icon name="arrow-down" color="dark" size="15"></u-icon>
 			</view>
+		</template>
+		</template>
+		<!-- 如果没有评论 -->
+		<template v-else>
+			<view class="font-md text-center py-2">暂无评论</view>
 		</template>
 	</view>
 </template>
@@ -152,6 +159,7 @@ export default {
 					   		newReply: newReply,
 					   		thumbColor: isPraise == 'true' ? 'red' : 'dark'
 					   	};
+					    console.log(newObj);
 					   	content.push(newObj);
 					   });
 		  this.$props.comments.content = content;
@@ -167,21 +175,25 @@ export default {
 				url: '/subpackage-index/detail-comment/detail-comment?id=' + this.$props.moreCommentsId
 			});
 		},
-		async giveThumbUp(index2,id) {
-			if (this.comments2.content[index2].thumbColor === 'dark') {
-			   await this.praise({
-					userId: uni.getStorageSync('userInfo').id,
-					commentId: id,
-				})
-				this.comments2.content[index2].likes++;
-			} else {
-				  await this.unPraise({
-					userId: uni.getStorageSync('userInfo').id,
-					commentId: id,
-				})
-				this.comments2.content[index2].likes--;
-			}
-			this.comments2.content[index2].thumbColor = this.comments2.content[index2].thumbColor === 'dark' ? 'red' : 'dark';
+	 giveThumbUp(index2,id) {
+			const _this = this
+			uni.$u.throttle(async ()=>{
+				if (_this.comments2.content[index2].thumbColor === 'dark') {
+				   await _this.praise({
+						userId: uni.getStorageSync('userInfo').id,
+						commentId: id,
+					})
+					_this.comments2.content[index2].likes++;
+				} else {
+					  await _this.unPraise({
+						userId: uni.getStorageSync('userInfo').id,
+						commentId: id,
+					})
+					_this.comments2.content[index2].likes--;
+				}
+				_this.comments2.content[index2].thumbColor = _this.comments2.content[index2].thumbColor === 'dark' ? 'red' : 'dark';
+			}, 500)
+			
 		}
 	}
 };
