@@ -15,8 +15,7 @@
         placeholder="请输入手机号/邮箱/账号"
         v-model="username"
         placeholder-class="text-light-muted"
-        @focus="focus('username')"
-        @blur="blur('username')"
+
         :class="focusClass.username ? 'input-border-color' : ''"
       />
 
@@ -26,8 +25,7 @@
         placeholder="请输入密码"
         v-model="password"
         placeholder-class="text-light-muted"
-        @focus="focus('password')"
-        @blur="blur('password')"
+
         :class="focusClass.password ? 'input-border-color' : ''"
       />
       <view

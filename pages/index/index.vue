@@ -39,6 +39,7 @@ export default {
 			// 头部参数
 			hasDivider: true,
 			searchAuto: !0,
+			location: {},
 			pageInfo: {
 				pageSize: 5,
 				pageNum: 1
@@ -71,19 +72,36 @@ export default {
 		};
 	},
 	async onShow() {
-		console.log(2222,uni.getStorageSync('token'),11111);
-		if(uni.getStorageSync('token') === ''){
-			uni.navigateTo({
-				url: '/subpackage-my/login/login'
-			})
-			return false
-		}
+		// console.log(2222,uni.getStorageSync('token'),11111);
+		// if(uni.getStorageSync('token') === ''){
+		// 	uni.navigateTo({
+		// 		url: '/subpackage-my/login/login'
+		// 	})
+		// 	return false
+		// }
 		this.pageInfo = {
 				pageSize: 5,
 				pageNum: 1
 			}
-		const res2 = await this.getClinicListAction(this.pageInfo);
+			const _this = this;
+	  uni.getLocation({
+		type: 'wgs84',
+		success: async res => {
+		  const	location =  {
+				lat: res.latitude,
+				lng: res.longitude
+			}
+			_this.location = location
+		const res2 = await _this.getClinicByLocationAction(
+		{
+			..._this.pageInfo,
+			...location
+		});
 		this.shopData = res2.list;
+		}
+	  });
+
+
 	 const res = await this.hasMessageAction(parseInt(uni.getStorageSync('userInfo').id));
 	 if(res.count){
 		 uni.showTabBarRedDot({
@@ -100,8 +118,11 @@ export default {
 		uni.showLoading({
 			title: '加载中'
 		});
-		const res = await this.getClinicListAction(this.pageInfo);
-		if (res.list.length > 0) {
+		const res = await this.getClinicByLocationAction({
+			...this.location ,
+			...this.pageInfo
+		});
+		if (res.list.length >= 0) {
 			uni.hideLoading();
 			this.shopData.push(...res.list);
 		} else {
@@ -113,7 +134,7 @@ export default {
 		}
 	},
 	methods: {
-		...mapActions(['getClinicListAction', 'hasMessageAction']),
+		...mapActions(['getClinicByLocationAction', 'hasMessageAction']),
 		// 搜索回调函数
 		search() {
 			uni.navigateTo({

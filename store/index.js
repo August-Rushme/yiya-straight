@@ -7,13 +7,14 @@ import {
 } from '../service/appoinment/http-appoinment.js'
 import {
   getClinicList,
-  getClinicById
+  getClinicById,
+  getClinicByLocation
 } from '../service/clinic/clinic.js'
 import {
 	getAllDoctorLabel,
 	getDoctorBylLabelId,
-	 getDoctorById,
-	 getAllDoctor
+	getDoctorById,
+	getAllDoctor
 } from '../service/doctor/doctor.js'
 import { getUserById } from '../service/user/user.js';
 import {
@@ -275,9 +276,16 @@ const store = new Vuex.Store({
 	    return uni.$u.toast('请求失败');
 	  }
 	  return res.data
+  },
+  async getClinicByLocationAction({commit},payload){
+      const res= await getClinicByLocation(payload)
+  	if (!res.code == 200) {
+  	  return uni.$u.toast('请求失败');
+  	}
+  	return res.data
   }
   },
-  
+
 
 })
 export default store
