@@ -481,6 +481,7 @@ export default {
 					};
 					if (message.type === 'mark') {
 						const messageId = _this.messageId[_this.messageId.length-1];
+						console.log(messageId,888)
 						const res = _this.remarkIsReadAction({
 							id: messageId,
 							status: 1
