@@ -78,8 +78,8 @@
 				 	咨询
 				 </view>
 			</view>
-			 <view class="buyButton pb-2">
-			 	<text class="font-lg">￥ </text> <text class="font-big mr-3">{{goodsInfo.price}}</text>  <text class="font-big">立即购买</text>
+			 <view class="buyButton pb-2" @click="goToPay">
+			 	<text class="font-lg">￥ </text> <text class="font-big mr-3">{{goodsInfo.price}}</text>  <text class="font-big" >立即购买</text>
 			 </view>
 		</view>
 	</view>
@@ -99,6 +99,7 @@ export default {
 				pageSize: 5,
 				pageNum: 1
 			},
+			location: {},
 			shopData: [],
 			goodsInfo: {
 				title: '牙齿美白套餐',
@@ -144,33 +145,56 @@ export default {
 		};
 	},
 	methods: {
-		...mapActions(['getClinicListAction']),
+		...mapActions(['getClinicByLocationAction']),
 		previewImg() {
 			uni.previewImage({
 				urls: this.goodsInfo.bannerSrc
 			});
+		},
+		goToPay() {
+			uni.navigateTo({
+				url: '/subpackage-index/pay/pay'
+			})
 		}
 	},
   async	onLoad() {
-		const res = await this.getClinicListAction(this.pageInfo);
-		this.shopData = res.list;
+	const _this = this;
+	uni.getLocation({
+			type: 'wgs84',
+			success: async res => {
+			  const	location =  {
+					lat: res.latitude,
+					lng: res.longitude
+				}
+				_this.location = location
+			const res2 = await _this.getClinicByLocationAction(
+			{
+				..._this.pageInfo,
+				...location
+			});
+			this.shopData = res2.list;
+			}
+	});
 	},
 	async onReachBottom() {
 		this.pageInfo.pageNum++;
 		uni.showLoading({
 			title: '加载中'
 		});
-		const res = await this.getClinicListAction(this.pageInfo);
-		if (res.list.length > 0) {
-			uni.hideLoading();
-			this.shopData.push(...res.list);
-		} else {
-			uni.hideLoading();
-			uni.showToast({
-				title: '没有更多数据了',
-				icon: 'none'
-			});
-		}
+	const res = await this.getClinicByLocationAction({
+		...this.location ,
+		...this.pageInfo
+	});
+	if (res.list.length >= 0) {
+		uni.hideLoading();
+		this.shopData.push(...res.list);
+	} else {
+		uni.hideLoading();
+		uni.showToast({
+			title: '没有更多数据了',
+			icon: 'none'
+		});
+	}
 	},
 };
 </script>

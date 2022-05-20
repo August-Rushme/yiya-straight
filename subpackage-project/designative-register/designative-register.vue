@@ -40,7 +40,7 @@
 						label: '口腔检查'
 					},
 					{
-						label: '牙呲治疗'
+						label: '牙齿治疗'
 					}
 				],
 				details: [

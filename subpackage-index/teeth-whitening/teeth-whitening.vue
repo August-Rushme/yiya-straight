@@ -21,19 +21,32 @@
 			<!-- 具体商品信息 -->
 		<template v-if="tabIndex === 0">
 			<view class="mb-2" v-for="(item, index) in shopData" :key="index">
-				<uni-card :isFull="true"  padding="0px" @click="goGoodsDeatail(item.id)">
-					<view class="d-flex flex-row m-2 a-center"  >
-						<view style="margin-left: -20upx;">
+				<uni-card :isFull="true" spacing="0"  padding="0"  @click="goGoodsDeatail(item.id)">
+					<view class="d-flex flex-row m-2 a-center"  style="position: relative;" >
+						<view>
 							<u--image :showLoading="true" :src="item.img" width="84px" height="84px"></u--image>
 						</view>
 			
-					  <view class="infoText flex-column ml-2">
-					    <text class="font-weight font-md"  >{{ item.name  }}</text>
+					   <view class="infoText flex-column mx-2" style="flex: 1;">
+					   		  <view class="d-flex" style="position: relative;">
+					   		  	    <text class="font-weight font-md line-30" style="display: inline-block; width: 400rpx;padding-bottom: 8rpx;white-space: nowrap;text-overflow: ellipsis;overflow: hidden;">{{ item.name }}</text>
+					   				<view class="d-flex flex-column j-center a-center" style="position: absolute; right: -14rpx;top:-14rpx;" @click.stop="goHere(index)">
+					   					<image src="../../static/images/navigation.png" mode="heightFix" style="height: 60rpx;"></image>
+					   					<view class="text-light-muted  font-sm">
+					   						去这里
+					   					</view>
+					   				</view>
+					   		  </view>
 					    <u-rate count="5" v-model="item.rate" readonly allowHalf="true"></u-rate>
-					    <text>{{ item.address }}</text>
+					    <text  style="display: inline-block; width: 400rpx;white-space: nowrap;text-overflow: ellipsis;padding-top: 8rpx; overflow: hidden;line-height: 30rpx;">{{ item.address }}</text>
 					    <view class="flex-row j-center a-center "></view>
-					    <text style="border: #F0AD4E solid 1px; color: #E45656;" class="px-1">国家认证</text>
-					    <text style="border: #F0AD4E solid 1px; color: #E45656;" class="mx-1 px-1">顶级医师</text>
+					 <block v-for="(item2, index2) in item.newScope" :key="index2">
+					 	   <text style="border: #F0AD4E solid 1px; color: #E45656;" class="px-1 mr-1">{{item2}}</text>
+					 </block>
+						
+						<view class="text-light-muted" style="position: absolute; bottom: 0;right: 6rpx;">
+						     {{item.distance}}km
+						</view>
 					  </view>
 					</view>
 				</uni-card>
@@ -80,6 +93,7 @@ import { mapActions } from 'vuex'
     data() {
       return {
 		  tabIndex: 0,
+		  location: {},
 		  pageInfo: {
 		  		pageSize: 5,
 		  		pageNum: 1,
@@ -110,10 +124,25 @@ import { mapActions } from 'vuex'
       }
     },
 	async onLoad(){
-		const res = await this.getClinicListAction(this.pageInfo);
+		const _this = this;
+		uni.getLocation({
+				type: 'wgs84',
+				success: async res => {
+				  const	location =  {
+						lat: res.latitude,
+						lng: res.longitude
+					}
+					_this.location = location
+				const res2 = await _this.getClinicByLocationAction(
+				{
+					..._this.pageInfo,
+					...location
+				});
+				this.shopData = res2.list;
+				}
+		});
 		const doctorData = await this.getAllDoctorAction(this.pageInfo2);
-		this.doctorInfo = doctorData.list;
-		this.shopData = res.list; 	
+		this.doctorInfo = doctorData.list;	
 	},
 	async onReachBottom() {
 		
@@ -122,17 +151,20 @@ import { mapActions } from 'vuex'
 					uni.showLoading({
 						title: '加载中'
 					});
-					const res = await this.getClinicListAction(this.pageInfo);
-			if(res.list.length>0){
-						uni.hideLoading();
-						this.shopData.push(...res.list); 
-					}else{
-						uni.hideLoading();
-						uni.showToast({
-						  title: '没有更多数据了',
-						  icon: 'none'
-						});
-					}
+			const res = await this.getClinicByLocationAction({
+				...this.location ,
+				...this.pageInfo
+			});
+			if (res.list.length >= 0) {
+				uni.hideLoading();
+				this.shopData.push(...res.list);
+			} else {
+				uni.hideLoading();
+				uni.showToast({
+					title: '没有更多数据了',
+					icon: 'none'
+				});
+			}
 		}else{
 			this.pageInfo2.pageNum++;
 					uni.showLoading({
@@ -153,7 +185,7 @@ import { mapActions } from 'vuex'
 	
 	},
     methods: {
-		...mapActions(['getClinicListAction','getAllDoctorAction']),
+		...mapActions(['getClinicByLocationAction','getAllDoctorAction']),
       search(){
 		  uni.navigateTo({
 		  	url: '/components/search/search'
@@ -171,6 +203,19 @@ import { mapActions } from 'vuex'
 		  uni.navigateTo({
 		  	url: `/subpackage-project/doctor-detail/doctor-detail?id=${id}`
 		  })
+	  },
+	  goHere(index){
+	  	let plugin = requirePlugin('routePlan');
+	  	let key = 'GG6BZ-LTCWP-BG4DD-VRG5X-YA4LF-FZB23';  //使用在腾讯位置服务申请的key
+	  	let referer = 'straight';   //调用插件的app的名称
+	  	let endPoint = JSON.stringify({  //终点
+	  	'name': this.shopData[index].name,
+	  	'latitude': this.shopData[index].lat,
+	  	'longitude': this.shopData[index].lng
+	  	});
+	  	wx.navigateTo({
+	  	    url: 'plugin://routePlan/index?key=' + key + '&referer=' + referer + '&endPoint=' + endPoint
+	  	});
 	  }
     }
   }
@@ -199,7 +244,8 @@ import { mapActions } from 'vuex'
 .underline {
 	height: 10upx;
 	width: 90upx;
-	background-color: #007AFF;
+	border-radius: 5upx;
+	background-color: #22b1ac;
 }
 .goodsInfo {
 	background-color: #f5f5f5;

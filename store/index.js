@@ -7,13 +7,14 @@ import {
 } from '../service/appoinment/http-appoinment.js'
 import {
   getClinicList,
-  getClinicById
+  getClinicById,
+  getClinicByLocation
 } from '../service/clinic/clinic.js'
 import {
 	getAllDoctorLabel,
 	getDoctorBylLabelId,
-	 getDoctorById,
-	 getAllDoctor
+	getDoctorById,
+	getAllDoctor
 } from '../service/doctor/doctor.js'
 import { getUserById } from '../service/user/user.js';
 import {
@@ -73,15 +74,13 @@ const store = new Vuex.Store({
         userName: payload.username,
         password: payload.password
       });
-      if (res === '用户名不存在') {
-        return message.message("账号或者密码错误")
-      } else {
-        commit('changeUsername', res.user.nickname);
-        commit('changeAvatar', res.user.photo);
-        commit('changeToken', res.token);
-        commit('changeUserInfo', res.user);
-        message.message("登录成功")
-      }
+     if(res.code === 200){
+		commit('changeUsername', res.user.nickname);
+		commit('changeAvatar', res.user.photo);
+		commit('changeToken', res.token);
+		commit('changeUserInfo', res.user); 
+	 }
+	  return res
     },
     localLoginAction({
       commit
@@ -275,9 +274,16 @@ const store = new Vuex.Store({
 	    return uni.$u.toast('请求失败');
 	  }
 	  return res.data
+  },
+  async getClinicByLocationAction({commit},payload){
+      const res= await getClinicByLocation(payload)
+  	if (!res.code == 200) {
+  	  return uni.$u.toast('请求失败');
+  	}
+  	return res.data
   }
   },
-  
+
 
 })
 export default store

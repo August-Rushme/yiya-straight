@@ -52,7 +52,7 @@
 	export default {
 		data() {
 			return {
-				
+				list: ['未付款', '待评价', '已付款'],
 			}
 		},
 		methods: {

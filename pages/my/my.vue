@@ -91,7 +91,7 @@
 				  },
 				  {
 					  name: '我的优惠卷',
-					  src: '/static/images/coupon.png',
+					  src: '/static/images/ticket.png',
 					  pageName: 'coupon'
 				  }, 
 				  {

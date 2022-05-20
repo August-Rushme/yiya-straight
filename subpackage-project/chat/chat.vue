@@ -24,9 +24,8 @@
 						<view class="name">{{ item.nickName }}</view>
 					</template>
 					<template v-if="item.type === 'message'">
-						<view class="d-flex" :class="item.isMe ? 'j-sb' : ''">
-						<view style="width: 0rpx;">
-						</view>	<view class="text">{{ item.text }}</view>
+						<view class="d-flex" :class="item.isMe ? 'j-end': ''">
+						<view class="text">{{ item.text }}</view>
 						</view>
 					
 					</template>
@@ -126,7 +125,8 @@ export default {
 						avatar: uni.getStorageSync('userInfo').id == item.userId ? uni.getStorageSync('avatar') : receiverInfo.photo
 				}
 				rawList.push(message)
-				if( item.status === 0 && uni.getStorageSync('userInfo').id != item.userId){
+				const greaterOneDay =  new Date() - Date.parse(item.sendDate) > 24*60*60*1000 ? true : false 
+				if( item.status === 0 && uni.getStorageSync('userInfo').id != item.userId && !greaterOneDay){
 			      	index ++;
 				}
 				
@@ -481,6 +481,7 @@ export default {
 					};
 					if (message.type === 'mark') {
 						const messageId = _this.messageId[_this.messageId.length-1];
+						console.log(messageId,888)
 						const res = _this.remarkIsReadAction({
 							id: messageId,
 							status: 1
@@ -544,6 +545,7 @@ export default {
 		width: 250rpx;
 	}
 	.text {
+		display: inline-block;
 		background-color: #21b0ab;
 		max-width: 400rpx;
 		text-align: justify; 

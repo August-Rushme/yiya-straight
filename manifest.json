@@ -50,13 +50,29 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
+<<<<<<< HEAD
         "appid" : "wxa46bc73b729a102d",
+=======
+        "appid" : "wx32ef92a691bc8db4",
+		    "plugins": {
+		        "routePlan": {
+		        "version": "1.0.18",
+		        "provider": "wx50b5593e81dd937a"
+		        }
+		    },
+>>>>>>> 09ca793ec15856d587bc88aa7bafd905ca416410
         "setting" : {
             "urlCheck" : false,
             "minified" : true,
             "postcss" : true,
             "es6" : true
         },
+		
+		"permission": {
+		  "scope.userLocation": {
+		   "desc": "你的位置信息将用于小程序位置接口的调用"
+		  }
+          },
         "optimization" : {
             "subPackages" : true
         },

@@ -18,6 +18,7 @@
       "current": -1,
       "list": []
     },
+<<<<<<< HEAD
     "conversation": {
       "current": -1,
       "list": []
@@ -36,6 +37,44 @@
           "id": 0
         }
       ]
+=======
+    "setting": {
+        "urlCheck": false,
+        "minified": true,
+        "postcss": true,
+        "es6": true,
+        "coverView": true,
+        "lazyloadPlaceholderEnable": false,
+        "preloadBackgroundData": false,
+        "autoAudits": false,
+        "uglifyFileName": false,
+        "uploadWithSourceMap": true,
+        "enhance": true,
+        "useMultiFrameRuntime": true,
+        "showShadowRootInWxmlPanel": true,
+        "packNpmManually": false,
+        "packNpmRelationList": [],
+        "minifyWXSS": true,
+        "useStaticServer": true,
+        "showES6CompileOption": false,
+        "checkInvalidKey": true,
+        "babelSetting": {
+            "ignore": [],
+            "disablePlugins": [],
+            "outputPath": ""
+        },
+        "disableUseStrict": false,
+        "useCompilerPlugins": false
+    },
+    "compileType": "miniprogram",
+    "libVersion": "2.24.3",
+    "appid": "wx32ef92a691bc8db4",
+    "projectname": "yiya-straight",
+    "condition": {},
+    "editorSetting": {
+        "tabIndent": "insertSpaces",
+        "tabSize": 4
+>>>>>>> 09ca793ec15856d587bc88aa7bafd905ca416410
     }
   }
 }

@@ -5,6 +5,7 @@
       <u-tabs
         :current="tabIndex"
         :list="tabBars"
+		lineColor="#22b1ac"
         @click="changeTab"
         :activeStyle="{
           color: '#303133',
