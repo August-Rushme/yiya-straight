@@ -1,14 +1,18 @@
 
 <template>
-  <view class="">
-  	  <view class="bg-danger" @click="search">
-  	  	search
-  	  </view>
-	  <view @click="showMap">
-	  	showMap
-	  </view>
-  </view>
 
+<view class="container">
+	<view :class="['loginBtn',active ? 'active' : '']" @click="login">
+		{{loginText}}
+		<template v-if="active">
+		<view class="loadingIcon" :class="active ? 'rotation' : '' ">  
+		</view>
+		</template>
+         <view class="success">
+         	
+         </view>
+	</view>
+</view>
 </template>
 
 <script>
@@ -16,41 +20,71 @@
 export default {
 	data() {
 		return {
-	    scollInto: 'tab1',
-		qqmapsdk: '',
+			 active: false,
+             loginText: '登录',
 		};
 	},
-	onLoad(){
-		const QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
-		const qqmapsdk = new QQMapWX({
-            key: 'GG6BZ-LTCWP-BG4DD-VRG5X-YA4LF-FZB23'
-        });
-		this.qqmapsdk = qqmapsdk;
-
-	},
 	methods: {
-		search(){
-			this.qqmapsdk.search({
-			       keyword: '口腔',
-			       success: function (res) {
-			           console.log(res);
-			       },
-			       fail: function (res) {
-			           console.log(res);
-			       },
-			   complete: function (res) {
-			       console.log(res);
-			   }
-			})
-		},
-
-
+       login(){
+		   this.active = !this.active;
+		 if(this.active === true){
+			    this.loginText = ''
+		 }else{
+			 this.loginText = '登录'
+		 }
+	   }
 	}
 
 };
 </script>
 
 <style scope lang="scss">
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .loginBtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 300px;
+      cursor: pointer;
+      border-radius: 30px;
+      height: 60px;
+      line-height: 60px;
+      text-align: center;
+	  transition: all .5s cubic-bezier(.2,1,0,1) ;
+      background: linear-gradient(to right,#20d8b4,#22b3ac);
+      color: white;
+      .loadingIcon {
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         border: 5px solid #ededef;
+         border-bottom-color: white;
+      }
+	  .success {
+		  width: 30px;
+		  height: 40px;
+		  transform: rotate(45deg);
+		  
+	  }
+  }
+}
+.active {
+	width: 60px !important;
+	height: 60px !important;
+}
+.rotation {
+    animation: rotation .5s ease-in infinite;
+}
+
+@keyframes rotation {
+    to {
+        transform:  rotate(360deg);
+    }
+}
 
 
 </style>
