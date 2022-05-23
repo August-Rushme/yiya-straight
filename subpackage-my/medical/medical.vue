@@ -1,7 +1,7 @@
 <template>
 <view class="medical p-2">
 	<block v-for="(item,index) in list" :key="index">
-		<view class="card mb-2">
+		<view class="card mb-2" @click="goToMedicalDetail">
 			<view class="title pl-2 py-1">
 				<text class="mr-2">{{item.username}}</text>
 				<text>{{item.time}}</text>
@@ -57,6 +57,11 @@ export default {
 	},
 	onLoad() {},
 	methods: {
+		goToMedicalDetail(){
+			uni.navigateTo({
+				url: '/subpackage-my/medical-detail/medical-detail'
+			})
+		}
 	}
 };
 </script>

@@ -122,7 +122,7 @@ export default {
 			...this.location ,
 			...this.pageInfo
 		});
-		if (res.list.length >= 0) {
+		if (res.list.length > 0) {
 			uni.hideLoading();
 			this.shopData.push(...res.list);
 		} else {
