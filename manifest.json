@@ -50,6 +50,9 @@
     "quickapp" : {},
     /* 小程序特有相关 */
     "mp-weixin" : {
+<<<<<<< HEAD
+        "appid" : "wxa46bc73b729a102d",
+=======
         "appid" : "wx32ef92a691bc8db4",
 		    "plugins": {
 		        "routePlan": {
@@ -57,6 +60,7 @@
 		        "provider": "wx50b5593e81dd937a"
 		        }
 		    },
+>>>>>>> 09ca793ec15856d587bc88aa7bafd905ca416410
         "setting" : {
             "urlCheck" : false,
             "minified" : true,

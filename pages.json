@@ -159,6 +159,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "medical-detail/medical-detail",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		},
 		//问诊

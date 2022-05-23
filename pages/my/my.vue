@@ -4,10 +4,10 @@
 <view class="top-background  d-flex j-center">
 	<view class="my-card d-flex j-sb a-center px-4">
 		<view class="userInfo d-flex">
-			<u-avatar :src="avatar" size="50"></u-avatar>
+			<u-avatar :src="avatar" size="50" @click="goSetInfo"></u-avatar>
 			<view class="username ml-1 pt-1">
 			 <text class="line-h0 font-md font-weight">{{username}}</text>
-			 <view class="" @tap="goSetInfo">
+			 <view class="" @click="goSetInfo">
 			  设置个人信息>	
 			 </view>
 			</view>
