@@ -79,11 +79,11 @@ export default {
   },
   data() {
     return {
-      username: '',
+      username: 'a123456',
 	  fail: true,
 	  active: false,
 	  loginText: '登录',
-      password: '',
+      password: 'a123456',
       check: true,
       // 验证规则
       rules: {

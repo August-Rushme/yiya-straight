@@ -88,6 +88,7 @@
             }
         ]
     },
+<<<<<<< HEAD
     "preloadRule": {
         "pages/index/index": {
             "packages": [
@@ -117,4 +118,92 @@
         "divider": "/components/common/divider"
     },
     "sitemapLocation": "sitemap.json"
+=======
+    {
+      "root": "subpackage-index",
+      "pages": [
+        "teeth-whitening/teeth-whitening",
+        "detail-comment/detail-comment",
+        "goods-detail/goods-detail",
+        "push-comments/push-comments",
+<<<<<<< HEAD
+        "product-info/product-info"
+=======
+        "product-info/product-info",
+        "pay/pay",
+        "pay-success/pay-success"
+>>>>>>> 09ca793ec15856d587bc88aa7bafd905ca416410
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "神州牙都会",
+    "navigationBarBackgroundColor": "#22b1ac",
+    "backgroundColor": "#fff"
+  },
+  "tabBar": {
+    "color": "#B5B5B5",
+    "selectedColor": "#20b2aa",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/tabbar/index.jpg",
+        "selectedIconPath": "static/tabbar/indexSelected.jpg"
+      },
+      {
+        "pagePath": "pages/project/project",
+        "text": "极速问诊",
+        "iconPath": "static/tabbar/msg.jpg",
+        "selectedIconPath": "static/tabbar/msgSelected.jpg"
+      },
+      {
+        "pagePath": "pages/register/register",
+        "text": "挂号",
+        "iconPath": "static/tabbar/register.jpg",
+        "selectedIconPath": "static/tabbar/registerSelected.jpg"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "个人中心",
+        "iconPath": "static/tabbar/my.jpg",
+        "selectedIconPath": "static/tabbar/mySelected.jpg"
+      }
+    ]
+  },
+  "preloadRule": {
+    "pages/index/index": {
+      "packages": [
+        "subpackage-index"
+      ],
+      "network": "all"
+    },
+    "pages/my/my": {
+      "packages": [
+        "subpackage-my"
+      ],
+      "network": "all"
+    }
+  },
+<<<<<<< HEAD
+=======
+  "plugins": {
+    "routePlan": {
+      "version": "1.0.18",
+      "provider": "wx50b5593e81dd937a"
+    }
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的调用"
+    }
+  },
+>>>>>>> 09ca793ec15856d587bc88aa7bafd905ca416410
+  "usingComponents": {
+    "divider": "/components/common/divider"
+  }
+>>>>>>> 994fc3139bdb1626e0f0432602b5d07c5fb8c2da
 }

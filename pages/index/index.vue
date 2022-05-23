@@ -73,12 +73,12 @@ export default {
 	},
 	async onShow() {
 		// console.log(2222,uni.getStorageSync('token'),11111);
-		// if(uni.getStorageSync('token') === ''){
-		// 	uni.navigateTo({
-		// 		url: '/subpackage-my/login/login'
-		// 	})
-		// 	return false
-		// }
+		if(uni.getStorageSync('token') === ''){
+			uni.navigateTo({
+				url: '/subpackage-my/login/login'
+			})
+			return false
+		}
 		this.pageInfo = {
 				pageSize: 5,
 				pageNum: 1
