@@ -9,8 +9,8 @@
       indicator-active-color="#ff6a6c"
       circular="true"
     >
-      <swiper-item class="swiper-item  box-sizing-b" v-for="(item, index) in swiperData" :key="index">
-        <view class="wh-full" @click.stop="topage(item)">
+      <swiper-item class="swiper-item  box-sizing-b" v-for="(item, index) in swiperData" @click.stop="topage" :key="index">
+        <view class="wh-full">
           <image class="wh-full" mode="aspectFill" :lazy-load="true" :src="item.img" />
         </view>
       </swiper-item>

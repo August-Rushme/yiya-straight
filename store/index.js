@@ -74,15 +74,13 @@ const store = new Vuex.Store({
         userName: payload.username,
         password: payload.password
       });
-      if (res === '用户名不存在') {
-        return message.message("账号或者密码错误")
-      } else {
-        commit('changeUsername', res.user.nickname);
-        commit('changeAvatar', res.user.photo);
-        commit('changeToken', res.token);
-        commit('changeUserInfo', res.user);
-        message.message("登录成功")
-      }
+     if(res.code === 200){
+		commit('changeUsername', res.user.nickname);
+		commit('changeAvatar', res.user.photo);
+		commit('changeToken', res.token);
+		commit('changeUserInfo', res.user); 
+	 }
+	  return res
     },
     localLoginAction({
       commit

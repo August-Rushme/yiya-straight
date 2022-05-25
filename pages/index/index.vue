@@ -72,13 +72,11 @@ export default {
 		};
 	},
 	async onShow() {
-		// console.log(2222,uni.getStorageSync('token'),11111);
-		// if(uni.getStorageSync('token') === ''){
-		// 	uni.navigateTo({
-		// 		url: '/subpackage-my/login/login'
-		// 	})
-		// 	return false
-		// }
+		if(uni.getStorageSync('token') === ''){
+		uni.navigateTo({
+			url: '/subpackage-my/login/login'
+		})
+		}
 		this.pageInfo = {
 				pageSize: 5,
 				pageNum: 1
@@ -112,6 +110,7 @@ export default {
 		 	index:3
 		 })
 	 }
+
 	},
 	async onReachBottom() {
 		this.pageInfo.pageNum++;
@@ -122,7 +121,7 @@ export default {
 			...this.location ,
 			...this.pageInfo
 		});
-		if (res.list.length >= 0) {
+		if (res.list.length > 0) {
 			uni.hideLoading();
 			this.shopData.push(...res.list);
 		} else {
