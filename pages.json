@@ -21,9 +21,6 @@
 			"style": {
 				"navigationBarTitleText": "个人中心"
 			}
-		},
-		{
-			"path": "pages/test/test"
 		}
 		,
 		{
@@ -39,7 +36,16 @@
 				"navigationBarTitleText": "搜索"
 			}
 		}
-	],
+	    ,{
+            "path" : "pages/test/test",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+    ],
 	"preloadRule": {
 		"pages/index/index":{
 			"packages": ["subpackage-index"],
@@ -163,7 +169,7 @@
                     "path" : "medical-detail/medical-detail",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    "navigationBarTitleText": "病例详情",
                     "enablePullDownRefresh": false
                 }
                 
@@ -225,7 +231,7 @@
 			"pages": [{
 				"path": "teeth-whitening/teeth-whitening",
 				"style": {
-					"navigationBarTitleText": "牙齿美白",
+					"navigationBarTitleText": "",
 					"enablePullDownRefresh": false
 				}
 			}, {
@@ -239,7 +245,7 @@
 			,  {
 			"path": "goods-detail/goods-detail",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "诊所详情",
 				"enablePullDownRefresh": false
 			}
 		}, {
@@ -254,7 +260,7 @@
                     "path" : "product-info/product-info",
                     "style" :                                                                                    
                 {
-                    "navigationBarTitleText": "",
+                    "navigationBarTitleText": "商品详情",
                     "enablePullDownRefresh": false
                 }
                 

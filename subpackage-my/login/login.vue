@@ -53,7 +53,7 @@
       <view class="d-flex j-sb mt-2">
         <label class="checkbox d-flex a-center" @click="check = !check">
           <checkbox :checked="check" />
-          <text class="text-light-muted font">已阅读并同意XXXXX协议</text>
+          <text class="text-light-muted font">已阅读并同意神州牙都会协议</text>
         </label>
         <view class="text-light-muted">
           没有账号?
@@ -130,7 +130,7 @@ export default {
    submit() {
 	   if (!this.check) {
 	     return uni.showToast({
-	       title: '请先同意XXXXX协议',
+	       title: '请先同意神州牙都会协议',
 	       icon: 'none'
 	     });
 	   }

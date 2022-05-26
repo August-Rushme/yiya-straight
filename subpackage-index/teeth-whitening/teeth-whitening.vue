@@ -123,7 +123,10 @@ import { mapActions } from 'vuex'
 		]
       }
     },
-	async onLoad(){
+	async onLoad(options){
+		uni.setNavigationBarTitle({
+			title: options.pageName
+		});
 		const _this = this;
 		uni.getLocation({
 				type: 'wgs84',

@@ -30,13 +30,38 @@
             "outputPath": ""
         },
         "disableUseStrict": false,
-        "useCompilerPlugins": false
+        "useCompilerPlugins": false,
+        "minifyWXML": true
     },
     "compileType": "miniprogram",
     "libVersion": "2.24.2",
     "appid": "wx32ef92a691bc8db4",
     "projectname": "yiya-straight",
-    "condition": {},
+    "condition": {
+        "search": {
+            "current": -1,
+            "list": []
+        },
+        "conversation": {
+            "current": -1,
+            "list": []
+        },
+        "game": {
+            "current": -1,
+            "list": []
+        },
+        "miniprogram": {
+            "current": 0,
+            "list": [
+                {
+                    "name": "",
+                    "path": "",
+                    "query": "",
+                    "id": 0
+                }
+            ]
+        }
+    },
     "editorSetting": {
         "tabIndent": "insertSpaces",
         "tabSize": 4
