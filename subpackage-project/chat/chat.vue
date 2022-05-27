@@ -149,8 +149,6 @@
 <script>
 import GoEasy from 'goeasy';
 import { mapActions } from 'vuex';
-const nickname = uni.getStorageSync('userInfo').nickname;
-const avatar = uni.getStorageSync('userInfo').photo;
 const recorderManager = uni.getRecorderManager();
 const innerAudioContext = uni.createInnerAudioContext();
 
@@ -163,6 +161,8 @@ export default {
 				pageNum: 1
 			},
 			startRecord: false,
+			nickname: uni.getStorageSync('userInfo').nickname,
+			avatar: uni.getStorageSync('userInfo').photo,
 			recordSecondTime: 1,
 			recordMinTime: 0,
 			blockHeight: 180,
@@ -200,6 +200,7 @@ export default {
 			title: '加载中',
 			mask: false
 		});
+		const _this = this;
 		this.receiverId = options.id;
 		const receiverInfo = await this.getUserByIdAction(parseInt(options.id));
 		const messagelist = await this.getMessageAction({
@@ -211,12 +212,13 @@ export default {
 			fromId: parseInt(uni.getStorageSync('userInfo').id),
 			toId: parseInt(options.id),
 			pageNum: 1,
-			pageSize: 99999
+			pageSize: 9999
 		});
 		this.hasMore = messageAll.list.length > 15 ? true : false;
 		let index = 0;
 		const rawList = [];
 		this.allMessage = messageAll.list;
+		this.setRead();
 		messagelist.list.reverse().forEach(item => {
 			const message = {
 				id: item.id,
@@ -225,8 +227,8 @@ export default {
 				isRead: item.status === 1 ? true : false,
 				type: item.type,
 				url: item.url,
-				nickName: uni.getStorageSync('userInfo').id == item.userId ? nickname : receiverInfo.nickname,
-				avatar: uni.getStorageSync('userInfo').id == item.userId ? avatar : receiverInfo.photo
+				nickName: uni.getStorageSync('userInfo').id == item.userId ? _this.nickname : receiverInfo.nickname,
+				avatar: uni.getStorageSync('userInfo').id == item.userId ? _this.avatar : receiverInfo.photo
 			};
 			rawList.push(message);
 			const greaterOneDay = new Date() - Date.parse(item.sendDate) > 24 * 60 * 60 * 1000 ? true : false;
@@ -254,8 +256,6 @@ export default {
 		goeasy.connect({
 			id: uni.getStorageSync('userInfo').id, //pubsub选填，im必填，最大长度60字符
 			data: {
-				avatar: avatar,
-				nickname: nickname
 			}, //必须是一个对象，pubsub选填，im必填，最大长度300字符，用于上下线提醒和查询在线用户列表时，扩展更多的属性
 			onSuccess: function() {
 				//连接成功
@@ -274,7 +274,6 @@ export default {
 		this.goeasy = goeasy;
 		this.im = goeasy.im;
 		this.messageReceived();
-		const _this = this;
 		recorderManager.onStop(function(res) {
 			if (_this.canSendRecord) {
 				_this.messagelist.push({
@@ -286,8 +285,8 @@ export default {
 					url: res.tempFilePath,
 					realTime: (res.duration / 1000).toFixed(3),
 					time: Math.ceil(res.duration / 1000),
-					nickName: nickname,
-					avatar: avatar
+					nickName: _this.nickname,
+					avatar: _this.avatar
 				});
 				_this.pageToBottom();
 			}
@@ -343,6 +342,21 @@ export default {
 		// 视频通话
 		callVideo(){
 			
+		},
+		setRead(){
+			const _this = this;
+			if (_this.first) {
+				_this.allMessage.forEach(item => {
+					
+	      if (item.status === 0 && parseInt(item.receiverId) === parseInt(uni.getStorageSync('userInfo').id)) {
+		   const res = _this.remarkIsReadAction({
+			id: item.id,
+			status: 1
+		  });
+	        }
+				});
+				_this.first = false;
+			}
 		},
 		// 底部控件相关函数
 		open() {
@@ -410,8 +424,8 @@ export default {
 					isRead: item.status === 1 ? true : false,
 					type: item.type,
 					url: item.url,
-					nickName: uni.getStorageSync('userInfo').id == item.userId ? nickname : _this.receiverName,
-					avatar: uni.getStorageSync('userInfo').id == item.userId ? avatar : _this.receiverAvatar
+					nickName: uni.getStorageSync('userInfo').id == item.userId ? _this.nickname : _this.receiverName,
+					avatar: uni.getStorageSync('userInfo').id == item.userId ? _this.avatar : _this.receiverAvatar
 				};
 				rawList.push(message);
 			});
@@ -422,8 +436,8 @@ export default {
 		sendMessage() {
 			if (this.message.length > 0) {
 				const messageInfo = {
-					avatar: avatar,
-					nickName: nickname,
+					avatar: this.avatar,
+					nickName: this.nickname,
 					isMe: true,
 					text: this.message
 				};
@@ -452,7 +466,7 @@ export default {
 						to: {
 							type: GoEasy.IM_SCENE.PRIVATE, //私聊还是群聊，群聊为GoEasy.IM_SCENE.GROUP
 							id: parseInt(_this.receiverId),
-							data: { avatar: avatar, nickname: nickname } //好友扩展数据, 任意格式的字符串或者对象，用于更新会话列表conversation.data
+							data: {  } //好友扩展数据, 任意格式的字符串或者对象，用于更新会话列表conversation.data
 						},
 
 						onProgress: function(event) {
@@ -462,8 +476,8 @@ export default {
 									isMe: true,
 									mark: res,
 									tmpId: _this.loadingIndex,
-									avatar: avatar,
-									nickName: nickname,
+									avatar: _this.avatar,
+									nickName: _this.nickname,
 									text: null
 								});
 								_this.pageToBottom();
@@ -524,7 +538,7 @@ export default {
 							to: {
 								type: GoEasy.IM_SCENE.PRIVATE, //私聊还是群聊，群聊为GoEasy.IM_SCENE.GROUP
 								id: parseInt(_this.receiverId),
-								data: { avatar: avatar, nickname: nickname } //好友扩展数据, 任意格式的字符串或者对象，用于更新会话列表conversation.data
+								data: {  } //好友扩展数据, 任意格式的字符串或者对象，用于更新会话列表conversation.data
 							},
 							onProgress: function(event) {
 								console.log('file uploading:', event);
@@ -536,8 +550,8 @@ export default {
 								_this.messagelist.push({
 									type: message.type,
 									isMe: true,
-									avatar: avatar,
-									nickName: nickname,
+									avatar: _this.avatar,
+									nickName: _this.nickname,
 									messageId: message.messageId,
 									timestamp: message.timestamp,
 									isRead: message.read,
@@ -644,7 +658,7 @@ export default {
 				to: {
 					type: GoEasy.IM_SCENE.PRIVATE, //私聊还是群聊，群聊为GoEasy.IM_SCENE.GROUP
 					id: parseInt(_this.receiverId),
-					data: { avatar: avatar, nickname: nickname } //好友扩展数据, 任意格式的字符串或者对象，用于更新会话列表conversation.data
+					data: {  } //好友扩展数据, 任意格式的字符串或者对象，用于更新会话列表conversation.data
 				}
 			});
 			return textMessage;
@@ -654,18 +668,6 @@ export default {
 			const _this = this;
 
 			let onPrivateMessageReceived = function(message) {
-				if (_this.first) {
-					_this.allMessage.forEach(item => {
-						if (item.status === 0) {
-							const res = _this.remarkIsReadAction({
-								id: item.id,
-								status: 1
-							});
-						}
-					});
-					_this.first = false;
-				}
-
 				if (_this.receiverId === message.senderId) {
 					const pushInfo = {
 						type: message.type,
@@ -684,12 +686,14 @@ export default {
 						_this.remarkAndSend(message);
 					};
 					if (message.type === 'mark') {
-						const messageId = _this.messageId[_this.messageId.length - 1];
-						console.log(messageId, 888);
-						const res = _this.remarkIsReadAction({
-							id: messageId,
-							status: 1
-						});
+				setTimeout(()=>{
+					const messageId = _this.messageId[_this.messageId.length-1];
+					console.log(messageId, 888);
+					const res = _this.remarkIsReadAction({
+						id: messageId,
+						status: 1
+					});
+				},100)
 						_this.messagelist.forEach(item => {
 							if (item.messageId === message.payload.messageReadId) {
 								item.isRead = true;

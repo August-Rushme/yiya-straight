@@ -145,20 +145,20 @@ export default {
 		  	  	 _this.loginText = '登录'
 		  	  return;
 		    }
-		  const res = await _this.loginByAccountAction({username: _this.username,password: _this.password});
-	     if(res.code !== 200){
-			_this.active = !_this.active
-			_this.loginText = '登录'
-		     uni.$u.toast('登录失败')
-		 }else{	
-			 _this.fail = false;
-			 setTimeout(()=>{
-				  uni.switchTab({
-				  	url: '/pages/my/my'
-				    })
-				 uni.$u.toast('登录成功')
-			 },580)
-		 }
+			try{
+				  const res = await _this.loginByAccountAction({username: _this.username,password: _this.password});
+				  _this.fail = false;
+				  setTimeout(()=>{
+				  				  uni.switchTab({
+				  				  	url: '/pages/my/my'
+				  				    })
+				  				 uni.$u.toast('登录成功')
+				  },580)
+			 }catch(e){
+				_this.active = !_this.active
+				_this.loginText = '登录'
+				 uni.$u.toast('账号密码错误')
+			}
 		  },600);
  },
     //wx登录

@@ -11,7 +11,7 @@
 			</view>
 		</view>
 		<view class="get-btn" v-if="types" :style="{color:color, borderColor:color, background:solid}">选择使用</view>
-		<navigator class="get-btn" v-if="!types" :style="{color:color, borderColor:color, background:solid}" :url='item.url'>立即使用</navigator>
+		<view class="get-btn" v-if="!types" :style="{color:color, borderColor:color, background:solid}" @click="useCoupon(item.seller_name)">立即使用</view>
 	</view>	
 	</view>
 
@@ -52,7 +52,12 @@ export default {
 		},
 	},
 	methods: {
-
+         useCoupon(name){
+		 const pageName = name.split('类')[0];
+	    uni.navigateTo({
+	 	url: `/subpackage-index/teeth-whitening/teeth-whitening?pageName=${pageName}`
+	     })
+ }
 	}
 }
 </script>
