@@ -9,7 +9,7 @@
     <view  v-if="appointments.length > 0">
       <block v-for="appointment in appointments" :key="appointment.id">
         <uni-section title="我的预约" type="line">
-          <uni-card :cover="cover" @click="onClick">
+          <uni-card :cover="cover">
             <view class="title d-flex flex-row j-sb px-1 a-center border-bottom pb-1">
               <view>{{ appointment.appointmentTime }}</view>
               <u-tag v-if="appointment.status == 0" text="预约中" plain shape="circle"></u-tag>

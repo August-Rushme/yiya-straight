@@ -2,7 +2,7 @@
   <view class="use-page">
     <!-- 搜索内容区 -->
     <view class="search-area pos-r w-full padding-lr dflex-b">
-      <view class="h-full flex1 dflex-c">
+      <view class="h-full flex1 dflex-c a-center">
         <view class="icon-search pos-a"><text class="iconfont iconsousuo-01"></text></view>
         <input
           type="text"
@@ -14,7 +14,7 @@
         />
       </view>
 
-      <view class="bg-base border-radius-big padding-tb-xs padding-lr margin-left" @click="search">搜索</view>
+      <view class="border-radius-big padding-tb-xs padding-lr margin-left" style="background: linear-gradient(to right, #20dab4, #22b1ac);color: white;" @click="search">搜索</view>
     </view>
     <view class="gap"></view>
 

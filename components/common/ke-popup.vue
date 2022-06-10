@@ -1,30 +1,42 @@
 <template>
 	<view>
-			<u-popup :show="show" :closeable="true">
+			<u-popup :show="show2">
 		            <view class="p-3 d-flex j-center a-center">
 		            <template v-if="type === 'input' || type === 'password'">
-						  <u--input
-						    :placeholder="placeholder"
-						    border="surround"
-						    clearable
-							:password="type === 'password' ? true : false"
-						  ></u--input>
+							<u--input
+							  :placeholder="placeholder"
+							  border="surround"
+							  clearable
+							 :password="type === 'password' ? true : false"
+							></u--input>
 		            </template>
 					<template v-else-if="type === 'textArea'">
-						<u--textarea v-model="textArea" placeholder="请输入内容" count ></u--textarea>
+						<u--textarea v-model="textArea" :placeholder="placeholder" count  ></u--textarea>
+						
 					</template>
 					
 					<template v-else-if="type === 'select'">
-						<block v-for="(item,index) in options" :key="index">
-							<view class="text-center" :class="defaultIndex === index ? 'font-weight' : ''" @click="select(index)">
-								{{item}}
-							</view>
-						</block>
+						<view style="margin-top: -30rpx;">
+							<block v-for="(item,index) in options" :key="index">
+								<view class="text-center border-bottom py-2" :class="defaultIndex === index ? 'font-weight' : ''" @click="select(index)" style="width: 750rpx;">
+									{{item}}
+								</view>
+							</block>
+						</view>
 					</template>
 		            </view>
-					<view class="confirmBtn" @click="confirm">
-						确定
+					<view class="d-flex j-center mb-3">
+						<view class="d-flex">
+							<view class="confirmBtn confirmBtn2 text-muted"  @click="cancle">
+								取消
+							</view>
+							<view class="confirmBtn"  @click="confirm">
+								确定
+							</view>
+						</view>
+					
 					</view>
+	
 				</u-popup>
 	</view>
 </template>
@@ -37,8 +49,12 @@
 			rule:  {
 				type: Object,
 				default: ()=>{
-               return {}
-         }
+                return {}
+            }
+			},
+			show: {
+				type: Boolean,
+				default: false
 			},
 			options: {
 				type: Array,
@@ -50,16 +66,24 @@
 		name:"ke-popup",
 		data() {
 			return {
-			 show: false,
 			 defaultIndex: 0,
+			 textArea: '',
+			 defaultShow: false,
 			};
 		},
+		computed: { 
+			show2(){
+			    return this.$props.show
+			}
+		},
 		methods: {
-			show(){
-				this.show = true
-			},
 			confirm() {
-				this.show =false;
+		          this.$emit('close',{
+					  
+				  })
+			},
+			cancle() {
+				this.$emit('cancle',{})
 			},
 			select(index){
 				this.defaultIndex = index;
@@ -70,14 +94,16 @@
 
 <style scoped lang="scss">
 	.confirmBtn {
-		margin-top: 20rpx;
-		width:  200rpx;
+		width:  220rpx;
 		height: 60rpx;
 		line-height: 60rpx;
 	    text-align: center;
         border-radius: 30rpx;
+		margin-right: 40rpx;
 		background: linear-gradient(to right, #20dab4, #22b1ac);
 		color: white;
 	}
-
+    .confirmBtn2 {
+		background: #dee2e6;
+	}
 </style>

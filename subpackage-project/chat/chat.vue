@@ -81,7 +81,7 @@
 				</template>
 			</u-input>
 			<template v-if="showMoreFn">
-				<view class="moreFn d-flex">
+				<view class="moreFn  mb-3 d-flex">
 					<view class="d-flex flex-column j-center a-center" style="margin-right: 60rpx;">
 						<view class="d-flex flex-column j-center a-center" style="width: 120rpx">
 							<uni-icons type="image" size="40" @tap="chooseImage"></uni-icons>
@@ -105,7 +105,7 @@
 					</view>
 					<view class="d-flex flex-column j-center a-center">
 						<view class="d-flex flex-column j-center a-center" style="width: 120rpx">
-							<view class="d-flex j-center a-center" style="width: 40px;height: 40px;margin-top: 10px;">
+							<view class="d-flex j-center a-center" style="width: 40px;height: 40px;margin-top: 10px;" @click.native="goToCase">
 								<image src="/static/images/bingli2.png" style="width: 35px;height: 35px;"></image>
 							</view>
 
@@ -113,14 +113,14 @@
 						</view>
 					</view>
 				</view>
-				<view class="d-flex mb-5">
+	<!-- 			<view class="d-flex mb-5">
 					<view class="d-flex flex-column j-center a-center" style="width: 120rpx;margin-left: 60rpx;">
 						<view class="d-flex flex-column j-center a-center" >
 							<uni-icons type="videocam" size="40" @tap="callVideo"></uni-icons>
 							<view class="text-muted" style="margin-top: -30rpx;">视频问诊</view>
 						</view>
 					</view>
-				</view>
+				</view> -->
 			</template>
 			<template v-if="startRecord">
 				<view class="audioModal d-flex flex-column a-center px-5 py-2">
@@ -339,9 +339,10 @@ export default {
 	},
 	methods: {
 		...mapActions(['getUserByIdAction', 'messageSaveAction', 'getMessageAction', 'remarkIsReadAction']),
-		// 视频通话
-		callVideo(){
-			
+	    goToCase(){
+			uni.navigateTo({
+				url: `/subpackage-my/medical/medical?needSelected=${true}`
+			})
 		},
 		setRead(){
 			const _this = this;
@@ -361,7 +362,7 @@ export default {
 		// 底部控件相关函数
 		open() {
 			this.useInput = true;
-			this.blockHeight = 550;
+			this.blockHeight = 400;
 			this.showMoreFn = true;
 			this.isPlus = false;
 			this.pageToBottom();

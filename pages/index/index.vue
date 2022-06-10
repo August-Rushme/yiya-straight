@@ -72,6 +72,7 @@ export default {
 		};
 	},
 	async onShow() {
+
 		if(uni.getStorageSync('token') === ''){
 		uni.navigateTo({
 			url: '/subpackage-my/login/login'
@@ -96,7 +97,15 @@ export default {
 			...location
 		});
 		this.shopData = res2.list;
+		},
+		fail() {
+			uni.showToast({
+				title: '请开启定位，不然无法获取诊所数据！',
+				duration: 2000,
+				icon: 'none'
+			})
 		}
+		
 	  });
 
 
