@@ -1,36 +1,25 @@
 <template>
 <view class="medical p-2">
 	<block v-for="(item,index) in list" :key="index">
-		<view class="card mb-2" @click="goToMedicalDetail">
-			<view class="d-flex j-sb a-center title pl-2 py-1" @click.stop="selectCard(index)">
-				<view >
-					<text class="mr-2">{{item.username}}</text>
+		<view class="card mb-2" @click="goToMedicalDetail(item.id)">
+			<view class="d-flex j-sb a-center title pl-2 py-1">
+				<view>
+					<text class="mr-2">{{item.userName}}</text>
 					<text>{{item.time}}</text>
 				</view>
-		        <template v-if="needSelected">
-					<template v-if="!item.selected">
-					  <view class="circle"></view>
-					</template>
-		        	<template v-else>
-						<view class="mr-1">
-						<u-icon name="checkmark-circle-fill" color="#22b1ac" size="25"></u-icon>
-						</view>
-		   
-		        	</template>
-		        </template>
 			</view>
 			<view class="content">
 				<view class="pl-2 py-1 d-flex">
 					<view class="item-title mr-2">医生</view>
-					<view class="item-content">{{item.doctorname}}</view>
+					<view class="item-content">{{item.doctor}}</view>
 				</view>
 				<view class="pl-2 py-1 d-flex">
 					<view class="item-title mr-2">处置</view>
-					<view class="item-content">{{item.management}}</view>
+					<view class="item-content">{{item.handle}}</view>
 				</view>
 				<view class="pl-2 py-1 d-flex">
 					<view class="item-title mr-2">医嘱</view>
-					<view class="item-content">{{item.medicalAdvice}}</view>
+					<view class="item-content">{{item.advice}}</view>
 				</view>
 			</view>
 		</view>
@@ -40,55 +29,30 @@
 </template>
 
 <script>
+	import { mapActions } from 'vuex'
 export default {
 	data() {
 		return {
-			needSelected: false,
 			list: [
-				{
-					username: '张三',
-					time: '2022/4/20 15:38',
-					doctorname: '李四',
-					management: '这是一段处置内容这是一段处置内容这是一段处置内容这是一段处置内容',
-					medicalAdvice: '这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容',
-					selected: false,
-				},
-				{
-					username: '张三',
-					time: '2022/4/20 15:38',
-					doctorname: '李四',
-					management: '这是一段处置内容这是一段处置内容这是一段处置内容这是一段处置内容',
-					medicalAdvice: '这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容',
-					selected: false,
-				},
-				{
-					username: '张三',
-					time: '2022/4/20 15:38',
-					doctorname: '李四',
-					management: '这是一段处置内容这是一段处置内容这是一段处置内容这是一段处置内容',
-					medicalAdvice: '这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容',
-					selected: false,
-				}
 			]
 			};
 	},
-	onLoad(options) {
-		if(options.needSelected){
-		 this.needSelected = !!options.needSelected
-		}
+ async onLoad() {
+        const res = await this.getMedicalCaseAction({
+			 id: uni.getStorageSync('userInfo').id,
+			 pageSize: 10,
+			 pageNum: 1
+		})
+	   this.list = res.list;
 	},
 	methods: {
-		goToMedicalDetail(){
+		...mapActions(['getMedicalCaseAction']),
+		goToMedicalDetail(id){
 			uni.navigateTo({
-				url: '/subpackage-my/medical-detail/medical-detail'
+				url: `/subpackage-my/medical-detail/medical-detail?id=${id}`
 			})
 		},
-		selectCard(index){
-			this.list.forEach(item => {
-				item.selected = false;
-			})
-			this.list[index].selected = !this.list[index].selected
-		}
+
 	}
 };
 </script>
@@ -111,13 +75,7 @@ export default {
 				overflow: hidden;
 			}
 		}
-		.circle{
-			width: 50rpx;
-			height: 50rpx;
-			margin-right: 10rpx;
-			border-radius: 50%;
-			border: 2rpx solid #dee2e6;
-		}
+
 	}
 
 </style>

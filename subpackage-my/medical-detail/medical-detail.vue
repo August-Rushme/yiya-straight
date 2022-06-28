@@ -4,11 +4,11 @@
 		<view class="p-2" style="background-color: white;">
 			<view class="d-flex j-sb py-1 border-bottom">
 				<text>医生</text>
-				<text>李满元</text>
+				<text>{{medicalDetail.doctor}}</text>
 			</view>
 			<view class="d-flex j-sb py-1">
 				<text>就诊时间</text>
-				<text>2022-05-22 14:45:00</text>
+				<text>{{medicalDetail.time}}</text>
 			</view>
 		</view>
 		<!-- 病例详情 -->
@@ -17,7 +17,7 @@
 				<view class="py-2">诊断</view>
 				<view class="imgCard mb-2">
 					<view class="img mt-5">
-						<view class="left text-end">5</view>
+						<view class="left text-end">{{medicalDetail.handleImageScore}}</view>
 						<view class="right"></view>
 					</view>
 					<view class="text-light-muted p-2">
@@ -33,14 +33,14 @@
 					<view class="right"></view>
 				</view>
 				<view class="text-light-muted p-2">
-				  向患者交代病情、治疗计划、费用、预后等
+				 {{medicalDetail.handle}}
 				</view>
 			</view>
 		</view>
 		<view class="mt-2">
 			<view >备注</view>
 			<view class="text-muted">
-				张三
+				{{medicalDetail.advice}}
 			</view>
 		</view>
 		</view>
@@ -48,11 +48,23 @@
 </template>
 
 <script>
+	import { mapActions } from 'vuex'
 export default {
 	data() {
-		return {};
+		return {
+			medicalDetail: {
+				
+			}
+		};
 	},
-	methods: {}
+ async onLoad(options) {
+		const id = parseInt(options.id)
+	   const res = await this.getMedicalDetailAction(id);
+	   this.medicalDetail = res;
+	},
+	methods: {
+		...mapActions(['getMedicalDetailAction'])
+	}
 };
 </script>
 

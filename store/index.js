@@ -16,7 +16,7 @@ import {
 	getDoctorById,
 	getAllDoctor
 } from '../service/doctor/doctor.js'
-import { getUserById } from '../service/user/user.js';
+import { getUserById,updateUserInfo,updateAvatar,getMedicalCase,getMedicalDetail } from '../service/user/user.js';
 import {
 	getCommentsByClinic,
 	getReplyById,
@@ -147,7 +147,37 @@ const store = new Vuex.Store({
 		if (!res.code == 200) {
 		  return uni.$u.toast('请求失败');
 		}
-		return res.user
+		return res.data
+	},
+	async updateUserInfoAction({commit},payload){
+		const res = await updateUserInfo(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('更改信息失败');
+		}
+		uni.$u.toast('更改信息成功')
+		return res.data
+	},
+	async updateAvatarAction({commit},payload){
+		const res = await updateAvatar(payload)
+		if (!res.code == 200) {
+		  return uni.$u.toast('更改头像失败');
+		}
+		uni.$u.toast('更改头像成功')
+		return res.data
+	},
+	async getMedicalCaseAction({commit},payload){
+		const res = await getMedicalCase(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('获取病例信息失败');
+		}
+		return res.data
+	},
+	async getMedicalDetailAction({commit},id){
+		const res = await getMedicalDetail(id);
+		if (!res.code == 200) {
+		  return uni.$u.toast('获取病例信息失败');
+		}
+		return res.data
 	},
 	//评论相关请求
 	async getCommentsByClinicAction({commit},payload){

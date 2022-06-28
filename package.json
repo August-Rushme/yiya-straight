@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "goeasy": "^2.4.3"
+    "goeasy": "^2.4.3",
+    "image-tools": "^1.4.0"
   }
 }

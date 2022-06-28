@@ -49,7 +49,28 @@
 							<view class="video"><video :src="item.url" v-if="!!item.url" controls show-progress></video></view>
 						</template>
 					</template>
-
+                   <template v-else-if="item.type === 'case'">
+                   <uni-card spacing="0" @click="chatToCaseDetail">
+                   	<view style="width: 350rpx;">
+                   		<view class="d-flex j-sb border-bottom">
+                   			<view>
+                   						 <text style="width: 3em;">病人:</text> <text>张三</text>
+                   			</view>
+                   			<view >
+                   					      <text style="width: 3em;">医生:</text> <text>李四</text>
+                   			</view>
+                   		</view>
+                   		<view class="d-flex border-bottom pt-1">
+                   			<text style="width: 3em;">处置:</text>
+                   		     <text class="cardContent">处置内容</text>
+                   		</view>
+                   		<view class="d-flex pt-1">
+                   			<text style="width: 3em;">医嘱:</text>
+                   		     <text class="cardContent">医嘱内容医嘱内容医嘱内容医嘱内容</text>
+                   		</view>
+                   	</view>     
+                   </uni-card>
+                   </template>
 					<template v-if="item.isMe">
 						<view class="d-flex j-end mt-1">
 							<view class="isRead">{{ item.isRead ? '已读' : '未读' }}</view>
@@ -143,6 +164,57 @@
 				</view>
 			</template>
 		</view>
+		
+		<!-- 弹出层 -->
+			<u-popup :show="casePoupopshow" @close="casePupoClose">
+				<view class="p-1">
+					<view class="d-flex j-sb">
+						<text class="text-muted" style="font-size: 32rpx;" @click="casePupoClose">取消</text>
+						<text style="color: #22b1ac;font-size: 32rpx;"  @click="sendCase">发送</text>
+					</view>
+					
+						<scroll-view  scroll-y="true" style="max-height: 440rpx;" >
+							<block v-for="(item2,index2) in caseList" :key="index2">
+								<uni-card spacing="0" @click="goToCaseDetail">
+									<view>
+										<view class="d-flex j-sb pb-1 border-bottom">
+											<view>
+														 <text style="display: inline-block;width: 3em;">病人:</text> <text>{{item2.username}}</text>
+											</view>
+											<view @click.stop="selectCase(index2)">
+												<template v-if="item2.status === true">
+													<u-icon name="checkmark-circle-fill" color="#22b1ac" size="22"></u-icon>
+												</template>
+												<template v-else>
+													<view class="circle">
+														
+													</view>
+												</template>
+											</view>
+										
+								           
+										</view  >
+										<view class="border-bottom py-1">
+												      <text style="display: inline-block;width: 3em;">医生:</text> <text> {{item2.doctorname}}</text>
+										</view>
+										<view class="d-flex border-bottom py-1">
+											<text style="width: 3em;">处置:</text>
+										     <text class="cardContent">{{item2.management}}</text>
+										</view>
+										<view class="d-flex py-1">
+											<text style="width: 3em;">医嘱:</text>
+										     <text class="cardContent">{{item2.medicalAdvice}}</text>
+										</view>
+									</view>
+								
+								</uni-card>
+							</block>
+					
+						</scroll-view>
+				</view>
+
+				</u-popup>
+		
 	</view>
 </template>
 
@@ -160,10 +232,34 @@ export default {
 				pageSize: 15,
 				pageNum: 1
 			},
+			caseList: [
+		{
+			username: '张三',
+			doctorname: '李四',
+			management: '这是一段处置内容这是一段处置内容这是一段处置内容这是一段处置内容',
+			medicalAdvice: '这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容',
+		    status: false,
+		},
+		{
+	     	username: '张三',
+		 	doctorname: '李四',
+			management: '这是一段处置内容这是一段处置内容这是一段处置内容这是一段处置内容',
+			medicalAdvice: '这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容',
+			    status: false,
+		},
+		{
+			username: '张三',
+			doctorname: '李四',
+			management: '这是一段处置内容这是一段处置内容这是一段处置内容这是一段处置内容',
+			medicalAdvice: '这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容',
+			    status: false,
+		}
+			],
 			startRecord: false,
 			nickname: uni.getStorageSync('userInfo').nickname,
 			avatar: uni.getStorageSync('userInfo').photo,
 			recordSecondTime: 1,
+			casePoupopshow: false,
 			recordMinTime: 0,
 			blockHeight: 180,
 			showMoreFn: false,
@@ -202,7 +298,9 @@ export default {
 		});
 		const _this = this;
 		this.receiverId = options.id;
+		
 		const receiverInfo = await this.getUserByIdAction(parseInt(options.id));
+		console.log(receiverInfo)
 		const messagelist = await this.getMessageAction({
 			fromId: parseInt(uni.getStorageSync('userInfo').id),
 			toId: parseInt(options.id),
@@ -340,9 +438,38 @@ export default {
 	methods: {
 		...mapActions(['getUserByIdAction', 'messageSaveAction', 'getMessageAction', 'remarkIsReadAction']),
 	    goToCase(){
+		    this.casePoupopshow = true;
+		},
+		casePupoClose(){
+			this.casePoupopshow = false;
+		},
+		goToCaseDetail(){
 			uni.navigateTo({
-				url: `/subpackage-my/medical/medical?needSelected=${true}`
+				url: '/subpackage-my/medical-detail/medical-detail'
 			})
+		},
+		// 发送病例
+		sendCase(){
+			this.messagelist.push({
+				type: 'case',
+				isMe: true,
+				isRead: false,
+				text: null,
+				nickName: this.nickname,
+				avatar: this.avatar
+			});
+			this.caseList.forEach(item => {
+				item.status = false;
+			})
+			this.casePoupopshow = false;
+		},
+		chatToCaseDetail(){
+		uni.navigateTo({
+			url: '/subpackage-my/medical-detail/medical-detail'
+		})
+		},
+		selectCase(index){
+			this.caseList[index].status = !this.caseList[index].status;
 		},
 		setRead(){
 			const _this = this;
@@ -891,6 +1018,19 @@ export default {
 		100% {
 			visibility: visible;
 		}
+	}
+	// 病例card 
+	.cardContent {
+		flex: 1;
+		overflow: hidden;
+	    white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	.circle {
+		width: 44rpx;
+		height: 44rpx;
+		border-radius: 50%;
+		border: 2rpx solid #eeeeee;
 	}
 }
 </style>
