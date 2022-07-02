@@ -21,7 +21,7 @@
 				<view class="options">
 					<view class="row">
 						<block v-for="(item, index) in labels" :key="index">
-							<view class="option-item span24-7 mr-2 mb-2" :class="item.isActive ? 'select' : ''" @click="select(index)">{{ item.name }}</view>
+							<view class="option-item span24-7 mr-2 mb-2" :class="item.isActive ? 'select' : ''" @click="select(index,item.name)">{{ item.name }}</view>
 						</block>
 					</view>
 				</view>
@@ -101,12 +101,15 @@ export default {
 					isActive: false
 				}
 			],
-			imgUrls: []
+			imgUrls: [],
+			selectedLabels: []
 		};
 	},
 	methods: {
-		select(index) {
+		select(index,name) {
 			this.labels[index].isActive = !this.labels[index].isActive;
+			this.selectedLabels.push(name)
+			console.log(this.selectedLabels);
 		},
 		chooseImage() {
 			let count = 3 - this.imgUrls.length;
