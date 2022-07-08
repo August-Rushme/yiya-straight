@@ -39,6 +39,11 @@ import {
 	remarkIsRead,
 	hasMessage
 } from '../service/message/message.js'
+
+import {
+	getProductSuggest,
+	getSearchResult
+} from '../service/product/product.js'
 Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
@@ -287,6 +292,22 @@ const store = new Vuex.Store({
 		  return uni.$u.toast('请求失败');
 		}
 		return res
+	},
+	
+	// 商品部分
+	async getProductSuggestAction({commit},payload){
+		const res = await getProductSuggest(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async getSearchResultAction({commit},payload){
+		const res = await getSearchResult(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
 	},
     //诊所请求 后期分stoe模块
     async getClinicListAction({

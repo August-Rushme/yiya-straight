@@ -283,6 +283,15 @@
                 }
                 
                 }
+                ,{
+                    "path" : "good-list/good-list",
+                    "style" :                                                                                    
+                {
+                    "navigationBarTitleText": "",
+                    "enablePullDownRefresh": false
+                }
+                
+                }
             ]
 		}
 	],

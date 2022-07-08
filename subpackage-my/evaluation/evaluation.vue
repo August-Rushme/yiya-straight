@@ -21,7 +21,7 @@
 				<view class="options">
 					<view class="row">
 						<block v-for="(item, index) in labels" :key="index">
-							<view class="option-item span24-7 mr-2 mb-2" :class="item.isActive ? 'select' : ''" @click="select(index,item.name)">{{ item.name }}</view>
+							<view class="option-item span24-7 mr-2 mb-2" :class="item.isActive ? 'select' : ''" @click="select(index)">{{ item.name }}</view>
 						</block>
 					</view>
 				</view>
@@ -64,7 +64,7 @@
 			</view>
 			<!-- 发布 -->
 
-			<view class="push">发布</view>
+			<view class="push" @click.native="pushComments">发布</view>
 		</view>
 	</view>
 </template>
@@ -106,14 +106,18 @@ export default {
 		};
 	},
 	methods: {
-		select(index,name) {
+		select(index) {
 			this.labels[index].isActive = !this.labels[index].isActive;
-			this.selectedLabels.push(name)
-			console.log(this.selectedLabels);
+		     let tempLabel = []
+			this.labels.forEach(item => {
+				if(item.isActive){
+					tempLabel.push(item.name);
+				}
+			})
+			this.selectedLabels = tempLabel;
 		},
 		chooseImage() {
 			let count = 3 - this.imgUrls.length;
-
 			const _this = this;
 			uni.chooseImage({
 				count: count, //默认9
@@ -132,6 +136,19 @@ export default {
 				        current: index,
 						urls: this.imgUrls
 					});
+		},
+		pushComments() {
+			if(this.value !== 0 && this.value2.length > 0 && this.selectedLabels.length > 0 ) {
+				uni.showToast({
+					title: '发布评论成功!'
+				});
+			}else {
+				uni.showToast({
+					title: '请填写完整的信息',
+					icon: 'none'
+				});
+			}
+
 		}
 	}
 };
