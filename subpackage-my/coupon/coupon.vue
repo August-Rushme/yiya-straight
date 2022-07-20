@@ -1,18 +1,21 @@
 <template>
 	<view class="px-2">
-	<view class="coupon-item">
-		<view class="coupon-money">
-			<view class="nick" v-if="!types">{{item.seller_name}}使用</view>
-			<view class="layof" :style="{color:theme}">￥{{item.money}}</view>
-			<view class="end_time">{{item.end_time}}前使用</view>
-			<view v-if="!types">
-				<view class="tit">券号：{{item.ticket}}</view>
-				<view class="demand">{{item.title}}</view>
-			</view>
-		</view>
-		<view class="get-btn" v-if="types" :style="{color:color, borderColor:color, background:solid}">选择使用</view>
-		<view class="get-btn" v-if="!types" :style="{color:color, borderColor:color, background:solid}" @click="useCoupon(item.seller_name)">立即使用</view>
-	</view>	
+		<block v-for="(item,index) in coupons" :key="index" >
+			<view class="coupon-item">
+				<view class="coupon-money">
+					<view class="nick" v-if="!types">{{item.seller_name}}使用</view>
+					<view class="layof" :style="{color:theme}">￥{{item.money}}</view>
+					<view class="end_time">{{item.end_time}}前使用</view>
+					<view v-if="!types">
+						<view class="tit">券号：{{item.ticket}}</view>
+						<view class="demand">{{item.title}}</view>
+					</view>
+				</view>
+				<view class="get-btn" v-if="types" :style="{color:color, borderColor:color, background:solid}">选择使用</view>
+				<view class="get-btn" v-if="!types" :style="{color:color, borderColor:color, background:solid}" @click="useCoupon(item.seller_name)">立即使用</view>
+			</view>	
+		</block>
+
 	</view>
 
 </template>
@@ -24,13 +27,30 @@ export default {
 	},
 	data() {
 		return {
-              item: {
+		coupons:	[
+			{
+						seller_name: '牙齿美白类商品',
+						money: 66,
+						end_time: '2022/8/30 18:43',
+						ticket: 'SZYDH_013576785',
+						title: '满300减66元'
+					  },
+					  {
 				seller_name: '牙齿美白类商品',
-				money: 66,
-				end_time: '2022/6/30 18:43',
+				money: 88,
+				end_time: '2022/8/30 18:43',
 				ticket: 'SZYDH_013576785',
-				title: '满300减66元'
-			  }
+				title: '满400减88元'
+					  },
+					  {
+					seller_name: '牙齿美白类商品',
+						money: 100,
+						end_time: '2022/8/30 18:43',
+						ticket: 'SZYDH_013576785',
+						title: '满500减100元'
+					  }
+			]
+        
 		}
 	},
 	props:{

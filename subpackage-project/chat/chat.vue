@@ -41,6 +41,9 @@
 					<template v-else-if="item.type === 'image'">
 						<view class="image"><image @tap="preview(index)" :src="item.url" mode="widthFix"></image></view>
 					</template>
+					<template v-else-if="item.type === 'ctImage'">
+						<view class="image"><image @tap="preview(index)" :src="item.url" mode="widthFix"></image></view>
+					</template>
 					<template v-else-if="item.type === 'audio'">
 						<template v-if="item.tmpId === loadingIndex && item.isMe ? isloading[loadingIndex] : false">
 							<u-loading-icon mode="circle" :text="progress"></u-loading-icon>
@@ -50,23 +53,23 @@
 						</template>
 					</template>
                    <template v-else-if="item.type === 'case'">
-                   <uni-card spacing="0" @click="chatToCaseDetail">
+                   <uni-card spacing="0" margin="0" @click="goToCaseDetail(item.medicalRecord.id)">
                    	<view style="width: 350rpx;">
                    		<view class="d-flex j-sb border-bottom">
                    			<view>
-                   						 <text style="width: 3em;">病人:</text> <text>张三</text>
+                   						 <text style="width: 3em;">病人:</text> <text> {{item.medicalRecord.userName}}</text>
                    			</view>
                    			<view >
-                   					      <text style="width: 3em;">医生:</text> <text>李四</text>
+                   					      <text style="width: 3em;">医生:</text> <text> {{item.medicalRecord.doctor}}</text>
                    			</view>
                    		</view>
                    		<view class="d-flex border-bottom pt-1">
                    			<text style="width: 3em;">处置:</text>
-                   		     <text class="cardContent">处置内容</text>
+                   		     <text class="cardContent">{{item.medicalRecord.handle}}</text>
                    		</view>
                    		<view class="d-flex pt-1">
                    			<text style="width: 3em;">医嘱:</text>
-                   		     <text class="cardContent">医嘱内容医嘱内容医嘱内容医嘱内容</text>
+                   		     <text class="cardContent">{{item.medicalRecord.advice}}</text>
                    		</view>
                    	</view>     
                    </uni-card>
@@ -118,7 +121,7 @@
 					<view class="d-flex flex-column j-center a-center" style="margin-right: 60rpx;">
 						<view class="d-flex flex-column j-center a-center" style="width: 120rpx">
 							<view class="d-flex j-center a-center" style="width: 40px;height: 40px;margin-top: 12px;">
-								<image src="/static/images/ct2.png" style="width: 35px;height: 35px;"></image>
+								<image src="/static/images/ct2.png" style="width: 35px;height: 35px;" @tap="chooseCT"></image>
 							</view>
 
 							<view class="text-muted">CT</view>
@@ -175,11 +178,11 @@
 					
 						<scroll-view  scroll-y="true" style="max-height: 440rpx;" >
 							<block v-for="(item2,index2) in caseList" :key="index2">
-								<uni-card spacing="0" @click="goToCaseDetail">
+								<uni-card spacing="0" @click="goToCaseDetail(item2.id)">
 									<view>
 										<view class="d-flex j-sb pb-1 border-bottom">
 											<view>
-														 <text style="display: inline-block;width: 3em;">病人:</text> <text>{{item2.username}}</text>
+														 <text style="display: inline-block;width: 3em;">病人:</text> <text>{{item2.userName}}</text>
 											</view>
 											<view @click.stop="selectCase(index2)">
 												<template v-if="item2.status === true">
@@ -195,15 +198,15 @@
 								           
 										</view  >
 										<view class="border-bottom py-1">
-												      <text style="display: inline-block;width: 3em;">医生:</text> <text> {{item2.doctorname}}</text>
+												      <text style="display: inline-block;width: 3em;">医生:</text> <text> {{item2.doctor}}</text>
 										</view>
 										<view class="d-flex border-bottom py-1">
 											<text style="width: 3em;">处置:</text>
-										     <text class="cardContent">{{item2.management}}</text>
+										     <text class="cardContent">{{item2.handle}}</text>
 										</view>
 										<view class="d-flex py-1">
 											<text style="width: 3em;">医嘱:</text>
-										     <text class="cardContent">{{item2.medicalAdvice}}</text>
+										     <text class="cardContent">{{item2.advice}}</text>
 										</view>
 									</view>
 								
@@ -213,6 +216,34 @@
 						</scroll-view>
 				</view>
 
+				</u-popup>
+				<!-- CT 弹出层 -->
+				<u-popup :show="ctPoupopshow" @close="ctPupopClose">
+			
+					<view class="p-2">
+						<view class="d-flex j-sb">
+							<text class="text-muted" style="font-size: 32rpx;" @click="ctPupopClose">取消</text>
+							<text style="color: #22b1ac;font-size: 32rpx;"  @click="sendCT">发送</text>
+						</view>
+						<block v-for="(item3,index3) in myCT" :key="index3">
+							<view class="p-2" style="position: relative;" @click.stop="selectCT(index3)">
+								<image :src="item3.src" mode="widthFix"></image>
+								<view  style="position: absolute;right: 30rpx; top: 30rpx;">
+									<template v-if="item3.status === true">
+										<u-icon name="checkmark-circle-fill" color="#22b1ac" size="22"></u-icon>
+									</template>
+									<template v-else>
+										<view class="circle">
+											
+										</view>
+									</template>
+								</view>
+							</view>
+					
+						</block>
+					</view>
+		
+					
 				</u-popup>
 		
 	</view>
@@ -233,28 +264,22 @@ export default {
 				pageNum: 1
 			},
 			caseList: [
-		{
-			username: '张三',
-			doctorname: '李四',
-			management: '这是一段处置内容这是一段处置内容这是一段处置内容这是一段处置内容',
-			medicalAdvice: '这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容',
-		    status: false,
-		},
-		{
-	     	username: '张三',
-		 	doctorname: '李四',
-			management: '这是一段处置内容这是一段处置内容这是一段处置内容这是一段处置内容',
-			medicalAdvice: '这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容',
-			    status: false,
-		},
-		{
-			username: '张三',
-			doctorname: '李四',
-			management: '这是一段处置内容这是一段处置内容这是一段处置内容这是一段处置内容',
-			medicalAdvice: '这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容这是医嘱内容',
-			    status: false,
-		}
 			],
+			tmpCase: {
+				
+			},
+			ctPoupopshow: false,
+			myCT: [
+				{
+					src: 'https://picb.zhimg.com/v2-4c86675b25f32c2b77910b843f04c7c4_r.jpg',
+					status: false
+				},
+				{
+					src: 'https://ts1.cn.mm.bing.net/th/id/R-C.0c9ba80488846941e78754601909cfc4?rik=zNESrtx%2buBYg4g&riu=http%3a%2f%2fwww.xjishu.com%2fimg%2fyytu%2fyx%2f2533-121120120I8.jpg&ehk=OSbrWfp62I8DX1viMqcGb%2bfvKy1QdKg5yEMvy4%2b6KA8%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1',
+					status: false
+				}
+				],
+			tmpCT: '',
 			startRecord: false,
 			nickname: uni.getStorageSync('userInfo').nickname,
 			avatar: uni.getStorageSync('userInfo').photo,
@@ -298,9 +323,19 @@ export default {
 		});
 		const _this = this;
 		this.receiverId = options.id;
-		
+		const myMedicial = await this.getMedicalCaseAction({
+			id: parseInt(uni.getStorageSync('userInfo').id),
+			pageSize: 99,
+			pageNum: 1
+		})
+	 this.caseList = myMedicial.list.map(item => 
+	{
+		return {
+	       ...item,
+			status: false
+		}
+	})
 		const receiverInfo = await this.getUserByIdAction(parseInt(options.id));
-		console.log(receiverInfo)
 		const messagelist = await this.getMessageAction({
 			fromId: parseInt(uni.getStorageSync('userInfo').id),
 			toId: parseInt(options.id),
@@ -325,6 +360,7 @@ export default {
 				isRead: item.status === 1 ? true : false,
 				type: item.type,
 				url: item.url,
+				medicalRecord: item.medicalRecord,
 				nickName: uni.getStorageSync('userInfo').id == item.userId ? _this.nickname : receiverInfo.nickname,
 				avatar: uni.getStorageSync('userInfo').id == item.userId ? _this.avatar : receiverInfo.photo
 			};
@@ -374,6 +410,7 @@ export default {
 		this.messageReceived();
 		recorderManager.onStop(function(res) {
 			if (_this.canSendRecord) {
+				_this.sendAudioMessage(res);
 				_this.messagelist.push({
 					type: 'record',
 					isMe: true,
@@ -407,6 +444,7 @@ export default {
 				}
 			}, 1000);
 		});
+		// 监听录音
 		uni.$on('stopRecord', function(data) {
 			_this.canSendRecord = !(_this.windowHeight - data.position.clientY > 80 || (_this.recordMinTime === 0 && _this.recordSecondTime === 1));
 			recorderManager.stop();
@@ -426,6 +464,7 @@ export default {
 	},
 	onUnload() {
 		this.first = true;
+		// 断开连接
 		this.goeasy.disconnect({
 			onSuccess: function() {
 				console.log('GoEasy disconnect successfully.');
@@ -436,40 +475,79 @@ export default {
 		});
 	},
 	methods: {
-		...mapActions(['getUserByIdAction', 'messageSaveAction', 'getMessageAction', 'remarkIsReadAction']),
+		...mapActions(['getUserByIdAction', 'messageSaveAction', 'getMessageAction', 'remarkIsReadAction','getMedicalCaseAction']),
 	    goToCase(){
 		    this.casePoupopshow = true;
 		},
 		casePupoClose(){
 			this.casePoupopshow = false;
 		},
-		goToCaseDetail(){
+		ctPupopClose()
+		{
+			this.ctPoupopshow = false;
+		},
+		chooseCT(){
+			this.ctPoupopshow = true;
+		},
+		goToCaseDetail(id){
 			uni.navigateTo({
-				url: '/subpackage-my/medical-detail/medical-detail'
+				url: `/subpackage-my/medical-detail/medical-detail?id=${id}`
 			})
 		},
 		// 发送病例
 		sendCase(){
-			this.messagelist.push({
-				type: 'case',
+			const caseInfo = {
 				isMe: true,
 				isRead: false,
 				text: null,
 				nickName: this.nickname,
-				avatar: this.avatar
-			});
+				avatar: this.avatar,
+				medicalRecord: this.tmpCase
+			}
+			const message = this.wsCreatMessage('case', caseInfo);
+			this.wsSendMessage(message);
 			this.caseList.forEach(item => {
 				item.status = false;
 			})
+
 			this.casePoupopshow = false;
+			this.isPlus = false;
+		    this.pageToBottom();
 		},
-		chatToCaseDetail(){
-		uni.navigateTo({
-			url: '/subpackage-my/medical-detail/medical-detail'
-		})
+		// 发送CT
+		sendCT() {
+	           const ctInfo = {
+				isMe: true,
+				isRead: false,
+				text: null,
+				nickName: this.nickname,
+				avatar: this.avatar,
+				medicalRecord: null,
+				url: this.tmpCT
+			}
+			const message = this.wsCreatMessage('ctImage', ctInfo);
+			this.wsSendMessage(message);
+			this.myCT.forEach(item => {
+				item.status = false;
+			})
+			
+			this.ctPoupopshow = false;
+			this.isPlus = false;
+			this.pageToBottom();
 		},
 		selectCase(index){
+			this.tmpCase = this.caseList[index];
+			this.caseList.forEach(item => {
+				item.status = false;
+			})
 			this.caseList[index].status = !this.caseList[index].status;
+		},
+		selectCT(index){
+			this.tmpCT = this.myCT[index].src;
+			this.myCT.forEach(item => {
+				item.status = false;
+			})
+			this.myCT[index].status = !this.myCT[index].status;
 		},
 		setRead(){
 			const _this = this;
@@ -486,6 +564,7 @@ export default {
 				_this.first = false;
 			}
 		},
+
 		// 底部控件相关函数
 		open() {
 			this.useInput = true;
@@ -559,7 +638,6 @@ export default {
 			});
 			this.messagelist = [...rawList, ...this.messagelist];
 			this.moreloading = false;
-			console.log(moreMessagelist, 6666);
 		},
 		sendMessage() {
 			if (this.message.length > 0) {
@@ -654,6 +732,41 @@ export default {
 				}
 			});
 		},
+		sendAudioMessage(audioFile){
+			//语音消息
+			  const  message = im.createAudioMessage({
+			      file: audioFile,//H5的视频file对象，Uniapp和小程序中录音组件RecorderManager.onStop得到的res对象
+			      to : {
+			          type : GoEasy.IM_SCENE.PRIVATE,   //私聊还是群聊，群聊为GoEasy.IM_SCENE.GROUP
+			          id : parseInt(_this.receiverId),
+			          data:{} //好友扩展数据, 任意格式的字符串或者对象，用于更新会话列表conversation.data
+			      },
+			  });
+			  this.im.sendMessage({
+			  	message: message,
+			  	onSuccess: async function(message) {
+			  		const Info = {
+			  			msg: message.payload.text,
+			  			status: 0,
+			  			sendDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+			  			readDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
+			  			type: 'record',
+			  			url: message.payload.url,
+			  			userId: uni.getStorageSync('userInfo').id,
+			  			receiverId: _this.receiverId
+			  		};
+			  		const res = await _this.messageSaveAction(Info);
+			  		_this.messageId.push(res.id);
+			  		_this.pageToBottom();
+			  	},
+			  	onFailed: function(error) {
+			  		uni.$u.toast('发送失败');
+			  	}
+			  });
+			  
+		}
+
+		  ,
 		chooseImage() {
 			const _this = this;
 			uni.chooseImage({
@@ -750,8 +863,9 @@ export default {
 							messageId: message.messageId,
 							timestamp: message.timestamp,
 							isRead: message.read,
-							url: '',
-							text: message.payload.text
+							url: message.payload.url,
+							text: message.payload.text,
+							medicalRecord: message.payload.medicalRecord
 						});
 						const Info = {
 							msg: message.payload.text,
@@ -759,9 +873,10 @@ export default {
 							sendDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
 							readDate: uni.$u.timeFormat(new Date(), 'yyyy-mm-dd hh:MM:ss'),
 							type: message.type,
-							url: '',
+							url: message.payload.url,
 							userId: uni.getStorageSync('userInfo').id,
-							receiverId: _this.receiverId
+							receiverId: _this.receiverId,
+							medicalRecord: message.payload.medicalRecord
 						};
 						const res = await _this.messageSaveAction(Info);
 						_this.messageId.push(res.id);
@@ -796,7 +911,6 @@ export default {
 			const _this = this;
 
 			let onPrivateMessageReceived = function(message) {
-				if (_this.receiverId === message.senderId) {
 					const pushInfo = {
 						type: message.type,
 						isMe: false,
@@ -805,6 +919,7 @@ export default {
 						isRead: true,
 						avatar: _this.receiverAvatar,
 						text: message.payload.text,
+						medicalRecord: message.payload.medicalRecord,
 						url: message.payload.url,
 						nickName: _this.receiverName
 					};
@@ -827,14 +942,9 @@ export default {
 								item.isRead = true;
 							}
 						});
-					} else if (message.type === 'image') {
-						update();
-					} else if (message.type === 'audio') {
-						update();
-					} else if (message.type === 'message') {
-						update();
+					} else {
+								update();
 					}
-				}
 			};
 			_this.im.on(GoEasy.IM_EVENT.PRIVATE_MESSAGE_RECEIVED, onPrivateMessageReceived);
 		}

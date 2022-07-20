@@ -2,17 +2,17 @@
 	<view>
 		<view class="m-1 goods-detail">
 			<!-- banner -->
-			<view class="album"><u-album :urls="bannerSrc" keyName="src1" :radius="'15rpx'"></u-album></view>
+			<view class="album"><u-album :urls="[clinicInfo.img]" keyName="src1" :radius="'15rpx'"></u-album></view>
 			<!-- 商品信息 -->
 			<view class="goods-info  d-flex a-center mt-1">
-				<u-avatar :src="goodsInfo.imgSrc" :size="60"></u-avatar>
+				<u-avatar :src="clinicInfo.img2" :size="60"></u-avatar>
 				<view class="content ml-1">
-					<text class="font-lg font-weight">{{ goodsInfo.name }}</text>
+					<text class="font-lg font-weight">{{ clinicInfo.name }}</text>
 					<view class="d-flex my-1">
-						<u-rate :count="5" v-model="goodsInfo.startsValue" readonly allowHalf="true"></u-rate>
-						详情 > {{ goodsInfo.commentValue }}条
+						<u-rate :count="5" v-model="clinicInfo.rate" readonly allowHalf="true"></u-rate>
+						详情 > {{ comments.content.length }}条
 					</view>
-					<view class="">{{ goodsInfo.organ }} {{ goodsInfo.address }}</view>
+					<view class="">{{ clinicInfo.label }} {{ clinicInfo.address }}</view>
 				</view>
 			</view>
 			<!-- 营业时间 -->
@@ -29,8 +29,8 @@
 			<!-- 地址 -->
 			<view class="d-flex j-sb p-1">
 				<view>
-					<text class="text-dark">{{ contactInfo.address }}</text>
-					<view class="text-muted">{{ contactInfo.addressDetail }}</view>
+					<text class="text-dark">{{ clinicInfo.address }}</text>
+					<view class="text-muted">{{ clinicInfo.detailedAddress }}</view>
 				</view>
 
 				<view class="d-flex j-center flex-column a-center">
@@ -76,24 +76,12 @@ export default {
 			shopData: [],
 			location: {},
 			commentsTotal: 0,
+			clinicInfo: {},
 			moreCommentsId: 0,
 			requestOk: false,
 			pageInfo: {
 				pageSize: 5,
 				pageNum: 1
-			},
-			bannerSrc: [
-				{
-					src1: 'https://preview.qiantucdn.com/ing/64/59/02/31858PICfATERV2vjbGdg_PIC2018.jpg!qt324_nowater_jpg'
-				}
-			],
-			goodsInfo: {
-				imgSrc: 'https://preview.qiantucdn.com/ing/64/59/02/31858PICfATERV2vjbGdg_PIC2018.jpg!qt324_nowater_jpg',
-				name: '海南清合口腔',
-				startsValue: 4.8,
-				commentValue: 13,
-				organ: '口腔医疗机构',
-				address: '海南省海口市美兰区南宝路'
 			},
 			businessInfo: {
 				status: '营业中',
@@ -102,10 +90,6 @@ export default {
 				startTime: '08:30',
 				endTime: '18:30',
 				licences: ['优质店铺', '医疗许可证']
-			},
-			contactInfo: {
-				address: '阳光大道77号xx商业城2楼6号铺',
-				addressDetail: '位于xx商业城内'
 			},
 			tabBars: [
 				{
@@ -137,178 +121,52 @@ export default {
 				{
 					name: '全部',
 					list: [
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						},
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						},
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						},
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						}
+	
 					]
 				},
 				{
 					name: '洗牙',
 					list: [
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						}
+
 					]
 				},
 				{
 					name: '美白',
 					list: [
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						},
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						}
+
 					]
 				},
 				{
 					name: '补牙',
 					list: [
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						}
+
 					]
 				},
 				{
 					name: '拔牙',
 					list: [
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						}
+
 					]
 				},
 				{
 					name: '儿童齿科',
 					list: [
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						}
+
 					]
 				},
 				{
 					name: '检查',
 					list: [
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						},
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						}
+
 					]
 				},
 				{
 					name: '矫正',
 					list: [
-						{
-							src: 'https://preview.qiantucdn.com/paixin/41/93/87/058PICI58PICTWVCuQqJjZt8t_PIC2018.jpg!qt324_nowater_jpg',
-							title: '牙齿美白套餐，单人超声波洗牙套餐',
-							price: '79',
-							oprice: '188',
-							label: ['限工作日 | 成人']
-						}
 					]
 				}
 			],
 			list: [
-				{
-					name: 'xxx',
-					position: '副主任医师',
-					workTime: '从业27年',
-					thumb: 'https://preview.qiantucdn.com/ing/17/34/89/06A58PICjaRETFUvfENGa_PIC2018.jpg!qt324_nowater_jpg'
-				},
-				{
-					name: 'xxx',
-					position: '副主任医师',
-					workTime: '从业27年',
-					thumb: 'https://preview.qiantucdn.com/ing/17/34/89/06A58PICjaRETFUvfENGa_PIC2018.jpg!qt324_nowater_jpg'
-				},
-				{
-					name: 'xxx',
-					position: '副主任医师',
-					workTime: '从业27年',
-					thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
-				},
-				{
-					name: 'xxx',
-					position: '副主任医师',
-					workTime: '从业27年',
-					thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
-				},
-				{
-					name: 'xxx',
-					position: '副主任医师',
-					workTime: '从业27年',
-					thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
-				},
-				{
-					name: 'xxx',
-					position: '副主任医师',
-					workTime: '从业27年',
-					thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
-				},
-				{
-					name: 'xxx',
-					position: '副主任医师',
-					workTime: '从业27年',
-					thumb: 'https://preview.qiantucdn.com/ing/85/73/14/20f58PICR9bYE26NHriNb_PIC2018.jpg!qt324_nowater_jpg'
-				}
 			],
 			comments: {
 				options: [],
@@ -317,8 +175,43 @@ export default {
 		};
 	},
 	async onLoad(option) {
+			const _this = this;
 		this.moreCommentsId = option.id;
-	const _this = this;
+		uni.showLoading({
+			title:'加载中...'
+		})
+		const goodRes = await this.getProductByTypeAction({
+			pageNum: 1,
+			pageSize: 99,
+			clinicId: parseInt(option.id)
+		})
+	   goodRes.list.forEach(item => {
+		 _this.goodsData.forEach(item2 => {
+			 if(item2.name === item.type) {
+				 item2.list.push({
+					 id: item.id,
+					 src: item.img,
+					 title: item.name,
+					 price: item.price,
+					 oprice: item.oldPrice,
+					 lable: [item.label]
+				 })
+			 }
+		 })
+	   })
+	   this.goodsData[0].list = goodRes.list.map(item => {
+		 return{
+			   id: item.id,
+			   src: item.img,
+			   title: item.name,
+			   price: item.price,
+			   oprice: item.oldPrice,
+			   lable: [item.label]
+		 }  
+	   })
+		this.clinicInfo = await this.getClinicById(option.id);
+		this.list = this.clinicInfo.doctorList; 
+
 	uni.getLocation({
 			type: 'wgs84',
 			success: async res => {
@@ -341,6 +234,7 @@ export default {
 			clinicId: parseInt(option.id),
 			labelId: 1,
 		});
+				          uni.hideLoading();
 		const content = [];
 		reply.list.forEach(async (item) => {
 			const isPraise = await this.isPraiseAction({
@@ -369,6 +263,7 @@ export default {
 		const labels = await this.getCommentsLabelsAction({
 		  clinicId: parseInt(option.id)
 		});
+
 		this.comments.options = labels;
 		this.commentsTotal = reply.total;
 		this.comments.content = content
@@ -394,7 +289,7 @@ export default {
 	}
 	},
 	methods: {
-		...mapActions(['getClinicByLocationAction',  'getCommentsLabelsAction', 'isPraiseAction','getCommentsByTypeAction','getReplyById'])
+		...mapActions(['getClinicByLocationAction',  'getCommentsLabelsAction', 'isPraiseAction','getCommentsByTypeAction','getReplyById','getClinicById','getProductByTypeAction'])
 	}
 };
 </script>

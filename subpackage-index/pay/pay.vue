@@ -7,13 +7,13 @@
 				<!-- info -->
 				<view class="d-flex">
 					<u-avatar
-						src="https://img.alicdn.com/imgextra/i2/130209169/O1CN01N7yNHU2HbSErTGZgA_!!0-saturn_solar.jpg_468x468q75.jpg_.webp"
+						:src= "productInfo.img"
 						shape="square"
 						:size="90"
 					></u-avatar>
 					<view class="ml-1" style="flex: 1;">
 						<view class="d-flex j-sb">
-							<view class="font-md">牙齿美白套餐</view>
+							<view class="font-md">{{productInfo.name}}</view>
 							<view>
 								<text class="font-sm">￥</text>
 								<text class="font-weight">{{ price.toFixed(2) }}</text>
@@ -179,6 +179,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
 	data() {
 		return {
@@ -203,24 +204,25 @@ export default {
 					iconSrc: '/static/images/alipay.png'
 				}
 			],
+			productInfo: {},
 			tickets: [
 				{
 					type: '牙齿美白类商品',
-					expirationTime: '2022/6/30 18:43',
+					expirationTime: '2022/8/30 18:43',
 					descMoney: 66,
 					targetMoney: 300,
 					isSlected: false
 				},
 				{
 					type: '牙齿美白类商品',
-					expirationTime: '2022/6/30 18:43',
+					expirationTime: '2022/8/30 18:43',
 					descMoney: 88,
 					targetMoney: 400,
 					isSlected: false
 				},
 				{
 					type: '牙齿美白类商品',
-					expirationTime: '2022/6/30 18:43',
+					expirationTime: '2022/8/30 18:43',
 					descMoney: 100,
 					targetMoney: 500,
 					isSlected: false
@@ -238,7 +240,12 @@ export default {
 			return totalCount;
 		}
 	},
+	async onLoad(options) {
+	  this.productInfo = await this.getProductByIdAction(parseInt(options.id))
+	  this.price = this.productInfo.price;
+	},
 	methods: {
+		...mapActions(['getProductByIdAction']),
 		choosePayWays(index) {
 			this.currentIndex = index;
 		},

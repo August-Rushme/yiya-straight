@@ -1,21 +1,22 @@
 <template>
   <view class="mx-2">
-    <view class="d-flex flex-row j-sb mt-2 mb-2 font-weight font-md"><text>医师团队(7)</text></view>
+    <view class="d-flex flex-row j-sb mt-2 mb-2 font-weight font-md"><text>医师团队({{physicianList.length}})</text></view>
     <view class="mx-0">
       <u-scroll-list @right="right" @left="left" :indicator="false">
         <view class="scroll-list" style="flex-direction: row;">
           <view
             class="scroll-list__goods-item"
+			 @click="goToDoctorPage(item.id)"
             v-for="(item, index) in physicianList"
             :key="index"
             :class="[index === 9 && 'scroll-list__goods-item--no-margin-right']"
           >
             <uni-card  spacing="0rpx" padding="10rpx" margin="10rpx">
-              <image class="scroll-list__goods-item__image" :src="item.thumb"></image>
+              <image class="scroll-list__goods-item__image" :src="item.avatar"></image>
               <view class="a-center">
                 <view class="font-md font-weight">{{ item.name }}</view>
-                <view class="" style="color: #82848a;">{{ item.position }}</view>
-                <view class="" style="color: #c8c9cc;">{{ item.workTime }}</view>
+                <view class="" style="color: #82848a;">{{ item.profession }}</view>
+                <view class="">已工作{{ item.workYears }}年</view>
               </view>
             </uni-card>
           </view>
@@ -39,7 +40,12 @@ export default {
     },
     right() {
       console.log('right');
-    }
+    },
+	goToDoctorPage(id){
+		uni.navigateTo({
+			url: `/subpackage-project/doctor-detail/doctor-detail?id=${id}`
+		})
+	}
   }
 };
 </script>

@@ -28,7 +28,7 @@
 									<u-rate :count="5" :readonly="true" v-model="item2.rate"></u-rate>
 								</view>
 							</view>
-							<view class="text-muted">{{item2.createTime}} </view>
+							<view class="text-muted">{{item2.createTime }} </view>
 						</view>
 					</view>
 					<!-- 评论内容 -->
@@ -110,7 +110,7 @@ export default {
 	   },
 	   createTime(){
 		   return  function(time){
-		            var date = new Date(time);
+			   const date = new Date(time.replace(/-/g,'/'))
 		           var y = date.getFullYear()
 		             var m = date.getMonth() + 1
 		             m = m < 10 ? '0' + m : m

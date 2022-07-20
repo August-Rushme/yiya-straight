@@ -42,7 +42,9 @@ import {
 
 import {
 	getProductSuggest,
-	getSearchResult
+	getSearchResult,
+	getProductByType,
+	getProductById
 } from '../service/product/product.js'
 Vue.use(Vuex);
 const store = new Vuex.Store({
@@ -304,6 +306,20 @@ const store = new Vuex.Store({
 	},
 	async getSearchResultAction({commit},payload){
 		const res = await getSearchResult(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async getProductByTypeAction({commit},payload){
+		const res = await getProductByType(payload);
+		if (!res.code == 200) {
+		  return uni.$u.toast('请求失败');
+		}
+		return res.data
+	},
+	async getProductByIdAction({commit},payload) {
+		const res = await getProductById(payload);
 		if (!res.code == 200) {
 		  return uni.$u.toast('请求失败');
 		}

@@ -19,9 +19,9 @@
         <scroll-view scroll-y="true" style="height: 400rpx;" enable-flex>
           <!-- 产品 -->
           <card>
-            <view class="content" v-for="(itemData, indexContent) in goodsData" :key="indexContent" @click="goToProduct">
+            <view class="content" v-for="(itemData, indexContent) in goodsData" :key="indexContent" >
               <block v-for="(item, listIndex) in itemData.list" :key="listIndex">
-                <view class="goodsInfo d-flex flex-row m-2 " v-if="itemData.name == itemTab.name">
+                <view class="goodsInfo d-flex flex-row m-2 " v-if="itemData.name == itemTab.name" @click="goToProduct(item.id)">
                   <u--image :showLoading="true" :src="item.src" width="64px" height="64px" radius="5"></u--image>
                   <view class="infoText flex-column mx-2">
                     <view class="font-weight font-md shop-title">{{ item.title }}</view>
@@ -76,9 +76,9 @@ export default {
       }
     },
 	//页面跳转
-	goToProduct(){
+	goToProduct(id){
 		uni.navigateTo({
-			url: '/subpackage-index/product-info/product-info'
+			url: `/subpackage-index/product-info/product-info?id=${id}`
 		})
 	},
     // 处理swiper滑动时的页面切换

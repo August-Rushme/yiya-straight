@@ -3,7 +3,7 @@
 		<view class="p-2">
 			<!-- 标题 -->
 			<view class="mb-1">
-				<view class="font-lg font-weight">{{ goodsInfo.title }}</view>
+				<view class="font-lg font-weight">{{ productInfo.name }}</view>
 				<view class="">随时退 | 过期退 | 需预约</view>
 				<view class="d-flex j-sb">
 					<view>周末假期通用 | {{ goodsInfo.label }}</view>
@@ -12,7 +12,7 @@
 			</view>
 			<!-- banner -->
 			<block v-for="(item, index) in goodsInfo.bannerSrc" :key="index">
-				<image :src="item" mode="widthFix" style="width: 710rpx;border-radius: 15rpx;" @click="previewImg"></image>
+				<image :src="productInfo.img" mode="widthFix" style="width: 710rpx;border-radius: 15rpx;"></image>
 			</block>
 		
 			<view class="border-top mt-2 d-flex">
@@ -33,8 +33,8 @@
 			</view>
 			<view class="border mb-1">
 				<view class="d-flex j-sb  p-2 font-weight" style="background-color: #fdf3f2">
-					<view class="">[热销项目] {{ goodsInfo.title }}</view>
-					<view class="">￥{{ goodsInfo.price }}</view>
+					<view class="">[热销项目] {{ productInfo.name }}</view>
+					<view class="">￥{{ productInfo.price }}</view>
 				</view>
 				
 				<view class="d-flex mt-1 px-2 mb-2">
@@ -78,8 +78,8 @@
 				 	咨询
 				 </view>
 			</view>
-			 <view class="buyButton pb-2" @click="goToPay">
-			 	<text class="font-lg">￥ </text> <text class="font-big mr-3">{{goodsInfo.price}}</text>  <text class="font-big" >立即购买</text>
+			 <view class="buyButton pb-2" @click="goToPay(productId)">
+			 	<text class="font-lg">￥ </text> <text class="font-big mr-3">{{productInfo.price}}</text>  <text class="font-big" >立即购买</text>
 			 </view>
 		</view>
 	</view>
@@ -139,26 +139,33 @@ export default {
 						price: 0
 					}
 				],
+	
 				detailImg: 'https://img1.baidu.com/it/u=1834901590,2063113377&fm=253&fmt=auto&app=138&f=JPEG?w=500&h=4834',
 		
+			},
+			productId: '',
+			productInfo: {
+				
 			}
 		};
 	},
 	methods: {
-		...mapActions(['getClinicByLocationAction']),
+		...mapActions(['getClinicByLocationAction','getProductByIdAction']),
 		previewImg() {
 			uni.previewImage({
 				urls: this.goodsInfo.bannerSrc
 			});
 		},
-		goToPay() {
+		goToPay(id) {
 			uni.navigateTo({
-				url: '/subpackage-index/pay/pay'
+				url: `/subpackage-index/pay/pay?id=${id}`
 			})
 		}
 	},
-  async	onLoad() {
+  async	onLoad(options) {
 	const _this = this;
+	this.productInfo = await  this.getProductByIdAction(options.id);
+	this.productId =  options.id;
 	uni.getLocation({
 			type: 'wgs84',
 			success: async res => {

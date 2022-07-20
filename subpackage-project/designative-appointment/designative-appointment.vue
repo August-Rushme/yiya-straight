@@ -60,11 +60,11 @@ export default {
 					status: 1
 				},
 				{
-					avatar: 'https://n1.hdfimg.com/g12/M03/63/DC/14YBAGGp8jOAEfJUAAZRCbfSmFM530_800_800_1.png?12d4',
-					userName: '李满元',
+					avatar: 'https://n1.hdfimg.com/g5/M04/B5/2A/y4YBAGBdO2WAYX9gAAU1GBdKlqE582_200_200_1.png?7b00',
+					userName: '祖青',
 					profession: '主治医师',
-					clinicName: '海南清合口腔',
-					goodAt: '前突等错、拔除牙齿或治疗口腔囊肿',
+					clinicName: '海南口腔医院(国贸门诊部)',
+					goodAt: '牙髓炎、根尖周炎等硬组织疾病',
 					status: 0
 				}
 			]
