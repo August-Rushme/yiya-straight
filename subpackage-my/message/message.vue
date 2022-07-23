@@ -52,6 +52,11 @@
 										【对方发送了一张CT】				
 									</view>
 								</template>
+								<template v-else-if="item.latestMessage.type === 'record'">
+									<view class="text-light-muted mt-1 content">
+										【录音】				
+									</view>
+								</template>
 								<template v-else>
 									<view class="text-light-muted mt-1 content">
 										【视频】				

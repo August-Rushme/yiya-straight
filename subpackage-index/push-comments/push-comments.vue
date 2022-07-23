@@ -99,7 +99,7 @@ export default {
 			}
 		},
 		formatTime(time) {
-			var date = new Date(time);
+			var date = new Date(time.replace(/-/g,'/'));
 			var y = date.getFullYear();
 			var m = date.getMonth() + 1;
 			m = m < 10 ? '0' + m : m;

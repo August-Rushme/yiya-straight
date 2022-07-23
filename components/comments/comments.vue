@@ -130,6 +130,9 @@ export default {
 		...mapActions(['praise','unPraise','getCommentsByTypeAction','isPraiseAction','getReplyById']),
 	      async	changeOption(index) {
 			  this.$emit('indexChange',index+1);
+			  uni.showLoading({
+			  	title: '加载中...'
+			  })
 		       const reply =  await this.getCommentsByTypeAction({
 						   pageNum: 1,
 						   pageSize: 2,
@@ -164,6 +167,7 @@ export default {
 					   });
 		  this.$props.comments.content = content;
 			this.optionsIndex = index;
+			uni.hideLoading();
 		},
 		goPushCommentsPage(id) {
 			uni.navigateTo({

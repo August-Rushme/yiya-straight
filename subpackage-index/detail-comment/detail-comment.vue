@@ -54,6 +54,9 @@ export default {
 		}
 	},
 	async onLoad(option) {
+		uni.showLoading({
+			title: '加载中...'
+		})
 		this.commentId = option.id;
 		const reply = await this.getCommentsByTypeAction({
 			...this.pageInfo,
@@ -90,6 +93,7 @@ export default {
 		this.comments.options = labels;
 		this.commentsTotal = reply.total;
 		this.comments.content = content;
+		uni.hideLoading();
 	},
 	async onReachBottom() {
 		this.pageInfo.pageNum++;

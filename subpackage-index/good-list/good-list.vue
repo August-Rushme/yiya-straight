@@ -3,7 +3,7 @@
 		<view class="font-lg font-weight">商品列表</view>
 		<block v-for="(item,index) in goodsData" :key="index">
       <uni-card>
-		  <view class="d-flex" @click="goToGoodsPage">
+		  <view class="d-flex" @click="goToGoodsPage(item.id)">
 		  			<image :src="item.img"  mode="widthFix" style="width: 160rpx;"></image>
 					<view class="rightContent ml-2 ">
 						<view class="name font-weight">
@@ -41,9 +41,9 @@ import { mapActions } from 'vuex';
 		},
 		methods: {
 			...mapActions(['getSearchResultAction']),
-			goToGoodsPage(){
+			goToGoodsPage(id){
 				uni.navigateTo({
-					url: '/subpackage-index/product-info/product-info'
+					url: `/subpackage-index/product-info/product-info?id=${id}`
 				})
 			}
 		},
